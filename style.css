@@ -105,8 +105,8 @@ body {
 .btn {
   position:
   left: 0;
-  width: 100vw;
-  height: 10vh
+  width: 33vw;
+  height: 6.6vh
 }
 
 .btn:hover {
@@ -140,4 +140,16 @@ body {
 #close:hover {
   cursor: pointer;
   color: red;
+}
+
+#date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -95%);
+  height: 10vh;
+  width: 60vh;
+  font-size:5vh;
+  font-weight: bolder;
+  text-align: center;
 }
