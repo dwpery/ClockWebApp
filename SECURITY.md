@@ -14,7 +14,7 @@ Clock API versions are supported 5 releases back, as soon as the release you hav
 
 | Version | Supported          |
 | ------- | ------------------ |
-| v1.5    | UNRELEASED         |
+| v1.5    | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
