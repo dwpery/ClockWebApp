@@ -9,12 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="timer"><p id="display">NaN</p> <div id="ampm">NaN</div></div>
+    <div id="timer">
+        <div id="date">NaN</div>
+        <p id="display">NaN</p>
+        <div id="ampm">NaN</div>
+    </div>
     <div id="menu" onclick="slide()">Menu</div>
     <div id="alertBox">
       <p id="message"></p>
       <div id="close" onclick="closeMessage()">x</div>
     </div>
+    <div></div>
     <div id="container">
         <div>
           <label id="heading" onclick="version()">Menu</label>
@@ -23,6 +28,7 @@
         <div id="column1">
           <button onclick="changeClockMode()" id="clockModeChanger" class="btn">24 Hour Clock : Off</button>
           <br><button onclick="realTimeMode()" id="realTimeChanger" class="btn">Real Time : On</button>
+          <br><button onclick="dateFormatChanger()" class="btn">Date Format: dd/mm/yyyy</button>
         </div>
     </div>
   </body>
