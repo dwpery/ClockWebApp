@@ -1,28 +1,49 @@
 // Starting Values
 
-var hour = 1;
-var minute = 1;
+var hour = 0;
+var minute = 0;
 var printMinute;
-var second = 1;
+var second = 0;
 var printSecond;
 var value = 1; // Amount seconds increases
 var clockMode = false; //false = 12, true = 24
 var realTime = true; // true = Real Time, false = False Time
+var dateFormat = false; // false = dd/mm, true = mm/dd
 
 // Formats the Output and keeps the clock ticking
 
 setInterval(function() {
-    second += value;
+
+     var today = new Date();
+
+     var dd = String(today.getDate()).padStart(2, '0');
+     var mm = String(today.getMonth() + 1).padStart(2, '0');
+     var yyyy = today.getFullYear();
+     if(dateFormat === false) {
+         var today = dd + "/" + mm + "/" + yyyy;
+     }else if(dateFormat === true) {
+         var today = mm + "/" + dd + "/" + yyyy;
+     }
+
+    // Outputs date
+    $("#date").html("");
+    $("#ampm").html(today);
+
+
+    second += value; // Increases second value
+
     if (second < 10) {
       printSecond = "0" + second;
     } else {
       printSecond = second;
-    }
+    } // Formats seconds
+
     if (minute < 10) {
       printMinute = "0" + minute;
     } else {
       printMinute = minute;
-    }
+    } // Formats minutes
+
     $("#display").html(hour + ":" + printMinute + ":" + printSecond);
 
     // Changes minute when seconds reaches 60
@@ -40,12 +61,9 @@ setInterval(function() {
         hour += 1;
     }
 
-
-
       if(realTime === true) {
 
       var currentTime = new Date ( );
-
       var currentHours = currentTime.getHours ( );
       var currentMinutes = currentTime.getMinutes ( );
       var currentSeconds = currentTime.getSeconds ( );
@@ -54,23 +72,22 @@ setInterval(function() {
       currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
       currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
+      if(clockMode === true) {
+          currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
+      }
+
       if(clockMode === false) {
         // Choose either "AM" or "PM" as appropriate
-        var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+        var timeOfDay = ( currentHours < 12 ) ? "am" : "pm";
         // Convert the hours component to 12-hour format if needed
-        currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours
+        currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+        $("#date").html(today);
         $("#ampm").html(timeOfDay);
-      } else if (clockMode === true) {
-        $("#ampm").html("");
-      };
-
-      // Convert an hours component of "0" to "12"
-      currentHours = ( currentHours === 0 ) ? 12 : currentHours;
+      }
 
       // Compose the string for display
       var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
 
-      // Adds clock info
       $("#display").html(currentTimeString);
 
       }
@@ -124,13 +141,13 @@ function closeMessage() {
 
 function realTimeMode() {
   if (realTime === false) {
-    realTime = true // Turns Real Time on
+    realTime = true; // Turns Real Time on
     $("#realTimeChanger").html("Real Time : On"); // Changes text on button
     $("#message").html("Real Clock is now on"); // Alert message
     $("#alertBox").toggle(500); // Opens alert message
     $("#container").slideToggle(500); // Closes alert messages
   } else if (realTime === true) {
-    realTime = false // Turns Real Time off
+    realTime = false; // Turns Real Time off
     $("#realTimeChanger").html("Real Time : Off"); // Changes text on button
     $("#message").html("Real Clock is now off"); // Alert message
     $("#alertBox").toggle(500); // Opens alert message
@@ -141,7 +158,23 @@ function realTimeMode() {
 // When the MENU button is pressed the version number is alerted
 
 function version() {
-  $("#message").html("Version 1.0.0"); // Alert message
+  $("#message").html("Version 1.5.0"); // Alert message
   $("#alertBox").toggle(500); // Opens alert message
   $("#container").slideToggle(500);  // Closes alert messages
+}
+
+function dateFormatChanger() {
+    if (dateFormat === false) {
+    dateFormat = true; // Changes format
+    $("#dateButton").html("Date Format: mm/dd/yyyy"); // Changes text on button
+    $("#message").html("Date format has changed"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
+    $("#container").slideToggle(500); // Closes alert messages
+  } else if (realTime === true) {
+    dateFormat = false; // Changes format
+    $("#dateButton").html("Date Format: dd/mm/yyyy"); // Changes text on button
+    $("#message").html("Date format has changed"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
+    $("#container").slideToggle(500); // Closes alert messages
+  }
 }
