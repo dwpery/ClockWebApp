@@ -1,5 +1,9 @@
 # Clock
 
+## Different versions?
+
+Clock Web API has many different versions just like minecraft with java and bedrock. The different versions offer different things including versions made mainly for mobile or ddesigned for desktop. GitHub houses the main versio with the most support so other versions may be older versions so may feature bugs or glitches that would have been inproved in newer updates available on GitHub.
+
 ## What is Clock Web API?
 
 Clcok Web API (CWA) is an open source free to use API deigned for Web based OS. CWA is developer friendly and consumer friendly for developers the code is neatly laid out for you to edit and is easily integrated into your OS. For the customer it offers a fast and intuitive UI designed to be understandable imediatly. 
