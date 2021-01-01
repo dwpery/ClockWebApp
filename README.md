@@ -6,7 +6,7 @@ Clock Web API has many different versions just like minecraft with java and bedr
 
 ## What is Clock Web API?
 
-Clcok Web API (CWA) is an open source free to use API deigned for Web based OS. CWA is developer friendly and consumer friendly for developers the code is neatly laid out for you to edit and is easily integrated into your OS. For the customer it offers a fast and intuitive UI designed to be understandable imediatly. 
+Clcok Web App is an open source free to use app deigned for Web based OS. Clock Web App is developer friendly and consumer friendly for developers the code is neatly laid out for you to edit and is easily integrated into your OS. For the customer it offers a fast and intuitive UI designed to be understandable imediatly. 
 
 The purpose is to take stress of developers with them not having to make their own Clock as they can simply download and use ours free of charge and hassle with an easy integation.
 
@@ -16,7 +16,7 @@ Go to our GitHub page (https://github.com/SpicyPTV/Clock) and go to 'Releases' a
 
 ### How to update?
 
-Bring up the menu tab and then press on the 'Menu' label at the top, This will open a popup that displays the version number, if it is out of date a warning saying "WARNING: Your ClockAPI is out of date so it may not function properly, please update". 
+Bring up the settings tab and then press on the 'Settings' label at the top, This will open a popup that displays the version number, if it is out of date a warning saying "WARNING: Your ClockApp is out of date so it may not function properly, please update". 
 
 To update:
 
