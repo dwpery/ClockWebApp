@@ -1,4 +1,4 @@
-# Clock
+# Clock (App and API)
 
 ## Different versions?
 
