@@ -4,7 +4,7 @@
 
 Clock Web App has many different versions just like minecraft with java and bedrock. The different versions offer different things including versions made mainly for mobile or designed for desktop. GitHub houses the main versiom with the most support so other versions may be older versions so may feature bugs or glitches that would have been inproved in newer updates available on GitHub.
 
-## What is Clock Web API?
+## What is Clock Web App?
 
 Clcok Web App is an open source free to use app deigned for Web based OS. Clock Web App is developer friendly and consumer friendly for developers the code is neatly laid out for you to edit and is easily integrated into your OS. For the customer it offers a fast and intuitive UI designed to be understandable imediatly. 
 
