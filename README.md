@@ -2,7 +2,7 @@
 
 ## Different versions?
 
-Clock Web API has many different versions just like minecraft with java and bedrock. The different versions offer different things including versions made mainly for mobile or ddesigned for desktop. GitHub houses the main versio with the most support so other versions may be older versions so may feature bugs or glitches that would have been inproved in newer updates available on GitHub.
+Clock Web App has many different versions just like minecraft with java and bedrock. The different versions offer different things including versions made mainly for mobile or designed for desktop. GitHub houses the main versiom with the most support so other versions may be older versions so may feature bugs or glitches that would have been inproved in newer updates available on GitHub.
 
 ## What is Clock Web API?
 
