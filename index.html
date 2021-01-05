@@ -9,20 +9,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="timer">
+    <div id="menu">
+        <div id="cpSettings">
+          <div id="settings" onclick="slide()">settings</div>
+          <div id="timer" onclick="timerPannel()">timer</div>
+          <div id="main" onclick="clockPannel()">clock</div>
+          <div id="alarms" onclick="alarmPannel()">alarm</div>
+        </div>
+    </div>
+    <div id="clockPannel">
+      <div id="digital">
         <div id="date">NaN</div>
         <p id="display">NaN</p>
         <div id="ampm">NaN</div>
+      </div>
+      <div id="switch">
+          <div id="left">
+            <label id="label1"></label>
+          </div>
+          <div id="right">
+            <label id="label2"></label>
+          </div>
+      </div>
+      <div id="analog">
+        <!-- Analog Code here! -->
+      </div>
+      <div></div>
     </div>
-    <div id="menu" onclick="slide()">Menu</div>
+    <div id="timerPannel">
+      <div id="switch2">
+          <div id="left">
+            <label id="label3"></label>
+          </div>
+          <div id="right">
+            <label id="label4"></label>
+          </div>
+      </div>
+      <div id="digital">
+        <p id="display">NaN</p>
+      </div>
+    </div>
+    <div id="alarmPannel">
+      <div id="switch3">
+          <div id="left">
+            <label id="label5"></label>
+          </div>
+          <div id="right">
+            <label id="label6"></label>
+          </div>
+      </div>
+    </div>
     <div id="alertBox">
       <p id="message"></p>
       <div id="close" onclick="closeMessage()">x</div>
     </div>
-    <div></div>
     <div id="container">
         <div>
-          <label id="heading" onclick="version()">Menu</label>
+          <label id="heading" onclick="version()">settings</label>
           <div id="exit" onclick="slide()">x</div>
         </div>
         <div id="column1">
