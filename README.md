@@ -1,5 +1,3 @@
-# Clock (App and API)
-
 # Clock Web App
 
 ## What is Clock Web App?
