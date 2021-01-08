@@ -1,31 +1,47 @@
 # Clock (App and API)
 
-## Different versions?
-
-Clock Web App has many different versions just like minecraft with java and bedrock. The different versions offer different things including versions made mainly for mobile or designed for desktop. GitHub houses the main versiom with the most support so other versions may be older versions so may feature bugs or glitches that would have been inproved in newer updates available on GitHub.
+# Clock Web App
 
 ## What is Clock Web App?
 
-Clcok Web App is an open source free to use app deigned for Web based OS. Clock Web App is developer friendly and consumer friendly for developers the code is neatly laid out for you to edit and is easily integrated into your OS. For the customer it offers a fast and intuitive UI designed to be understandable imediatly. 
+Clock App is an Open Source web app developed for beign used in Web based OS. It is powerful and feature rich giving consumers and developers a good experience with intuitive UI. Code is formatted clearly and commented to allow developers to make changes and edit the code to fit with their OS.
 
-The purpose is to take stress of developers with them not having to make their own Clock as they can simply download and use ours free of charge and hassle with an easy integation.
+## Is it Open Source?
 
-## How to integrate?
+100% Yes! Anyone can download and edit the code. If you add a feature that you think the main version should have submit the code in a feature request and it will be added in 1 - 2 updates time if it is good and credit will be given. Check the license for more details.
 
-Go to our GitHub page (https://github.com/SpicyPTV/Clock) and go to 'Releases' and click the most recent one in the list. Download the .zip file and unzipp it. Add the HTML, CSS and JS to your OS and there you go it is integrated.
+## How do i submit a bug report / feature request?
 
-### How to update?
+Go to the GitHub Repositorie (https://github.com/SpicyPTV/ClockWebApp) and click on the issues tab, once there create a new issue. Then you must select between three options:
 
-Bring up the settings tab and then press on the 'Settings' label at the top, This will open a popup that displays the version number, if it is out of date a warning saying "WARNING: Your ClockApp is out of date so it may not function properly, please update". 
+### Bug report
+Create a report to help us improve
 
-To update:
+### Feature request
+Suggest an idea for this project
 
-1. Go to our GitHub page (https://github.com/SpicyPTV/Clock)
-2. Go to 'Releases'
-3. Click the most recent one in the list
-4. Download the .zip file and unzipp it
-5. Replace the original files with the new files
+### Report a security vulnerability
+Please review our security policy for more details
 
-## Want to make changes?
+Once you have chosen fill out ALL* of the information and I will fix the issue within 1 - 2 updates. Feature requests will only be implemented if I think it is good enough and credit will be given to the requestor but if you are a programmer and have added the feature in yourself to a version you have dowloaded please submit code along with it as it will be easier to implement.
 
-If you do make changes a 'Powered by ClockAPI' must be present in it and visible to the users
+*You must fill out all the information or the report will be ignored
+
+## How often is it updated?
+
+Every 2 or 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
+
+Next Update: February 5th 2021
+
+## How can I use Clock App in my OS?
+
+Download the most recent release from the GitHub page and copy the 'index.html', 'style.css' and 'main.js' files and paste them in your apps folder in the OS. Then you can edit the code to how you like it or just leave it but make sure to check for updates on the GitHub page
+
+# Clock API
+
+This API has not yet been released
+
+
+| When is the release?             |
+| ----------------------------------
+| The API is releasing Summer 2021 |
