@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Clock</title>
+    <title>Clock Web App</title>
     <link href="style.css" rel="stylesheet">
     <script defer src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
@@ -45,19 +45,14 @@
             <label id="label4"></label>
           </div>
       </div>
+      <div id="container2">
+          <div id=""></div>
+      </div>
       <div id="digital">
         <p id="display">NaN</p>
       </div>
     </div>
     <div id="alarmPannel">
-      <div id="switch3">
-          <div id="left">
-            <label id="label5"></label>
-          </div>
-          <div id="right">
-            <label id="label6"></label>
-          </div>
-      </div>
     </div>
     <div id="alertBox">
       <p id="message"></p>
@@ -65,13 +60,17 @@
     </div>
     <div id="container">
         <div>
-          <label id="heading" onclick="version()">settings</label>
+          <label id="heading">settings</label>
           <div id="exit" onclick="slide()">x</div>
         </div>
         <div id="column1">
           <button onclick="changeClockMode()" id="clockModeChanger" class="btn">24 Hour Clock : Off</button>
           <br><button onclick="realTimeMode()" id="realTimeChanger" class="btn">Real Time : On</button>
           <br><button onclick="dateFormatChanger()" class="btn">Date Format: dd/mm/yyyy</button>
+        </div>
+        <div id="buildInfo">
+            <div id="version">v.1.1.0</div>
+            <div id="edition">SoloLearn Edition</div>
         </div>
     </div>
   </body>
