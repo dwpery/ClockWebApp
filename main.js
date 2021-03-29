@@ -6,7 +6,7 @@ var printMinute;
 var second = 0;
 var printSecond;
 var value = 1; // Amount seconds increases
-var versionNum = "1.1.2" // Stores Version
+var versionNum = "1.1.0" // Stores Version
 var clockMode = false; //false = 12, true = 24
 var realTime = true; // true = Real Time, false = False Time
 var dateFormat = false; // false = dd/mm true = mm/dd
@@ -19,7 +19,6 @@ var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
 setInterval(function() {
 
      var today = new Date(); 
-
      var dd = String(today.getDate()).padStart(2, '0'); 
      var mm = String(today.getMonth() + 1).padStart(2, '0');
      var yyyy = today.getFullYear();
@@ -28,49 +27,40 @@ setInterval(function() {
      }else if(dateFormat === true) {
          var today = mm + "/" + dd + "/" + yyyy;
      }
-            
     // Outputs date
     $("#date").html("");
     $("#ampm").html(today);
-
     second += value; // Increases second value
-    
+    // Formats second
     if (second < 10) {
       printSecond = "0" + second;
     } else {
       printSecond = second;
-    } // Formats seconds
-    
+    };
+    // Formats minutes
     if (minute < 10) {
       printMinute = "0" + minute;
     } else {
       printMinute = minute;
-    } // Formats minutes
-    
+    }
+    // Prints time
     $("#display").html(hour + ":" + printMinute + ":" + printSecond);
-
     // Changes minute when seconds reaches 60
-
     if (second >= 60) {
         second = 0;
         minute += 1;
     }
-
     // Changes hour when minute reaches 60
-
     if (minute >= 60) {
         second = 0;
         minute = 0;
         hour += 1;
     }
-
-      if(realTime === true) {
-
-      var currentTime = new Date ( );
-      var currentHours = currentTime.getHours ( );
-      var currentMinutes = currentTime.getMinutes ( );
-      var currentSeconds = currentTime.getSeconds ( );
-
+    if(realTime === true) {
+              var currentTime = new Date ( );
+              var currentHours = currentTime.getHours ( );
+                var currentMinutes = currentTime.getMinutes ( );
+              var currentSeconds = currentTime.getSeconds ( );
       // Pad the minutes and seconds with leading zeros, if required
       currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
       currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
@@ -105,7 +95,7 @@ setInterval(function() {
 function alertBox(x) {
     $("#alertBox").hide();
     $("#message").html(x); // Sets text to string inputed in function
-    $("#alertBox").toggle(500);
+    $("#alertBox").slideToggle(500);
 }
 
 // Hides the UI elements when the site loads
@@ -123,8 +113,6 @@ $(document).ready(function() {
     // Hides closed pannels
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
-    // Activates menu length
-    $("#main").css("height", "7vh");
 });
 
 // Activates the sliding for menu UI
@@ -176,25 +164,18 @@ function realTimeMode() {
   }
 }
 
-// Alerts version Number
-
-function version() {
-  alertBox("Version: " + versionNum);
-  $("#container").slideToggle(500);
-}
-
 // Changes date format
 
 function dateFormatChanger() {
     if (dateFormat === false) {
     dateFormat = true; // Changes format
     $("#dateButton").html("Date Format: mm/dd/yyyy"); // Changes text on button
-    alertBox("Date Format has changed")
+    alertBox("date Format has changed")
     $("#container").slideToggle(500); // Closes alert messages
-  } else if (realTime === true) {
+  } else if (dateFormat === true) {
     dateFormat = false; // Changes format
     $("#dateButton").html("Date Format: dd/mm/yyyy"); // Changes text on button
-    alertBox("Date format has changed");
+    alertBox("date format has changed");
     $("#container").slideToggle(500); // Closes alert messages
   }
 }
@@ -208,9 +189,6 @@ function clockPannel() {
     $("#clockPannel").show();
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
-    $("#timer").css("height", "5vh");
-    $("#main").css("height", "7vh");
-    $("#alarms").css("height", "5vh");
     alertBox("clock pannel");
     isClock = true;
     isTimer = false;
@@ -225,9 +203,6 @@ function timerPannel() {
     $("#clockPannel").hide();
     $("#timerPannel").show();
     $("#alarmPannel").hide();
-    $("#timer").css("height", "7vh");
-    $("#main").css("height", "5vh");
-    $("#alarms").css("height", "5vh");
     alertBox("timer pannel");
     isTimer = true;
     isClock = false;
@@ -242,9 +217,6 @@ function alarmPannel() {
     $("#clockPannel").hide();
     $("#timerPannel").hide();
     $("#alarmPannel").show();
-    $("#timer").css("height", "5vh");
-    $("#main").css("height", "5vh");
-    $("#alarms").css("height", "7vh");
     alertBox("alarm pannel");
     isTimer = false;
     isClock = false;
