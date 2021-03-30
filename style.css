@@ -67,6 +67,7 @@ body {
     height: 100vh;
     width: 100%;
     color: black;
+    overflow: scroll;
 }
 
 #exit {
@@ -302,11 +303,9 @@ body {
 }
 
 #buildInfo {
-    position: absolute;
-    bottom: 2.5vw;
-    left: 50%;
+    position: relative;
+    top: 2.5vh;
     width: 100%;
-    transform: translate(-50%);
     font-family: "Arial";
     font-weight: lighter;
     text-align: center;
