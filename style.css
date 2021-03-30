@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Major Mono Display', monospace;
     color: white;
+
 }
 
 #digital {
@@ -89,9 +90,12 @@ body {
     font-weight: bolder;
 }
 
-#heading:hover {
+#subheading {
+    font-size: 4vh;
+    font-weight: bolder;
+    text-indent: 2vw;
     text-decoration: underline;
-    cursor: pointer;
+    margin-top: 3vw;
 }
 
 .btn {
@@ -206,11 +210,6 @@ body {
     height: 6vh;
 }
 
-.selected {
-  height: 10vh;
-  color: red;
-}
-
 #switch, #switch2, #switch3 {
   position: fixed;
   top: 75vh;
@@ -301,10 +300,42 @@ body {
     background-color: grey;
     color: white;
 }
+
 #buildInfo {
-    position: relative;
+    position: absolute;
+    bottom: 2.5vw;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
     font-family: "Arial";
     font-weight: lighter;
     text-align: center;
-    bottom: -100vw;
+}
+
+#set {
+    font-size: 2.5vh;
+    font-weight: bold;
+    text-indent: 5vw;
+    margin-top: 4vw
+}
+
+#setbutton:hover { cursor: pointer; }
+
+#setbutton {
+   margin-left: 82.5vw;
+   margin-top: -3vh;
+   color: #282828;
+   width: 12.5vw;
+   height: 2.5vh;
+   font-size: 2.5vh;
+   text-align: center;
+   font-weight: bolder;
+   border: 0.5vw solid #000;
+   transition: 0.5s;
+}
+
+#setbutton:hover {
+    cursor: pointer;
+    color: #FFF;
+    border-color: #FFF;
 }
