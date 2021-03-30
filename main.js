@@ -17,7 +17,6 @@ var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
 // Formats the Output
 
 setInterval(function() {
-
      var today = new Date(); 
      var dd = String(today.getDate()).padStart(2, '0'); 
      var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -117,20 +116,20 @@ function slide() {
 
 // Changes clock mode between 24 hour  and 12 hour
 
-function changeClockMode() {
+function hrCntrl() {
   if (realTime === false) {
     clockMode = false;
-    $("#clockModeChanger").html("24 Hour Clock : Off");
-    alertBox("24 hour mode is off");
+    $(".24button").html("off");
+    alertBox("unavailable in system clock");
     $("#container").slideToggle(500);
   } else if (clockMode === false) {
     clockMode = true;
-    $("#clockModeChanger").html("24 Hour Clock : On");
+    $(".24button").html("on");
     alertBox("24 hour mode is on");
     $("#container").slideToggle(500);
   } else if (clockMode === true) {
     clockMode = false;
-    $("#clockModeChanger").html("24 Hour Clock : Off");
+    $(".24button").html("off");
     alertBox("24 hour clock is now off");
     $("#container").slideToggle(500);
   }
@@ -144,31 +143,31 @@ function closeMessage() {
 
 // Changes clock mode between real and false
 
-function realTimeMode() {
+function systemClock() {
   if (realTime === false) {
     realTime = true; // Turns Real Time on
-    $("#realTimeChanger").html("Real Time : On"); // Changes text on button
-    alertBox("Real Clock is now on");
-    $("#container").slideToggle(500); // Closes alert messages
+    $(".scbutton").html("off"); // Changes text on button
+    alertBox("system clock is off");
+    $("#container").slideToggle(500); // Closes settings menu
   } else if (realTime === true) {
-    realTime = false; // Turns Real Time off
-    $("#realTimeChanger").html("Real Time : Off"); // Changes text on button
-    alertBox("Real Time is now off");
-    $("#container").slideToggle(500);  // Closes alert messages
+    realTime = false;
+    $(".scbutton").html("on");
+    alertBox("system clock is now on");
+    $("#container").slideToggle(500);
   }
 }
 
 // Changes date format
 
-function dateFormatChanger() {
+function dfCntrl() {
     if (dateFormat === false) {
     dateFormat = true; // Changes format
-    $("#dateButton").html("Date Format: mm/dd/yyyy"); // Changes text on button
+    $(".dfbutton").html("mm/dd"); // Changes text on button
     alertBox("date Format has changed")
     $("#container").slideToggle(500); // Closes alert messages
   } else if (dateFormat === true) {
     dateFormat = false; // Changes format
-    $("#dateButton").html("Date Format: dd/mm/yyyy"); // Changes text on button
+    $(".dfbutton").html("dd/mm"); // Changes text on button
     alertBox("date format has changed");
     $("#container").slideToggle(500); // Closes alert messages
   }
