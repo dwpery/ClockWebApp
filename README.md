@@ -12,16 +12,7 @@ If you edit the code then implement it into your OS change the build info, where
 
 ## How do i submit a bug report / feature request?
 
-Go to the GitHub Repositorie (https://github.com/SpicyPTV/ClockWebApp) and click on the issues tab, once there create a new issue. Then you must select between three options:
-
-### Bug report
-Create a report to help us improve
-
-### Feature request
-Suggest an idea for this project
-
-### Report a security vulnerability
-Please review our security policy for more details
+Go to the GitHub Repositorie (https://github.com/SpicyPTV/ClockWebApp) and click on the issues tab, once there create a new issue. Then you must select between three options available.
 
 Once you have chosen fill out ALL* of the information and I will fix the issue within 1 - 2 updates. Feature requests will only be implemented if I think it is good enough and credit will be given to the requestor but if you are a programmer and have added the feature in yourself to a version you have dowloaded please submit code along with it as it will be easier to implement.
 
