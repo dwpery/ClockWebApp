@@ -8,6 +8,8 @@ Clock App is an Open Source web app developed for beign used in Web based OS. It
 
 100% Yes! Anyone can download and edit the code. If you add a feature that you think the main version should have submit the code in a feature request and it will be added in 1 - 2 updates time if it is good and credit will be given. Check the license for more details.
 
+If you edit the code then implement it into your OS change the build info, where it says '(Official Build)' replace it with your name / company name
+
 ## How do i submit a bug report / feature request?
 
 Go to the GitHub Repositorie (https://github.com/SpicyPTV/ClockWebApp) and click on the issues tab, once there create a new issue. Then you must select between three options:
