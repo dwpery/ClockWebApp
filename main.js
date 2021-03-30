@@ -61,14 +61,12 @@ setInterval(function() {
               var currentHours = currentTime.getHours ( );
                 var currentMinutes = currentTime.getMinutes ( );
               var currentSeconds = currentTime.getSeconds ( );
-      // Pad the minutes and seconds with leading zeros, if required
+      // Pads the minutes and seconds with leading zeros
       currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
       currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
-      
       if(clockMode === true) {
           currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
       }
-
       if(clockMode === false) {
         // Choose either "AM" or "PM" as appropriate
         var timeOfDay = ( currentHours < 12 ) ? "am" : "pm";
@@ -80,14 +78,10 @@ setInterval(function() {
             currentHours = 12;
         }
       }
-
       // Compose the string for display
       var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
-      
       $("#display").html(currentTimeString);
-      
       }
-
 },1000);
 
 //Sorts out Alerts
