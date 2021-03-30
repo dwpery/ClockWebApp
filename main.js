@@ -1,4 +1,4 @@
-// Variable bank
+// Starting Values
 
 var hour = 0;
 var minute = 0;
@@ -6,19 +6,17 @@ var printMinute;
 var second = 0;
 var printSecond;
 var value = 1; // Amount seconds increases
-var versionNum = "1.1.0" // Stores Version
 var clockMode = false; //false = 12, true = 24
 var realTime = true; // true = Real Time, false = False Time
-var dateFormat = false; // false = dd/mm true = mm/dd
-var isClock = true; // true = Clock Pannel is on, false = Clock Pannel is off
-var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
-var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
+var dateFormat = false; // false = dd/mm, true = mm/dd
 
-// Formats the Output
+// Formats the Output and keeps the clock ticking
 
 setInterval(function() {
-     var today = new Date(); 
-     var dd = String(today.getDate()).padStart(2, '0'); 
+
+     var today = new Date();
+
+     var dd = String(today.getDate()).padStart(2, '0');
      var mm = String(today.getMonth() + 1).padStart(2, '0');
      var yyyy = today.getFullYear();
      if(dateFormat === false) {
@@ -26,46 +24,58 @@ setInterval(function() {
      }else if(dateFormat === true) {
          var today = mm + "/" + dd + "/" + yyyy;
      }
+
     // Outputs date
     $("#date").html("");
     $("#ampm").html(today);
+
+
     second += value; // Increases second value
-    // Formats second
+
     if (second < 10) {
       printSecond = "0" + second;
     } else {
       printSecond = second;
-    };
-    // Formats minutes
+    } // Formats seconds
+
     if (minute < 10) {
       printMinute = "0" + minute;
     } else {
       printMinute = minute;
-    }
-    // Prints time
+    } // Formats minutes
+
     $("#display").html(hour + ":" + printMinute + ":" + printSecond);
+
     // Changes minute when seconds reaches 60
+
     if (second >= 60) {
         second = 0;
         minute += 1;
     }
+
     // Changes hour when minute reaches 60
+
     if (minute >= 60) {
         second = 0;
         minute = 0;
         hour += 1;
     }
-    if(realTime === true) {
-              var currentTime = new Date ( );
-              var currentHours = currentTime.getHours ( );
-                var currentMinutes = currentTime.getMinutes ( );
-              var currentSeconds = currentTime.getSeconds ( );
-      // Pads the minutes and seconds with leading zeros
+
+      if(realTime === true) {
+
+      var currentTime = new Date ( );
+      var currentHours = currentTime.getHours ( );
+      var currentMinutes = currentTime.getMinutes ( );
+      var currentSeconds = currentTime.getSeconds ( );
+
+      // Pad the minutes and seconds with leading zeros, if required
       currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
       currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
       if(clockMode === true) {
           currentHours = ( currentHours < 10 ? "0" : "" ) + currentHours;
       }
+
       if(clockMode === false) {
         // Choose either "AM" or "PM" as appropriate
         var timeOfDay = ( currentHours < 12 ) ? "am" : "pm";
@@ -73,39 +83,22 @@ setInterval(function() {
         currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
         $("#date").html(today);
         $("#ampm").html(timeOfDay);
-        if(currentHours == 0) {
-            currentHours = 12;
-        }
       }
+
       // Compose the string for display
       var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
+
       $("#display").html(currentTimeString);
+
       }
+
 },1000);
-
-//Sorts out Alerts
-
-function alertBox(x) {
-    $("#alertBox").hide();
-    $("#message").html(x); // Sets text to string inputed in function
-    $("#alertBox").slideToggle(500);
-}
 
 // Hides the UI elements when the site loads
 
 $(document).ready(function() {
-    $("#container").hide(); // Hides Menu on load
-    $("#alertBox").hide(); // Hides Alert on load
-    // Sets text for labels
-    $("#label1").html("digital");
-    $("#label2").html("analog");
-    $("#label3").html("timer");
-    $("#label4").html("stopwatch");
-    $("#label5").html("alarms");
-    $("#label6").html("reminders");
-    // Hides closed pannels
-    $("#timerPannel").hide();
-    $("#alarmPannel").hide();
+    $("#container").hide(); // Hides Menu when page loads
+    $("#alertBox").hide(); // Hides Alert box when page loads
 });
 
 // Activates the sliding for menu UI
@@ -116,21 +109,24 @@ function slide() {
 
 // Changes clock mode between 24 hour  and 12 hour
 
-function hrCntrl() {
+function changeClockMode() {
   if (realTime === false) {
     clockMode = false;
-    $(".24button").html("off");
-    alertBox("unavailable in system clock");
+    $("#clockModeChanger").html("24 Hour Clock : Off");
+    $("#message").html("WARNING: 24 hour clock is currently only supported in real time");
+    $("#alertBox").toggle(500);
     $("#container").slideToggle(500);
   } else if (clockMode === false) {
     clockMode = true;
-    $(".24button").html("on");
-    alertBox("24 hour mode is on");
+    $("#clockModeChanger").html("24 Hour Clock : On");
+    $("#message").html("24 hour clock is now on");
+    $("#alertBox").toggle(500);
     $("#container").slideToggle(500);
   } else if (clockMode === true) {
     clockMode = false;
-    $(".24button").html("off");
-    alertBox("24 hour clock is now off");
+    $("#clockModeChanger").html("24 Hour Clock : Off");
+    $("#message").html("24 hour clock is now off");
+    $("#alertBox").toggle(500);
     $("#container").slideToggle(500);
   }
 }
@@ -143,76 +139,42 @@ function closeMessage() {
 
 // Changes clock mode between real and false
 
-function systemClock() {
+function realTimeMode() {
   if (realTime === false) {
     realTime = true; // Turns Real Time on
-    $(".scbutton").html("off"); // Changes text on button
-    alertBox("system clock is off");
-    $("#container").slideToggle(500); // Closes settings menu
+    $("#realTimeChanger").html("Real Time : On"); // Changes text on button
+    $("#message").html("Real Clock is now on"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
+    $("#container").slideToggle(500); // Closes alert messages
   } else if (realTime === true) {
-    realTime = false;
-    $(".scbutton").html("on");
-    alertBox("system clock is now on");
-    $("#container").slideToggle(500);
+    realTime = false; // Turns Real Time off
+    $("#realTimeChanger").html("Real Time : Off"); // Changes text on button
+    $("#message").html("Real Clock is now off"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
+    $("#container").slideToggle(500);  // Closes alert messages
   }
 }
 
-// Changes date format
+// When the MENU button is pressed the version number is alerted
 
-function dfCntrl() {
+function version() {
+  $("#message").html("Version 1.5.0"); // Alert message
+  $("#alertBox").toggle(500); // Opens alert message
+  $("#container").slideToggle(500);  // Closes alert messages
+}
+
+function dateFormatChanger() {
     if (dateFormat === false) {
     dateFormat = true; // Changes format
-    $(".dfbutton").html("mm/dd"); // Changes text on button
-    alertBox("date Format has changed")
+    $("#dateButton").html("Date Format: mm/dd/yyyy"); // Changes text on button
+    $("#message").html("Date format has changed"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
     $("#container").slideToggle(500); // Closes alert messages
-  } else if (dateFormat === true) {
+  } else if (realTime === true) {
     dateFormat = false; // Changes format
-    $(".dfbutton").html("dd/mm"); // Changes text on button
-    alertBox("date format has changed");
+    $("#dateButton").html("Date Format: dd/mm/yyyy"); // Changes text on button
+    $("#message").html("Date format has changed"); // Alert message
+    $("#alertBox").toggle(500); // Opens alert message
     $("#container").slideToggle(500); // Closes alert messages
-  }
-}
-
-// Checks / changes which pannel is active
-
-function clockPannel() {
-  if(isClock === true) {
-    
-  } else {
-    $("#clockPannel").show();
-    $("#timerPannel").hide();
-    $("#alarmPannel").hide();
-    alertBox("clock pannel");
-    isClock = true;
-    isTimer = false;
-    isAlarm = false;
-  }
-}
-
-function timerPannel() {
-  if(isTimer === true) {
-    
-  } else {
-    $("#clockPannel").hide();
-    $("#timerPannel").show();
-    $("#alarmPannel").hide();
-    alertBox("timer pannel");
-    isTimer = true;
-    isClock = false;
-    isAlarm = false;
-  }
-}
-
-function alarmPannel() {
-  if(isAlarm === true) {
-    
-  } else {
-    $("#clockPannel").hide();
-    $("#timerPannel").hide();
-    $("#alarmPannel").show();
-    alertBox("alarm pannel");
-    isTimer = false;
-    isClock = false;
-    isAlarm = true;
   }
 }
