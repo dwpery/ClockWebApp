@@ -29,7 +29,7 @@ Once you have chosen fill out ALL* of the information and I will fix the issue w
 
 Every 2 or 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
 
-Next Update: February 5th 2021
+Next Update: DELAYED (Possible release April 15th 2021)
 
 ## How can I use Clock App in my OS?
 
