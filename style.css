@@ -3,10 +3,9 @@ body {
     margin: 0;
     font-family: 'Major Mono Display', monospace;
     color: white;
-
 }
 
-#digital {
+#timer {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,7 +20,7 @@ body {
     -webkit-transition: width 1s, height 1s, color 1s;
 }
 
-#digital:hover {
+#timer:hover {
   width: 65vh;
   height: 20vh;
   color: red;
@@ -41,7 +40,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 45%);
+  transform: translate(-50%, 42%);
   height: 10vh;
   width: 60vh;
   font-size:5vh;
@@ -51,23 +50,30 @@ body {
 
 #menu {
     position: fixed;
-    top: 0;
+    bottom: 0;
     height: 5vh;
     background-color: #D3D3D3;
     width: 100%;
+    font-size: 5vh;
     font-weight: bolder;
     text-align: center;
     color: black;
+}
+
+#menu:hover {
+    color: red;
+    cursor: pointer;
+    transition: color 1s;
+    -webkit-transition: color 1s;
 }
 
 #container {
     background-color: #D3D3D3;
     position: fixed;
     bottom: 0;
-    height: 100vh;
+    height: 25vh;
     width: 100%;
     color: black;
-    overflow: scroll;
 }
 
 #exit {
@@ -82,7 +88,7 @@ body {
 }
 
 #exit:hover {
-    color: gray;
+    color: red;
     cursor: pointer;
 }
 
@@ -91,19 +97,16 @@ body {
     font-weight: bolder;
 }
 
-#subheading {
-    font-size: 4vh;
-    font-weight: bolder;
-    text-indent: 2vw;
+#heading:hover {
     text-decoration: underline;
-    margin-top: 3vw;
+    cursor: pointer;
 }
 
 .btn {
   position:
   left: 0;
-  height: 6.6vh;
-  width: 100%;
+  width: 33vw;
+  height: 6.6vh
 }
 
 .btn:hover {
@@ -112,20 +115,23 @@ body {
 
 #alertBox {
   position: fixed;
-  top:5vh;
+  top: 0;
   height: 5vh;
   background-color: #D3D3D3;
-  width: 100%;
+  width: 50%;
   font-size: 2vh;
   font-weight: bolder;
   text-align: center;
   color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -900%);
 }
 
 #close {
-  position: absolute;
+  position: fixed;
   right: 1vw;
-  bottom: 1.5vh;
+  top: 1.5vh;
   font-size: 2vh;
   transition: color 1s;
   -webkit-transition: color 1s;
@@ -133,12 +139,12 @@ body {
 
 #close:hover {
   cursor: pointer;
-  color: white;
+  color: red;
 }
 
 #date {
   position: absolute;
-  top: 49%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -95%);
   height: 10vh;
@@ -146,195 +152,4 @@ body {
   font-size:5vh;
   font-weight: bolder;
   text-align: center;
-}
-
-#settings {
-    position: fixed;
-    font-size: 2.8vh;
-    height: 5vh;
-    width: 25vw;
-    background-color: #D3D3D3;
-    transition: height 0.2s;
-    -webkit-transition: height 0.2s;
-}
-
-#settings:hover {
-    cursor: pointer;
-    height: 6vh;
-}
-
-#timer {
-    position: fixed;
-    font-size: 2.8vh;
-    left: 25vw;
-    height: 5vh;
-    width: 25vw;
-    background-color: #D3D3D3;
-    transition: height 0.2s;
-    -webkit-transition: height 0.2s;
-}
-
-#timer:hover {
-    cursor: pointer;
-    height: 6vh;
-}
-
-#main {
-    position: fixed;
-    font-size: 2.8vh;
-    left: 50vw;
-    height: 5vh;
-    width: 25vw;
-    background-color: #D3D3D3;
-    transition: height 0.2s;
-    -webkit-transition: height 0.2s;
-}
-
-#main:hover {
-    cursor: pointer;
-    height: 6vh;
-}
-
-#alarms {
-    position: fixed;
-    font-size: 2.8vh;
-    left: 75vw;
-    height: 5vh;
-    width: 25vw;
-    background-color: #D3D3D3;
-    transition: height 0.2s;
-    -webkit-transition: height 0.2s;
-}
-
-#alarms:hover {
-    cursor: pointer;
-    height: 6vh;
-}
-
-#switch, #switch2, #switch3 {
-  position: fixed;
-  top: 75vh;
-  left: 50%;
-  transform: translate(-50%);
-  height: 5vh;
-  width: 250px;
-}
-
-#left {
-  position: absolute;
-  border-radius: 20px 0 0 20px;
-  background-color: #D3D3D3;
-  height: 5vh;
-  left: 0;
-  width: 115px;
-  color: black;
-  -webkit-transition: background-color 1s;
-}
-
-#right {
-  position: absolute;
-  border-radius: 0 20px 20px 0;
-  background-color: #D3D3D3;
-  height: 5vh;
-  left: 115px;
-  width: 115px;
-  color: black;
-  -webkit-transition: background-color 1s;
-}
-
-#label1 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 20px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label2 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 20px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label1:hover, #label2:hover, #label3:hover, #label4:hover, #left:hover, #right:hover {
-  cursor: pointer;
-  color: white;
-}
-
-#left:hover, #right:hover {
-    background-color: grey;
-}
-
-#label3 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 30px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label4 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 2.5px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#container2 {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  height: 10vh;
-  width: 30vh;
-  background-color: #D3D3D3;
-}
-
-.switchDown {
-    background-color: grey;
-    color: white;
-}
-
-#buildInfo {
-    position: relative;
-    top: 2.5vh;
-    width: 100%;
-    font-family: "Arial";
-    font-weight: lighter;
-    text-align: center;
-}
-
-#set {
-    font-size: 2.5vh;
-    font-weight: bold;
-    text-indent: 5vw;
-    margin-top: 4vw
-}
-
-#setbutton:hover { cursor: pointer; }
-
-#setbutton {
-   margin-left: 82.5vw;
-   margin-top: -3vh;
-   color: #282828;
-   width: 12.5vw;
-   height: 2.5vh;
-   font-size: 2.5vh;
-   text-align: center;
-   font-weight: bolder;
-   border: 0.5vw solid #000;
-   transition: 0.5s;
-}
-
-#setbutton:hover {
-    cursor: pointer;
-    color: #FFF;
-    border-color: #FFF;
 }
