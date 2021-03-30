@@ -7,6 +7,7 @@ Beta Versions are not supported in any way! They are outdatted and should be upd
 | Beta Version | Supported          |
 | ------------ | ------------------ |
 | v1.0-beta    | :x:                |
+| v1.1.0-beta    | :x:                |
 
 ## Supported Versions
 
