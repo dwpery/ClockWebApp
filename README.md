@@ -24,7 +24,7 @@ Every 3 months a new update is released but in between every update beta version
 
 Next Update: April 5th 2021
 
-## How can I use Clock Web App in my OS?
+## How can I use Clock Web App in my OS / website?
 
 Download the most recent release from the GitHub page and copy the 'index.html', 'style.css' and 'main.js' files and paste them in your apps folder in the OS. Then you can edit the code to how you like it or just leave it but make sure to check for updates on the GitHub page
 
