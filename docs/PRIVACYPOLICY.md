@@ -2,7 +2,7 @@
 
 ## Overview
 
-* You do not need to register to access ouraa features
+* You do not need to register to access our features
 * Clock web App will not ask for any personally identifiable information such as your name, E-Mail address or telephone number unless you contact the Cloc Web App support
 * Clock Web App does not use cookies or any means of tracking its users
 
