@@ -20,9 +20,9 @@ Once you have chosen fill out ALL* of the information and I will fix the issue w
 
 ## How often is it updated?
 
-Every 2 or 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
+Every 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
 
-Next Update: DELAYED (Possible release April 15th 2021)
+Next Update: April 5th 2021
 
 ## How can I use Clock App in my OS?
 
@@ -31,7 +31,6 @@ Download the most recent release from the GitHub page and copy the 'index.html',
 # Clock API
 
 This API has not yet been released
-
 
 | When is the release?             |
 | ----------------------------------
