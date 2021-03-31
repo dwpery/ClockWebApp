@@ -18,17 +18,17 @@
         </div>
     </div>
     <div id="clockPannel">
-      <div id="digital">
+          <div id="digital">
         <div id="date">NaN</div>
         <p id="display">NaN</p>
         <div id="ampm">NaN</div>
       </div>
       <div id="switch">
           <div id="left">
-            <label id="label1"></label>
+            <label id="label">digital</label>
           </div>
           <div id="right">
-            <label id="label2"></label>
+            <label id="label">analog</label>
           </div>
       </div>
       <div id="analog">
@@ -37,19 +37,21 @@
       <div></div>
     </div>
     <div id="timerPannel">
-      <div id="switch2">
-          <div id="left">
-            <label id="label3"></label>
-          </div>
-          <div id="right">
-            <label id="label4"></label>
-          </div>
-      </div>
       <div id="container2">
-          <div id=""></div>
+          <input type="number" id="hour">
+          <input type="number" id="minute">
+          <input type="number" id="second">
       </div>
       <div id="digital">
         <p id="display">NaN</p>
+      </div>
+      <div id="switch">
+          <div id="left">
+            <label id="label">timer</label>
+          </div>
+          <div id="right">
+            <label id="label">stopwatch</label>
+          </div>
       </div>
     </div>
     <div id="alarmPannel">
@@ -68,6 +70,8 @@
             <div id="subheading">general</div>
             <div id="set">privacy policy</div>
             <div id="setbutton">view</div>
+            <div id="set">terms and conditions</div>
+            <div id="setbutton">view</div>
             <div id="set">language</div>
             <div id="setbutton">eng</div>
             <div id="set">faq</div>
@@ -83,9 +87,9 @@
             <div id="setbutton" class="scbutton" onclick="systemClock()">off</div>
         </div>
         <div id="buildInfo">
-            <hr>
+            <br><hr>
             <div id="version">v.1.1.0 (Official Build) (64-bit)</div>
-            <div id="edition">GitHub Edition</div>
+            <div id="edition">SoloLearn Edition</div><br>
         </div>
     </div>
   </body>
