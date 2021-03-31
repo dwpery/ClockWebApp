@@ -38,9 +38,12 @@
     </div>
     <div id="timerPannel">
       <div id="container2">
-          <input type="number" id="hour">
-          <input type="number" id="minute">
-          <input type="number" id="second">
+          <input type="number" id="hour" min="0" max="99" placeholder="99"/>
+          <div id="hourLabel">hour</div>
+          <input type="number" id="minute" min="0" max="59" placeholder="59"/>
+          <div id="minuteLabel">minute</div>
+          <input type="number" id="second" min="0" max="59" placeholder="59"/>
+          <div id="secondLabel">second</div>
       </div>
       <div id="digital">
         <p id="display">NaN</p>
@@ -71,9 +74,9 @@
             <div id="set">privacy policy</div>
             <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/docs/PRIVACYPOLICY.md';">view</div>
             <div id="set">language</div>
-            <div id="setbutton">eng</div>
+            <div id="setbutton" onclick="chngLang()">eng</div>
             <div id="set">faq</div>
-            <div id="setbutton">view</div>
+            <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/README.md'">view</div>
         </div>
         <div id="clockSettings">
             <div id="subheading">clock pannel</div>
@@ -81,15 +84,13 @@
             <div id="setbutton" class="24button" onclick="hrCntrl()">off</div>
             <div id="set">day & month format</div>
             <div id="setbutton" class="dfbutton" onclick="dfCntrl()">d/m</div>
-            <div id="set">year format</div>
-            <div id="setbutton" class="yfbutton" onclick="dfCntrl()">yyyy</div>
             <div id="set">system clock</div>
             <div id="setbutton" class="scbutton" onclick="systemClock()">off</div>
         </div>
         <div id="buildInfo">
             <br><hr>
             <div id="version">v.1.1.0 (Official Build) (64-bit)</div>
-            <div id="edition">GitHub Edition</div><br>
+            <div id="edition">SoloLearn Edition</div><br>
         </div>
     </div>
   </body>
