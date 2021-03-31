@@ -1,14 +1,15 @@
-// Variable bank
+ // Variable bank
 var hour = 0;
 var minute = 0;
 var printMinute;
-var second = 0;
+var second = 49;
 var printSecond;
 var value = 1; // Amount seconds increases
 var versionNum = "1.1.0" // Stores Version
 var clockMode = false; //false = 12, true = 24
 var realTime = true; // true = Real Time, false = False Time
 var dateFormat = false; // false = dd/mm true = mm/dd
+var year = true; // true = yyyy, false = yy
 var isClock = true; // true = Clock Pannel is on, false = Clock Pannel is off
 var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
 var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
@@ -43,11 +44,11 @@ setInterval(function() {
     $("#display").html(hour + ":" + printMinute + ":" + printSecond);
     // Changes minute when seconds reaches 60
     if (second >= 59) {
-        second = 0;
+        second = -1;
         minute += 1;
     }
     // Changes hour when minute reaches 60
-    if (minute >= 59) {
+    if (minute >= 60) {
         second = 0;
         minute = 0;
         hour += 1;
