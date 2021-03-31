@@ -1,5 +1,4 @@
 // Variable bank
-
 var hour = 0;
 var minute = 0;
 var printMinute;
@@ -13,9 +12,7 @@ var dateFormat = false; // false = dd/mm true = mm/dd
 var isClock = true; // true = Clock Pannel is on, false = Clock Pannel is off
 var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
 var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
-
-// Formats the Output
-
+// Controls clock logic
 setInterval(function() {
      var today = new Date(); 
      var dd = String(today.getDate()).padStart(2, '0'); 
@@ -45,12 +42,12 @@ setInterval(function() {
     // Prints time
     $("#display").html(hour + ":" + printMinute + ":" + printSecond);
     // Changes minute when seconds reaches 60
-    if (second >= 60) {
+    if (second >= 59) {
         second = 0;
         minute += 1;
     }
     // Changes hour when minute reaches 60
-    if (minute >= 60) {
+    if (minute >= 59) {
         second = 0;
         minute = 0;
         hour += 1;
@@ -82,40 +79,25 @@ setInterval(function() {
       $("#display").html(currentTimeString);
       }
 },1000);
-
 //Sorts out Alerts
-
 function alertBox(x) {
     $("#alertBox").hide();
     $("#message").html(x); // Sets text to string inputed in function
     $("#alertBox").slideToggle(500);
 }
-
 // Hides the UI elements when the site loads
-
 $(document).ready(function() {
     $("#container").hide(); // Hides Menu on load
     $("#alertBox").hide(); // Hides Alert on load
-    // Sets text for labels
-    $("#label1").html("digital");
-    $("#label2").html("analog");
-    $("#label3").html("timer");
-    $("#label4").html("stopwatch");
-    $("#label5").html("alarms");
-    $("#label6").html("reminders");
     // Hides closed pannels
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
 });
-
 // Activates the sliding for menu UI
-
 function slide() {
     $("#container").slideToggle(500);
 }
-
 // Changes clock mode between 24 hour  and 12 hour
-
 function hrCntrl() {
   if (realTime === false) {
     clockMode = false;
@@ -125,7 +107,7 @@ function hrCntrl() {
   } else if (clockMode === false) {
     clockMode = true;
     $(".24button").html("on");
-    alertBox("24 hour mode is on");
+    alertBox("24 hour clock is on");
     $("#container").slideToggle(500);
   } else if (clockMode === true) {
     clockMode = false;
@@ -134,15 +116,11 @@ function hrCntrl() {
     $("#container").slideToggle(500);
   }
 }
-
 // Closes Alert box when X is pressed
-
 function closeMessage() {
   $("#alertBox").slideToggle(500); // Closes alert message
 }
-
 // Changes clock mode between real and false
-
 function systemClock() {
   if (realTime === false) {
     realTime = true; // Turns Real Time on
@@ -156,29 +134,23 @@ function systemClock() {
     $("#container").slideToggle(500);
   }
 }
-
 // Changes date format
-
 function dfCntrl() {
     if (dateFormat === false) {
     dateFormat = true; // Changes format
     $(".dfbutton").html("m/d"); // Changes text on button
-    alertBox("date Format has changed")
+    alertBox("date format has changed")
     $("#container").slideToggle(500); // Closes alert messages
   } else if (dateFormat === true) {
     dateFormat = false; // Changes format
-    $(".dfbutton").html("dmm"); // Changes text on button
+    $(".dfbutton").html("d/m"); // Changes text on button
     alertBox("date format has changed");
     $("#container").slideToggle(500); // Closes alert messages
   }
 }
-
 // Checks / changes which pannel is active
-
 function clockPannel() {
-  if(isClock === true) {
-    
-  } else {
+  if(isClock === true) { } else {
     $("#clockPannel").show();
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
@@ -188,11 +160,8 @@ function clockPannel() {
     isAlarm = false;
   }
 }
-
 function timerPannel() {
-  if(isTimer === true) {
-    
-  } else {
+  if(isTimer === true) { } else {
     $("#clockPannel").hide();
     $("#timerPannel").show();
     $("#alarmPannel").hide();
@@ -202,11 +171,8 @@ function timerPannel() {
     isAlarm = false;
   }
 }
-
 function alarmPannel() {
-  if(isAlarm === true) {
-    
-  } else {
+  if(isAlarm === true) { } else {
     $("#clockPannel").hide();
     $("#timerPannel").hide();
     $("#alarmPannel").show();
@@ -216,4 +182,3 @@ function alarmPannel() {
     isAlarm = true;
   }
 }
-
