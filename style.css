@@ -288,3 +288,28 @@ label {
     font-weight: bolder;
 }
 label:hover { cursor: pointer; }
+
+#hour,#minute,#second {
+    position: absolute;
+    left: 0;
+    height: 7vh;
+    font-size: 7vh;
+    border: none;
+    width: 10vh;
+    text-align: center;
+    background-color: #D3D3D3;
+}
+#minute { left: 10vh; }
+#second { left: 20vh; }
+
+#hourLabel,#minuteLabel,#secondLabel {
+    position: absolute;
+    bottom: 0;
+    left: 2vh;
+    width: 10vh;
+    font-size: 2vh;
+    font-weight: bolder;
+    color: #000;
+}
+#minuteLabel {left: 10.5vh;}
+#secondLabel {left: 20.5vh;}
