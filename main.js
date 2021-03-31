@@ -149,6 +149,10 @@ function dfCntrl() {
     $("#container").slideToggle(500); // Closes alert messages
   }
 }
+function chngLang() {
+    alertBox("different languages coming in next update");
+    $("#container").slideToggle(500); 
+}
 // Checks / changes which pannel is active
 function clockPannel() {
   if(isClock === true) { } else {
