@@ -3,7 +3,6 @@ body {
     margin: 0;
     font-family: 'Major Mono Display', monospace;
     color: white;
-
 }
 
 #digital {
@@ -17,8 +16,7 @@ body {
     background-color: black;
     font-weight: bolder;
     text-align: center;
-    transition: width 1s, height 1s, color 1s;
-    -webkit-transition: width 1s, height 1s, color 1s;
+    transition: 1s;
 }
 
 #digital:hover {
@@ -34,7 +32,6 @@ body {
   left: 50%;
   transform: translate(-50%, -150%);
   color: red;
-
 }
 
 #ampm {
@@ -211,80 +208,9 @@ body {
     height: 6vh;
 }
 
-#switch, #switch2, #switch3 {
-  position: fixed;
-  top: 75vh;
-  left: 50%;
-  transform: translate(-50%);
-  height: 5vh;
-  width: 250px;
-}
-
-#left {
-  position: absolute;
-  border-radius: 20px 0 0 20px;
-  background-color: #D3D3D3;
-  height: 5vh;
-  left: 0;
-  width: 115px;
-  color: black;
-  -webkit-transition: background-color 1s;
-}
-
-#right {
-  position: absolute;
-  border-radius: 0 20px 20px 0;
-  background-color: #D3D3D3;
-  height: 5vh;
-  left: 115px;
-  width: 115px;
-  color: black;
-  -webkit-transition: background-color 1s;
-}
-
-#label1 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 20px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label2 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 20px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label1:hover, #label2:hover, #label3:hover, #label4:hover, #left:hover, #right:hover {
-  cursor: pointer;
-  color: white;
-}
-
-#left:hover, #right:hover {
+.switchDown {
     background-color: grey;
-}
-
-#label3 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 30px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
-}
-
-#label4 {
-  position: relative;
-  font-weight: bolder;
-  top: 8px;
-  left: 2.5px;
-  transition: color 1s;
-  -webkit-transition: color 1s;
+    color: white;
 }
 
 #container2 {
@@ -295,11 +221,6 @@ body {
   height: 10vh;
   width: 30vh;
   background-color: #D3D3D3;
-}
-
-.switchDown {
-    background-color: grey;
-    color: white;
 }
 
 #buildInfo {
@@ -338,3 +259,37 @@ body {
     color: #FFF;
     border-color: #FFF;
 }
+
+#switch {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 40vh;
+    height: 5vh;
+}
+
+#left,#right {
+    position: absolute;
+    width: 20vh;
+    height: 5vh;
+    background-color: #D3D3D3;
+    border-radius: 20px 0 0 20px;
+    transition: 0.5s;
+}
+#right {right: 0; border-radius: 0 20px 20px 0;}
+#left:hover,#right:hover {
+    background-color: #B3B3B3;
+    cursor: pointer;
+}
+
+#label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #000;
+    font-size: 2.5vh;
+    font-weight: bolder;
+}
+label:hover { cursor: pointer; }
