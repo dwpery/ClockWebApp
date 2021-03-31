@@ -78,7 +78,7 @@ body {
     top: 0;
 }
 
-#exit:hover {
+#exit:hover,#close:hover {
     color: gray;
     cursor: pointer;
 }
@@ -126,11 +126,6 @@ body {
   font-size: 2vh;
   transition: color 1s;
   -webkit-transition: color 1s;
-}
-
-#close:hover {
-  cursor: pointer;
-  color: white;
 }
 
 #date {
