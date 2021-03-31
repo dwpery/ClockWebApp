@@ -18,7 +18,7 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 *You must fill out all the information or the report will be ignored
 
-## How often is it updated?
+## How often are updates released?
 
 Every 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
 
