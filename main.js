@@ -100,10 +100,10 @@ function startCountdown() {
     if(swH > 59) {
         swH = 59;
     }
-    if(swS < 59) {
+    if(swS > 59) {
         swS = 59;
     }
-    if(swM < 59) {
+    if(swM > 59) {
         swM = 59;
     }
     setInterval(function() {
@@ -134,7 +134,10 @@ function startCountdown() {
             var countHour = "0" + swH;
         }
         $(".timer").html(countHour+":"+countMinute+":"+countSecond);
-    })
+        if(swS == 0 && swM == 0 && swH == 0) {
+            $(".timer").html("finished");
+        }
+    },1000)
 }
 //Sorts out Alerts
 function alertBox(x) {
