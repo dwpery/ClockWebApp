@@ -54,10 +54,10 @@ setInterval(function() {
         hour += 1;
     }
     if(realTime === true) {
-              var currentTime = new Date ( );
-              var currentHours = currentTime.getHours ( );
-                var currentMinutes = currentTime.getMinutes ( );
-              var currentSeconds = currentTime.getSeconds ( );
+      var currentTime = new Date ( );
+      var currentHours = currentTime.getHours ( );
+      var currentMinutes = currentTime.getMinutes ( );
+      var currentSeconds = currentTime.getSeconds ( );
       // Pads the minutes and seconds with leading zeros
       currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
       currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
@@ -96,12 +96,44 @@ function startCountdown() {
     if(swM < 0) {
         swM = 0;
     }
-    // Pads numbers with Zeros
-    swH = (swH < 10 ? "0" : "" ) + swH;
-    swM = (swM < 10 ? "0" : "" ) + swM;
-    swS = (swS < 10 ? "0" : "" ) + swS;
+    // Makes all values max if over the top
+    if(swH > 59) {
+        swH = 59;
+    }
+    if(swS < 59) {
+        swS = 59;
+    }
+    if(swM < 59) {
+        swM = 59;
+    }
     setInterval(function() {
-        $(".timer").html(swH+":"+swM+":"+swS)
+        swS-=value;
+        if(swS < 0) {
+            swS = 59;
+            swM -= 1;
+        } 
+        if(swM < 0) {
+            swS = 59;
+            swM = 59;
+            swH -= 1;
+        }
+        if(swH < 0) {
+            swS = 59;
+            swM = 59;
+        }
+        countSecond = swS;
+        countMinute = swM;
+        countSecond = swS;
+        if(swS < 10) {
+            var countSecond = "0" + swS;
+        }
+        if(swM < 10) {
+            var countMinute = "0" + swM;
+        }
+        if(swH < 10) {
+            var countHour = "0" + swH;
+        }
+        $(".timer").html(countHour+":"+countMinute+":"+countSecond);
     })
 }
 //Sorts out Alerts
