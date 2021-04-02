@@ -80,6 +80,15 @@ setInterval(function() {
       $("#display").html(currentTimeString);
       }
 },1000);
+// Sorts out stopwatch
+function startStopwatch() {
+    swSeconds = $("#second").val();
+    swMinutes = $("#minute").val();
+    swHours = $("#hour").val();
+    setInterval(function() {
+
+    })
+}
 //Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
