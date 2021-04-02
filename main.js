@@ -115,6 +115,7 @@ function startCountdown() {
     if(swM > 59) {
         swM = 59;
     }
+    $("#startButtonContainer").html('<div id="start">s<br>t<br>a<br>r<br>t</div>')
     intervalId = setInterval(countdown, 1000)
 }
 // Countdown function
@@ -148,6 +149,7 @@ function countdown() {
     $(".timer").html(countHour+":"+countMinute+":"+countSecond);
     if(swS == 0 && swM == 0 && swH == 0) {
         $(".timer").html("finished");
+        $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>')
         clearInterval(intervalId)
     }
 }
