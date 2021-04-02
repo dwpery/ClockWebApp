@@ -313,3 +313,15 @@ label:hover { cursor: pointer; }
 }
 #minuteLabel {left: 10.5vh;}
 #secondLabel {left: 20.5vh;}
+
+#start {
+    position: fixed;
+    top: 50%;
+    left: 102%;
+    transform: translate(-50%, -50%);
+    height: 10vh;
+    width: 1.75vh;
+    color: #000;
+    font-size: 2vh;
+    background-color: #D3D3D3;
+}
