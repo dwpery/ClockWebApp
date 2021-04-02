@@ -171,6 +171,10 @@ $(document).ready(function() {
 function slide() {
     $("#container").slideToggle(500);
 }
+// Opens countdown sub menu
+function showCountdown() {
+    $("#container2").show();
+}
 // Changes clock mode between 24 hour  and 12 hour
 function hrCntrl() {
   if (realTime === false) {
