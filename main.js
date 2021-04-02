@@ -5,7 +5,6 @@ var printMinute;
 var second = 49;
 var printSecond;
 var value = 1; // Amount seconds increases
-var versionNum = "1.1.0" // Stores Version
 var clockMode = false; //false = 12, true = 24
 var realTime = true; // true = Real Time, false = False Time
 var dateFormat = false; // false = dd/mm true = mm/dd
