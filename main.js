@@ -85,6 +85,16 @@ function startCountdown() {
     swS = $("#second").val();
     swM = $("#minute").val();
     swH = $("#hour").val();
+    // Makes values 0 if not set
+    if(swH == "") {
+        swH = 0;
+    }
+    if(swS == "") {
+        swS = 5;
+    }
+    if(swM == "") {
+        swM = 0;
+    }
     // Makes all values positive
     if(swH < 0) {
         swH = 0;
