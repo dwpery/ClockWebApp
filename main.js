@@ -93,6 +93,16 @@ $(document).ready(function() {
     // Hides closed pannels
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
+    // Gets users timezone
+    var tza = () => { 
+        var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
+        if (tz.includes(" ")) { 
+            return tz .split(" ") .map(([first]) => first) .join("");
+        } else { 
+            return tz; 
+        } 
+    }
+    $(".tzbutton").html(tza);
 });
 // Activates the sliding for menu UI
 function slide() {
