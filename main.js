@@ -106,38 +106,41 @@ function startCountdown() {
     if(swM > 59) {
         swM = 59;
     }
-    setInterval(function() {
-        swS-=value;
-        if(swS < 0) {
-            swS = 59;
-            swM -= 1;
-        } 
-        if(swM < 0) {
-            swS = 59;
-            swM = 59;
-            swH -= 1;
-        }
-        if(swH < 0) {
-            swS = 59;
-            swM = 59;
-        }
-        countSecond = swS;
-        countMinute = swM;
-        countSecond = swS;
-        if(swS < 10) {
-            var countSecond = "0" + swS;
-        }
-        if(swM < 10) {
-            var countMinute = "0" + swM;
-        }
-        if(swH < 10) {
-            var countHour = "0" + swH;
-        }
-        $(".timer").html(countHour+":"+countMinute+":"+countSecond);
-        if(swS == 0 && swM == 0 && swH == 0) {
-            $(".timer").html("finished");
-        }
-    },1000)
+    intervalId = setInterval(countdown, 1000)
+}
+// Countdown function
+function countdown() {
+    swS-=value;
+    if(swS < 0) {
+        swS = 59;
+        swM -= 1;
+    } 
+    if(swM < 0) {
+        swS = 59;
+        swM = 59;
+        swH -= 1;
+    }
+    if(swH < 0) {
+        swS = 59;
+        swM = 59;
+    }
+    countSecond = swS;
+    countMinute = swM;
+    countSecond = swS;
+    if(swS < 10) {
+        var countSecond = "0" + swS;
+    }
+    if(swM < 10) {
+        var countMinute = "0" + swM;
+    }
+    if(swH < 10) {
+        var countHour = "0" + swH;
+    }
+    $(".timer").html(countHour+":"+countMinute+":"+countSecond);
+    if(swS == 0 && swM == 0 && swH == 0) {
+        $(".timer").html("finished");
+        clearInterval(intervalId)
+    }
 }
 //Sorts out Alerts
 function alertBox(x) {
