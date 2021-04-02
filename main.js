@@ -154,6 +154,8 @@ $(document).ready(function() {
     // Hides closed pannels
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
+    // Hides sub pannels
+    $("#container2").hide();
     // Gets users timezone
     var tza = () => { 
         var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
