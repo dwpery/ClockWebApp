@@ -1,4 +1,4 @@
- // Variable bank
+// Variable bank
 var hour = 0;
 var minute = 0;
 var printMinute;
@@ -153,6 +153,12 @@ function countdown() {
         clearInterval(intervalId)
     }
 }
+// Resets countdown
+function resetCount() {
+    $(".timer").html("00:00:00");
+    $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>');
+    clearInterval(intervalId)
+} 
 //Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
