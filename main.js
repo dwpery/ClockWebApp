@@ -80,13 +80,28 @@ setInterval(function() {
       $("#display").html(currentTimeString);
       }
 },1000);
-// Sorts out stopwatch
-function startStopwatch() {
-    swSeconds = $("#second").val();
-    swMinutes = $("#minute").val();
-    swHours = $("#hour").val();
+// Sorts Countdown
+function startCountdown() {
+    // Gets Values
+    swS = $("#second").val();
+    swM = $("#minute").val();
+    swH = $("#hour").val();
+    // Makes all values positive
+    if(swH < 0) {
+        swH = 0;
+    }
+    if(swS < 0) {
+        swS = 0;
+    }
+    if(swM < 0) {
+        swM = 0;
+    }
+    // Pads numbers with Zeros
+    swH = (swH < 10 ? "0" : "" ) + swH;
+    swM = (swM < 10 ? "0" : "" ) + swM;
+    swS = (swS < 10 ? "0" : "" ) + swS;
     setInterval(function() {
-
+        $(".timer").html(swH+":"+swM+":"+swS)
     })
 }
 //Sorts out Alerts
