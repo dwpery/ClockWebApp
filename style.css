@@ -314,7 +314,7 @@ label:hover { cursor: pointer; }
 #minuteLabel {left: 10.5vh;}
 #secondLabel {left: 20.5vh;}
 
-#start {
+#start,#reset {
     position: fixed;
     top: 50%;
     left: 102%;
@@ -325,7 +325,8 @@ label:hover { cursor: pointer; }
     font-size: 1.9vh;
     background-color: #D3D3D3;
 }
-#start:hover {
+#start:hover,#reset:hover {
     cursor: pointer;
     font-weight: bolder;
 }
+#reset {left:-2%;}
