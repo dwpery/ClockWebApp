@@ -332,7 +332,7 @@ label:hover { cursor: pointer; }
 }
 #reset {left:-2%;}
 
-#startTimer,#lap {
+#startTimer,#pause {
     position: fixed;
     left: 42.5%;
     top: 50%;
@@ -341,10 +341,11 @@ label:hover { cursor: pointer; }
     width: 8.5vh;
     border-radius: 50%;
     background-color: #D3D3D3;
+    transition: 0.5s;
 }
-#lap {left: 57.5%;}
+#pause {left: 57.5%;}
 
-#startLabel,#lapLabel {
+#startLabel,#pauseLabel {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -352,4 +353,8 @@ label:hover { cursor: pointer; }
     font-weight: bolder;
     font-size: 2vh;
     color: #000;
+}
+#startTimer:hover,#pause:hover {
+    cursor: pointer;
+    background-color: #B3B3B3;
 }
