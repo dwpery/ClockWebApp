@@ -159,7 +159,54 @@ function resetCount() {
     $(".timer").html("00:00:00");
     $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>');
     clearInterval(intervalId)
-} 
+}
+// Starts Timer 
+function startTimer() {
+    ts = 0;
+    tm = 0;
+    th = 0;
+    intervalId = setInterval(timer, 1000);
+}
+// Timer function
+function timer() {
+    ts += value;
+    if(ts >= 60) {
+        ts = 0;
+        tm += 1;
+    }
+    if(tm >= 60) {
+        ts = 0;
+        tm = 0;
+        th += 1;
+    }
+    timerSecond = ts;
+    timerMinute = tm;
+    timerHour = th;
+    if(ts < 10) {
+        timerSecond = "0" + ts;
+    }
+    if(tm < 10) {
+        timerMinute = "0" + tm;
+    }
+    if(th < 10) {
+        timerHour = "0" + th;
+    }
+    $(".timer").html(timerHour+":"+timerMinute+":"+timerSecond)
+}
+// Sorts out Alerts
+function alertBox(x) {
+    $("#alertBox").hide();
+    // Sets text to string inputed
+    $("#message").html(x);
+    $("#alertBox").slideToggle(500);
+    isAlertClosed = false;
+    // Closes Alert automatically after 5 seconds
+    setTimeout(function() {
+        if(isAlertClosed == false) {
+            $("#alertBox").slideToggle(500);
+        }
+    },5000)
+}
 //Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
