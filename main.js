@@ -148,16 +148,16 @@ function countdown() {
     if(swH < 10) {
         var countHour = "0" + swH;
     }
-    $(".timer").html(countHour+":"+countMinute+":"+countSecond);
+    $(".countdown").html(countHour+":"+countMinute+":"+countSecond);
     if(swS == 0 && swM == 0 && swH == 0) {
-        $(".timer").html("finished");
+        $(".countdown").html("finished");
         $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>')
         clearInterval(intervalId)
     }
 }
 // Resets countdown
 function resetCount() {
-    $(".timer").html("00:00:00");
+    $(".countdown").html("00:00:00");
     $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>');
     clearInterval(intervalId)
 }
