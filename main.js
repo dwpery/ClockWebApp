@@ -207,6 +207,21 @@ function pauseTimer() {
         $("#pauseLabel").html("pause");
     }
 }
+// Resets timer
+function stopTimer() {
+    if(timerState == false) {
+        clearInterval(timerLoop)
+        $(".timer").html("00:00:00")
+        ts = 0;
+        tm = 0;
+        th = 0;
+        $("#start-container").html('<div id="startTimer" onclick="startTimer()"><div id="startLabel">start</div></div>');
+        timerState = true;
+        $("#pauseLabel").html("pause");
+    } else if(timerState == true) {
+        alertBox("timer must be paused to reset");
+    }
+}
 // Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
