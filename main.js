@@ -13,6 +13,7 @@ var isClock = true; // true = Clock Pannel is on, false = Clock Pannel is off
 var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
 var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
 var isAlertClosed = true; // true = Yes, false = No
+var timerState = true; // true = Playing, false = Paused
 // Controls clock logic
 setInterval(function() {
      var today = new Date(); 
