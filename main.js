@@ -167,7 +167,7 @@ function startTimer() {
     tm = 0;
     th = 0;
     $("#start-container").html('<div id="startTimer" onclick="stopTimer()"><div id="startLabel">stop</div></div>')
-    intervalId = setInterval(timer, 1000);
+    timerLoop = setInterval(timer, 1000);
 }
 // Timer function
 function timer() {
