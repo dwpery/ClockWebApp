@@ -358,3 +358,13 @@ label:hover { cursor: pointer; }
     cursor: pointer;
     background-color: #B3B3B3;
 }
+
+#alarmList {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 75vh;
+    width: 80vw;
+    background-color: #D3D3D3;
+}
