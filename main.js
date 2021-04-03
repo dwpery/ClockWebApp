@@ -276,11 +276,13 @@ function slide() {
 function showCountdown() {
     $("#container2").show();
     $("#container3").hide();
+    $(".countdown").show();
 }
 // Opens Timer sub-menu
 function showTimer() {
     $("#container2").hide();
     $("#container3").show();
+    $(".countdown").hide);
 }
 // Changes clock mode between 24 hour  and 12 hour
 function hrCntrl() {
