@@ -164,6 +164,12 @@ function alertBox(x) {
     $("#alertBox").hide();
     $("#message").html(x); // Sets text to string inputed in function
     $("#alertBox").slideToggle(500);
+    // Closes Alert automatically after 5 seconds
+    setTimeout(function() {
+        if(isAlertClosed == false) {
+            $("#alertBox").slideToggle(500);
+        }
+    },5000)
 }
 // Hides the UI elements when the site loads
 $(document).ready(function() {
@@ -250,6 +256,7 @@ function dfCntrl() {
     $("#container").slideToggle(500); // Closes alert messages
   }
 }
+// Changes current language
 function chngLang() {
     alertBox("different languages coming in next update");
     $("#container").slideToggle(500); 
