@@ -170,7 +170,9 @@ function startTimer() {
 }
 // Timer function
 function timer() {
-    ts += value;
+    if(timerState === true) {
+        ts+=value;
+    } 
     if(ts >= 60) {
         ts = 0;
         tm += 1;
