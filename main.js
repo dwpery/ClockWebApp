@@ -192,6 +192,12 @@ function slide() {
 // Opens countdown sub menu
 function showCountdown() {
     $("#container2").show();
+    $("#container3").hide();
+}
+// Opens timer sub menu
+function showTimer() {
+    $("#container2").hide();
+    $("#container3").show();
 }
 // Changes clock mode between 24 hour  and 12 hour
 function hrCntrl() {
@@ -265,6 +271,7 @@ function timerPannel() {
     $("#clockPannel").hide();
     $("#timerPannel").show();
     $("#alarmPannel").hide();
+    $(".timer").html("00:00:00");
     alertBox("timer pannel");
     isTimer = true;
     isClock = false;
