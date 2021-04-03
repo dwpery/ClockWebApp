@@ -295,6 +295,7 @@ label:hover { cursor: pointer; }
     height: 7vh;
     font-size: 7vh;
     border: none;
+    outline: none;
     width: 9.4vh;
     text-align: center;
     background-color: #D3D3D3;
