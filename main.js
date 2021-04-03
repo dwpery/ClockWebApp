@@ -12,6 +12,7 @@ var year = true; // true = yyyy, false = yy
 var isClock = true; // true = Clock Pannel is on, false = Clock Pannel is off
 var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
 var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
+var isAlertClosed = true; // true = Yes, false = No
 // Controls clock logic
 setInterval(function() {
      var today = new Date(); 
@@ -162,8 +163,10 @@ function resetCount() {
 //Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
-    $("#message").html(x); // Sets text to string inputed in function
+    // Sets text to string inputed
+    $("#message").html(x);
     $("#alertBox").slideToggle(500);
+    isAlertClosed = false;
     // Closes Alert automatically after 5 seconds
     setTimeout(function() {
         if(isAlertClosed == false) {
@@ -175,10 +178,8 @@ function alertBox(x) {
 $(document).ready(function() {
     $("#container").hide(); // Hides Menu on load
     $("#alertBox").hide(); // Hides Alert on load
-    // Hides closed pannels
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
-    // Hides sub pannels
     $("#container2").hide();
     // Gets users timezone
     var tza = () => { 
@@ -195,12 +196,12 @@ $(document).ready(function() {
 function slide() {
     $("#container").slideToggle(500);
 }
-// Opens countdown sub menu
+// Opens Countdown sub-menu
 function showCountdown() {
     $("#container2").show();
     $("#container3").hide();
 }
-// Opens timer sub menu
+// Opens Timer sub-menu
 function showTimer() {
     $("#container2").hide();
     $("#container3").show();
@@ -226,7 +227,8 @@ function hrCntrl() {
 }
 // Closes Alert box when X is pressed
 function closeMessage() {
-  $("#alertBox").slideToggle(500); // Closes alert message
+  $("#alertBox").slideToggle(500);
+  isAlertClosed = true;
 }
 // Changes clock mode between real and false
 function systemClock() {
