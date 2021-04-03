@@ -330,3 +330,25 @@ label:hover { cursor: pointer; }
     font-weight: bolder;
 }
 #reset {left:-2%;}
+
+#startTimer,#lap {
+    position: fixed;
+    left: 42.5%;
+    top: 50%;
+    transform: translate(-50%,120%);
+    height: 8.5vh;
+    width: 8.5vh;
+    border-radius: 50%;
+    background-color: #D3D3D3;
+}
+#lap {left: 57.5%;}
+
+#startLabel,#lapLabel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bolder;
+    font-size: 2vh;
+    color: #000;
+}
