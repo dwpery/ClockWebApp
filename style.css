@@ -377,3 +377,19 @@ label:hover { cursor: pointer; }
     color: #000;
 }
 #remove {right: 0;}
+
+#mTimerLabel,#sTimerLabel,#hTimerLabel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 175%);
+    font-size: 3vh;
+    font-weight: bolder;
+    text-align: center;
+}
+#hTimerLabel {
+    transform: translate(-247.5%, 175%);
+}
+#sTimerLabel {
+    transform: translate(92.5%, 175%);
+}
