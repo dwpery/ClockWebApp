@@ -193,6 +193,16 @@ function timer() {
     }
     $(".timer").html(timerHour+":"+timerMinute+":"+timerSecond)
 }
+// Play / Pause timer
+function pauseTimer() {
+    if(timerState === true) {
+        timerState = false;
+        $("#pauseLabel").html("play");
+    } else if(timerState === false) {
+        timerState = true;
+        $("#pauseLabel").html("pause");
+    }
+}
 // Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
