@@ -320,20 +320,6 @@ function stopTimer() {
         alertBox("timer must be paused to reset");
     }
 }
-// Sorts out Alerts
-function alertBox(x) {
-    $("#alertBox").hide();
-    // Sets text to string inputed
-    $("#message").html(x);
-    $("#alertBox").slideToggle(500);
-    isAlertClosed = false;
-    // Closes Alert automatically after 5 seconds
-    setTimeout(function() {
-        if(isAlertClosed == false) {
-            $("#alertBox").slideToggle(500);
-        }
-    },5000)
-}
 //Sorts out Alerts
 function alertBox(x) {
     $("#alertBox").hide();
