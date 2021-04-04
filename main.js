@@ -14,6 +14,9 @@ var isTimer = false; // true = Timer Pannel is on, false = Timer Pannel is off
 var isAlarm = false; // true = Alarm Pannel is on, false = Alarm Pannel is off
 var isAlertClosed = true; // true = Yes, false = No
 var timerState = true; // true = Playing, false = Paused
+var ctx; // Used for drawring analog clock
+var date; // Used to get info for the analog clock
+var size = 95; // Represents size of analog clock
 // Controls clock logic
 setInterval(function() {
      var today = new Date(); 
