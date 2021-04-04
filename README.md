@@ -20,7 +20,7 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 ## How often are updates released?
 
-Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstavvle and we recommend you do not add them to your OS or Website. We are working on a feature coming out in 1.1.2 that will alert you if there is anew update available in the app itself instead of through GitHub
+Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstable and we recommend you do not add them to your OS or Website but just use them to get an idea as to what is coming next. We are working on a feature coming out in 1.1.2 that will alert you if there is a new update available in the app itself instead of through GitHub
 
 Exciting news! After a long delay v1.1.0 is releasing April 5th and is amazing, it's filled with features and updates such as:
 1. A timer
