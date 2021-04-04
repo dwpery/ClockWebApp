@@ -393,3 +393,10 @@ label:hover { cursor: pointer; }
 #sTimerLabel {
     transform: translate(92.5%, 175%);
 }
+
+#analog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
