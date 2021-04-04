@@ -380,7 +380,7 @@ function showCountdown() {
 function showTimer() {
     $("#container2").hide();
     $("#container3").show();
-    $(".countdown").hide);
+    $(".countdown").hide();
 }
 // Changes clock mode between 24 hour  and 12 hour
 function hrCntrl() {
