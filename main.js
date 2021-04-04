@@ -355,6 +355,10 @@ $(document).ready(function() {
 function slide() {
     $("#container").slideToggle(500);
 }
+// Creates Alarms
+function createAlarm() {
+    
+}
 // Opens Countdown sub-menu
 function showCountdown() {
     $("#container2").show();
