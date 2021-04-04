@@ -113,7 +113,6 @@ function drawClock() {
     ctx.strokeStyle = '#3b3b3b';
     ctx.lineWidth = 10;
     ctx.stroke();
-    
     //draw the hour marks
     for (var i = 0; i < 12; i++) {
         var angle = (i - 3) * (Math.PI * 2) / 12;      
@@ -128,7 +127,6 @@ function drawClock() {
         ctx.strokeStyle = '#000';
         ctx.stroke();
     }
-
     //draw the second marks
     for (i = 0; i < 60; i++) {
         angle = (i - 3) * (Math.PI * 2) / 60;      
