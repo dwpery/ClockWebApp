@@ -29,7 +29,9 @@ Exciting news! After a long delay v1.1.0 is releasing April 5th and is amazing, 
 4. Revamped settings
 5. An analog clock along with the current digital one
 6. Completely new UI that looks amazing
+
 And there are some bug fixes / tweaks added as well:
+
 1. Alert Boxes will now close them selves after 5 seconds
 2. Fully resizable UI that works on all devices
 
