@@ -55,18 +55,20 @@
           <div id="reset" onclick="resetCount()">r<br>e<br>s<br>e<br>t</div>
       </div>
       <div id="container3">
-          <div id="startTimer">
-              <div id="startLabel">start</div>
+          <div id="digital">
+              <p id="display" class="timer">NaN</p>
+              <div id="hTimerLabel">hours</div>
+              <div id="mTimerLabel">minutes</div>
+              <div id="sTimerLabel">seconds</div>
+          </div>
+          <div id="start-container">
+              <div id="startTimer" onclick="startTimer()">
+                <div id="startLabel">start</div>
+              </div>
           </div>
           <div id="lap" onclick="pauseTimer()">
               <div id="pauseLabel">pause</div>
           </div>
-      </div>
-      <div id="digital">
-        <p id="display" class="timer">NaN</p>
-        <div id="hTimerLabel">hours</div>
-        <div id="mTimerLabel">minutes</div>
-        <div id="sTimerLabel">seconds</div>
       </div>
       <div id="switch">
           <div id="left" onclick="showTimer()">
