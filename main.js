@@ -357,7 +357,8 @@ function slide() {
 }
 // Creates Alarms
 function createAlarm() {
-    
+    alertBox("please do not use this as your main alarm");
+    $("#creationMenu").slideToggle(500) 
 }
 // Opens Countdown sub-menu
 function showCountdown() {
