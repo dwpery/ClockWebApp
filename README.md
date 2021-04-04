@@ -44,11 +44,10 @@ Download the most recent release from the GitHub page and copy the 'index.html',
 # Clock API
 
 This API has not yet been released
+| When is the release?             |
+| ----------------------------------
+| The API is releasing Summer 2021 |
 
 ## What is planned? 
 
 The Clock API will make it easier than ever before to implement clock related features into your Websites and OS' with easy to use syntax and availability in multiple different programming languages
-
-| When is the release?             |
-| ----------------------------------
-| The API is releasing Summer 2021 |
