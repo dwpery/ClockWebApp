@@ -338,8 +338,9 @@ $(document).ready(function() {
     $("#alertBox").hide(); // Hides Alert on load
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
-     $("#analog").hide();
+    $("#analog").hide();
     $("#container2").hide();
+    $("#creationMenu").hide();
     // Gets users timezone
     var tza = () => { 
         var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
