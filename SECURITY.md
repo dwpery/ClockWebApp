@@ -16,6 +16,7 @@ Clock App versions are supported 3 releases back, as soon as the release you hav
 | Version | Supported          |
 | ------- | ------------------ |
 | v1.0.0  | :white_check_mark: |
+| v1.1.0  | :white_check_mark: (Releasing April 5th)|
 
 ## Reporting a Vulnerability
 
