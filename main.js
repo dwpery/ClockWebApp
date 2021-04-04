@@ -382,6 +382,16 @@ function showTimer() {
     $("#container3").show();
     $(".countdown").hide();
 }
+// Opens Digital clock
+function showDigital() {
+    $(".dClock").show();
+    $("#analog").hide();
+}
+// Opens Analog clock
+function showAnalog() {
+    $(".dClock").hide();
+    $("#analog").show();
+}
 // Changes clock mode between 24 hour  and 12 hour
 function hrCntrl() {
   if (realTime === false) {
