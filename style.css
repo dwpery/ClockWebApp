@@ -378,6 +378,11 @@ label:hover { cursor: pointer; }
 }
 #remove {right: 0;}
 
+#add:hover,#remove:hover {
+    cursor: pointer;
+    background-color: #B3B3B3;
+}
+
 #mTimerLabel,#sTimerLabel,#hTimerLabel {
     position: absolute;
     top: 50%;
