@@ -50,4 +50,4 @@ This API has not yet been released
 
 ## What is planned? 
 
-The Clock API will make it easier than ever before to implement clock related features into your Websites and OS' with easy to use syntax and availability in multiple different programming languages
+The Clock API will make it easier than ever before to implement clock related features into your Websites and OS with easy to use syntax and availability in multiple different programming languages
