@@ -20,7 +20,18 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 ## How often are updates released?
 
-Every 3 months a new update is released but in between every update beta versions are released giving previews of what is to come in the next Update. We do not recommend putting beta versions in your OS unless you really want to as they can be unstabble and have bugs or glitches
+Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstavvle and we recommend you do not add them to your OS or Website. We are working on a feature coming out in 1.1.2 that will alert you if there is anew update available in the app itself instead of through GitHub
+
+Exciting news! After a long delay v1.1.0 is releasing April 5th and is amazing, it's filled with features and updates such as:
+1. A timer
+2. A stopwatch
+3. An alarm system
+4. Revamped settings
+5. An analog clock along with the current digital one
+6. Completely new UI that looks amazing
+And there are some bug fixes / tweaks added as well:
+1. Alert Boxes will now close them selves after 5 seconds
+2. Fully resizable UI that works on all devices
 
 Next Update: April 5th 2021
 
