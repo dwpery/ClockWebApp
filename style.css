@@ -438,7 +438,7 @@ input {
 
 #alarmListName {
     position: relative;
-    top: 3vh;
+    top: 1vh;
     font-size: 5vh;
     text-indent: 2vh;
     font-weight: bolder;
@@ -447,7 +447,7 @@ input {
 
 #alarmListDesc {
     position: relative;
-    top: 3.5vh;
+    top: 2.5vh;
     font-size: 2.5vh;
     text-indent: 2.5vh;
     font-weight: bolder;
