@@ -94,7 +94,8 @@ body {
     font-weight: bolder;
     text-indent: 2vw;
     text-decoration: underline;
-    margin-top: 3vw
+    margin-top: 3vw;
+    color: #000;
 }
 
 .btn {
