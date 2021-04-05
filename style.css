@@ -379,10 +379,11 @@ label:hover { cursor: pointer; }
 
 #add,#remove {
     position: absolute;
+    height: 2.5vh;
     font-size: 2.5vh;
     font-weight: bolder;
     color: #000;
-    transition: 0.5s;
+    transition: 0.75s;
 }
 #remove {right: 0;}
 
