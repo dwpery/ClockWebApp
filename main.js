@@ -361,6 +361,10 @@ function createAlarm() {
     alertBox("please do not use this as your main alarm");
     $("#creationMenu").slideToggle(500) 
 }
+// Closes alarm creation menu
+function closeAlarmList() {
+    $("#creationMenu").slideToggle(500);
+}
 // Opens Countdown sub-menu
 function showCountdown() {
     $("#container2").show();
