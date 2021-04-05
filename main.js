@@ -82,6 +82,8 @@ setInterval(function() {
             currentHours = 12;
         }
       }
+      // Checks alarms
+      checkAlarms();
       // Compose the string for display
       var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds;
       $("#display").html(currentTimeString);
