@@ -426,3 +426,21 @@ label:hover { cursor: pointer; }
     border: 0.5vh solid #000;
     border-radius: 15px;
 }
+
+input {
+    width: 25vh;
+    font-size: 3.5vh;
+    border: none;
+    outline: none;
+    text-indent: 1vh;
+    background-color: #D3D3D3;
+}
+
+#alarmListName {
+    position: relative;
+    top: 3vh;
+    font-size: 5vh;
+    text-indent: 2vh;
+    font-weight: bolder;
+    color: #000;
+}
