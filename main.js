@@ -374,6 +374,23 @@ function addList() {
     $("#alarmContainer").append('<div id="alarmListName">'+$("#alarmName").val()+'</div><div id="alarmListDesc">'+$("#alarmTime").val()+'</div>')
     amountOfAlarms++;
 }
+// Cycles through and checks alarms
+function checkAlarms() {
+    var newTime = new Date;
+    var newHours = newTime.getHours( );
+    if(newHours < 10) {
+        newHours = "0"+newHours;
+    }
+    var newMin = newTime.getMinutes( )
+    var newSecs = newTime.getSeconds( )
+    var currentTime = newHours + ":" + newMin
+    for(i = 0; i < amountOfAlarms; i++) {
+        if(currentTime == alarmDescrContainer[i] && newSecs == "00") {
+            alert("alarm finished");
+            seen = true;
+        }
+    }
+}
 // Opens Countdown sub-menu
 function showCountdown() {
     $("#container2").show();
