@@ -85,6 +85,15 @@
             <div id="remove">-remove</div>
             <div id="alarmContainer"></div>
         </div>
+        <div id="creationMenu">
+            <div id="exitAlarm" onclick="closeAlarmList()">x</div>
+            <div id="subheading">alarm</div>
+            <div id="set">name:</div>
+            <input type="text" id="alarmName">
+            <div id="set">time:</div>
+            <input type="time" id="alarmTime">
+            <div id="createButton" onclick="addList()">create</div>
+        </div>
     </div>
     <div id="alertBox">
       <p id="message"></p>
