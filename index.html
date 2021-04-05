@@ -8,7 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
-  <body onload="start()>
+  <body onload="start()">
     <div id="menu">
         <div id="cpSettings">
           <div id="settings" onclick="slide()">settings</div>
@@ -81,8 +81,8 @@
     </div>
     <div id="alarmPannel">
         <div id="alarmList">
-            <div id="add" onclick="createAlarm()">add+</div> 
-            <div id="remove">-remove</div>
+            <div id="add" onclick="createAlarm()">add+</div>
+            <div id="remove">-remove</div>   
             <div id="alarmContainer"></div>
         </div>
         <div id="creationMenu">
@@ -113,6 +113,8 @@
             <div id="setbutton" onclick="chngLang()">eng</div>
             <div id="set">faq</div>
             <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/README.md'">view</div>
+            <div id="set">github repository</div>
+            <div id="setbutton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/README.md'">open</div>
         </div>
         <div id="clockSettings">
             <div id="subheading">clock pannel</div>
@@ -123,9 +125,7 @@
             <div id="set">system clock</div>
             <div id="setbutton" class="scbutton" onclick="systemClock()">off</div>
             <div id="set">time zone</div>
-            <div id="setbutton" class="tzbutton" onclick="tZone()"></div>
-            <div id="set">github repository</div>
-            <div id="setbutton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/README.md'">open</div>
+            <div id="setbutton" class="tzbutton"></div>
         </div>
         <div id="buildInfo">
             <br><hr>
