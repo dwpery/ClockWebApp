@@ -365,6 +365,15 @@ function createAlarm() {
 function closeAlarmList() {
     $("#creationMenu").slideToggle(500);
 }
+// Add list to Alarm list
+function addList() {
+    closeAlarmList();
+    alarmNamesContainer[amountOfAlarms] = $("#alarmName").val();
+    alarmDescrContainer[amountOfAlarms] = $("#alarmTime").val();
+    alertBox("new alarm created");
+    $("#alarmContainer").append('<div id="alarmListName">'+$("#alarmName").val()+'</div><div id="alarmListDesc">'+$("#alarmTime").val()+'</div>')
+    amountOfAlarms++;
+}
 // Opens Countdown sub-menu
 function showCountdown() {
     $("#container2").show();
