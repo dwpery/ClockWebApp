@@ -264,9 +264,9 @@ function resetCount() {
 }
 // Starts Timer 
 function startTimer() {
-    ts = 0;
-    tm = 0;
     th = 0;
+    tm = 0;
+    ts = 0;
     $("#start-container").html('<div id="startTimer" onclick="stopTimer()"><div id="startLabel">stop</div></div>')
     timerLoop = setInterval(timer, 1000);
 }
