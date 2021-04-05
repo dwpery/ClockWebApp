@@ -414,3 +414,15 @@ label:hover { cursor: pointer; }
     top: 50%;
     transform: translate(-50%,-50%);
 }
+
+#creationMenu {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 40vh;
+    width: 25vh;
+    background-color: #B3B3B3;
+    border: 0.5vh solid #000;
+    border-radius: 15px;
+}
