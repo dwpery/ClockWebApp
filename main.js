@@ -97,7 +97,7 @@ function start() {
     //call the function every second
     setInterval(showTime, 1000);
 }
-function showTime()  {
+function showTime() {
     //clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //get the date
@@ -267,14 +267,14 @@ function startTimer() {
     th = 0;
     tm = 0;
     ts = 0;
-    $("#start-container").html('<div id="startTimer" onclick="stopTimer()"><div id="startLabel">stop</div></div>')
+    $("#start-container").html('<div id="startTimer" onclick="stopTimer()"><div id="startLabel">reset</div></div>')
     timerLoop = setInterval(timer, 1000);
 }
 // Timer function
 function timer() {
-    if(timerState === true) {
+    if(timerState == true) {
         ts+=value;
-    } 
+    }
     if(ts >= 60) {
         ts = 0;
         tm += 1;
@@ -363,8 +363,7 @@ function slide() {
 }
 // Creates Alarms
 function createAlarm() {
-    alertBox("please do not use this as your main alarm");
-    $("#creationMenu").slideToggle(500) 
+    $("#creationMenu").slideToggle(500)
 }
 // Closes alarm creation menu
 function closeAlarmList() {
@@ -459,15 +458,15 @@ function systemClock() {
 // Changes date format
 function dfCntrl() {
     if (dateFormat === false) {
-    dateFormat = true; // Changes format
-    $(".dfbutton").html("m/d"); // Changes text on button
-    alertBox("date format has changed")
-    $("#container").slideToggle(500); // Closes alert messages
-  } else if (dateFormat === true) {
-    dateFormat = false; // Changes format
-    $(".dfbutton").html("d/m"); // Changes text on button
-    alertBox("date format has changed");
-    $("#container").slideToggle(500); // Closes alert messages
+        dateFormat = true;
+        $(".dfbutton").html("m/d");
+        alertBox("date format has changed")
+        $("#container").slideToggle(500);
+    } else if (dateFormat === true) {
+        dateFormat = false;
+        $(".dfbutton").html("d/m");
+        alertBox("date format has changed");
+        $("#container").slideToggle(500);
   }
 }
 // Changes current language
@@ -481,6 +480,7 @@ function clockPannel() {
     $("#clockPannel").show();
     $("#timerPannel").hide();
     $("#alarmPannel").hide();
+    $("#analog").hide();
     alertBox("clock pannel");
     isClock = true;
     isTimer = false;
