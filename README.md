@@ -1,5 +1,9 @@
 # Clock Web App
 
+# v1.1.0 is here!
+
+After a long wait the update has finally dropped, download the new release to see all the new updates that have been added!
+
 ## What is Clock Web App?
 
 Clock App is an Open Source web app developed for beign used in Web based OS. It is powerful and feature rich giving consumers and developers a good experience with intuitive UI. Code is formatted clearly and commented to allow developers to make changes and edit the code to fit with their OS.
@@ -22,20 +26,7 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstable and we recommend you do not add them to your OS or Website but just use them to get an idea as to what is coming next. I am working on a feature coming out in 1.1.2 that will alert you if there is a new update available in the app itself instead of through GitHub
 
-Exciting news! After a long delay v1.1.0 is releasing April 5th and is amazing, it's filled with features and updates such as:
-1. A timer
-2. A stopwatch
-3. An alarm system
-4. Revamped settings
-5. An analog clock along with the current digital one
-6. Completely new UI that looks amazing
-
-And there are some bug fixes / tweaks added as well:
-
-1. Alert Boxes will now close them selves after 5 seconds
-2. Fully resizable UI that works on all devices
-
-Next Update: April 5th 2021
+Next Update: TBA (To Be Announced)
 
 ## How can I use Clock Web App in my OS / website?
 
