@@ -445,7 +445,7 @@ input {
 
 #alarmListName {
     position: relative;
-    top: 1.25vh;
+    top: 2vh;
     font-size: 5vh;
     text-indent: 2vh;
     font-weight: bolder;
