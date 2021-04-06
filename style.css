@@ -79,7 +79,7 @@ body {
 }
 #exitAlarm {font-size: 3.5vh; color: #000;}
 
-#exit:hover,#close:hover {
+#exit:hover,#close:hover#exitAlarm:hover {
     color: gray;
     cursor: pointer;
 }
