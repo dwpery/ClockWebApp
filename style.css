@@ -79,7 +79,7 @@ body {
 }
 #exitAlarm {font-size: 3.5vh; color: #000;}
 
-#exit:hover,#close:hover#exitAlarm:hover {
+#exit:hover,#close:hover,#exitAlarm:hover {
     color: gray;
     cursor: pointer;
 }
@@ -445,7 +445,7 @@ input {
 
 #alarmListName {
     position: relative;
-    top: 1vh;
+    top: 1.25vh;
     font-size: 5vh;
     text-indent: 2vh;
     font-weight: bolder;
