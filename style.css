@@ -427,7 +427,7 @@ label:hover { cursor: pointer; }
     border-radius: 15px;
 }
 
-input {
+#alarmName,#alarmTime {
     width: 25vh;
     font-size: 3.5vh;
     border: none;
