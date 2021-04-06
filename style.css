@@ -436,6 +436,13 @@ input {
     background-color: #D3D3D3;
 }
 
+#alarmLabel {
+    font-size: 3vh;
+    margin-top: 0.75vh;
+    margin-bottom: 0.75vh;
+    color: #000;
+}
+
 #alarmListName {
     position: relative;
     top: 1vh;
