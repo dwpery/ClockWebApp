@@ -21,6 +21,26 @@ var amountOfAlarms = 0; // Holds current amount of alarms
 var alarmNamesContainer = new Array; // Holds alarm names
 var alarmDescrContainer = new Array; // Holds alarm descriptions
 var secHandColour = '#0000FF';
+// Hides the UI elements when the site loads
+$(document).ready(function() {
+    $("#container").hide(); // Hides Menu on load
+    $("#alertBox").hide(); // Hides Alert on load
+    $("#timerPannel").hide();
+    $("#alarmPannel").hide();
+    $("#analog").hide();
+    $("#container2").hide();
+    $("#creationMenu").hide();
+    // Gets users timezone
+    var tza = () => { 
+        var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
+        if (tz.includes(" ")) { 
+            return tz .split(" ") .map(([first]) => first) .join("");
+        } else { 
+            return tz; 
+        } 
+    }
+    $(".tzbutton").html(tza);
+});
 // Controls clock logic
 setInterval(function() {
      var today = new Date(); 
@@ -338,26 +358,6 @@ function alertBox(x) {
         }
     },5000)
 }
-// Hides the UI elements when the site loads
-$(document).ready(function() {
-    $("#container").hide(); // Hides Menu on load
-    $("#alertBox").hide(); // Hides Alert on load
-    $("#timerPannel").hide();
-    $("#alarmPannel").hide();
-    $("#analog").hide();
-    $("#container2").hide();
-    $("#creationMenu").hide();
-    // Gets users timezone
-    var tza = () => { 
-        var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
-        if (tz.includes(" ")) { 
-            return tz .split(" ") .map(([first]) => first) .join("");
-        } else { 
-            return tz; 
-        } 
-    }
-    $(".tzbutton").html(tza);
-});
 // Activates the sliding for menu UI
 function slide() {
     $("#container").slideToggle(500);
