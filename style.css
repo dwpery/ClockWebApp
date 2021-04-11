@@ -434,7 +434,7 @@ label:hover { cursor: pointer; }
 }
 
 #alarmName,#alarmTime {
-    width: 25vh;
+    width: 24.25vh;
     font-size: 3.5vh;
     border: none;
     outline: none;
