@@ -393,9 +393,12 @@ function checkAlarms() {
     for(i = 0; i < amountOfAlarms; i++) {
         if(currentTime == alarmDescrContainer[i] && newSecs == "00") {
             alert("alarm finished");
-            seen = true;
         }
     }
+}
+function channelInfo() {
+    alertBox("your channel depends on your edition");
+    $("#container").slideToggle(500);
 }
 // Opens Countdown sub-menu
 function showCountdown() {
