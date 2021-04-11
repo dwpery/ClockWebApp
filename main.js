@@ -182,12 +182,12 @@ function showSeconds() {
 }
 function showMinutes() {
     var min = date.getMinutes();
-    var angle = ((Math.PI * 2) * (min / 60)) - ((Math.PI * 2) / 4);
+    minAngle = ((Math.PI * 2) * (min / 60)) - ((Math.PI * 2) / 4 + (secAngle / 60));
     ctx.lineWidth = 4;             
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2, canvas.height / 2);  
-    ctx.lineTo((canvas.width / 2 + Math.cos(angle) * size / 1.1),      
-    canvas.height / 2 + Math.sin(angle) * size / 1.1);
+    ctx.lineTo((canvas.width / 2 + Math.cos(minAngle) * size / 1.1),      
+    canvas.height / 2 + Math.sin(minAngle) * size / 1.1);
     ctx.strokeStyle = '#000'; 
     ctx.stroke();
 }
