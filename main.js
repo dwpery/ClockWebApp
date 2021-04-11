@@ -164,7 +164,7 @@ function drawClock() {
         y2 = (canvas.height / 2) + Math.sin(angle) * (size - (size / 30));
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
-        ctx.strokeStyle = '#000';
+        ctx.strokeStyle = '#808080';
         ctx.stroke();
     }
 }
