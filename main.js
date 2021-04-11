@@ -170,13 +170,13 @@ function drawClock() {
 }
 function showSeconds() {
     var sec = date.getSeconds();
-    var angle = ((Math.PI * 2) * (sec / 60)) - ((Math.PI * 2) / 4);
+    secAngle = ((Math.PI * 2) * (sec / 60)) - ((Math.PI * 2) / 4);
     ctx.lineWidth = 2;             
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2, canvas.height / 2);   
-    ctx.lineTo((canvas.width / 2 + Math.cos(angle) * size), canvas.height / 2 + Math.sin(angle) * size);
+    ctx.lineTo((canvas.width / 2 + Math.cos(secAngle) * size), canvas.height / 2 + Math.sin(secAngle) * size);
     ctx.moveTo(canvas.width / 2, canvas.height / 2);   
-    ctx.lineTo((canvas.width / 2 - Math.cos(angle) * 20), canvas.height / 2 - Math.sin(angle) * 20);
+    ctx.lineTo((canvas.width / 2 - Math.cos(secAngle) * 20), canvas.height / 2 - Math.sin(secAngle) * 20);
     ctx.strokeStyle = '#e10600';       
     ctx.stroke();
 }
