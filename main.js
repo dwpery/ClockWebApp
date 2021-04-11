@@ -21,7 +21,7 @@ var amountOfAlarms = 0; // Holds current amount of alarms
 var alarmNamesContainer = new Array; // Holds alarm names
 var alarmDescrContainer = new Array; // Holds alarm descriptions
 var secHandColour = '#0000FF';
-// Hides the UI elements when the site loads
+// Functions execute when page loads
 $(document).ready(function() {
     $("#container").hide(); // Hides Menu on load
     $("#alertBox").hide(); // Hides Alert on load
@@ -30,6 +30,10 @@ $(document).ready(function() {
     $("#analog").hide();
     $("#container2").hide();
     $("#creationMenu").hide();
+    // Adjusts analog clock size
+    if(screen.width >= 800) {
+        size = 115;
+    }
     // Gets users timezone
     var tza = () => { 
         var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
