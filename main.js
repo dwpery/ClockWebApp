@@ -183,7 +183,7 @@ function showSeconds() {
 function showMinutes() {
     var min = date.getMinutes();
     minAngle = ((Math.PI * 2) * (min / 60)) - ((Math.PI * 2) / 4 + (secAngle / 60));
-    ctx.lineWidth = 4;             
+    ctx.lineWidth = 3;             
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2, canvas.height / 2);  
     ctx.lineTo((canvas.width / 2 + Math.cos(minAngle) * size / 1.1),      
@@ -195,7 +195,7 @@ function showHours() {
     var hour = date.getHours();
     var min = date.getMinutes();
     var angle = ((Math.PI * 2) * ((hour * 5 + (min / 60) * 5) / 60)) - ((Math.PI * 2) / 4);
-    ctx.lineWidth = 6;           
+    ctx.lineWidth = 4;           
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2, canvas.height / 2);     
     ctx.lineTo((canvas.width / 2 + Math.cos(angle) * size / 1.5),      
