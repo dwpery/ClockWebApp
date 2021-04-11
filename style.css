@@ -239,7 +239,7 @@ body {
 
 #setbutton:hover { cursor: pointer; }
 
-#setbutton,#createButton {
+#setbutton,#createButton,#colourChange {
    margin-left: 82.5vw;
    margin-top: -3vh;
    color: #282828;
@@ -255,6 +255,12 @@ body {
     margin-left: 5vh;
     margin-top: 1.25vh;
     width: 15vh;
+}
+#colourChange {	
+   position: relative;
+   top: -3vh;
+   width: 11.5vw;
+   background-color: #D3D3D3;
 }
 
 #setbutton:hover,#createButton:hover {
