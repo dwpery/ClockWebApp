@@ -361,6 +361,7 @@ function alertBox(x) {
 // Activates the sliding for menu UI
 function slide() {
     $("#container").slideToggle(500);
+    secHandColour = $("#colourChange").val()
 }
 // Creates Alarms
 function createAlarm() {
