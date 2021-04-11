@@ -16,7 +16,7 @@ var isAlertClosed = true; // true = Yes, false = No
 var timerState = true; // true = Playing, false = Paused
 var ctx; // Used for drawring analog clock
 var date; // Used to get info for the analog clock
-var size = 95; // Represents size of analog clock
+var size = 80; // Represents size of analog clock
 var amountOfAlarms = 0; // Holds current amount of alarms
 var alarmNamesContainer = new Array; // Holds alarm names
 var alarmDescrContainer = new Array; // Holds alarm descriptions
