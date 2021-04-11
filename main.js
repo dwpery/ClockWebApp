@@ -134,10 +134,10 @@ function drawClock() {
     //draw the frame
     ctx.beginPath();
     ctx.arc(canvas.width / 2, canvas.height / 2, size + 7, 0, Math.PI * 2);
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = "#fff"; // Face Colour
     ctx.fill();
-    ctx.strokeStyle = '#3b3b3b';
-    ctx.lineWidth = 10;
+    ctx.strokeStyle = '#3b3b3b'; // Border Colour
+    ctx.lineWidth = 6; // Border Width
     ctx.stroke();
     //draw the hour marks
     for (var i = 0; i < 12; i++) {
