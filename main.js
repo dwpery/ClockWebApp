@@ -177,7 +177,7 @@ function showSeconds() {
     ctx.lineTo((canvas.width / 2 + Math.cos(secAngle) * size), canvas.height / 2 + Math.sin(secAngle) * size);
     ctx.moveTo(canvas.width / 2, canvas.height / 2);   
     ctx.lineTo((canvas.width / 2 - Math.cos(secAngle) * 20), canvas.height / 2 - Math.sin(secAngle) * 20);
-    ctx.strokeStyle = '#e10600';       
+    ctx.strokeStyle = secHandColour;       
     ctx.stroke();
 }
 function showMinutes() {
