@@ -256,14 +256,14 @@ body {
     margin-top: 1.25vh;
     width: 15vh;
 }
-#colourChange {	
+#colourChange {
    position: relative;
    top: -3vh;
    width: 11.5vw;
    background-color: #D3D3D3;
 }
 
-#setbutton:hover,#createButton:hover {
+#setbutton:hover,#createButton:hover,#colourChange:hover {
     cursor: pointer;
     color: #FFF;
     border-color: #FFF;
