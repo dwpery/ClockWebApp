@@ -1,16 +1,44 @@
 // Define language reload anchors
 var dataReload = document.querySelectorAll("[reload]");
 
-// Language Translations (Eng,Es,Fr)
+// Word Translations (Eng,Es,Fr)
 var languages = {
   eng: {
     settings: "settings",
     timer: "timer",
     clock: "clock",
     alarm: "alarm",
-    digital: "",
-    analog: "",
-    
+    digital: "digital",
+    analog: "analog",
+    timer: "timer",
+    countdown: "countdown",
+    hours: "hours",
+    minutes: "minutes",
+    seconds: "seconds",
+    start: "start",
+    pause: "pause",
+    reset: "reset",
+    play: "play",
+    add: "add",
+    name: "name",
+    time: "time",
+    create: "create",
+    view: "view",
+    open: "open",
+    on: "on",
+    off: "off",
+    general: "general",
+    privacy_policy: "privacy policy",
+    language: "language",
+    github_repository: "faq",
+    codepen_edition: "codepen edition",
+    channel: "channel",
+    clock_pannel: "clock pannel",
+    clock_mode: "24 hour clock",
+    date_format: "day & month format",
+    system_clock: "system clock",
+    time_zone: "time zone",
+    second_hand_colour: "second hand colour";
   },
   es: {
     settings: "ajustes",
