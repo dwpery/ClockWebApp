@@ -37,7 +37,7 @@ var languages = {
     date_format: "day & month format",
     system_clock: "system clock",
     time_zone: "time zone",
-    second_hand_colour: "second hand colour";
+    second_hand_colour: "second hand colour"
   },
   es: {
     settings: "ajustes",
@@ -80,6 +80,36 @@ var languages = {
     timer:  "minuteur",
     clock: "l'horloge",
     alarm: "alarma",
+    digital: "numérique",
+    analog: "analogique",
+    countdown: "compte à rebours",
+    hours: "heures",
+    minutes: "minutes",
+    seconds: "seconds",
+    start: "démarrer",
+    pause: "pause",
+    reset: "réinitialiser",
+    play: "jouer",
+    add: "ajouter",
+    name: "nom",
+    time: "temps",
+    create: "créer",
+    view: "vue",
+    open: "ouvert",
+    on: "au",
+    off: "désactivé",
+    general: "général",
+    privacy_policy: "politique de confidentialité",
+    language: "langue",
+    github_repository: "faq",
+    codepen_edition: "codepen édition",
+    channel: "canal",
+    clock_pannel: "panneau d'horloge",
+    clock_mode: "Horloge de 24 heures",
+    date_format: "format jour et mois",
+    system_clock: "horloge système",
+    time_zone: "fuseau horaire",
+    second_hand_colour: "couleur de seconde main"
   }
 }
 
