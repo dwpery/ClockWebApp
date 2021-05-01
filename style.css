@@ -431,6 +431,7 @@ label:hover { cursor: pointer; }
     background-color: #B3B3B3;
     border: 0.5vh solid #000;
     border-radius: 15px;
+    overflow: scroll;
 }
 #languageList {height: 12.5vh;}
 
@@ -441,6 +442,11 @@ a {
   text-decoration: none;
   text-align: center;
   display: block;
+  transition: 0.5s;
+}
+a:hover {
+  cursor: pointer;
+  color: #FFF;
 }
 
 #alarmName,#alarmTime {
