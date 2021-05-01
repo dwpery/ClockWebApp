@@ -114,8 +114,8 @@ var languages = {
 }
 
 // Opens language change menu
-function languageChage() {
-  
+function languageChange() {
+  $(".cm2").toggle(500);
 }
 
 // Define language via window hash
