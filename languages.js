@@ -70,10 +70,10 @@ var languages = {
     channel: "canal",
     clock_pannel: "panel de reloj",
     clock_mode: "24 reloj de la hora",
-    date_format: "day & month format",
-    system_clock: "system clock",
-    time_zone: "time zone",
-    second_hand_colour: "second hand colour";
+    date_format: "formato de día y mes",
+    system_clock: "reloj del sistema",
+    time_zone: "zona horaria",
+    second_hand_colour: "color de segunda mano"
   },
   fr: {
     settings: "paramètres",
