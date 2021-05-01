@@ -7,17 +7,22 @@ var languages = {
     settings: "settings",
     timer: "timer",
     clock: "clock",
-    alarm: "alarm"
+    alarm: "alarm",
+    digital: "",
+    analog: "",
+    
   },
   es: {
     settings: "ajustes",
     timer: "temporizador",
-    clock: "",
+    clock: "reloj",
+    alarm: "alarme",
   },
   fr: {
     settings: "paramètres",
     timer:  "minuteur",
-    clock: "",
+    clock: "l'horloge",
+    alarm: "alarma",
   }
 }
 
