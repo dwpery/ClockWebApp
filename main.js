@@ -35,20 +35,20 @@ $(document).ready(function() {
         size = 115;
     }
     // Gets users timezone
-    var tza = () => { 
-        var { 1: tz } = new Date().toString().match(/\((.+)\)/); 
-        if (tz.includes(" ")) { 
+    var tza = () => {
+        var { 1: tz } = new Date().toString().match(/\((.+)\)/);
+        if (tz.includes(" ")) {
             return tz .split(" ") .map(([first]) => first) .join("");
-        } else { 
-            return tz; 
-        } 
+        } else {
+            return tz;
+        }
     }
     $(".tzbutton").html(tza);
 });
 // Controls clock logic
 setInterval(function() {
-     var today = new Date(); 
-     var dd = String(today.getDate()).padStart(2, '0'); 
+     var today = new Date();
+     var dd = String(today.getDate()).padStart(2, '0');
      var mm = String(today.getMonth() + 1).padStart(2, '0');
      var yyyy = today.getFullYear();
      if(dateFormat === false) {
@@ -145,8 +145,8 @@ function drawClock() {
     ctx.stroke();
     //draw the hour marks
     for (var i = 0; i < 12; i++) {
-        var angle = (i - 3) * (Math.PI * 2) / 12;      
-        ctx.lineWidth = 2;            
+        var angle = (i - 3) * (Math.PI * 2) / 12;
+        ctx.lineWidth = 2;
         ctx.beginPath();
         var x1 = (canvas.width / 2) + Math.cos(angle) * (size);
         var y1 = (canvas.height / 2) + Math.sin(angle) * (size);
@@ -159,8 +159,8 @@ function drawClock() {
     }
     //draw the second marks
     for (i = 0; i < 60; i++) {
-        angle = (i - 3) * (Math.PI * 2) / 60;      
-        ctx.lineWidth = 1;           
+        angle = (i - 3) * (Math.PI * 2) / 60;
+        ctx.lineWidth = 1;
         ctx.beginPath();
         x1 = (canvas.width / 2) + Math.cos(angle) * (size);
         y1 = (canvas.height / 2) + Math.sin(angle) * (size);
@@ -175,36 +175,36 @@ function drawClock() {
 function showSeconds() {
     var sec = date.getSeconds();
     secAngle = ((Math.PI * 2) * (sec / 60)) - ((Math.PI * 2) / 4);
-    ctx.lineWidth = 2;             
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, canvas.height / 2);   
+    ctx.moveTo(canvas.width / 2, canvas.height / 2);
     ctx.lineTo((canvas.width / 2 + Math.cos(secAngle) * size), canvas.height / 2 + Math.sin(secAngle) * size);
-    ctx.moveTo(canvas.width / 2, canvas.height / 2);   
+    ctx.moveTo(canvas.width / 2, canvas.height / 2);
     ctx.lineTo((canvas.width / 2 - Math.cos(secAngle) * 20), canvas.height / 2 - Math.sin(secAngle) * 20);
-    ctx.strokeStyle = secHandColour;       
+    ctx.strokeStyle = secHandColour;
     ctx.stroke();
 }
 function showMinutes() {
     var min = date.getMinutes();
     minAngle = ((Math.PI * 2) * (min / 60)) - ((Math.PI * 2) / 4 + (secAngle / 60));
-    ctx.lineWidth = 3;             
+    ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, canvas.height / 2);  
-    ctx.lineTo((canvas.width / 2 + Math.cos(minAngle) * size / 1.1),      
+    ctx.moveTo(canvas.width / 2, canvas.height / 2);
+    ctx.lineTo((canvas.width / 2 + Math.cos(minAngle) * size / 1.1),
     canvas.height / 2 + Math.sin(minAngle) * size / 1.1);
-    ctx.strokeStyle = '#000'; 
+    ctx.strokeStyle = '#000';
     ctx.stroke();
 }
 function showHours() {
     var hour = date.getHours();
     var min = date.getMinutes();
     var angle = ((Math.PI * 2) * ((hour * 5 + (min / 60) * 5) / 60)) - ((Math.PI * 2) / 4);
-    ctx.lineWidth = 4;           
+    ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, canvas.height / 2);     
-    ctx.lineTo((canvas.width / 2 + Math.cos(angle) * size / 1.5),      
+    ctx.moveTo(canvas.width / 2, canvas.height / 2);
+    ctx.lineTo((canvas.width / 2 + Math.cos(angle) * size / 1.5),
     canvas.height / 2 + Math.sin(angle) * size / 1.5);
-    ctx.strokeStyle = '#000'; 
+    ctx.strokeStyle = '#000';
     ctx.stroke();
 }
 // Sorts Countdown
@@ -252,7 +252,7 @@ function countdown() {
     if(swS < 0) {
         swS = 59;
         swM -= 1;
-    } 
+    }
     if(swM < 0) {
         swS = 59;
         swM = 59;
@@ -287,7 +287,7 @@ function resetCount() {
     $("#startButtonContainer").html('<div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>');
     clearInterval(intervalId)
 }
-// Starts Timer 
+// Starts Timer
 function startTimer() {
     th = 0;
     tm = 0;
@@ -477,11 +477,6 @@ function dfCntrl() {
         alertBox("date format has changed");
         $("#container").slideToggle(500);
   }
-}
-// Changes current language
-function chngLang() {
-    alertBox("different languages coming in next update");
-    $("#container").slideToggle(500); 
 }
 // Checks / changes which pannel is active
 function clockPannel() {

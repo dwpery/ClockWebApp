@@ -5,6 +5,7 @@
     <title>Clock Web App</title>
     <link href="style.css" rel="stylesheet">
     <script defer src="main.js"></script>
+    <script defer src="languages.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
   </head>
@@ -110,7 +111,12 @@
             <div id="set">privacy policy</div>
             <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/docs/PRIVACYPOLICY.md';">view</div>
             <div id="set">language</div>
-            <div id="setbutton" onclick="chngLang()">eng</div>
+            <div id="setbutton" onclick="languageChage()">eng</div>
+            <div id="creationMenu" class="cm2">
+              <a href="#eng">English</a>
+              <a href="#es">Español</a>
+              <a href="#fr">Français</a>
+            </div>
             <div id="set">faq</div>
             <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/README.md'">view</div>
             <div id="set">github repository</div>
@@ -133,9 +139,9 @@
             <div id="set">second hand colour<input id="colourChange" type="color" value='#0000FF'/></div>
         </div>
         <div id="buildInfo">
-            <br><hr>
-            <div id="version">v.1.1.1 (Official Build) (64-bit)</div>
-            <div id="edition">GitHub Edition</div>
+            <br><hr><br>
+            <div id="version">v.1.1.2 (Official Build) (64-bit)</div>
+            <div id="edition">GitHub Edition</div><br>
         </div>
     </div>
   </body>

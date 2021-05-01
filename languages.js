@@ -113,6 +113,11 @@ var languages = {
   }
 }
 
+// Opens language change menu
+function languageChage() {
+  
+}
+
 // Define language via window hash
 if(window.location.hash) {
   if(window.location.hash === "#es") {
