@@ -1,5 +1,13 @@
 # Clock Web App
 
+## v1.1.1 is here!
+
+This update brings lots of bug fixes and changes but the main one is a revamped analog clock with new colour customization options!
+
+Download the update below or check it out on the new website (https://clockprogressive.web.app/)
+
+The next update will feature new launguages (French and Spanish) as well as other fixes and improvments!
+
 ## What is Clock Web App?
 
 Clock App is an Open Source web app developed for beign used in Web based OS. It is powerful and feature rich giving consumers and developers a good experience with intuitive UI. Code is formatted clearly and commented to allow developers to make changes and edit the code to fit with their OS.
@@ -22,7 +30,7 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstable and we recommend you do not add them to your OS or Website but just use them to get an idea as to what is coming next. On May 5th v1.1.1 is dropping featuring new improvements and changes to help with the user experience and the developers.
 
-Next Update: May 5th
+Next Update: TBA (To Be Announced)
 
 ## How can I use Clock Web App in my OS / website?
 
