@@ -28,7 +28,7 @@ Once you have chosen fill out *ALL of the information and I will fix the issue w
 
 ## How often are updates released?
 
-Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstable and we recommend you do not add them to your OS or Website but just use them to get an idea as to what is coming next. On May 5th v1.1.1 is dropping featuring new improvements and changes to help with the user experience and the developers.
+Updates will come out regularly but major updates will come out every 3 months or so but many patches with small features and improvements will come out in between. Beta versions may also be released but these are unstable and we recommend you do not add them to your OS or Website but just use them to get an idea as to what is coming next. Next release will be v1.1.2
 
 Next Update: TBA (To Be Announced)
 
