@@ -118,7 +118,8 @@ var languages = {
 
 // Opens language change menu
 function languageChange() {
-  $("#languageList").toggle(500);
+  $("#container").slideToggle(500);
+  alertBox("coming in next update")
 }
 
 // Define language via window hash
