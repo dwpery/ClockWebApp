@@ -21,9 +21,33 @@
       </div>
       <div id="mobile">
         <div class="item item1" onclick="showSettings()"></div>
-        <div class="item item2" onclick="showTimer()"><svg src="media/icons/timer.svg"></svg></div>
-        <div class="item item3" onclick="showClock()"></div>
-        <div class="item item4" onclick="showAlarm()"></div>
+        <div class="item item2" onclick="showTimer()">
+          <svg viewbox="0 0 110 90">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
+            <rect x="47" y="12" width="7" height="9" fill="black"/>
+            <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
+            <rect x="49" y="27" width="3" height="28" fill="black"/>
+            <path d="M60.4715 38.7793L62.929 40.5L51.4575 56.883L49 55.1623L60.4715 38.7793Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="item item3" onclick="showClock()">
+          <svg viewbox="0 0 110 90">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="black"/>
+            <rect x="49" y="21" width="3" height="28" fill="black"/>
+            <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="black"/>
+          </svg>
+        </div>
+        <div class="item item4" onclick="showAlarm()">
+          <svg viewBox="0 0 110 90">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
+            <rect x="49" y="20" width="3" height="28" fill="black"/>
+            <path d="M69 47V50H49V47L69 47Z" fill="black"/>
+            <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
+            <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5228 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9521 78.6813 32.3006Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0784 25.0784 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
+          </svg>
+        </div>
       </div>
     </header>
     <section id="clockPannel">
@@ -34,7 +58,6 @@
       </div>
     </section>
     <section id="settings">
-      <!-- TODO -->
     </section>
   </body>
 </html>

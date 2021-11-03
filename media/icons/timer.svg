@@ -1,9 +1,5 @@
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="100" height="100" fill="#D3D3D3"/>
-<circle cx="50.5" cy="55.5" r="37.5" fill="black"/>
-<g style="mix-blend-mode:difference">
-<circle cx="50.5" cy="55.5" r="32.5" fill="#D3D3D3"/>
-</g>
+<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
 <rect x="47" y="12" width="7" height="9" fill="black"/>
 <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
 <rect x="49" y="27" width="3" height="28" fill="black"/>

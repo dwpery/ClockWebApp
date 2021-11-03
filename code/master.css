@@ -163,7 +163,9 @@ svg {
   position: absolute;
   left: 50%;
   top: 50%;
-  height: 5vh;
-  transition: 0.25s;
   transform: translate(-50%,-50%);
+  height: 8.5vh;
+  width: 8.5vh;
+  transition: 0.25s;
+  z-index: 10;
 }
