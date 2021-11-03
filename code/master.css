@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+header {
+  position: fixed;
+  height: 8.5vh;
+  width: 100%;
+  background-color: #D3D3D3;
+  border-radius: 0px 0px 10vh 10vh;
+}
+
+.item {
+  position: absolute;
+  height: 8.5vh;
+  width: 25%;
+  background-color: inherit;
+  transition: 0.25s;
+}
+.item1 { border-radius: 0 0 0 10vh; }
+.item2 { left: 25%; }
+.item3 { left: 50%; }
+.item4 {
+  left: 75%;
+  border-radius: 0 0 10vh 0;
+}
+
+.item:hover {
+  height: 9.5vh;
+  background-color: #B3B3B3;
+  cursor: pointer;
+}
+
+.digital {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 20vh;
+  width: 65vh;
+  background-color: black;
+  border-radius: 5vh;
+  transition: 0.75s;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  color: red;
+}
+
+.digital:hover {
+  cursor: pointer;
+}
+
+.display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 15vh;
+  transition: 0.75s;
+}
+
+.ampm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 4vh;
+  transform: translate(-50%, 80%);
+  transition: 0.75s;
+}
+
+.date {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 4vh;
+  transform: translate(-50%, -185%);
+  transition: 0.75s;
+}
+
+.alertBox {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  top: -5vh;
+  height: 5vh;
+  background-color: #D3D3D3;
+  width: 55vh;
+  color: black;
+  border-radius: 2.5vh;
+  transition: 1s;
+}
+
+.close {
+  position: absolute;
+  height: 5vh;
+  width: 5vh;
+  font-size: 3.25vh;
+  text-align: center;
+  right: 0;
+  transition: 0.25s;
+}
+
+.close:hover {
+  cursor: pointer;
+  color: #B3B3B3;
+}
+
+.message {
+  position: absolute;
+  height: 5vh;
+  right: 5vh;
+  width: 50vh;
+  font-size: 3.25vh;
+  text-align: center;
+}
+
+#settings {
+  position: fixed;
+  top: 0;
+  left: -1vh;
+  height: 1vh;
+  width: 1vh;
+  background-color: #B3B3B3;
+  transition: 1.5s;
+  border-radius: 0 0 150vh 0;
+}
+
+label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 5vh;
+  transition: 0.25s;
+  transform: translate(-50%,-50%);
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.item:hover label {
+  cursor: pointer;
+  color: #36454F;
+  font-size: 6vh;
+}
+
+#mobile {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #mobile {
+    display: block;
+  }
+
+  #computer {
+    display: none;
+  }
+}
