@@ -167,5 +167,9 @@ svg {
   height: 8.5vh;
   width: 8.5vh;
   transition: 0.25s;
-  z-index: 10;
+}
+
+.item:hover svg {
+  height: 9.5vh;
+  width: 9.5vh;
 }
