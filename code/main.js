@@ -94,6 +94,39 @@ function showSettings() {
   $("#settings").css("border-radius","0");
 }
 
+// Shows the Timer pannel, closes others
+function showTimer() {
+  // Closes / Opens necessary pannels
+  $("#timerPannel").show();
+  $("#clockPannel").hide();
+  $("#alarmPannel").hide();
+
+  // Sends alert message
+  alertBox("Timer Pannel");
+}
+
+// Shows the Clock pannel, closes others
+function showClock() {
+  // Closes / Opens necessary pannels
+  $("#timerPannel").hide();
+  $("#clockPannel").show();
+  $("#alarmPannel").hide();
+
+  // Sends alert message
+  alertBox("Clock Pannel");
+}
+
+// Shows the Alarm pannel, closes others
+function showAlarm() {
+  // Closes / Opens necessary pannels
+  $("#timerPannel").hide();
+  $("#clockPannel").hide();
+  $("#alarmPannel").show();
+
+  // Sends alert message
+  alertBox("Alarm Pannel");
+}
+
 // Swaps from Digital to Analog
 function dtoa() {
   // Tells system Digital clock is hidden
