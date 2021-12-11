@@ -92,6 +92,24 @@ function showSettings() {
   $("#settings").css("left","0");
   // Removes curved edges
   $("#settings").css("border-radius","0");
+  // Reveals settings list
+  setTimeout(function() {
+    $("#settings-container").css("display","block")
+  },1750)
+}
+
+// Closes the Settings pannel
+function closeSettings() {
+  // Shrinks box to exit screen (Length)
+  $("#settings").css("height","1vh");
+  // Shrinks box to exit screen (Width)
+  $("#settings").css("width","1vh");
+  // Moves box out of view
+  $("#settings").css("left","-1vh");
+  // Adds curved edges
+  $("#settings").css("border-radius","0 0 150vh 0");
+  // Hides settings list
+  $("#settings-container").css("display","none")
 }
 
 // Shows the Timer pannel, closes others

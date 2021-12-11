@@ -173,3 +173,27 @@ svg {
   height: 9.5vh;
   width: 9.5vh;
 }
+
+#settings-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 100%;
+  width: 65%;
+  display: none;
+  transition: 0.5s;
+}
+
+#close-settings {
+  position: fixed;
+  right: 1.5vh;
+  top: -2vh;
+  font-size: 7.5vh;
+  transition: 0.75s;
+}
+
+#close-settings:hover {
+  cursor: pointer;
+  color: grey;
+}
