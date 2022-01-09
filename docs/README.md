@@ -3,5 +3,5 @@
 <h2>Contents</h2>
 <ol>
 <li><a href="https://github.com/SpicyPTV/ClockWebApp#what-is-clock-web-app">What is Clock Web App?</a></li>
-<li><a href="<li><a href="https://github.com/SpicyPTV/ClockWebApp#what-is-clock-web-app">What is Clock Web App?</a></li>">How often are updates relesed?</a></li>
+<li><a href="https://github.com/SpicyPTV/ClockWebApp#how-often-are-updates-released">How often are updates released?</a></li>
 </ol>
