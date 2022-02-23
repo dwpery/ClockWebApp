@@ -50,6 +50,31 @@ header {
   color: red;
 }
 
+.timerMain {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  height: 30vh;
+  width: 97.5vh;
+  background-color: black;
+  border-radius: 7.5vh;
+}
+
+.inputContainer {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+}
+
+.number {
+  color: red;
+  font-size: 20vh;
+  width: 25vh;
+  background-color: black;
+}
+
 .digital:hover {
   cursor: pointer;
 }

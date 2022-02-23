@@ -13,7 +13,7 @@ var isDigital = true;
 
 // Function executes when page loads
 $(document).ready(function() {
-  // TODO
+  showClock();
 })
 
 setInterval(function() {
@@ -84,9 +84,8 @@ function closeAlert() {
 
 // Opens the Settings pannel
 function showSettings() {
-  // Stretches box to fit screen (Length)
+  // Stretches box to fit screen
   $("#settings").css("height","100vh");
-  // Stretches box to fit screen (Width)
   $("#settings").css("width","100%");
   // Moves box into view
   $("#settings").css("left","0");
