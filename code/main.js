@@ -228,6 +228,10 @@ function countdown() {
   pm = (pm < 10 ? "0" : "" ) + pm;
   ph = (ph < 10 ? "0" : "" ) + ph;
 
+  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
+    resetTimer();
+  }
+
   // Prints Values
   $("#span1").html(ph);
   $("#span2").html(pm);
@@ -242,4 +246,18 @@ function pauseTimer() {
     value = 1;
     $("#pauseTimer").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   }
+}
+
+function resetTimer() {
+  value = 1;
+  $("#pauseTimer").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+  // Changes Icon
+  $("#startTimer").css("display","block");
+  $("#pauseTimer").css("display","none");
+  // Resets value
+  $(".timerInput").html('<input id="hours" placeholder="00" type="number"/ min="0" max="99" />h <input id="minutes" placeholder="00" type="number" min="0" max="99"/>m <input id="seconds" placeholder="00" type="number" min="0" max="99"/>s')
+  // Changes from Input to Display
+  $(".timerInput").css("display","block");
+  $(".timerDisplay").css("display","none");
+  clearInterval(intervalId)
 }
