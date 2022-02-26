@@ -36,6 +36,23 @@ header {
   cursor: pointer;
 }
 
+.timerDisplay {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  font-size: 15vh;
+  transform: translate(-50%, -50%);
+}
+
+span {
+  color: #FF0000;
+}
+
+span:hover {
+  cursor: pointer;
+  border-bottom: 0.5vh solid blue;
+}
+
 .digital {
   position: absolute;
   left: 50%;
@@ -48,31 +65,6 @@ header {
   transition: 0.75s;
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
   color: red;
-}
-
-.timerMain {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -80%);
-  height: 30vh;
-  width: 97.5vh;
-  background-color: black;
-  border-radius: 7.5vh;
-}
-
-.inputContainer {
-  position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-40%, -50%);
-}
-
-.number {
-  color: red;
-  font-size: 20vh;
-  width: 25vh;
-  background-color: black;
 }
 
 .digital:hover {

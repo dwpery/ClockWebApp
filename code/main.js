@@ -158,9 +158,7 @@ function dtoa() {
   $(".date").css("font-size","0");
 
   // Enlarges Analog clock
-  setTimeout(function() {
-    alertBox("Imagine there's an analog clock");
-  }, 1000)
+  
 }
 
 // Swaps from Analog to Digital

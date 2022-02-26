@@ -66,14 +66,11 @@
     <section id="timerPannel">
       <div id="computer">
         <div class="timerMain">
-            <div class="inputContainer">
-              <input type="number" class="number" value="00" min="0" max="59">
-              <input type="number" class="number" value="00" min="0" max="59">
-              <input type="number" class="number" value="00" min="0" max="59">
-            </div>
-            <div class="timerControls">
-              
-            </div>
+          <div class="timerDisplay">
+            <span id="hours">00</span>h
+            <span id="minutes">00</span>m
+            <span id="seconds">00</span>s
+          </div>
         </div>
       </div>
       <div id="mobile">
@@ -85,6 +82,9 @@
         <div class="date"></div>
         <div class="display"></div>
         <div class="ampm"></div>
+      </div>
+      <div class="analog">
+        <canvas id="canvas" width="250px" height="250px"></canvas>
       </div>
     </section>
     <section id="alarmPannel"></section>
