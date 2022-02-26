@@ -40,15 +40,19 @@ header {
   position: fixed;
   left: 50%;
   top: 50%;
-  font-size: 15vh;
-  transform: translate(-50%, -50%);
+  font-size: 12.5vh;
+  transform: translate(-50%, -70%);
 }
 
-span {
+input {
   color: #FF0000;
+  font-size: 12.5vh;
+  width: 15vh;
+  border: none;
+  outline: none
 }
 
-span:hover {
+input:hover {
   cursor: pointer;
   border-bottom: 0.5vh solid blue;
 }
@@ -176,7 +180,7 @@ label {
   }
 }
 
-svg {
+#headerSVG {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -186,7 +190,7 @@ svg {
   transition: 0.25s;
 }
 
-.item:hover svg {
+.item:hover #headerSVG {
   height: 9.5vh;
   width: 9.5vh;
 }
@@ -213,4 +217,21 @@ svg {
 #close-settings:hover {
   cursor: pointer;
   color: grey;
+}
+
+#startTimer, #pauseTimer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 75%);
+  height: 10vh;
+  width: 10vh;
+}
+
+#startTimer:hover, #pauseTimer:hover {
+  cursor: pointer;
+}
+
+#pauseTimer {
+  display: none;
 }

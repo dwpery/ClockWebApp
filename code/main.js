@@ -158,7 +158,7 @@ function dtoa() {
   $(".date").css("font-size","0");
 
   // Enlarges Analog clock
-  
+
 }
 
 // Swaps from Analog to Digital
