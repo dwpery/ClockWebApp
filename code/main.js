@@ -8,6 +8,8 @@ var clockMode = false;
 var isAlertClosed = false;
 // True = Digital, False = Analog
 var isDigital = true;
+// Value for timer
+var value = 1;
 
 // Main Code
 
@@ -164,4 +166,70 @@ function dtoa() {
 // Swaps from Analog to Digital
 function atod() {
   // TODO
+}
+
+// Starts Timer
+function startTimer() {
+  // Gets Values
+  timerHours = $("#hours").val();
+  timerMinutes = $("#minutes").val();
+  timerSeconds = $("#seconds").val();
+
+  // Defaults values
+  if (timerHours == "") {timerHours = 0}
+  if (timerMinutes == "") {timerMinutes = 0}
+  if (timerSeconds == "") {timerSeconds = 0}
+
+  // Makes values positive
+  if (timerHours < 0) {timerHours = 0}
+  if (timerMinutes < 0) {timerMinutes = 0}
+  if (timerSeconds < 0) {timerSeconds = 0}
+
+  // Changes Icon
+  $("#startTimer").css("display","none");
+  $("#pauseTimer").css("display","block");
+
+  // Changes from Input to Display
+  $(".timerInput").css("display","none");
+  $(".timerDisplay").css("display","block");
+
+  // Prints values
+  $("#span1").html(timerHours);
+  $("#span2").html(timerMinutes);
+  $("#span3").html(timerSeconds);
+
+  intervalId = setInterval(countdown, 1000)
+}
+
+function countdown() {
+  timerSeconds -= value;
+  // Main time keeping
+  if(timerSeconds < 0) {
+    timerSeconds = 59;
+    timerMinutes -= 1;
+  }
+  if(timerMinutes < 0) {
+    timerSeconds = 59;
+    timerMinutes = 59;
+    timerHours -= 1;
+  }
+  if(timerHours < 0) {
+    timerSeconds = 59;
+    timerMinutes = 59;
+  }
+
+  // Print Values
+  var ps = timerSeconds;
+  var pm = timerMinutes;
+  var ph = timerHours;
+
+  // Pads with zeros
+  ps = (ps < 10 ? "0" : "" ) + ps;
+  pm = (pm < 10 ? "0" : "" ) + pm;
+  ph = (ph < 10 ? "0" : "" ) + ph;
+
+  // Prints Values
+  $("#span1").html(ph);
+  $("#span2").html(pm);
+  $("#span3").html(ps);
 }

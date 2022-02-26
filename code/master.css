@@ -36,7 +36,7 @@ header {
   cursor: pointer;
 }
 
-.timerDisplay {
+.timerInput, .timerDisplay {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -44,7 +44,11 @@ header {
   transform: translate(-50%, -70%);
 }
 
-input {
+.timerDisplay {
+  display: none;
+}
+
+input, span {
   color: #FF0000;
   font-size: 12.5vh;
   width: 15vh;
