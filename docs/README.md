@@ -2,6 +2,6 @@
 <h5 align="center">An Open Source Clock Web Application</h5>
 <h2>Contents</h2>
 <ol>
-<li><a href="https://github.com/SpicyPTV/ClockWebApp#what-is-clock-web-app">What is Clock Web App?</a></li>
-<li><a href="https://github.com/SpicyPTV/ClockWebApp#how-often-are-updates-released">How often are updates released?</a></li>
+<li><a href="#">What is Clock Web App?</a></li>
+<li><a href="#">How often are updates released?</a></li>
 </ol>

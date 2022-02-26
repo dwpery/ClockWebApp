@@ -261,3 +261,7 @@ function resetTimer() {
   $(".timerDisplay").css("display","none");
   clearInterval(intervalId)
 }
+
+function addAlarm() {
+  
+}
