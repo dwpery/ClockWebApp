@@ -58,7 +58,7 @@ input, span {
 
 input:hover {
   cursor: pointer;
-  border-bottom: 0.5vh solid blue;
+  border-bottom: 0.5vh solid red;
 }
 
 .digital {
@@ -131,7 +131,7 @@ input:hover {
 
 .close:hover {
   cursor: pointer;
-  color: #B3B3B3;
+  color: #36454F;
 }
 
 .message {
@@ -208,6 +208,7 @@ label {
   width: 65%;
   display: none;
   transition: 0.5s;
+  background-color: grey;
 }
 
 #close-settings {
@@ -232,10 +233,19 @@ label {
   width: 10vh;
 }
 
-#startTimer:hover, #pauseTimer:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover {
   cursor: pointer;
 }
 
 #pauseTimer {
   display: none;
+}
+
+#addAlarm {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 200%);
+  height: 15vh;
+  width: 15vh;
 }
