@@ -10,6 +10,8 @@ var isAlertClosed = false;
 var isDigital = true;
 // Value for timer
 var value = 1;
+// False = No, True = Yes
+var doubleDigits = false;
 
 // Main Code
 
@@ -226,9 +228,11 @@ function countdown() {
   var ph = timerHours;
 
   // Pads with zeros
-  ps = (ps < 10 ? "0" : "" ) + ps;
-  pm = (pm < 10 ? "0" : "" ) + pm;
-  ph = (ph < 10 ? "0" : "" ) + ph;
+  if (doubleDigits == true) {
+    ps = (ps < 10 ? "0" : "" ) + ps;
+    pm = (pm < 10 ? "0" : "" ) + pm;
+    ph = (ph < 10 ? "0" : "" ) + ph;
+  }
 
   if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
     resetTimer();
@@ -280,10 +284,20 @@ function dateFormatChanger() {
     $("#dateFormatButton").html("MM/DD");
   } else {
     dateFormat = false;
-    $("#dateFormatButton").html("DD/DD");
+    $("#dateFormatButton").html("DD/MM");
+  }
+}
+
+function doubleDigitsChanger() {
+  if (doubleDigits == false) {
+    doubleDigits = true;
+    $("#doubleDigitsButton").html("On");
+  } else {
+    doubleDigits = false;
+    $("#doubleDigitsButton").html("Off");
   }
 }
 
 function addAlarm() {
-
+  $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove">Remove</div></div>');
 }
