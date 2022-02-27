@@ -234,6 +234,10 @@ label {
   border-radius: 2.5vh;
 }
 
+.settingsButton:hover {
+  cursor: pointer;
+}
+
 #close-settings {
   position: fixed;
   right: 1.5vh;

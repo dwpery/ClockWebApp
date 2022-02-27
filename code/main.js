@@ -4,7 +4,7 @@
 var dateFormat = false;
 // True = 24, False = 12
 var clockMode = false;
-// False = N, True = Y
+// False = No, True = Yes
 var isAlertClosed = false;
 // True = Digital, False = Analog
 var isDigital = true;
@@ -16,6 +16,16 @@ var value = 1;
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
+  // Gets users timezone
+  var tza = () => {
+    var { 1: tz } = new Date().toString().match(/\((.+)\)/);
+    if (tz.includes(" ")) {
+      return tz .split(" ") .map(([first]) => first) .join("");
+    } else {
+      return tz;
+    }
+  }
+  $("#timeZoneButton").html(tza);
 })
 
 setInterval(function() {
@@ -35,9 +45,10 @@ setInterval(function() {
   }
   // Prints out date
   $(".date").html(today);
-
   // Gets hours value
   var hours = date.getHours();
+  // Clears AM / PM
+  $(".ampm").html("");
   // Accounts for 12 hour
   if (clockMode === false) {
       // Selects between AM and PM
@@ -119,9 +130,6 @@ function showTimer() {
   $("#timerPannel").show();
   $("#clockPannel").hide();
   $("#alarmPannel").hide();
-
-  // Sends alert message
-  alertBox("Timer Pannel");
 }
 
 // Shows the Clock pannel, closes others
@@ -130,9 +138,6 @@ function showClock() {
   $("#timerPannel").hide();
   $("#clockPannel").show();
   $("#alarmPannel").hide();
-
-  // Sends alert message
-  alertBox("Clock Pannel");
 }
 
 // Shows the Alarm pannel, closes others
@@ -141,9 +146,6 @@ function showAlarm() {
   $("#timerPannel").hide();
   $("#clockPannel").hide();
   $("#alarmPannel").show();
-
-  // Sends alert message
-  alertBox("Alarm Pannel");
 }
 
 // Swaps from Digital to Analog
@@ -262,6 +264,26 @@ function resetTimer() {
   clearInterval(intervalId)
 }
 
+function clockModeChanger() {
+  if (clockMode == false) {
+    clockMode = true;
+    $("#clockModeButton").html("On");
+  } else {
+    clockMode = false;
+    $("#clockModeButton").html("Off");
+  }
+}
+
+function dateFormatChanger() {
+  if (dateFormat == false) {
+    dateFormat = true;
+    $("#dateFormatButton").html("MM/DD");
+  } else {
+    dateFormat = false;
+    $("#dateFormatButton").html("DD/DD");
+  }
+}
+
 function addAlarm() {
-  
+
 }
