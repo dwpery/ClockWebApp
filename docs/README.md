@@ -4,7 +4,7 @@
 <ol>
 <li><a href="#1">What is Clock Web App?</a></li>
 <li><a href="#2">How often are updates released?</a></li>
-<li><a href="#3">>How can I contribute / report a bug?</a></li>
+<li><a href="#3">How can I contribute / report a bug?</a></li>
 </ol>
 <h2 id="1">What is Clock Web App?</h2>
 <p>Clock Web App is an Open Source project that brings a feature rich Clock app to any system for completely free. It is developed for Web Based Operating Systems and is powerful software that is easy to use and easy to develop as it has a clean code base.</p>
