@@ -299,5 +299,9 @@ function doubleDigitsChanger() {
 }
 
 function addAlarm() {
-  $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove">Remove</div></div>');
+  $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div></div>');
+}
+
+function removeAlarm(x) {
+  $(x).closest('.alarm').remove();
 }
