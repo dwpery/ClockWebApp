@@ -12,6 +12,12 @@ var isDigital = true;
 var value = 1;
 // False = No, True = Yes
 var doubleDigits = false;
+// Holds amout of Alarms
+var numOfAlarms = 0;
+// Contains Alarm names
+var alarmNamesContainer = new Array;
+// Contains Alarm times
+var alarmTimes = new Array;
 
 // Main Code
 
@@ -300,8 +306,10 @@ function doubleDigitsChanger() {
 
 function addAlarm() {
   $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div></div>');
+  numOfAlarms += 1;
 }
 
 function removeAlarm(x) {
   $(x).closest('.alarm').remove();
+  numOfAlarms -= 1;
 }

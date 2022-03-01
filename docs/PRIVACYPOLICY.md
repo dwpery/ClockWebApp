@@ -1,5 +1,5 @@
 <h1 align="center">Privacy Policy</h1>
-<h5 align="center">For Clock Web Application</h5>
+<h5 align="center">For Clock Web App</h5>
 <h2>Overview</h2>
 <ul>
 <li>You do not need to register to access our features</li>
