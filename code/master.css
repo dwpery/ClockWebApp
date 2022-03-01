@@ -48,7 +48,7 @@ header {
   display: none;
 }
 
-input, span {
+#hours, #minutes, #seconds, span {
   color: #FF0000;
   font-size: 12.5vh;
   width: 15vh;
@@ -56,7 +56,7 @@ input, span {
   outline: none
 }
 
-input:hover {
+#hours:hover, #minutes:hover, #seconds:hover {
   cursor: pointer;
   border-bottom: 0.5vh solid red;
 }
@@ -272,7 +272,7 @@ label {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, 250%);
+  transform: translate(-50%, 280%);
   height: 12.5vh;
   width: 12.5vh;
 }
@@ -290,4 +290,65 @@ hr {
   font-weight: lighter;
   text-align: center;
   font-size: 2.5vh;
+}
+
+.alarms-container {
+  position: absolute;
+  left: 50%;
+  top: 8.5vh;
+  height: 91.5vh;
+  transform: translate(-50%);
+  width: 65%;
+  transition: 0.5s;
+  overflow: scroll;
+}
+
+.alarm {
+  position: relative;
+  left: 50%;
+  margin-top: 5vh;
+  transform: translate(-50%);
+  width: 50%;
+  height: 30vh;
+  background-color: #B3B3B3;
+  border-radius: 5vh;
+}
+
+.alarmName {
+  position: relative;
+  left: 50%;
+  top: 1.5vh;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 5vh;
+  width: 60vh;
+  border: none;
+  border-bottom: 0.5vh solid #000;
+  outline: none;
+  background-color: #B3B3B3;
+}
+
+.alarmTime {
+  position: relative;
+  left: 50%;
+  top: 2vh;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 5vh;
+  width: 60vh;
+  border: none;
+  outline: none;
+  background-color: #B3B3B3;
+}
+
+#remove {
+  position: relative;
+  top: 10vh;
+  text-align: center;
+  font-size: 3vh;
+  color: #F00;
+}
+
+#remove:hover {
+  cursor: pointer;
 }
