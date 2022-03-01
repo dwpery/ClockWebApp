@@ -14,4 +14,6 @@
 <p>Open an issue on the Github page with either a bug or a feature you'd like to implement. If it's a bug a fix will be implemented in a future update and if it's a feature it may take longer to implement.</p>
 <!-- API -->
 <h1 align="center">Clock API</h1>
-<h5 align="center">An Open Source Clock API</h5>
+<h5 align="center">An Open Source and free to use Clock API</h5>
+<h2>What is planned?</h2>
+<p>The Clock API will make it easier than ever before to implement clock related features into your Websites and OS with easy to use syntax a</p>
