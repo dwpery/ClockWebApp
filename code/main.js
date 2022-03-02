@@ -15,7 +15,7 @@ var doubleDigits = false;
 // Holds amout of Alarms
 var numOfAlarms = 0;
 // Contains Alarm names
-var alarmNamesContainer = new Array;
+var alarmNames = new Array;
 // Contains Alarm times
 var alarmTimes = new Array;
 
@@ -55,6 +55,22 @@ setInterval(function() {
   $(".date").html(today);
   // Gets hours value
   var hours = date.getHours();
+  // Gets minute value
+  var minutes = date.getMinutes();
+  // Gets Second value
+  var seconds = date.getSeconds();
+  // Checks alarms
+  var checkTime = hours + ":" + minutes;
+  for (var i = 0; i < numOfAlarms; i++) {
+    console.log("ready")
+    console.log(alarmTimes[i])
+    console.log(checkTime);
+    if (checkTime == alarmTimes[i] && seconds == "00") {
+      $(".activeAlarmName").html(alarmNames[i]);
+      $(".activeAlarmTime").html(alarmTimes[i]);
+      $("#alarmActive").css("display","block");
+    }
+  }
   // Clears AM / PM
   $(".ampm").html("");
   // Accounts for 12 hour
@@ -66,16 +82,13 @@ setInterval(function() {
       // Gets hour in 12 hour format
       hours = (hours > 12) ? hours - 12 : hours;
   }
-  // Gets minute value
-  var minutes = date.getMinutes();
-  // Gets Second value
-  var seconds = date.getSeconds();
   // Adds 0 to numbers < 10
   hours = (hours < 10 ? "0" : "" ) + hours;
   minutes = (minutes < 10 ? "0" : "" ) + minutes;
   seconds = (seconds < 10 ? "0" : "" ) + seconds;
   // Prints time
   $(".display").html(hours + ":" + minutes + ":" + seconds);
+
 },1000);
 
 //Sorts out Alerts
@@ -305,11 +318,22 @@ function doubleDigitsChanger() {
 }
 
 function addAlarm() {
-  $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div></div>');
-  numOfAlarms += 1;
+  $(".alarms-container").append('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div><div id="submit" onclick="submitAlarm(this)">Submit</div></div>');
 }
 
 function removeAlarm(x) {
   $(x).closest('.alarm').remove();
   numOfAlarms -= 1;
+}
+
+function submitAlarm(x) {
+  alarmNames[numOfAlarms] = $(".alarmName").val();
+  alarmTimes[numOfAlarms] = $(".alarmTime").val();
+  $(x).closest('.alarm').html('<div class="printAlarmName">' + alarmNames[numOfAlarms] + '</div><div class="printAlarmTime">' + alarmTimes[numOfAlarms] + '</div>');
+  numOfAlarms += 1;
+  $(x).closest('.alarm').css("height","15vh");
+}
+
+function cancelAlarm() {
+  $("#alarmActive").css("display","none");
 }

@@ -343,12 +343,90 @@ hr {
 
 #remove {
   position: relative;
-  top: 10vh;
+  top: 12vh;
   text-align: center;
   font-size: 3vh;
   color: #F00;
 }
 
-#remove:hover {
+#remove:hover, #submit:hover {
+  cursor: pointer;
+}
+
+#submit {
+  position: relative;
+  top: 3vh;
+  text-align: center;
+  color: #00F;
+  font-size: 4vh;
+}
+
+.printAlarmName {
+  position: relative;
+  left: 50%;
+  top: 0.5vh;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 5vh;
+}
+
+.printAlarmTime {
+  position: relative;
+  left: 50%;
+  top: 1vh;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 3vh;
+}
+
+#alarmActive {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  opacity: 99%;
+  background-color: #000;
+  display: none;
+}
+
+.activeAlarmName {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-150%);
+  font-size: 10vh;
+  color: #FFF;
+}
+
+.activeAlarmTime {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 15vh;
+  color: #0F0;
+}
+
+.cancelContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,150%);
+  background-color: #0F0;
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+}
+
+.cancelAlarm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 9vh;
+  width: 9vh;
+}
+
+.cancelAlarm:hover {
   cursor: pointer;
 }
