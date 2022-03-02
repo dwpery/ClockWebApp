@@ -62,9 +62,6 @@ setInterval(function() {
   // Checks alarms
   var checkTime = hours + ":" + minutes;
   for (var i = 0; i < numOfAlarms; i++) {
-    console.log("ready")
-    console.log(alarmTimes[i])
-    console.log(checkTime);
     if (checkTime == alarmTimes[i] && seconds == "00") {
       $(".activeAlarmName").html(alarmNames[i]);
       $(".activeAlarmTime").html(alarmTimes[i]);
@@ -329,9 +326,9 @@ function removeAlarm(x) {
 function submitAlarm(x) {
   alarmNames[numOfAlarms] = $(".alarmName").val();
   alarmTimes[numOfAlarms] = $(".alarmTime").val();
+  $(x).closest('.alarm').css("height","15vh");
   $(x).closest('.alarm').html('<div class="printAlarmName">' + alarmNames[numOfAlarms] + '</div><div class="printAlarmTime">' + alarmTimes[numOfAlarms] + '</div>');
   numOfAlarms += 1;
-  $(x).closest('.alarm').css("height","15vh");
 }
 
 function cancelAlarm() {
