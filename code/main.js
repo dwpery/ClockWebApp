@@ -18,6 +18,12 @@ var numOfAlarms = 0;
 var alarmNames = new Array;
 // Contains Alarm times
 var alarmTimes = new Array;
+// Active Alarm Sound
+var activeAlarmSound = 0;
+// Alarm Sounds                         0                                1                             2                             3
+var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3");
+// Default alarm
+var audio = new Audio(alarmSounds[activeAlarmSound]);
 
 // Main Code
 
@@ -35,6 +41,11 @@ $(document).ready(function() {
   }
   $("#timeZoneButton").html(tza);
 })
+
+audio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
 
 setInterval(function() {
   // Date declared every second to refresh
@@ -59,12 +70,17 @@ setInterval(function() {
   var minutes = date.getMinutes();
   // Gets Second value
   var seconds = date.getSeconds();
-  // Checks alarms
+  // Creates time to compare to alarm time
   var checkTime = hours + ":" + minutes;
+  // Cycles through all Alarms
   for (var i = 0; i < numOfAlarms; i++) {
+    // Checks if current time matches alarm time
     if (checkTime == alarmTimes[i] && seconds == "00") {
+      // Prints alarm information
       $(".activeAlarmName").html(alarmNames[i]);
       $(".activeAlarmTime").html(alarmTimes[i]);
+      // Plays audio
+      audio.play();
       $("#alarmActive").css("display","block");
     }
   }
@@ -333,4 +349,10 @@ function submitAlarm(x) {
 
 function cancelAlarm() {
   $("#alarmActive").css("display","none");
+  audio.pause();
+  audio.remove();
+}
+
+function changeAlarmSound() {
+  console.log("something should be here...");
 }
