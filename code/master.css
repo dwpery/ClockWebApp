@@ -174,16 +174,6 @@ label {
   display: none;
 }
 
-@media screen and (max-width: 800px) {
-  #mobile {
-    display: block;
-  }
-
-  #computer {
-    display: none;
-  }
-}
-
 #headerSVG {
   position: absolute;
   left: 50%;
@@ -429,4 +419,18 @@ hr {
 
 .cancelAlarm:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  #mobile {
+    display: block;
+  }
+
+  #computer {
+    display: none;
+  }
+
+  #settings-container {
+    width: 100%;
+  }
 }
