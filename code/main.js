@@ -215,6 +215,10 @@ function startTimer() {
   if (timerHours == "") {timerHours = 0}
   if (timerMinutes == "") {timerMinutes = 0}
   if (timerSeconds == "") {timerSeconds = 0}
+  // Resets if empty
+  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
+    resetTimer();
+  }
 
   // Makes values positive
   if (timerHours < 0) {timerHours = 0}
@@ -340,11 +344,15 @@ function removeAlarm(x) {
 }
 
 function submitAlarm(x) {
-  alarmNames[numOfAlarms] = $(".alarmName").val();
-  alarmTimes[numOfAlarms] = $(".alarmTime").val();
-  $(x).closest('.alarm').css("height","15vh");
-  $(x).closest('.alarm').html('<div class="printAlarmName">' + alarmNames[numOfAlarms] + '</div><div class="printAlarmTime">' + alarmTimes[numOfAlarms] + '</div>');
-  numOfAlarms += 1;
+  if ($(".alarmName").val() == "" || $(".alarmTime").val() == "") {
+    // Nothing
+  } else {
+    alarmNames[numOfAlarms] = $(".alarmName").val();
+    alarmTimes[numOfAlarms] = $(".alarmTime").val();
+    $(x).closest('.alarm').css("height","15vh");
+    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarmNames[numOfAlarms] + '</div><div class="printAlarmTime">' + alarmTimes[numOfAlarms] + '</div>');
+    numOfAlarms += 1;
+  }
 }
 
 function cancelAlarm() {
