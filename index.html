@@ -195,12 +195,22 @@
         <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
         <div class="settingsHeading">Alarm Panel</div>
         <div class="settingsLabel">Alarm Sound</div>
-        <div class="settingsButton" id="alarmSoundButton" onclick="changeAlarmSound()">Change</div>
+        <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
         <hr>
         <div class="buildInfo">
           <div>v.2.0.0 (Official Build) developer (64-bit)</div>
           <div>GitHub Edition</div><br>
         </div>
+      </div>
+      <div class="alarmSwitcher">
+        <div class="alarmSoundNameTitle">Alarm Sounds</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(0)">Default</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(1)">Heavy Metal</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(2)">Harp Strumming</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(3)">Rooster</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(4)">Military Trumpet</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
+        <div class="alarmSoundName" onclick="changeAlarmSound(6)">Alien Ship</div>
       </div>
     </section>
     <section id="alarmActive">

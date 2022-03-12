@@ -22,8 +22,8 @@ var alarmNames = new Array;
 var alarmTimes = new Array;
 // Active Alarm Sound
 var activeAlarmSound = 0;
-// Alarm Sounds                         0                                1                             2                             3
-var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3");
+// Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6
+var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3");
 // Default alarm
 var audio = new Audio(alarmSounds[activeAlarmSound]);
 // False = No, True = Yes
@@ -48,8 +48,8 @@ $(document).ready(function() {
 })
 
 audio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
+  this.currentTime = 0;
+  this.play();
 }, false);
 
 setInterval(function() {
@@ -366,8 +366,22 @@ function cancelAlarm() {
   audio.remove();
 }
 
-function changeAlarmSound() {
-  console.log("something should be here...");
+function openSoundMenu() {
+  $(".alarmSwitcher").css("display","block");
+}
+
+function changeAlarmSound(x) {
+  activeAlarmSound = x;
+  audio = new Audio(alarmSounds[activeAlarmSound]);
+  audio.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
+  $(".alarmSwitcher").css("display","none");
+  audio.play();
+  setTimeout(function() {
+    cancelAlarm();
+  }, 5000)
 }
 
 function timerChanger() {

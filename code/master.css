@@ -435,6 +435,36 @@ hr {
   cursor: pointer;
 }
 
+.alarmSwitcher {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 50vh;
+  width: 40vh;
+  background-color: #D3D3D3;
+  border-radius: 5vh;
+  display: none;
+}
+
+.alarmSoundNameTitle {
+  font-size: 5vh;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.alarmSoundName {
+  font-size: 3.5vh;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.alarmSoundName:hover {
+  cursor: pointer;
+  color: #36454F;
+}
+
 @media screen and (max-width: 800px) {
   #mobile {
     display: block;
