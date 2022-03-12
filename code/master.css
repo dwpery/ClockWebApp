@@ -445,6 +445,7 @@ hr {
   background-color: #D3D3D3;
   border-radius: 5vh;
   display: none;
+  overflow: scroll;
 }
 
 .alarmSoundNameTitle {
