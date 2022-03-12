@@ -381,6 +381,7 @@ function changeAlarmSound(x) {
   audio.play();
   setTimeout(function() {
     cancelAlarm();
+    audio.currentTime = 0;
   }, 5000)
 }
 
