@@ -244,16 +244,23 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer {
+#startTimer, #pauseTimer, #resetTimer {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 75%);
   height: 10vh;
   width: 10vh;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover {
+#startTimer, #pauseTimer {
+  transform: translate(50%, 75%);
+}
+
+#resetTimer {
+  transform: translate(-150%, 75%);
+}
+
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover {
   cursor: pointer;
 }
 
