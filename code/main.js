@@ -24,12 +24,15 @@ var activeAlarmSound = 0;
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3");
 // Default alarm
 var audio = new Audio(alarmSounds[activeAlarmSound]);
+// False = No, True = Yes
+var isStopwatch = false;
 
 // Main Code
 
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
+  $(".stopwatch").hide();
   // Gets users timezone
   var tza = () => {
     var { 1: tz } = new Date().toString().match(/\((.+)\)/);
@@ -363,4 +366,20 @@ function cancelAlarm() {
 
 function changeAlarmSound() {
   console.log("something should be here...");
+}
+
+function timerChanger() {
+  if (isStopwatch === false) {
+    $(".timerMain").hide();
+    $(".timerControls").hide();
+    $(".stopwatch").show();
+    $("#stopwatchLabel").html("Timer");
+    isStopwatch = true;
+  } else {
+    $(".timerMain").show();
+    $(".timerControls").show();
+    $(".stopwatch").hide();
+    $("#stopwatchLabel").html("Stopwatch");
+    isStopwatch = false;
+  }
 }
