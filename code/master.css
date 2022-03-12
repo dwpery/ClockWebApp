@@ -15,6 +15,10 @@ header {
   border-radius: 0px 0px 10vh 10vh;
 }
 
+#timerPannel, #alarmPannel {
+  display: none;
+}
+
 .item {
   position: absolute;
   height: 8.5vh;
@@ -36,7 +40,7 @@ header {
   cursor: pointer;
 }
 
-.timerInput, .timerDisplay {
+.timerInput, .timerDisplay, .stopwatchDisplay {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -222,10 +226,13 @@ label {
   border: 0.5vh solid black;
   padding: 1vh;
   border-radius: 2.5vh;
+  transition: 0.25s;
 }
 
 .settingsButton:hover {
   cursor: pointer;
+  color: #36454F;
+  border-color: #36454F;
 }
 
 #close-settings {
@@ -241,20 +248,27 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer {
+#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 75%);
   height: 10vh;
   width: 10vh;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover {
+#startTimer, #pauseTimer, #startStopwatch, #pauseStopwatch {
+  transform: translate(50%, 75%);
+}
+
+#resetTimer, #resetStopwatch {
+  transform: translate(-150%, 75%);
+}
+
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover {
   cursor: pointer;
 }
 
-#pauseTimer {
+#pauseTimer, #pauseStopwatch {
   display: none;
 }
 
@@ -419,6 +433,37 @@ hr {
 
 .cancelAlarm:hover {
   cursor: pointer;
+}
+
+.alarmSwitcher {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 50vh;
+  width: 40vh;
+  background-color: #D3D3D3;
+  border-radius: 5vh;
+  display: none;
+  overflow: scroll;
+}
+
+.alarmSoundNameTitle {
+  font-size: 5vh;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.alarmSoundName {
+  font-size: 3.5vh;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.alarmSoundName:hover {
+  cursor: pointer;
+  color: #36454F;
 }
 
 @media screen and (max-width: 800px) {
