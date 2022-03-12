@@ -388,8 +388,8 @@ function timerChanger() {
 
 function startStopwatch() {
   // Values
-  stopwatchS = 55;
-  stopwatchM = 59;
+  stopwatchS = 0;
+  stopwatchM = 0;
   stopwatchH = 0;
 
   // Prints values
@@ -420,16 +420,16 @@ function stopwatch() {
   pSM = stopwatchM;
   pSH = stopwatchH;
 
-  if (doubleDigits ==- true) {
+  if (doubleDigits === true) {
     pSS = (pSS < 10 ? "0" : "" ) + pSS;
     pSM = (pSM < 10 ? "0" : "" ) + pSM;
     pSH = (pSH < 10 ? "0" : "" ) + pSH;
   }
 
   // Prints values
-  $("#span4").html(stopwatchH);
-  $("#span5").html(stopwatchM);
-  $("#span6").html(stopwatchS);
+  $("#span4").html(pSH);
+  $("#span5").html(pSM);
+  $("#span6").html(pSS);
 }
 
 function pauseStopwatch() {
