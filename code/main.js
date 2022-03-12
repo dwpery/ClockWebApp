@@ -10,6 +10,8 @@ var isAlertClosed = false;
 var isDigital = true;
 // Value for timer
 var value = 1;
+// Value for stopwatch
+var sValue = 1;
 // False = No, True = Yes
 var doubleDigits = false;
 // Holds amout of Alarms
@@ -382,4 +384,75 @@ function timerChanger() {
     $("#stopwatchLabel").html("Stopwatch");
     isStopwatch = false;
   }
+}
+
+function startStopwatch() {
+  // Values
+  stopwatchS = 55;
+  stopwatchM = 59;
+  stopwatchH = 0;
+
+  // Prints values
+  $("#span4").html(stopwatchH);
+  $("#span5").html(stopwatchM);
+  $("#span6").html(stopwatchS);
+
+  // Changes Icon
+  $("#startStopwatch").css("display","none");
+  $("#pauseStopwatch").css("display","block");
+
+  stopwatchCycle = setInterval(stopwatch, 1000);
+}
+
+function stopwatch() {
+  stopwatchS += sValue;
+
+  if (stopwatchS > 59) {
+    stopwatchS = 0;
+    stopwatchM += 1;
+    if (stopwatchM > 59) {
+      stopwatchM = 0;
+      stopwatchH += 1;
+    }
+  }
+
+  pSS = stopwatchS;
+  pSM = stopwatchM;
+  pSH = stopwatchH;
+
+  if (doubleDigits ==- true) {
+    pSS = (pSS < 10 ? "0" : "" ) + pSS;
+    pSM = (pSM < 10 ? "0" : "" ) + pSM;
+    pSH = (pSH < 10 ? "0" : "" ) + pSH;
+  }
+
+  // Prints values
+  $("#span4").html(stopwatchH);
+  $("#span5").html(stopwatchM);
+  $("#span6").html(stopwatchS);
+}
+
+function pauseStopwatch() {
+  if (sValue == 1) {
+    sValue = 0;
+    $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
+  } else {
+    sValue = 1;
+    $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+  }
+}
+
+function resetStopwatch() {
+  clearInterval(stopwatchCycle);
+
+  // Clears values
+  $("#span4").html("0");
+  $("#span5").html("0");
+  $("#span6").html("0");
+
+  sValue = 1;
+  $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+  // Changes Icon
+  $("#startStopwatch").css("display","block");
+  $("#pauseStopwatch").css("display","none");
 }

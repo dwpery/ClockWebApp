@@ -244,7 +244,7 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer, #resetTimer {
+#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -252,19 +252,19 @@ label {
   width: 10vh;
 }
 
-#startTimer, #pauseTimer {
+#startTimer, #pauseTimer, #startStopwatch, #pauseStopwatch {
   transform: translate(50%, 75%);
 }
 
-#resetTimer {
+#resetTimer, #resetStopwatch {
   transform: translate(-150%, 75%);
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover {
   cursor: pointer;
 }
 
-#pauseTimer {
+#pauseTimer, #pauseStopwatch {
   display: none;
 }
 
