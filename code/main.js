@@ -302,7 +302,7 @@ function resetTimer() {
   $("#startTimer").css("display","block");
   $("#pauseTimer").css("display","none");
   // Resets value
-  $(".timerInput").html('<input id="hours" placeholder="00" type="number"/ min="0" max="99" />h <input id="minutes" placeholder="00" type="number" min="0" max="99"/>m <input id="seconds" placeholder="00" type="number" min="0" max="99"/>s')
+  $(".timerInput").html('<input id="hours" placeholder="00" type="number"/ min="0" max="99" /><span>h</span><input id="minutes" placeholder="00" type="number" min="0" max="99"/><span>m</span><input id="seconds" placeholder="00" type="number" min="0" max="99"/><span>s</span>')
   // Changes from Input to Display
   $(".timerInput").css("display","block");
   $(".timerDisplay").css("display","none");

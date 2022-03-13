@@ -52,7 +52,7 @@ header {
   display: none;
 }
 
-#hours, #minutes, #seconds, span {
+#hours, #minutes, #seconds, #span1, #span2, #span3, #span4, #span5, #span6 {
   color: #FF0000;
   font-size: 12.5vh;
   width: 15vh;
@@ -477,5 +477,49 @@ hr {
 
   #settings-container {
     width: 100%;
+  }
+
+  .alarms-container {
+    width: 100%;
+  }
+
+  .alarm {
+    width: 50vh;
+  }
+
+  .alarmName, .alarmTime {
+    width: 45vh
+  }
+
+  .digital {
+    width: 55vh;
+  }
+
+  .timerInput, .timerDisplay {
+    width: 100%;
+    text-align: center;
+  }
+
+  #hours, #minutes, #seconds {
+    font-size: 8vh;
+    width: 10vh;
+  }
+
+  span, #span1, #span2, #span3, #span4, #span5, #span6 {
+    font-size: 8vh;
+  }
+
+  .settingsHeading {
+    font-size: 5vh;
+  }
+
+  .settingsLabel {
+    font-size: 3vh;
+  }
+
+  .settingsButton {
+    font-size: 3vh;
+    padding: 0.25vh;
+    margin-top: -5vh;
   }
 }
