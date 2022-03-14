@@ -243,7 +243,7 @@ label {
   transition: 0.75s;
 }
 
-#close-settings:hover {
+#close-settings:hover, .closeAlarmSoundSwitcher:hover {
   cursor: pointer;
   color: grey;
 }
@@ -445,14 +445,28 @@ hr {
   background-color: #D3D3D3;
   border-radius: 5vh;
   display: none;
-  overflow: scroll;
 }
 
 .alarmSoundNameTitle {
-  font-size: 5vh;
+  font-size: 4vh;
   font-weight: bolder;
   text-align: center;
   text-decoration: underline;
+}
+
+.alarmSoundContainer {
+  overflow: scroll;
+  margin-top: 0vh;
+  height: 40vh;
+}
+
+.closeAlarmSoundSwitcher {
+  position: absolute;
+  font-size: 4.5vh;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -0.5vh;
+  transition: 0.25s;
 }
 
 .alarmSoundName {
