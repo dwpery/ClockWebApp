@@ -385,6 +385,10 @@ function changeAlarmSound(x) {
   }, 5000)
 }
 
+function closeAlarmSoundSwitcher() {
+  $(".alarmSwitcher").css("display","none");
+}
+
 function timerChanger() {
   if (isStopwatch === false) {
     $(".timerMain").hide();
