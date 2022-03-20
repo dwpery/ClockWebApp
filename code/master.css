@@ -506,7 +506,7 @@ hr {
   }
 
   .digital {
-    width: 55vh;
+    width: 90%;
   }
 
   .timerInput, .timerDisplay {
@@ -515,12 +515,12 @@ hr {
   }
 
   #hours, #minutes, #seconds {
-    font-size: 8vh;
-    width: 10vh;
+    font-size: 6vh;
+    width: 7vh;
   }
 
   span, #span1, #span2, #span3, #span4, #span5, #span6 {
-    font-size: 8vh;
+    font-size: 6vh;
   }
 
   .settingsHeading {
