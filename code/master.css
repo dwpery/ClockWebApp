@@ -509,6 +509,10 @@ hr {
     width: 90%;
   }
 
+  .display {
+    font-size: 12vh;
+  }
+
   .timerInput, .timerDisplay {
     width: 100%;
     text-align: center;
