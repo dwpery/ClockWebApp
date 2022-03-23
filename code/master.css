@@ -202,7 +202,6 @@ label {
   width: 65%;
   display: none;
   transition: 0.5s;
-  overflow: scroll;
 }
 
 .settingsHeading {
@@ -304,7 +303,6 @@ hr {
   transform: translate(-50%);
   width: 65%;
   transition: 0.5s;
-  overflow: scroll;
 }
 
 .alarm {
@@ -455,7 +453,6 @@ hr {
 }
 
 .alarmSoundContainer {
-  overflow: scroll;
   margin-top: 0vh;
   height: 40vh;
 }
@@ -478,6 +475,11 @@ hr {
 .alarmSoundName:hover {
   cursor: pointer;
   color: #36454F;
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 @media screen and (max-width: 800px) {
