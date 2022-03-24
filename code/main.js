@@ -28,6 +28,8 @@ var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal
 var audio = new Audio(alarmSounds[activeAlarmSound]);
 // False = No, True = Yes
 var isStopwatch = false;
+// Settings animation, True = On, False = Off
+var settingsAnimation = true;
 
 // Main Code
 
@@ -136,6 +138,17 @@ function closeAlert() {
 
 // Opens the Settings pannel
 function showSettings() {
+  if (settingsAnimation == true) {
+    $("#settings").css("transition","1.5s");
+    // Reveals settings list
+    setTimeout(function() {
+      $("#settings-container").css("display","block");
+    },1750)
+  } else {
+    $("#settings").css("transition","0s");
+    // Reveals settings list
+    $("#settings-container").css("display","block");
+  }
   // Stretches box to fit screen
   $("#settings").css("height","100vh");
   $("#settings").css("width","100%");
@@ -143,14 +156,16 @@ function showSettings() {
   $("#settings").css("left","0");
   // Removes curved edges
   $("#settings").css("border-radius","0");
-  // Reveals settings list
-  setTimeout(function() {
-    $("#settings-container").css("display","block")
-  },1750)
 }
 
 // Closes the Settings pannel
 function closeSettings() {
+  if (settingsAnimation == true) {
+    $("#settings").css("transition","1.5s");
+  } else {
+    $("#settings").css("transition","0s");
+    $("#settings-container").css("display","none");
+  }
   // Shrinks box to exit screen (Length)
   $("#settings").css("height","1vh");
   // Shrinks box to exit screen (Width)
@@ -160,7 +175,7 @@ function closeSettings() {
   // Adds curved edges
   $("#settings").css("border-radius","0 0 150vh 0");
   // Hides settings list
-  $("#settings-container").css("display","none")
+  $("#settings-container").css("display","none");
 }
 
 // Shows the Timer pannel, closes others
@@ -288,21 +303,19 @@ function countdown() {
 function pauseTimer() {
   if (value == 1) {
     value = 0;
-    $("#pauseTimer").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
+    $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
   } else {
     value = 1;
-    $("#pauseTimer").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+    $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   }
 }
 
 function resetTimer() {
   value = 1;
-  $("#pauseTimer").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+  $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   // Changes Icon
   $("#startTimer").css("display","block");
   $("#pauseTimer").css("display","none");
-  // Resets value
-  $(".timerInput").html('<input id="hours" placeholder="00" type="number"/ min="0" max="99" /><span>h</span><input id="minutes" placeholder="00" type="number" min="0" max="99"/><span>m</span><input id="seconds" placeholder="00" type="number" min="0" max="99"/><span>s</span>')
   // Changes from Input to Display
   $(".timerInput").css("display","block");
   $(".timerDisplay").css("display","none");
@@ -336,6 +349,16 @@ function doubleDigitsChanger() {
   } else {
     doubleDigits = false;
     $("#doubleDigitsButton").html("Off");
+  }
+}
+
+function settingsAnimControl() {
+  if (settingsAnimation == true) {
+    settingsAnimation = false;
+    $("#setAnimButton").html("Off");
+  } else {
+    settingsAnimation = true;
+    $("#setAnimButton").html("On");
   }
 }
 
