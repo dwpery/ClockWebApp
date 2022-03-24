@@ -28,6 +28,8 @@ var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal
 var audio = new Audio(alarmSounds[activeAlarmSound]);
 // False = No, True = Yes
 var isStopwatch = false;
+// Settings animation, True = On, False = Off
+var settingsAnimation = true;
 
 // Main Code
 
@@ -136,6 +138,17 @@ function closeAlert() {
 
 // Opens the Settings pannel
 function showSettings() {
+  if (settingsAnimation == true) {
+    $("#settings").css("transition","1.5s");
+    // Reveals settings list
+    setTimeout(function() {
+      $("#settings-container").css("display","block");
+    },1750)
+  } else {
+    $("#settings").css("transition","0s");
+    // Reveals settings list
+    $("#settings-container").css("display","block");
+  }
   // Stretches box to fit screen
   $("#settings").css("height","100vh");
   $("#settings").css("width","100%");
@@ -143,14 +156,16 @@ function showSettings() {
   $("#settings").css("left","0");
   // Removes curved edges
   $("#settings").css("border-radius","0");
-  // Reveals settings list
-  setTimeout(function() {
-    $("#settings-container").css("display","block")
-  },1750)
 }
 
 // Closes the Settings pannel
 function closeSettings() {
+  if (settingsAnimation == true) {
+    $("#settings").css("transition","1.5s");
+  } else {
+    $("#settings").css("transition","0s");
+    $("#settings-container").css("display","none");
+  }
   // Shrinks box to exit screen (Length)
   $("#settings").css("height","1vh");
   // Shrinks box to exit screen (Width)
@@ -160,7 +175,7 @@ function closeSettings() {
   // Adds curved edges
   $("#settings").css("border-radius","0 0 150vh 0");
   // Hides settings list
-  $("#settings-container").css("display","none")
+  $("#settings-container").css("display","none");
 }
 
 // Shows the Timer pannel, closes others
@@ -334,6 +349,16 @@ function doubleDigitsChanger() {
   } else {
     doubleDigits = false;
     $("#doubleDigitsButton").html("Off");
+  }
+}
+
+function settingsAnimControl() {
+  if (settingsAnimation == true) {
+    settingsAnimation = false;
+    $("#setAnimButton").html("Off");
+  } else {
+    settingsAnimation = true;
+    $("#setAnimButton").html("On");
   }
 }
 
