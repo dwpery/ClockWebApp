@@ -482,6 +482,18 @@ hr {
   overflow-y: scroll;
 }
 
+.buttonSVG, .circleOnSVG, .barOnSVG, .coverSVG {
+  transition: 0.25s;
+}
+
+.buttonSVG:hover .circleOnSVG, .buttonSVG:hover .coverSVG {
+  fill: #B3B3B3;
+}
+
+.buttonSVG:hover .barOnSVG {
+  fill: #000;
+}
+
 @media screen and (max-width: 800px) {
   #mobile {
     display: block;
