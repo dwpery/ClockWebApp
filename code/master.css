@@ -80,7 +80,7 @@ header {
 }
 
 .digital:hover {
-  cursor: pointer;
+  cursor: default;
 }
 
 .display {
