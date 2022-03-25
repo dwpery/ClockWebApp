@@ -178,7 +178,7 @@ label {
   display: none;
 }
 
-#headerSVG {
+.headerSVG {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -188,9 +188,20 @@ label {
   transition: 0.25s;
 }
 
-.item:hover #headerSVG {
+.item:hover .headerSVG {
   height: 9.5vh;
   width: 9.5vh;
+}
+
+#headerSVGleft, #headerSVGright {
+  height: 6.375vh;
+  width: 6.375vh;
+  transform: translate(-50%,-70%);
+}
+
+.item:hover #headerSVGleft, .item:hover #headerSVGright {
+  height: 7.375vh;
+  width: 7.375vh;
 }
 
 #settings-container {
