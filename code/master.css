@@ -196,7 +196,6 @@ label {
 #headerSVGleft, #headerSVGright {
   height: 6.375vh;
   width: 6.375vh;
-  transform: translate(-50%,-70%);
 }
 
 .item:hover #headerSVGleft, .item:hover #headerSVGright {
@@ -325,6 +324,11 @@ hr {
   height: 30vh;
   background-color: #B3B3B3;
   border-radius: 5vh;
+}
+
+.buffer {
+  background-color: #FFF;
+  height: 15vh;
 }
 
 .alarmName {
