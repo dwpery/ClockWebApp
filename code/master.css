@@ -80,7 +80,7 @@ header {
 }
 
 .digital:hover {
-  cursor: default;
+  cursor: pointer;
 }
 
 .display {
@@ -178,7 +178,7 @@ label {
   display: none;
 }
 
-.headerSVG {
+#headerSVG {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -188,19 +188,9 @@ label {
   transition: 0.25s;
 }
 
-.item:hover .headerSVG {
+.item:hover #headerSVG {
   height: 9.5vh;
   width: 9.5vh;
-}
-
-#headerSVGleft, #headerSVGright {
-  height: 6.375vh;
-  width: 6.375vh;
-}
-
-.item:hover #headerSVGleft, .item:hover #headerSVGright {
-  height: 7.375vh;
-  width: 7.375vh;
 }
 
 #settings-container {
@@ -324,11 +314,6 @@ hr {
   height: 30vh;
   background-color: #B3B3B3;
   border-radius: 5vh;
-}
-
-.buffer {
-  background-color: #FFF;
-  height: 15vh;
 }
 
 .alarmName {
@@ -550,10 +535,6 @@ hr {
   #hours, #minutes, #seconds {
     font-size: 6vh;
     width: 7vh;
-  }
-
-  .timerDisplay {
-    font-size: 6vh;
   }
 
   span, #span1, #span2, #span3, #span4, #span5, #span6 {

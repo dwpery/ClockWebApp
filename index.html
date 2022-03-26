@@ -26,7 +26,7 @@
       </div>
       <div id="mobile">
         <div class="item item1" onclick="showSettings()">
-          <svg viewbox="0 0 110 90" fill="none" class="headerSVG" id="headerSVGleft">
+          <svg viewbox="0 0 110 90" fill="none" id="headerSVG">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50 64C58.2843 64 65 57.2843 65 49C65 40.7157 58.2843 34 50 34C41.7157 34 35 40.7157 35 49C35 57.2843 41.7157 64 50 64ZM50 62C57.1797 62 63 56.1797 63 49C63 41.8203 57.1797 36 50 36C42.8203 36 37 41.8203 37 49C37 56.1797 42.8203 62 50 62Z" fill="black"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M46 11H54V22V25C55.6569 25 57 23.6569 57 22V11C57 9.34315 55.6569 8 54 8H46C44.3431 8 43 9.34315 43 11V22C43 23.6569 44.3431 25 46 25V22L46 11Z" fill="black"/>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M46 74C44.3431 74 43 75.3431 43 77V88C43 89.6569 44.3431 91 46 91H54C55.6569 91 57 89.6569 57 88V77C57 75.3431 55.6569 74 54 74V77V88H46L46 77V74Z" fill="black"/>
@@ -40,7 +40,7 @@
           </svg>
         </div>
         <div class="item item2" onclick="showTimer()">
-          <svg viewbox="0 0 110 90" class="headerSVG">
+          <svg viewbox="0 0 110 90" id="headerSVG">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
             <rect x="47" y="12" width="7" height="9" fill="black"/>
             <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
@@ -49,14 +49,14 @@
           </svg>
         </div>
         <div class="item item3" onclick="showClock()">
-          <svg viewbox="0 0 110 90" class="headerSVG">
+          <svg viewbox="0 0 110 90" id="headerSVG">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="black"/>
             <rect x="49" y="21" width="3" height="28" fill="black"/>
             <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="black"/>
           </svg>
         </div>
         <div class="item item4" onclick="showAlarm()">
-          <svg viewBox="0 0 110 90" class="headerSVG" id="headerSVGright">
+          <svg viewBox="0 0 110 90" id="headerSVG">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
             <rect x="49" y="20" width="3" height="28" fill="black"/>
             <path d="M69 47V50H49V47L69 47Z" fill="black"/>
@@ -152,9 +152,7 @@
       </div>
     </section>
     <section id="alarmPannel">
-      <div class="alarms-container scroll">
-        <div class="alarm buffer"></div>
-      </div>
+      <div class="alarms-container scroll"></div>
       <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="addAlarm" onclick="addAlarm()">
         <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
         <path class="barOnSVG" d="M45 30.5C45 27.4624 47.4624 25 50.5 25C53.5376 25 56 27.4624 56 30.5V70.5C56 73.5376 53.5376 76 50.5 76C47.4624 76 45 73.5376 45 70.5V30.5Z" fill="#36454F"/>
@@ -175,7 +173,7 @@
         <div class="settingsLabel">CodePen Edition</div>
         <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
         <div class="settingsLabel">Channel</div>
-        <div class="settingsButton">Dev</div>
+        <div class="settingsButton">Stable</div>
         <div class="settingsLabel">Settings Animation</div>
         <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
         <div class="settingsHeading">Clock Panel</div>
@@ -195,7 +193,7 @@
         <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
         <hr>
         <div class="buildInfo">
-          <div>v.2.0.2 (Official Build) developer (64-bit)</div>
+          <div>v.2.0.2 (Official Build) (64-bit)</div>
           <div>GitHub Edition</div><br>
         </div>
       </div>
