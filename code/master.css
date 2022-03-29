@@ -556,7 +556,11 @@ hr {
     font-size: 6vh;
   }
 
-  span, #span1, #span2, #span3, #span4, #span5, #span6 {
+  span, #span4, #span5, #span6 {
+    font-size: 5vh;
+  }
+
+  #span1, #span2, #span3 {
     font-size: 6vh;
   }
 
