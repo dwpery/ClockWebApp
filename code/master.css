@@ -216,8 +216,13 @@ label {
 
 .settingsHeading {
   text-align: center;
-  font-size: 7.5vh;
+  font-size: 6.5vh;
   width: 100%;
+  padding: 1vh;
+}
+
+.settingsHeading:hover {
+  cursor: pointer;
 }
 
 .settingsLabel {

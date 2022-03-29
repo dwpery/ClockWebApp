@@ -165,37 +165,65 @@
     <section id="settings">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading">General</div>
-        <div class="settingsLabel">Privacy Policy</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
-        <div class="settingsLabel">Security Policy</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/SECURITY.md'">View</div>
-        <div class="settingsLabel">Github Repository</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
-        <div class="settingsLabel">CodePen Edition</div>
-        <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
-        <div class="settingsLabel">Channel</div>
-        <div class="settingsButton">Stable</div>
-        <div class="settingsLabel">Settings Animation</div>
-        <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
-        <div class="settingsHeading">Clock Panel</div>
-        <div class="settingsLabel">24 Hour Clock</div>
-        <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
-        <div class="settingsLabel">Day & Month Format</div>
-        <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
-        <div class="settingsLabel">Time Zone</div>
-        <div class="settingsButton" id="timeZoneButton">sussy</div>
-        <div class="settingsHeading">Timer Panel</div>
-        <div class="settingsLabel">Always Double Digits</div>
-        <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
-        <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
-        <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
-        <div class="settingsHeading">Alarm Panel</div>
-        <div class="settingsLabel">Alarm Sound</div>
-        <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
+        <div class="settingsHeading" onclick="showGeneral()">General</div>
+        <div id="generalContainer">
+          <div class="settingsLabel">Dark / Light mode</div>
+          <div class="settingsButton">Light</div>
+          <div class="settingsLabel">Privacy Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
+          <div class="settingsLabel">Security Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/SECURITY.md'">View</div>
+          <div class="settingsLabel">Github Repository</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
+          <div class="settingsLabel">CodePen Edition</div>
+          <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
+          <div class="settingsLabel">Firebase Edition</div>
+          <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
+          <div class="settingsLabel">Channel</div>
+          <div class="settingsButton">Dev</div>
+        </div>
+        <div class="settingsHeading" onclick="showAccessibility()">Accessibility</div>
+        <div id="accessibilityContainer">
+          <div class="settingsLabel">Font Customization</div>
+          <div class="settingsButton">Change</div>
+          <div class="settingsLabel">Font Size</div>
+          <div class="settingsButton">Change</div>
+          <div class="settingsLabel">Colour Blind Modes</div>
+          <div class="settingsButton">Change</div>
+        </div>
+        <div class="settingsHeading" onclick="showAnimation()">Animation</div>
+        <div id="AnimationContainer">
+          <div class="settingsLabel">Settings Animation</div>
+          <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
+          <div class="settingsLabel">Animation Speed</div>
+          <div class="settingsButton">Normal</div>
+          <div class="settingsLabel">Hover Animations</div>
+          <div class="settingsButton">On</div>
+        </div>
+        <div class="settingsHeading" onclick="showClockSettings()">Clock Panel</div>
+        <div id="clockSettingsContainer">
+          <div class="settingsLabel">24 Hour Clock</div>
+          <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
+          <div class="settingsLabel">Day & Month Format</div>
+          <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
+          <div class="settingsLabel">Time Zone</div>
+          <div class="settingsButton" id="timeZoneButton">sussy</div>
+        </div>
+        <div class="settingsHeading" onclick="showTimerSettings()">Timer Panel</div>
+        <div id="timerSettingsContainer">
+          <div class="settingsLabel">Always Double Digits</div>
+          <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
+          <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
+          <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
+        </div>
+        <div class="settingsHeading" onclick="showAlarmSettings()">Alarm Panel</div>
+        <div id="alarmSettingsContainer">
+          <div class="settingsLabel">Alarm Sound</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
+        </div>
         <hr>
         <div class="buildInfo">
-          <div>v.2.0.2 (Official Build) (64-bit)</div>
+          <div>v.2.0.5 (Official Build) developer (64-bit)</div>
           <div>GitHub Edition</div><br>
         </div>
       </div>
