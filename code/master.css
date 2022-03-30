@@ -514,6 +514,10 @@ hr {
   fill: #000;
 }
 
+#generalContainer, #accessibilityContainer, #animationContainer, #clockSettingsContainer, #timerSettingsContainer, #alarmSettingsContainer {
+  display: none;
+}
+
 @media screen and (max-width: 800px) {
   #mobile {
     display: block;

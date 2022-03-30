@@ -114,16 +114,16 @@
           <span id="span6">0</span><span>s</span>
         </div>
         <div class="stopwatchControls">
-          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()">
+          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()">
             <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
             <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>
           </svg>
-          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()">
+          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()">
             <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
             <path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/>
             <path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>
           </svg>
-          <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetStopwatch" onclick="resetStopwatch()">
+          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetStopwatch" onclick="resetStopwatch()">
             <g clip-path="url(#clip0_0_1)">
               <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
               <path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/>
@@ -165,7 +165,7 @@
     <section id="settings">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading" onclick="showGeneral()">General</div>
+        <div class="settingsHeading" onclick="$('#generalContainer').toggle(500)">General</div>
         <div id="generalContainer">
           <div class="settingsLabel">Dark / Light mode</div>
           <div class="settingsButton">Light</div>
@@ -182,7 +182,7 @@
           <div class="settingsLabel">Channel</div>
           <div class="settingsButton">Dev</div>
         </div>
-        <div class="settingsHeading" onclick="showAccessibility()">Accessibility</div>
+        <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
         <div id="accessibilityContainer">
           <div class="settingsLabel">Font Customization</div>
           <div class="settingsButton">Change</div>
@@ -191,8 +191,8 @@
           <div class="settingsLabel">Colour Blind Modes</div>
           <div class="settingsButton">Change</div>
         </div>
-        <div class="settingsHeading" onclick="showAnimation()">Animation</div>
-        <div id="AnimationContainer">
+        <div class="settingsHeading" onclick="$('#animationContainer').toggle(500)">Animation</div>
+        <div id="animationContainer">
           <div class="settingsLabel">Settings Animation</div>
           <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
           <div class="settingsLabel">Animation Speed</div>
@@ -200,7 +200,7 @@
           <div class="settingsLabel">Hover Animations</div>
           <div class="settingsButton">On</div>
         </div>
-        <div class="settingsHeading" onclick="showClockSettings()">Clock Panel</div>
+        <div class="settingsHeading" onclick="$('#clockSettingsContainer').toggle(500)">Clock Panel</div>
         <div id="clockSettingsContainer">
           <div class="settingsLabel">24 Hour Clock</div>
           <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
@@ -209,14 +209,14 @@
           <div class="settingsLabel">Time Zone</div>
           <div class="settingsButton" id="timeZoneButton">sussy</div>
         </div>
-        <div class="settingsHeading" onclick="showTimerSettings()">Timer Panel</div>
+        <div class="settingsHeading" onclick="$('#timerSettingsContainer').toggle(500)">Timer Panel</div>
         <div id="timerSettingsContainer">
           <div class="settingsLabel">Always Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
           <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
           <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
         </div>
-        <div class="settingsHeading" onclick="showAlarmSettings()">Alarm Panel</div>
+        <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
         <div id="alarmSettingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
