@@ -30,6 +30,8 @@ var audio = new Audio(alarmSounds[activeAlarmSound]);
 var isStopwatch = false;
 // Settings animation, True = On, False = Off
 var settingsAnimation = true;
+// false = Light, true = Dark
+var isDark = true;
 
 // Main Code
 
@@ -425,6 +427,18 @@ function timerChanger() {
     $(".stopwatch").hide();
     $("#stopwatchLabel").html("Stopwatch");
     isStopwatch = false;
+  }
+}
+
+function themeChanger() {
+  if (isDark === false) {
+    isDark = true;
+    $("html").addClass("dark");
+    $("#themeButton").html("Dark");
+  } else {
+    isDark = false;
+    $("html").removeClass("dark");
+    $("#themeButton").html("Light");
   }
 }
 

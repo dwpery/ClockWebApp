@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="dark">
   <head>
     <meta charset="utf-8">
     <title>Clock Web App</title>
@@ -168,7 +168,7 @@
         <div class="settingsHeading" onclick="$('#generalContainer').toggle(500)">General</div>
         <div id="generalContainer">
           <div class="settingsLabel">Dark / Light mode</div>
-          <div class="settingsButton">Light</div>
+          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Dark</div>
           <div class="settingsLabel">Privacy Policy</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
           <div class="settingsLabel">Security Policy</div>
