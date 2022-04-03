@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="dark">
   <head>
     <meta charset="utf-8">
     <title>Clock Web App</title>
@@ -165,43 +165,69 @@
     <section id="settings">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading">General</div>
-        <div class="settingsLabel">Privacy Policy</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
-        <div class="settingsLabel">Security Policy</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/SECURITY.md'">View</div>
-        <div class="settingsLabel">Github Repository</div>
-        <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
-        <div class="settingsLabel">CodePen Edition</div>
-        <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
-        <div class="settingsLabel">Channel</div>
-        <div class="settingsButton">Stable</div>
-        <div class="settingsLabel">Settings Animation</div>
-        <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
-        <div class="settingsHeading">Clock Panel</div>
-        <div class="settingsLabel">24 Hour Clock</div>
-        <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
-        <div class="settingsLabel">Day & Month Format</div>
-        <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
-        <div class="settingsLabel">Time Zone</div>
-        <div class="settingsButton" id="timeZoneButton">sussy</div>
-        <div class="settingsHeading">Timer Panel</div>
-        <div class="settingsLabel">Always Double Digits</div>
-        <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
-        <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
-        <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
-        <div class="settingsHeading">Alarm Panel</div>
-        <div class="settingsLabel">Alarm Sound</div>
-        <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
+        <div class="settingsHeading" onclick="$('#generalContainer').toggle(500)">General</div>
+        <div id="generalContainer">
+          <div class="settingsLabel">Dark / Light mode</div>
+          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Dark</div>
+          <div class="settingsLabel">Privacy Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
+          <div class="settingsLabel">Security Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/SECURITY.md'">View</div>
+          <div class="settingsLabel">Github Repository</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
+          <div class="settingsLabel">CodePen Edition</div>
+          <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
+          <div class="settingsLabel">Firebase Edition</div>
+          <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
+          <div class="settingsLabel">Channel</div>
+          <div class="settingsButton">Stable</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
+        <div id="accessibilityContainer">
+          <div class="settingsLabel">Font Customization</div>
+          <div class="settingsButton" onclick="$('.fontSwitcher').toggle(500)">Change</div>
+          <!--<div class="settingsLabel">Colour Blind Modes</div>
+          <div class="settingsButton">Change</div>-->
+        </div>
+        <div class="settingsHeading" onclick="$('#animationContainer').toggle(500)">Animation</div>
+        <div id="animationContainer">
+          <div class="settingsLabel">Settings Animation</div>
+          <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
+          <!--<div class="settingsLabel">Animation Speed</div>
+          <div class="settingsButton">Normal</div>
+          <div class="settingsLabel">Hover Animations</div>
+          <div class="settingsButton">On</div>-->
+        </div>
+        <div class="settingsHeading" onclick="$('#clockSettingsContainer').toggle(500)">Clock Panel</div>
+        <div id="clockSettingsContainer">
+          <div class="settingsLabel">24 Hour Clock</div>
+          <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
+          <div class="settingsLabel">Day & Month Format</div>
+          <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
+          <div class="settingsLabel">Time Zone</div>
+          <div class="settingsButton" id="timeZoneButton">sussy</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#timerSettingsContainer').toggle(500)">Timer Panel</div>
+        <div id="timerSettingsContainer">
+          <div class="settingsLabel">Always Double Digits</div>
+          <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
+          <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
+          <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
+        <div id="alarmSettingsContainer">
+          <div class="settingsLabel">Alarm Sound</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="$('.alarmSwitcher').toggle(500)">Change</div>
+        </div>
         <hr>
         <div class="buildInfo">
-          <div>v.2.0.2.3 (Official Build) (64-bit)</div>
+          <div>v.2.1.0 (Official Build) (64-bit)</div>
           <div>GitHub Edition</div><br>
         </div>
       </div>
       <div class="alarmSwitcher">
         <div class="alarmSoundNameTitle">Alarm Sounds</div>
-        <div class="closeAlarmSoundSwitcher" onclick="closeAlarmSoundSwitcher()">x</div>
+        <div class="closeAlarmSoundSwitcher" onclick="$('.alarmSwitcher').toggle(500)">x</div>
         <div class="alarmSoundContainer scroll">
           <div class="alarmSoundName" onclick="changeAlarmSound(0)">Default</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(1)">Heavy Metal</div>
@@ -213,6 +239,18 @@
           <div class="alarmSoundName" onclick="changeAlarmSound(7)">Buzzer</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(8)">Digital</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(9)">Vintage</div>
+        </div>
+      </div>
+      <div class="fontSwitcher">
+        <div class="fontTitle">Fonts</div>
+        <div class="closeAlarmSoundSwitcher" onclick="$('.fontSwitcher').toggle(500)">x</div>
+        <div class="alarmSoundContainer scroll">
+          <div class="fontName defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
+          <div class="fontName classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
+          <div class="fontName wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
+          <div class="fontName arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
+          <div class="fontName bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
+          <div class="fontName robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
         </div>
       </div>
     </section>

@@ -30,6 +30,8 @@ var audio = new Audio(alarmSounds[activeAlarmSound]);
 var isStopwatch = false;
 // Settings animation, True = On, False = Off
 var settingsAnimation = true;
+// false = Light, true = Dark
+var isDark = true;
 
 // Main Code
 
@@ -389,10 +391,6 @@ function cancelAlarm() {
   audio.remove();
 }
 
-function openSoundMenu() {
-  $(".alarmSwitcher").css("display","block");
-}
-
 function changeAlarmSound(x) {
   activeAlarmSound = x;
   audio = new Audio(alarmSounds[activeAlarmSound]);
@@ -408,10 +406,6 @@ function changeAlarmSound(x) {
   }, 5000)
 }
 
-function closeAlarmSoundSwitcher() {
-  $(".alarmSwitcher").css("display","none");
-}
-
 function timerChanger() {
   if (isStopwatch === false) {
     $(".timerMain").hide();
@@ -425,6 +419,18 @@ function timerChanger() {
     $(".stopwatch").hide();
     $("#stopwatchLabel").html("Stopwatch");
     isStopwatch = false;
+  }
+}
+
+function themeChanger() {
+  if (isDark === false) {
+    isDark = true;
+    $("html").addClass("dark");
+    $("#themeButton").html("Dark");
+  } else {
+    isDark = false;
+    $("html").removeClass("dark");
+    $("#themeButton").html("Light");
   }
 }
 
