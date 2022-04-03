@@ -525,6 +525,7 @@ hr {
 .arialFont { font-family: 'Arial'; }
 .bubbleFont { font-family: 'Rubik Microbe', cursive; }
 .robotFont { font-family: 'Roboto Mono', monospace; }
+.defaultFont { font-family: 'Zen Kaku Gothic Antique', sans-serif; }
 
 @media screen and (max-width: 800px) {
   #mobile {
@@ -610,6 +611,6 @@ hr {
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  { color: rgb(255, 43, 43); }
-.dark .alarmSoundName:hover { color: #FFF; }
+.dark .alarmSoundName:hover, .dark .fontName:hover { color: #FFF; }
 .dark ::-webkit-scrollbar { background-color: #34383a; color: #faf0e0; }
 .dark :::-webkit-scrollbar-corner { background-color: #292b2d; }
