@@ -391,10 +391,6 @@ function cancelAlarm() {
   audio.remove();
 }
 
-function openSoundMenu() {
-  $(".alarmSwitcher").css("display","block");
-}
-
 function changeAlarmSound(x) {
   activeAlarmSound = x;
   audio = new Audio(alarmSounds[activeAlarmSound]);
@@ -408,10 +404,6 @@ function changeAlarmSound(x) {
     cancelAlarm();
     audio.currentTime = 0;
   }, 5000)
-}
-
-function closeAlarmSoundSwitcher() {
-  $(".alarmSwitcher").css("display","none");
 }
 
 function timerChanger() {

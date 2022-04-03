@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@900&display=swap'); /* font-family: 'Zen Kaku Gothic Antique', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap'); /* font-family: 'Major Mono Display', monospace; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap'); /* font-family: 'Rubik Wet Paint', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap'); /* font-family: 'Rubik Microbe', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); /* font-family: 'Roboto Mono', monospace; */
 
 
 body {
@@ -452,7 +455,7 @@ hr {
   cursor: pointer;
 }
 
-.alarmSwitcher {
+.alarmSwitcher, .fontSwitcher {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -464,7 +467,7 @@ hr {
   display: none;
 }
 
-.alarmSoundNameTitle {
+.alarmSoundNameTitle, .fontTitle {
   font-size: 4vh;
   font-weight: bolder;
   text-align: center;
@@ -485,13 +488,13 @@ hr {
   transition: 0.25s;
 }
 
-.alarmSoundName {
+.alarmSoundName, .fontName {
   font-size: 3.5vh;
   text-align: center;
   transition: 0.25s;
 }
 
-.alarmSoundName:hover {
+.alarmSoundName:hover, .fontName:hover {
   cursor: pointer;
   color: #36454F;
 }
@@ -516,6 +519,12 @@ hr {
 #generalContainer, #accessibilityContainer, #animationContainer, #clockSettingsContainer, #timerSettingsContainer, #alarmSettingsContainer {
   display: none;
 }
+
+.classicFont { font-family: 'Major Mono Display', monospace; }
+.wetFont { font-family: 'Rubik Wet Paint', cursive; }
+.arialFont { font-family: 'Arial'; }
+.bubbleFont { font-family: 'Rubik Microbe', cursive; }
+.robotFont { font-family: 'Roboto Mono', monospace; }
 
 @media screen and (max-width: 800px) {
   #mobile {
@@ -596,9 +605,11 @@ hr {
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .item:hover label { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }
-.dark .alarmSwitcher { background-color: rgb(76, 82, 85); }
+.dark .alarmSwitcher, .dark .fontSwitcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  { color: rgb(255, 43, 43); }
 .dark .alarmSoundName:hover { color: #FFF; }
+.dark ::-webkit-scrollbar { background-color: #34383a; color: #faf0e0; }
+.dark :::-webkit-scrollbar-corner { background-color: #292b2d; }

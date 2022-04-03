@@ -185,9 +185,7 @@
         <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
         <div id="accessibilityContainer">
           <div class="settingsLabel">Font Customization</div>
-          <div class="settingsButton">Change</div>
-          <div class="settingsLabel">Font Size</div>
-          <div class="settingsButton">Change</div>
+          <div class="settingsButton" onclick="$('.fontSwitcher').toggle(500)">Change</div>
           <div class="settingsLabel">Colour Blind Modes</div>
           <div class="settingsButton">Change</div>
         </div>
@@ -219,7 +217,7 @@
         <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
         <div id="alarmSettingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
-          <div class="settingsButton" id="alarmSoundButton" onclick="openSoundMenu()">Change</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="$('.alarmSwitcher').toggle(500)">Change</div>
         </div>
         <hr>
         <div class="buildInfo">
@@ -229,7 +227,7 @@
       </div>
       <div class="alarmSwitcher">
         <div class="alarmSoundNameTitle">Alarm Sounds</div>
-        <div class="closeAlarmSoundSwitcher" onclick="closeAlarmSoundSwitcher()">x</div>
+        <div class="closeAlarmSoundSwitcher" onclick="$('.alarmSwitcher').toggle(500)">x</div>
         <div class="alarmSoundContainer scroll">
           <div class="alarmSoundName" onclick="changeAlarmSound(0)">Default</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(1)">Heavy Metal</div>
@@ -241,6 +239,18 @@
           <div class="alarmSoundName" onclick="changeAlarmSound(7)">Buzzer</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(8)">Digital</div>
           <div class="alarmSoundName" onclick="changeAlarmSound(9)">Vintage</div>
+        </div>
+      </div>
+      <div class="fontSwitcher">
+        <div class="fontTitle">Fonts</div>
+        <div class="closeAlarmSoundSwitcher" onclick="$('.fontSwitcher').toggle(500)">x</div>
+        <div class="alarmSoundContainer scroll">
+          <div class="fontName" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
+          <div class="fontName classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
+          <div class="fontName wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
+          <div class="fontName arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
+          <div class="fontName bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
+          <div class="fontName robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
         </div>
       </div>
     </section>
