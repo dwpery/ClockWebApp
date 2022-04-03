@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Zen+Kaku+Gothic+Antique:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
 
 body {
   margin: 0;
@@ -75,7 +76,6 @@ header {
   background-color: black;
   border-radius: 5vh;
   transition: 0.75s;
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
   color: red;
 }
 
@@ -165,7 +165,6 @@ label {
   font-size: 5vh;
   transition: 0.25s;
   transform: translate(-50%,-50%);
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
 }
 
 .item:hover label {
