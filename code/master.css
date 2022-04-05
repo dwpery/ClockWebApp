@@ -455,7 +455,7 @@ hr {
   cursor: pointer;
 }
 
-.alarmSwitcher, .fontSwitcher {
+.alarmSwitcher, .fontSwitcher, .filterSwitcher {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -467,7 +467,7 @@ hr {
   display: none;
 }
 
-.alarmSoundNameTitle, .fontTitle {
+.alarmSoundNameTitle, .fontTitle, .filterTitle {
   font-size: 4vh;
   font-weight: bolder;
   text-align: center;
@@ -606,7 +606,7 @@ hr {
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .item:hover label { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }
-.dark .alarmSwitcher, .dark .fontSwitcher { background-color: rgb(76, 82, 85); }
+.dark .alarmSwitcher, .dark .fontSwitcher, .dark .filterSwitcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
