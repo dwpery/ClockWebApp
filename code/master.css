@@ -431,18 +431,23 @@ hr {
   color: #0F0;
 }
 
-.cancelContainer {
+.cancelContainer, .snoozeContainer {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,150%);
+  transform: translate(50%,150%);
   background-color: #0F0;
   height: 10vh;
   width: 10vh;
   border-radius: 50%;
 }
 
-.cancelAlarm {
+.snoozeContainer {
+  background-color: #F00;
+  transform: translate(-150%,150%);
+}
+
+.cancelAlarm, .snoozeAlarm {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -451,7 +456,7 @@ hr {
   width: 9vh;
 }
 
-.cancelAlarm:hover {
+.cancelAlarm:hover, .snoozeAlarm:hover {
   cursor: pointer;
 }
 
