@@ -513,7 +513,7 @@ hr {
   fill: #000;
 }
 
-#generalContainer, #accessibilityContainer, #animationContainer, #clockSettingsContainer, #timerSettingsContainer, #alarmSettingsContainer {
+.settingsContainer {
   display: none;
 }
 

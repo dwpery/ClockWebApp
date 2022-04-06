@@ -165,8 +165,8 @@
     <section id="settings">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading" onclick="$('#generalContainer').toggle(500)">General</div>
-        <div id="generalContainer">
+        <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
+        <div id="general" class="settingsContainer">
           <div class="settingsLabel">Dark / Light mode</div>
           <div class="settingsButton" id="themeButton" onclick="themeChanger()">Dark</div>
           <div class="settingsLabel">Privacy Policy</div>
@@ -179,18 +179,29 @@
           <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
           <div class="settingsLabel">Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
+          <div class="settingsLabel">Legacy Versions</div>
+          <div class="settingsButton">View</div>
           <div class="settingsLabel">Channel</div>
           <div class="settingsButton">Dev</div>
         </div>
-        <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
-        <div id="accessibilityContainer">
+        <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
+        <div id="contact" class="settingsContainer">
+          <div class="settingsLabel">Report a bug</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
+          <div class="settingsLabel">Feature Request</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
+          <div class="settingsLabel">Report a security vulnerability</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View Policy</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
+        <div id="accessibility" class="settingsContainer">
           <div class="settingsLabel">Font Customization</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
           <!--<div class="settingsLabel">Colour Blind Modes</div>
           <div class="settingsButton" onclick="$('#filter').toggle(500)">Change</div>-->
         </div>
-        <div class="settingsHeading" onclick="$('#animationContainer').toggle(500)">Animation</div>
-        <div id="animationContainer">
+        <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
+        <div id="animation" class="settingsContainer">
           <div class="settingsLabel">Settings Animation</div>
           <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
           <!--<div class="settingsLabel">Animation Speed</div>
@@ -198,8 +209,8 @@
           <div class="settingsLabel">Hover Animations</div>
           <div class="settingsButton">On</div>-->
         </div>
-        <div class="settingsHeading" onclick="$('#clockSettingsContainer').toggle(500)">Clock Panel</div>
-        <div id="clockSettingsContainer">
+        <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
+        <div id="clockSettings" class="settingsContainer">
           <div class="settingsLabel">24 Hour Clock</div>
           <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
           <div class="settingsLabel">Day & Month Format</div>
@@ -207,15 +218,15 @@
           <div class="settingsLabel">Time Zone</div>
           <div class="settingsButton" id="timeZoneButton">sussy</div>
         </div>
-        <div class="settingsHeading" onclick="$('#timerSettingsContainer').toggle(500)">Timer Panel</div>
-        <div id="timerSettingsContainer">
+        <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
+        <div id="timerSettings" class="settingsContainer">
           <div class="settingsLabel">Always Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
           <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
           <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
         </div>
-        <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
-        <div id="alarmSettingsContainer">
+        <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
+        <div id="alarmSettings" class="settingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
         </div>
