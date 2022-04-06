@@ -185,9 +185,9 @@
         <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
         <div id="accessibilityContainer">
           <div class="settingsLabel">Font Customization</div>
-          <div class="settingsButton" onclick="$('.fontSwitcher').toggle(500)">Change</div>
+          <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
           <!--<div class="settingsLabel">Colour Blind Modes</div>
-          <div class="settingsButton" onclick="$('.filterSwitcher').toggle(500)">Change</div>-->
+          <div class="settingsButton" onclick="$('#filter').toggle(500)">Change</div>-->
         </div>
         <div class="settingsHeading" onclick="$('#animationContainer').toggle(500)">Animation</div>
         <div id="animationContainer">
@@ -217,7 +217,7 @@
         <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
         <div id="alarmSettingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
-          <div class="settingsButton" id="alarmSoundButton" onclick="$('.alarmSwitcher').toggle(500)">Change</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
         </div>
         <hr>
         <div class="buildInfo">
@@ -225,38 +225,37 @@
           <div>GitHub Edition</div><br>
         </div>
       </div>
-      <div class="alarmSwitcher">
-        <div class="alarmSoundNameTitle">Alarm Sounds</div>
-        <div class="closeAlarmSoundSwitcher" onclick="$('.alarmSwitcher').toggle(500)">x</div>
-        <div class="alarmSoundContainer scroll">
-          <div class="alarmSoundName" onclick="changeAlarmSound(0)">Default</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(1)">Heavy Metal</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(2)">Harp Strumming</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(3)">Rooster</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(4)">Military Trumpet</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(6)">Alien Ship</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(7)">Buzzer</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(8)">Digital</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(9)">Vintage</div>
+      <div class="switcher" id="alarm">
+        <div class="switcherTitle">Alarm Sounds</div>
+        <div class="closeSwitcher" onclick="$('#alarm').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption" onclick="changeAlarmSound(0)">Default</div>
+          <div class="switcherOption" onclick="changeAlarmSound(2)">Harp Strumming</div>
+          <div class="switcherOption" onclick="changeAlarmSound(3)">Rooster</div>
+          <div class="switcherOption" onclick="changeAlarmSound(4)">Military Trumpet</div>
+          <div class="switcherOption" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
+          <div class="switcherOption" onclick="changeAlarmSound(6)">Alien Ship</div>
+          <div class="switcherOption" onclick="changeAlarmSound(7)">Buzzer</div>
+          <div class="switcherOption" onclick="changeAlarmSound(8)">Digital</div>
+          <div class="switcherOption" onclick="changeAlarmSound(9)">Vintage</div>
         </div>
       </div>
-      <div class="fontSwitcher">
-        <div class="fontTitle">Fonts</div>
-        <div class="closeAlarmSoundSwitcher" onclick="$('.fontSwitcher').toggle(500)">x</div>
-        <div class="alarmSoundContainer scroll">
-          <div class="fontName defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
-          <div class="fontName classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
-          <div class="fontName wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
-          <div class="fontName arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
-          <div class="fontName bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
-          <div class="fontName robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
+      <div class="switcher" id="font">
+        <div class="switcherTitle">Fonts</div>
+        <div class="closeSwitcher" onclick="$('#font').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
+          <div class="switcherOption classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
+          <div class="switcherOption wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
+          <div class="switcherOption arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
+          <div class="switcherOption bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
+          <div class="switcherOption robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
         </div>
       </div>
-      <div class="filterSwitcher">
-        <div class="filterTitle">Filters</div>
-        <div class="closeAlarmSoundSwitcher" onclick="$('.filterSwitcher').toggle(500)">x</div>
-        <div class="alarmSoundContainer scroll">
+      <div class="switcher" id="filter">
+        <div class="switcherTitle">Filters</div>
+        <div class="closeSwitcher" onclick="$('#filter').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
 
         </div>
       </div>
