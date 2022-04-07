@@ -179,10 +179,6 @@
           <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
           <div class="settingsLabel">Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
-          <div class="settingsLabel">Legacy Versions</div>
-          <div class="settingsButton">View</div>
-          <div class="settingsLabel">Channel</div>
-          <div class="settingsButton">Dev</div>
         </div>
         <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
         <div id="contact" class="settingsContainer">
@@ -230,6 +226,13 @@
           <div class="settingsLabel">Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
         </div>
+        <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Versions & Channel</div>
+        <div id="versionsChannel" class="settingsContainer">
+          <div class="settingsLabel">Legacy Versions</div>
+          <div class="settingsButton" onclick="$('#versions').toggle(500)">View</div>
+          <div class="settingsLabel">Channel</div>
+          <div class="settingsButton" onclick="location.href='https://os-clock.web.app/'">Dev</div>
+        </div>
         <hr>
         <div class="buildInfo">
           <div>v.2.1.1 (Official Build) developer (64-bit)</div>
@@ -263,11 +266,23 @@
           <div class="switcherOption robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
         </div>
       </div>
+      <div class="switcher" id="versions">
+        <div class="switcherTitle">Versions</div>
+        <div class="closeSwitcher" onclick="$('#versions').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.2.3/'">2.0.2.3</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.2/'">2.0.2</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.1/'">2.0.1</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.0/'">2.0.0</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.1.104/'">1.1.104</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.1.0/'">1.1.0</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.0.0/'">1.0.0</div>
+        </div>
+      </div>
       <div class="switcher" id="filter">
         <div class="switcherTitle">Filters</div>
         <div class="closeSwitcher" onclick="$('#filter').toggle(500)">x</div>
         <div class="switcherContainer scroll">
-
         </div>
       </div>
     </section>
