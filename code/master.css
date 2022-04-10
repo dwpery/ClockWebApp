@@ -259,7 +259,7 @@ label {
   transition: 0.75s;
 }
 
-#close-settings:hover, .closeAlarmSoundSwitcher:hover {
+#close-settings:hover, .closeSwitcher:hover {
   cursor: pointer;
   color: grey;
 }
@@ -280,7 +280,7 @@ label {
   transform: translate(-150%, 75%);
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover {
   cursor: pointer;
 }
 
@@ -373,10 +373,6 @@ hr {
   color: #F00;
 }
 
-#remove:hover, #submit:hover {
-  cursor: pointer;
-}
-
 #submit {
   position: relative;
   top: 3vh;
@@ -431,7 +427,7 @@ hr {
   color: #0F0;
 }
 
-.cancelContainer {
+.cancelContainer, .snoozeContainer {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -442,7 +438,12 @@ hr {
   border-radius: 50%;
 }
 
-.cancelAlarm {
+.snoozeContainer {
+  background-color: #F00;
+  transform: translate(-150%,150%);
+}
+
+.cancelAlarm, .snoozeAlarm {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -451,11 +452,7 @@ hr {
   width: 9vh;
 }
 
-.cancelAlarm:hover {
-  cursor: pointer;
-}
-
-.alarmSwitcher, .fontSwitcher {
+.switcher {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -467,19 +464,19 @@ hr {
   display: none;
 }
 
-.alarmSoundNameTitle, .fontTitle {
+.switcherTitle {
   font-size: 4vh;
   font-weight: bolder;
   text-align: center;
   text-decoration: underline;
 }
 
-.alarmSoundContainer {
+.switcherContainer {
   margin-top: 0vh;
   height: 40vh;
 }
 
-.closeAlarmSoundSwitcher {
+.closeSwitcher {
   position: absolute;
   font-size: 4.5vh;
   left: 50%;
@@ -488,15 +485,15 @@ hr {
   transition: 0.25s;
 }
 
-.alarmSoundName, .fontName {
+.switcherOption {
   font-size: 3.5vh;
   text-align: center;
   transition: 0.25s;
 }
 
-.alarmSoundName:hover, .fontName:hover {
+.switcherOption:hover {
   cursor: pointer;
-  color: #36454F;
+  color: grey;
 }
 
 .scroll {
@@ -516,7 +513,7 @@ hr {
   fill: #000;
 }
 
-#generalContainer, #accessibilityContainer, #animationContainer, #clockSettingsContainer, #timerSettingsContainer, #alarmSettingsContainer {
+.settingsContainer {
   display: none;
 }
 
@@ -606,11 +603,10 @@ hr {
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .item:hover label { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }
-.dark .alarmSwitcher, .dark .fontSwitcher { background-color: rgb(76, 82, 85); }
+.dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  { color: rgb(255, 43, 43); }
-.dark .alarmSoundName:hover, .dark .fontName:hover { color: #FFF; }
 .dark ::-webkit-scrollbar { background-color: #34383a; color: #faf0e0; }
 .dark :::-webkit-scrollbar-corner { background-color: #292b2d; }

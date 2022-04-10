@@ -5,7 +5,7 @@
     <title>Clock Web App</title>
     <script defer src="code/main.js"></script>
     <link href="code/master.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="media/icons/favicon.png">
     <link rel="apple-touch-icon" href="media/icons/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -165,8 +165,8 @@
     <section id="settings">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading" onclick="$('#generalContainer').toggle(500)">General</div>
-        <div id="generalContainer">
+        <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
+        <div id="general" class="settingsContainer">
           <div class="settingsLabel">Dark / Light mode</div>
           <div class="settingsButton" id="themeButton" onclick="themeChanger()">Dark</div>
           <div class="settingsLabel">Privacy Policy</div>
@@ -179,18 +179,25 @@
           <div class="settingsButton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">Open</div>
           <div class="settingsLabel">Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
-          <div class="settingsLabel">Channel</div>
-          <div class="settingsButton">Stable</div>
         </div>
-        <div class="settingsHeading" onclick="$('#accessibilityContainer').toggle(500)">Accessibility</div>
-        <div id="accessibilityContainer">
+        <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
+        <div id="contact" class="settingsContainer">
+          <div class="settingsLabel">Report a bug</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
+          <div class="settingsLabel">Feature Request</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
+          <div class="settingsLabel">Report a security vulnerability</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View Policy</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
+        <div id="accessibility" class="settingsContainer">
           <div class="settingsLabel">Font Customization</div>
-          <div class="settingsButton" onclick="$('.fontSwitcher').toggle(500)">Change</div>
+          <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
           <!--<div class="settingsLabel">Colour Blind Modes</div>
-          <div class="settingsButton">Change</div>-->
+          <div class="settingsButton" onclick="$('#filter').toggle(500)">Change</div>-->
         </div>
-        <div class="settingsHeading" onclick="$('#animationContainer').toggle(500)">Animation</div>
-        <div id="animationContainer">
+        <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
+        <div id="animation" class="settingsContainer">
           <div class="settingsLabel">Settings Animation</div>
           <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
           <!--<div class="settingsLabel">Animation Speed</div>
@@ -198,8 +205,8 @@
           <div class="settingsLabel">Hover Animations</div>
           <div class="settingsButton">On</div>-->
         </div>
-        <div class="settingsHeading" onclick="$('#clockSettingsContainer').toggle(500)">Clock Panel</div>
-        <div id="clockSettingsContainer">
+        <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
+        <div id="clockSettings" class="settingsContainer">
           <div class="settingsLabel">24 Hour Clock</div>
           <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
           <div class="settingsLabel">Day & Month Format</div>
@@ -207,50 +214,75 @@
           <div class="settingsLabel">Time Zone</div>
           <div class="settingsButton" id="timeZoneButton">sussy</div>
         </div>
-        <div class="settingsHeading" onclick="$('#timerSettingsContainer').toggle(500)">Timer Panel</div>
-        <div id="timerSettingsContainer">
+        <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
+        <div id="timerSettings" class="settingsContainer">
           <div class="settingsLabel">Always Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
           <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
           <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
         </div>
-        <div class="settingsHeading" onclick="$('#alarmSettingsContainer').toggle(500)">Alarm Panel</div>
-        <div id="alarmSettingsContainer">
+        <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
+        <div id="alarmSettings" class="settingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
-          <div class="settingsButton" id="alarmSoundButton" onclick="$('.alarmSwitcher').toggle(500)">Change</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
+        </div>
+        <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Versions & Channel</div>
+        <div id="versionsChannel" class="settingsContainer">
+          <div class="settingsLabel">Legacy Versions</div>
+          <div class="settingsButton" onclick="$('#versions').toggle(500)">View</div>
+          <div class="settingsLabel">Channel</div>
+          <div class="settingsButton" onclick="location.href='https://os-clock.web.app/beta'">Stable</div>
         </div>
         <hr>
         <div class="buildInfo">
-          <div>v.2.1.0 (Official Build) (64-bit)</div>
+          <div>v.2.1.1 (Official Build) (64-bit)</div>
           <div>GitHub Edition</div><br>
         </div>
       </div>
-      <div class="alarmSwitcher">
-        <div class="alarmSoundNameTitle">Alarm Sounds</div>
-        <div class="closeAlarmSoundSwitcher" onclick="$('.alarmSwitcher').toggle(500)">x</div>
-        <div class="alarmSoundContainer scroll">
-          <div class="alarmSoundName" onclick="changeAlarmSound(0)">Default</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(1)">Heavy Metal</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(2)">Harp Strumming</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(3)">Rooster</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(4)">Military Trumpet</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(6)">Alien Ship</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(7)">Buzzer</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(8)">Digital</div>
-          <div class="alarmSoundName" onclick="changeAlarmSound(9)">Vintage</div>
+      <div class="switcher" id="alarm">
+        <div class="switcherTitle">Alarm Sounds</div>
+        <div class="closeSwitcher" onclick="$('#alarm').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption" onclick="changeAlarmSound(0)">Default</div>
+          <div class="switcherOption" onclick="changeAlarmSound(2)">Harp Strumming</div>
+          <div class="switcherOption" onclick="changeAlarmSound(3)">Rooster</div>
+          <div class="switcherOption" onclick="changeAlarmSound(4)">Military Trumpet</div>
+          <div class="switcherOption" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
+          <div class="switcherOption" onclick="changeAlarmSound(6)">Alien Ship</div>
+          <div class="switcherOption" onclick="changeAlarmSound(7)">Buzzer</div>
+          <div class="switcherOption" onclick="changeAlarmSound(8)">Digital</div>
+          <div class="switcherOption" onclick="changeAlarmSound(9)">Vintage</div>
         </div>
       </div>
-      <div class="fontSwitcher">
-        <div class="fontTitle">Fonts</div>
-        <div class="closeAlarmSoundSwitcher" onclick="$('.fontSwitcher').toggle(500)">x</div>
-        <div class="alarmSoundContainer scroll">
-          <div class="fontName defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
-          <div class="fontName classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
-          <div class="fontName wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
-          <div class="fontName arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
-          <div class="fontName bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
-          <div class="fontName robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
+      <div class="switcher" id="font">
+        <div class="switcherTitle">Fonts</div>
+        <div class="closeSwitcher" onclick="$('#font').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
+          <div class="switcherOption classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
+          <div class="switcherOption wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
+          <div class="switcherOption arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
+          <div class="switcherOption bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
+          <div class="switcherOption robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
+        </div>
+      </div>
+      <div class="switcher" id="versions">
+        <div class="switcherTitle">Versions</div>
+        <div class="closeSwitcher" onclick="$('#versions').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.2.3/'">2.0.2.3</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.2/'">2.0.2</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.1/'">2.0.1</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/2.0.0/'">2.0.0</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.1.104/'">1.1.104</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.1.0/'">1.1.0</div>
+          <div class="switcherOption" onclick="location.href='https://os-clock.web.app/legacy/1.0.0/'">1.0.0</div>
+        </div>
+      </div>
+      <div class="switcher" id="filter">
+        <div class="switcherTitle">Filters</div>
+        <div class="closeSwitcher" onclick="$('#filter').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
         </div>
       </div>
     </section>
@@ -267,6 +299,18 @@
           <path d="M42.3125 31.1875L49.7188 43.5L57.2188 31.1875H64L52.9375 47.875L64.3438 65H57.6562L49.8438 52.3125L42.0312 65H35.3125L46.6875 47.875L35.6562 31.1875H42.3125Z" fill="black"/>
         </svg>
       </div>
+      <!--<div class="snoozeContainer">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="snoozeAlarm">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
+          <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
+          <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5229 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9522 78.6813 32.3006Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0785 25.0785 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
+          <path d="M40.7148 68.0801V69H34.9375V68.0801H40.7148ZM40.5273 61.2891L35.207 69H34.5098V68.1562L39.8242 60.4688H40.5273V61.2891ZM40.0469 60.4688V61.3945H34.5859V60.4688H40.0469Z" fill="black"/>
+          <path d="M51.0723 57.6201V59H42.4062V57.6201H51.0723ZM50.791 47.4336L42.8105 59H41.7646V57.7344L49.7363 46.2031H50.791V47.4336ZM50.0703 46.2031V47.5918H41.8789V46.2031H50.0703Z" fill="black"/>
+          <path d="M66.4297 43.1602V45H54.875V43.1602H66.4297ZM66.0547 29.5781L55.4141 45H54.0195V43.3125L64.6484 27.9375H66.0547V29.5781ZM65.0938 27.9375V29.7891H54.1719V27.9375H65.0938Z" fill="black"/>
+        </svg>
+      </div>-->
     </section>
   </body>
 </html>

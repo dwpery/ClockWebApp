@@ -264,6 +264,11 @@ function startTimer() {
 }
 
 function countdown() {
+  // Resets if empty
+  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
+    resetTimer();
+  }
+
   timerSeconds -= value;
   // Main time keeping
   if(timerSeconds < 0) {
@@ -292,9 +297,6 @@ function countdown() {
     ph = (ph < 10 ? "0" : "" ) + ph;
   }
 
-  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    resetTimer();
-  }
 
   // Prints Values
   $("#span1").html(ph);
