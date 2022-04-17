@@ -5,5 +5,13 @@
   "background_color": "#ffffff",
   "display": "fullscreen",
   "scope": "/",
-  "start_url": "/"
+  "start_url": "/",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "media/icons/pwaIcon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
 }
