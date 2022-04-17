@@ -429,10 +429,12 @@ function themeChanger() {
     isDark = true;
     $("html").addClass("dark");
     $("#themeButton").html("Dark");
-  } else {
+    $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
+  } else if (isDark === true) {
     isDark = false;
     $("html").removeClass("dark");
     $("#themeButton").html("Light");
+    $("meta[name='theme-color']").attr("content", "#D3D3D3");
   }
 }
 
