@@ -594,10 +594,15 @@ hr {
   }
 }
 
+/* Makes header SVGs white */
 .dark .headerSVG path, .dark .headerSVG rect { fill: #f5f5f5; }
+/* Colour for alarm creation menu */
 .dark .alarm, .dark .alarmName, .dark .alarmTime { background-color: rgb(102, 109, 113); color: #f5f5f5;}
+/* Base background colours */
 .dark body, .dark input, .dark .buffer { background-color: #292b2d; color: #f5f5f5; }
+/* Clock Display dark colour */
 .dark .digital { background-color: rgb(6, 6, 6); color: rgb(255, 43, 43); }
+/* Header bar colour */
 .dark header { background-color: rgb(76, 82, 85); }
 .dark .item:hover, .dark .circleOnSVG, .dark .coverSVG { background-color: #697074; fill: #697074; }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
@@ -607,6 +612,5 @@ hr {
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
+/* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  { color: rgb(255, 43, 43); }
-.dark ::-webkit-scrollbar { background-color: #34383a; color: #faf0e0; }
-.dark :::-webkit-scrollbar-corner { background-color: #292b2d; }
