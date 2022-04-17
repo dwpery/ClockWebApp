@@ -1,0 +1,1 @@
+Any and all code is welcome and the vast majority of pull requests will be merged. Please be aware that the code is constantly changing and being reworked so code clean up pull requests will most likely not be merged. Please just do features. 

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "public",
+		"site": "os-clock",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

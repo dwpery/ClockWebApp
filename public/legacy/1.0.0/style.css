@@ -1,0 +1,155 @@
+body {
+    padding:0;
+    margin: 0;
+    font-family: 'Major Mono Display', monospace;
+    color: white;
+}
+
+#timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 10vh;
+    width: 60vh;
+    font-size:10vh;
+    background-color: black;
+    font-weight: bolder;
+    text-align: center;
+    transition: width 1s, height 1s, color 1s;
+    -webkit-transition: width 1s, height 1s, color 1s;
+}
+
+#timer:hover {
+  width: 65vh;
+  height: 20vh;
+  color: red;
+}
+
+#display {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  color: red;
+
+}
+
+#ampm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 42%);
+  height: 10vh;
+  width: 60vh;
+  font-size:5vh;
+  font-weight: bolder;
+  text-align: center;
+}
+
+#menu {
+    position: fixed;
+    bottom: 0;
+    height: 5vh;
+    background-color: #D3D3D3;
+    width: 100%;
+    font-size: 5vh;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+}
+
+#menu:hover {
+    color: red;
+    cursor: pointer;
+    transition: color 1s;
+    -webkit-transition: color 1s;
+}
+
+#container {
+    background-color: #D3D3D3;
+    position: fixed;
+    bottom: 0;
+    height: 25vh;
+    width: 100%;
+    color: black;
+}
+
+#exit {
+    position: absolute;
+    right: 5px;
+    font-size: 5vh;
+    border-radius: 50%;
+    font-weight: bolder;
+    transition: color 1s;
+    -webkit-transition: color 1s;
+    top: 0;
+}
+
+#exit:hover {
+    color: red;
+    cursor: pointer;
+}
+
+#heading {
+    font-size: 5vh;
+    font-weight: bolder;
+}
+
+#heading:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn {
+  position:
+  left: 0;
+  width: 33vw;
+  height: 6.6vh
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+#alertBox {
+  position: fixed;
+  top: 0;
+  height: 5vh;
+  background-color: #D3D3D3;
+  width: 50%;
+  font-size: 2vh;
+  font-weight: bolder;
+  text-align: center;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -900%);
+}
+
+#close {
+  position: fixed;
+  right: 1vw;
+  top: 1.5vh;
+  font-size: 2vh;
+  transition: color 1s;
+  -webkit-transition: color 1s;
+}
+
+#close:hover {
+  cursor: pointer;
+  color: red;
+}
+
+#date {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -95%);
+  height: 10vh;
+  width: 60vh;
+  font-size:5vh;
+  font-weight: bolder;
+  text-align: center;
+}
