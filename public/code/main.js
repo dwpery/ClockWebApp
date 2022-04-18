@@ -38,6 +38,7 @@ var isDark = false;
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
+  // Hides unnused UI onload
   $(".stopwatch").hide();
   // Gets users timezone
   var tza = () => {
@@ -48,9 +49,11 @@ $(document).ready(function() {
       return tz;
     }
   }
+  // Prints users timezone
   $("#timeZoneButton").html(tza);
 })
 
+// Makes alarm loop when finished
 audio.addEventListener('ended', function() {
   this.currentTime = 0;
   this.play();
@@ -168,6 +171,7 @@ function closeSettings() {
     $("#settings").css("transition","0s");
     $("#settings-container").css("display","none");
   }
+
   // Shrinks box to exit screen (Length)
   $("#settings").css("height","1vh");
   // Shrinks box to exit screen (Width)
@@ -212,18 +216,19 @@ function dtoa() {
   // Shrinks black background
   $(".digital").css("height","0");
   $(".digital").css("width","0");
+
   // Shrinks font sizes
   $(".display").css("font-size","0");
   $(".ampm").css("font-size","0");
   $(".date").css("font-size","0");
 
   // Enlarges Analog clock
-
+  // wOw such empty
 }
 
 // Swaps from Analog to Digital
 function atod() {
-  // TODO
+  // TODO (Yeah rigth :p)
 }
 
 // Starts Timer
@@ -296,7 +301,6 @@ function countdown() {
     pm = (pm < 10 ? "0" : "" ) + pm;
     ph = (ph < 10 ? "0" : "" ) + ph;
   }
-
 
   // Prints Values
   $("#span1").html(ph);
