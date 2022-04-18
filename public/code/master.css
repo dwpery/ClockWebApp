@@ -319,7 +319,9 @@ hr {
 }
 
 .buildInfo div {
-  padding: 0.5vh;
+  font-size: 2vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
 }
 
 .buildInfo div a {
