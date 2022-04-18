@@ -1,6 +1,7 @@
 {
   "name": "ClockWebApp",
   "short_name": "Clock",
+  "theme_color": "#D3D3D3",
   "background_color": "#ffffff",
   "display": "fullscreen",
   "scope": "/",
@@ -25,7 +26,8 @@
     {
       "src": "images/pwaIcon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

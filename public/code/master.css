@@ -158,6 +158,9 @@ header {
   width: 1vh;
   background-color: #B3B3B3;
   transition: 1.5s;
+}
+
+.borderRadius {
   border-radius: 0 0 150vh 0;
 }
 
@@ -533,6 +536,27 @@ hr {
 .defaultFont { font-family: 'Zen Kaku Gothic Antique', sans-serif; }
 
 @media screen and (max-width: 800px) {
+  header {
+    bottom: 0;
+    border-radius: 10vh 10vh 0 0;
+  }
+  
+  .item1 { border-radius: 10vh 0 0 0; }
+  .item4 { border-radius: 0 10vh 0 0; }
+  
+  .item {
+    bottom: 0vh;
+  }
+
+  #settings {
+    top: initial;
+    bottom: 0;
+  }
+
+  .borderRadius {
+    border-radius: 0 150vh 0 0;
+  }
+
   #mobile {
     display: block;
   }
@@ -603,15 +627,34 @@ hr {
 }
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect { fill: #f5f5f5; }
+.dark .headerSVG path, .dark .headerSVG rect { 
+  fill: #f5f5f5; 
+}
+
 /* Colour for alarm creation menu */
-.dark .alarm, .dark .alarmName, .dark .alarmTime { background-color: rgb(102, 109, 113); color: #f5f5f5;}
+.dark .alarm, .dark .alarmName, .dark .alarmTime { 
+  background-color: rgb(102, 109, 113); 
+  color: #f5f5f5;
+}
+
 /* Base background colours */
-.dark body, .dark input, .dark .buffer { background-color: #292b2d; color: #f5f5f5; }
+.dark body, .dark input, .dark .buffer { 
+  background-color: #292b2d; 
+  color: #f5f5f5; 
+}
+
 /* Clock Display dark colour */
-.dark .digital { background-color: rgb(6, 6, 6); color: rgb(255, 43, 43); }
+.dark .digital { 
+  background-color: rgb(6, 6, 6); 
+  color: rgb(255, 43, 43); 
+}
+
 /* Header bar colour */
-.dark header { background-color: rgb(76, 82, 85); }
+.dark header { 
+  background-color: rgb(76, 82, 85); 
+}
+
+/* Hover effect for  */
 .dark .item:hover, .dark .circleOnSVG, .dark .coverSVG { background-color: #697074; fill: #697074; }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .item:hover label, .dark .buildInfo div a { color: #f5f5f5; }

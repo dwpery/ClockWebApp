@@ -157,7 +157,7 @@ function showSettings() {
   // Moves box into view
   $("#settings").css("left","0");
   // Removes curved edges
-  $("#settings").css("border-radius","0");
+  $("#settings").removeClass("borderRadius");
 }
 
 // Closes the Settings pannel
@@ -175,7 +175,7 @@ function closeSettings() {
   // Moves box out of view
   $("#settings").css("left","-1vh");
   // Adds curved edges
-  $("#settings").css("border-radius","0 0 150vh 0");
+  $("#settings").addClass("borderRadius");
   // Hides settings list
   $("#settings-container").css("display","none");
 }
