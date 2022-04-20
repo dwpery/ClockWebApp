@@ -83,7 +83,7 @@ setInterval(function() {
   // Gets Second value
   var seconds = date.getSeconds();
   // Creates time to compare to alarm time
-  var checkTime = hours + ":" + minutes;
+  var checkTime = (hours < 10 ? "0" : "" ) + hours + ":" + minutes;
   // Cycles through all Alarms
   for (var i = 0; i < numOfAlarms; i++) {
     // Checks if current time matches alarm time

@@ -20,6 +20,7 @@ header {
   width: 100%;
   background-color: #D3D3D3;
   border-radius: 0px 0px 10vh 10vh;
+  z-index: 10;
 }
 
 #timerPannel, #alarmPannel {
@@ -161,6 +162,7 @@ header {
   width: 1vh;
   background-color: #B3B3B3;
   transition: 1.5s;
+  z-index: 10;
 }
 
 .borderRadius {
@@ -297,8 +299,8 @@ label {
 #addAlarm {
   position: fixed;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, 280%);
+  transform: translate(-50%);
+  bottom: 3.5vh;
   height: 12.5vh;
   width: 12.5vh;
 }
@@ -344,7 +346,7 @@ hr {
   margin-top: 5vh;
   transform: translate(-50%);
   width: 50%;
-  height: 30vh;
+  height: 20vh;
   background-color: #B3B3B3;
   border-radius: 5vh;
 }
@@ -361,7 +363,7 @@ hr {
   transform: translate(-50%);
   text-align: center;
   font-size: 5vh;
-  width: 60vh;
+  width: 80%;
   border: none;
   border-bottom: 0.5vh solid #000;
   outline: none;
@@ -375,7 +377,7 @@ hr {
   transform: translate(-50%);
   text-align: center;
   font-size: 5vh;
-  width: 60vh;
+  width: 80%;
   border: none;
   outline: none;
   background-color: #B3B3B3;
@@ -383,18 +385,18 @@ hr {
 
 #remove {
   position: relative;
-  top: 12vh;
+  top: 3vh;
   text-align: center;
-  font-size: 3vh;
+  font-size: 2.5vh;
   color: #F00;
 }
 
 #submit {
   position: relative;
-  top: 3vh;
+  top: -4vh;
   text-align: center;
   color: #00F;
-  font-size: 4vh;
+  font-size: 3vh;
 }
 
 .printAlarmName {
@@ -423,6 +425,7 @@ hr {
   opacity: 99%;
   background-color: #000;
   display: none;
+  z-index: 10;
 }
 
 .activeAlarmName {
@@ -547,10 +550,10 @@ hr {
     bottom: 0;
     border-radius: 10vh 10vh 0 0;
   }
-  
+
   .item1 { border-radius: 10vh 0 0 0; }
   .item4 { border-radius: 0 10vh 0 0; }
-  
+
   .item {
     bottom: 0vh;
   }
@@ -572,20 +575,24 @@ hr {
     display: none;
   }
 
+  .alarms-container {
+    top: 0;
+  }
+
+  .alarm {
+    width: 85%;
+  }
+
+  #addAlarm {
+    bottom: 10vh;
+  }
+
   #settings-container {
     width: 100%;
   }
 
   .alarms-container {
     width: 100%;
-  }
-
-  .alarm {
-    width: 50vh;
-  }
-
-  .alarmName, .alarmTime {
-    width: 45vh
   }
 
   .digital {
@@ -636,36 +643,36 @@ hr {
 /* Dark Mode UI */
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect { 
-  fill: #f5f5f5; 
+.dark .headerSVG path, .dark .headerSVG rect {
+  fill: #f5f5f5;
 }
 
 /* Colour for alarm creation menu */
-.dark .alarm, .dark .alarmName, .dark .alarmTime { 
-  background-color: rgb(102, 109, 113); 
+.dark .alarm, .dark .alarmName, .dark .alarmTime {
+  background-color: rgb(102, 109, 113);
   color: #f5f5f5;
 }
 
 /* Base background colours */
-.dark body, .dark input, .dark .buffer { 
-  background-color: #292b2d; 
-  color: #f5f5f5; 
+.dark body, .dark input, .dark .buffer {
+  background-color: #292b2d;
+  color: #f5f5f5;
 }
 
 /* Clock Display dark colour */
-.dark .digital { 
-  background-color: rgb(6, 6, 6); 
-  color: rgb(255, 43, 43); 
+.dark .digital {
+  background-color: rgb(6, 6, 6);
+  color: rgb(255, 43, 43);
 }
 
 /* Header bar colour */
-.dark header { 
-  background-color: rgb(76, 82, 85); 
+.dark header {
+  background-color: rgb(76, 82, 85);
 }
 
 /* Hover effect for header, and backgroud of svg */
-.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG { 
-  background-color: #697074; fill: #697074; 
+.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG {
+  background-color: #697074; fill: #697074;
 }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .item:hover label, .dark .buildInfo div a { color: #f5f5f5; }
@@ -676,6 +683,6 @@ hr {
 .dark #submit { color: rgb(79, 184, 255); }
 
 /* Washed out red colours */
-.dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  { 
-  color: rgb(255, 43, 43); 
+.dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  {
+  color: rgb(255, 43, 43);
 }
