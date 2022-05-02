@@ -62,33 +62,24 @@ audio.addEventListener('ended', function() {
 setInterval(function() {
   
   var date = new Date();
-  // Gets date in number form
-  var dd = String(date.getDate()).padStart(2, '0');
-  var mm = String(date.getMonth() + 1).padStart(2, '0');
-  var yyyy = date.getFullYear();
 
   // Selects which date format to use
   if(dateFormat === false) {
-      var today = dd + "/" + mm + "/" + yyyy;
+      var today = String(date.getDate()).padStart(2, '0') + "/" + String(date.getMonth() + 1).padStart(2, '0') + "/" + date.getFullYear();
   } else {
-      var today = mm + "/" + dd + "/" + yyyy;
+      var today = String(date.getMonth() + 1).padStart(2, '0') + "/" + String(date.getDate()).padStart(2, '0') + "/" + date.getFullYear();
   }
   // Prints out date
   $(".date").html(today);
 
-  // Gets time values
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  var seconds = date.getSeconds();
-
   // Creates time to compare to alarm time
-  var checkTime = (hours < 10 ? "0" : "" ) + hours + ":" + minutes;
+  var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + date.getMinutes();
 
   // Cycles through all Alarms
   for (var i = 0; i < numOfAlarms; i++) {
     
     // Checks if current time matches alarm time
-    if (checkTime == alarmTimes[i] && seconds == "00") {   
+    if (checkTime == alarmTimes[i] && date.getSeconds() == "00") {   
       // Prints alarm information
       $(".activeAlarmName").html(alarmNames[i]);
       $(".activeAlarmTime").html(alarmTimes[i]);
@@ -116,40 +107,14 @@ setInterval(function() {
   }
 
   // Pads integers < 10
-  hours = (hours < 10 ? "0" : "" ) + hours;
-  minutes = (minutes < 10 ? "0" : "" ) + minutes;
-  seconds = (seconds < 10 ? "0" : "" ) + seconds;
+  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
+  minutes = (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
+  seconds = (date.getSeconds() < 10 ? "0" : "" ) + date.getSeconds();
 
   // Prints time
   $(".display").html(hours + ":" + minutes + ":" + seconds);
 
 },1000);
-
-/*
-//Sorts out Alerts
-function alertBox(x) {
-  // Sets text to string inputed
-  $(".message").html(x);
-  openAlert();
-  isAlertClosed = false;
-
-  // Closes Alert automatically after 5 seconds
-  setTimeout(function() {
-      if(isAlertClosed == false) {
-          closeAlert();
-      }
-  },5000)
-}                                                     <----- Unused alarm system
-
-function openAlert() {
-  // Glides box in from top
-  $(".alertBox").css("top","20vh");
-}
-
-function closeAlert() {
-  // Glides box out
-  $(".alertBox").css("top","-5vh");
-}*/
 
 // Opens the Settings pannel
 function showSettings() {
@@ -229,31 +194,6 @@ function showAlarm() {
   $("#clockPannel").hide();
   $("#alarmPannel").show();
 }
-
-/*
-// Swaps from Digital to Analog
-function dtoa() {
-  // Tells system Digital clock is hidden
-  isDigital = false;
-
-  // Shrinks black background
-  $(".digital").css("height","0");
-  $(".digital").css("width","0");
-
-  // Shrinks font sizes
-  $(".display").css("font-size","0");
-  $(".ampm").css("font-size","0");                     <----- Unused analog clock system
-  $(".date").css("font-size","0");
-
-  // Enlarges Analog clock
-  // wOw such empty
-}
-
-// Swaps from Analog to Digital
-function atod() {
-  // TODO (Yeah rigth :p)
-}
-*/
 
 // Starts Timer
 function startTimer() {
