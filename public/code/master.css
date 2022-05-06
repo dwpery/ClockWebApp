@@ -450,7 +450,7 @@ hr {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,150%);
+  transform: translate(50%,150%);
   background-color: #0F0;
   height: 10vh;
   width: 10vh;
@@ -637,6 +637,10 @@ hr {
     font-size: 3vh;
     padding: 0.25vh;
     margin-top: -5vh;
+  }
+
+  .buildInfo {
+    font-size: 1.5vh;
   }
 }
 

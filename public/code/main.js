@@ -379,6 +379,14 @@ function cancelAlarm() {
   audio.remove();
 }
 
+function snoozeAlarm() {
+  cancelAlarm();
+  setTimeout( function() {
+    $("#alarmActive").css("display","block");
+    audio.play();
+  }, 300000)
+}
+
 // Changes alarm sound
 function changeAlarmSound(x) {
   // Gets chosen alarm ready to play
