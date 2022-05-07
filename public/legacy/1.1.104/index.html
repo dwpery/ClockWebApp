@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Clock Web App</title>
+    <link href="style.css" rel="stylesheet">
+    <script defer src="main.js"></script>
+    <script defer src="languages.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+  </head>
+  <body onload="start()">
+    <div id="menu">
+        <div id="cpSettings">
+          <div id="settings" onclick="slide()">settings</div>
+          <div id="timer" onclick="timerPannel()">timer</div>
+          <div id="main" onclick="clockPannel()">clock</div>
+          <div id="alarms" onclick="alarmPannel()">alarm</div>
+        </div>
+    </div>
+    <div id="clockPannel">
+      <div id="digital" class="dClock">
+        <div id="date">NaN</div>
+        <p id="display">NaN</p>
+        <div id="ampm">NaN</div>
+      </div>
+      <div id="switch">
+          <div id="left" onclick="showDigital()">
+            <label>digital</label>
+          </div>
+          <div id="right" onclick="showAnalog()">
+            <label>analog</label>
+          </div>
+      </div>
+      <div id="analog">
+        <canvas id="canvas" width="250px" height="250px"></canvas>
+      </div>
+    </div>
+    <div id="timerPannel">
+      <div id="digital">
+          <p id="display" class="countdown">00:00:00</p>
+          <div id="hTimerLabel">hours</div>
+          <div id="mTimerLabel">minutes</div>
+          <div id="sTimerLabel">seconds</div>
+      </div>
+      <div id="container2">
+          <input type="number" id="hour" min="0" max="99" placeholder="99"/>
+          <div id="hourLabel">hour</div>
+          <input type="number" id="minute" min="0" max="59" placeholder="59"/>
+          <div id="minuteLabel">minute</div>
+          <input type="number" id="second" min="0" max="59" placeholder="59"/>
+          <div id="secondLabel">second</div>
+          <div id="startButtonContainer">
+              <div id="start" onclick="startCountdown()">s<br>t<br>a<br>r<br>t</div>
+          </div>
+          <div id="reset" onclick="resetCount()">r<br>e<br>s<br>e<br>t</div>
+      </div>
+      <div id="container3">
+          <div id="digital">
+              <p id="display" class="timer">NaN</p>
+              <div id="hTimerLabel">hours</div>
+              <div id="mTimerLabel">minutes</div>
+              <div id="sTimerLabel">seconds</div>
+          </div>
+          <div id="start-container">
+              <div id="startTimer" onclick="startTimer()">
+                <div id="startLabel">start</div>
+              </div>
+          </div>
+          <div id="pause" onclick="pauseTimer()">
+              <div id="pauseLabel">pause</div>
+          </div>
+      </div>
+      <div id="switch">
+          <div id="left" onclick="showTimer()">
+            <label id="label">timer</label>
+          </div>
+          <div id="right" onclick="showCountdown()">
+            <label id="label">countdown</label>
+          </div>
+      </div>
+    </div>
+    <div id="alarmPannel">
+        <div id="alarmList">
+            <div id="add" onclick="createAlarm()">add+</div>
+            <!-- <div id="remove">-remove</div> -->
+            <div id="alarmContainer"></div>
+        </div>
+        <div id="creationMenu">
+            <div id="exitAlarm" onclick="closeAlarmList()">x</div>
+            <div id="subheading">alarm</div>
+            <div id="alarmLabel">name:</div>
+            <input type="text" id="alarmName">
+            <div id="alarmLabel">time:</div>
+            <input type="time" id="alarmTime">
+            <div id="createButton" onclick="addList()">create</div>
+        </div>
+    </div>
+    <div id="alertBox">
+      <p id="message"></p>
+      <div id="close" onclick="closeMessage()">x</div>
+    </div>
+    <div id="container">
+        <div>
+          <div id="heading">settings</div>
+          <hr>
+          <div id="exit" onclick="slide()">x</div>
+        </div>
+        <div id="generalSettings">
+            <div id="subheading">general</div>
+            <div id="set">privacy policy</div>
+            <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/docs/PRIVACYPOLICY.md'">view</div>
+            <div id="set">language</div>
+            <div id="setbutton" onclick="languageChange()">change</div>
+            <div id="set">faq</div>
+            <div id="setbutton" onclick="location.href='https://raw.githubusercontent.com/SpicyPTV/ClockWebApp/main/docs/README.md'">view</div>
+            <div id="set">github repository</div>
+            <div id="setbutton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">open</div>
+            <div id="set">codepen edition</div>
+            <div id="setbutton" onclick="location.href='https://codepen.io/spicyptv/pen/zYKrBwq'">open</div>
+            <div id="set">channel</div>
+            <div id="setbutton" onclick="channelInfo()">stable</div>
+        </div>
+        <div id="clockSettings">
+            <div id="subheading">clock pannel</div>
+            <div id="set">24 hour clock</div>
+            <div id="setbutton" class="24button" onclick="hrCntrl()">off</div>
+            <div id="set">day & month format</div>
+            <div id="setbutton" class="dfbutton" onclick="dfCntrl()">d/m</div>
+            <div id="set">system clock</div>
+            <div id="setbutton" class="scbutton" onclick="systemClock()">off</div>
+            <div id="set">time zone</div>
+            <div id="setbutton" class="tzbutton"></div>
+            <div id="set">second hand colour<input id="colourChange" type="color" value='#0000FF'/></div>
+        </div>
+        <div id="buildInfo">
+            <br><hr><br>
+            <div id="version">v.1.1.104 (Official Build) (64-bit)</div>
+            <div id="edition">GitHub Edition</div><br>
+        </div>
+    </div>
+  </body>
+</html>
