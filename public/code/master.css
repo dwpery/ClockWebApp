@@ -219,13 +219,13 @@ label {
   top: 50%;
   transform: translate(-50%,-50%);
   height: 100%;
-  width: 65%;
+  width: 45%;
   display: none;
   transition: 0.5s;
 }
 
 .settingsHeading {
-  text-align: center;
+  text-align: left;
   font-size: 6.5vh;
   width: 100%;
   padding: 1vh;
@@ -233,6 +233,15 @@ label {
 
 .settingsHeading:hover {
   cursor: pointer;
+}
+
+.static {
+  text-align: center;
+  font-size: 7.5vh;
+}
+
+.static:hover {
+  cursor: default;
 }
 
 .settingsLabel {
@@ -262,7 +271,7 @@ label {
 #close-settings {
   position: fixed;
   right: 1.5vh;
-  top: -2vh;
+  top: 0.75vh;
   font-size: 7.5vh;
   transition: 0.75s;
 }
@@ -631,12 +640,13 @@ hr {
 
   .settingsLabel {
     font-size: 3vh;
+    margin-top: 5vw;
   }
 
   .settingsButton {
     font-size: 3vh;
     padding: 0.25vh;
-    margin-top: -5vh;
+    margin-top: -4.75vh;
   }
 
   .buildInfo {

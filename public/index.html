@@ -161,16 +161,18 @@
       <div class="alarms-container scroll">
         <div class="alarm buffer"></div>
       </div>
-      <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="addAlarm" onclick="addAlarm()">
+      <!--<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="addAlarm" onclick="addAlarm()">
         <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
         <path class="barOnSVG" d="M45 30.5C45 27.4624 47.4624 25 50.5 25C53.5376 25 56 27.4624 56 30.5V70.5C56 73.5376 53.5376 76 50.5 76C47.4624 76 45 73.5376 45 70.5V30.5Z" fill="#36454F"/>
         <path class="barOnSVG" d="M30.5 56C27.4624 56 25 53.5376 25 50.5C25 47.4624 27.4624 45 30.5 45H70.5C73.5376 45 76 47.4624 76 50.5C76 53.5376 73.5376 56 70.5 56H30.5Z" fill="#36454F"/>
-      </svg>
+      </svg>-->
+      <img src="media/icons/add.svg" alt="+" id="addAlarm" onclick="addAlarm()">
     </div>
     </section>
     <section id="settings" class="borderRadius">
       <div id="settings-container" class="scroll">
         <div id="close-settings" onclick="closeSettings()">x</div>
+        <div class="settingsHeading static" align="center">Settings</div>
         <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
         <div id="general" class="settingsContainer">
           <div class="settingsLabel">Dark / Light mode</div>
@@ -192,7 +194,7 @@
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
           <div class="settingsLabel">Feature Request</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
-          <div class="settingsLabel">Report a security vulnerability</div>
+          <div class="settingsLabel">Security Problem</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View Policy</div>
         </div>
         <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
@@ -237,11 +239,11 @@
           <div class="settingsLabel">Legacy Versions</div>
           <div class="settingsButton" onclick="$('#versions').toggle(500)">View</div>
           <div class="settingsLabel">Channel</div>
-          <div class="settingsButton" onclick="location.href='https://os-clock.web.app/beta'">Stable</div>
+          <div class="settingsButton" onclick="location.href='https://os-clock.web.app/'">Beta</div>
         </div>
         <hr>
         <div class="buildInfo">
-          <div>v.3.0.0 (Official Build) (64-bit)</div>
+          <div>v.3.0.1 (Official Build) beta (64-bit)</div>
           <div>Clock Web App is made possible by <a href="https://www.pwabuilder.com/" target="_blank">PWABuilder</a></div>
           <div>Github Edition</div><br>
         </div>
