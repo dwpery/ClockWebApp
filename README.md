@@ -18,6 +18,8 @@
 <li>It should open automatically or open the app in the app draw</li>
 </ol>
 <h3>Android</h3>
+<p>Press the link below to install the .apk file</p>
+<a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_">Download</a>
 <h2 id="3">How often are updates released?</h2>
 <p>Updates are released one a week featuring new features, bug fixes and more. Major content releases will come every couple weeks and will have major new features implemented into them. Stay tuned for what is coming in Cock Web App's near future!</p>
 <p>Next major update: v2.1.3<br>Release Date: 25 April 2022</p>
