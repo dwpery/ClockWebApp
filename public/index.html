@@ -19,10 +19,6 @@
    </script>
   </head>
   <body>
-    <div class="alertBox">
-      <div class="message"></div>
-      <div class="close" onclick="closeAlert()">X</div>
-    </div>
     <header>
       <div id="computer">
         <div class="item item1" onclick="showSettings()"><label>Settings</label></div>
@@ -32,16 +28,45 @@
       </div>
       <div id="mobile">
         <div class="item item1" onclick="showSettings()">
-          <img src="media/icons/settings.svg" class="headerSVG" alt="Settings" id="headerSVGleft">
+          <svg viewbox="0 0 110 90" fill="none" class="headerSVG" id="headerSVGleft">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50 64C58.2843 64 65 57.2843 65 49C65 40.7157 58.2843 34 50 34C41.7157 34 35 40.7157 35 49C35 57.2843 41.7157 64 50 64ZM50 62C57.1797 62 63 56.1797 63 49C63 41.8203 57.1797 36 50 36C42.8203 36 37 41.8203 37 49C37 56.1797 42.8203 62 50 62Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M46 11H54V22V25C55.6569 25 57 23.6569 57 22V11C57 9.34315 55.6569 8 54 8H46C44.3431 8 43 9.34315 43 11V22C43 23.6569 44.3431 25 46 25V22L46 11Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M46 74C44.3431 74 43 75.3431 43 77V88C43 89.6569 44.3431 91 46 91H54C55.6569 91 57 89.6569 57 88V77C57 75.3431 55.6569 74 54 74V77V88H46L46 77V74Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M88 54H78H77H74C74 55.6569 75.3431 57 77 57H88C89.6569 57 91 55.6569 91 54V46C91 44.3431 89.6569 43 88 43H77C75.3431 43 74 44.3431 74 46H77H78H88V54Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 54V46H23H26C26 44.3431 24.6569 43 23 43H12C10.3431 43 9 44.3431 9 46V54C9 55.6569 10.3431 57 12 57H23C24.6569 57 26 55.6569 26 54H23H12Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2426 25.8995L25.8995 20.2426L33.0558 27.3989L33.6777 28.0208L35.799 30.1421C36.9706 28.9706 36.9706 27.0711 35.799 25.8995L28.0208 18.1213C26.8492 16.9497 24.9498 16.9497 23.7782 18.1213L18.1213 23.7782C16.9498 24.9497 16.9498 26.8492 18.1213 28.0208L25.8995 35.799C27.0711 36.9706 28.9706 36.9706 30.1421 35.799L28.0208 33.6777L27.399 33.0558L20.2426 25.8995Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M64.1213 69.7782C62.9498 70.9498 62.9498 72.8492 64.1213 74.0208L71.8995 81.799C73.0711 82.9706 74.9706 82.9706 76.1421 81.799L81.799 76.1421C82.9706 74.9706 82.9706 73.0711 81.799 71.8995L74.0208 64.1213C72.8492 62.9498 70.9498 62.9498 69.7782 64.1213L71.8995 66.2426L72.0863 66.4295L79.6777 74.0208L74.0208 79.6777L66.4295 72.0863L66.2426 71.8995L64.1213 69.7782Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M30.14 64.1192L27.6296 66.6296L27.6317 66.6317L20.2426 74.0208L25.8995 79.6777L33.2886 72.2886L33.2963 72.2963L35.8067 69.7859C36.9706 70.9581 36.968 72.8518 35.799 74.0208L28.0208 81.799C26.8492 82.9706 24.9498 82.9706 23.7782 81.799L18.1213 76.1421C16.9498 74.9706 16.9498 73.0711 18.1213 71.8995L25.8995 64.1213C27.0704 62.9505 28.9683 62.9498 30.14 64.1192Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M54 76.7003C58.4452 76.0279 62.5369 74.2521 65.9981 71.655L63.3908 69.0477C60.6151 71.0239 57.399 72.4024 53.9224 73H54V76.7003ZM76.6403 54C75.9232 58.4373 74.1632 62.5167 71.6253 65.9684L69.0296 63.3728C70.9794 60.6032 72.3608 57.3904 73 53.9113V54H76.6403ZM72.0084 33.5659C74.524 37.1638 76.2103 41.405 76.7834 46H73.1495C72.6292 42.3991 71.3183 39.0602 69.4021 36.1722L72.0084 33.5659ZM66.5216 27.7479C62.9525 24.9315 58.6714 23.0063 54 22.2997V26H53.9221C57.6243 26.6363 61.0311 28.1582 63.9252 30.3443L66.5216 27.7479ZM23.3597 54C24.0735 58.4166 25.8204 62.4786 28.3392 65.92L30.9358 63.3234C29.0043 60.565 27.6354 57.3696 27 53.911V54H23.3597ZM46 76.7003C41.5391 76.0256 37.4342 74.2395 33.9652 71.6274L36.5717 69.0209C39.3559 71.0114 42.5854 72.3997 46.0777 73H46V76.7003ZM36.0329 30.3761C38.936 28.1729 42.3579 26.6394 46.078 26H46V22.2997C41.3106 23.009 37.0146 24.9463 33.4373 27.7804L36.0329 30.3761ZM30.5651 36.2219L27.9577 33.6145C25.4609 37.2021 23.7871 41.4257 23.2166 46H26.8506C27.3679 42.4198 28.6668 39.0986 30.5651 36.2219Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M74.0208 20.2426L79.6777 25.8995L71.8995 33.6777L71.898 33.6762L69.7767 35.7975L69.7782 35.799C70.9498 36.9706 72.8492 36.9706 74.0208 35.799L81.799 28.0208C82.9706 26.8492 82.9706 24.9498 81.799 23.7782L76.1421 18.1213C74.9706 16.9498 73.0711 16.9498 71.8995 18.1213L64.1213 25.8995C62.9498 27.0711 62.9498 28.9706 64.1213 30.1421L64.1244 30.1452L66.2457 28.0239L66.2426 28.0208L74.0208 20.2426Z" fill="black"/>
+          </svg>
         </div>
         <div class="item item2" onclick="showTimer()">
-          <img src="media/icons/timer.svg" class="headerSVG" alt="Timer">
+          <svg viewbox="0 0 110 90" class="headerSVG">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
+            <rect x="47" y="12" width="7" height="9" fill="black"/>
+            <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
+            <rect x="49" y="27" width="3" height="28" fill="black"/>
+            <path d="M60.4715 38.7793L62.929 40.5L51.4575 56.883L49 55.1623L60.4715 38.7793Z" fill="black"/>
+          </svg>
         </div>
         <div class="item item3" onclick="showClock()">
-          <img src="media/icons/clock.svg" class="headerSVG" alt="Clock">
+          <svg viewbox="0 0 110 90" class="headerSVG">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="black"/>
+            <rect x="49" y="21" width="3" height="28" fill="black"/>
+            <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="black"/>
+          </svg>
         </div>
         <div class="item item4" onclick="showAlarm()">
-          <img src="media/icons/alarm.svg" class="headerSVG" alt="Alarm" id="headerSVGright">
+          <svg viewBox="0 0 110 90" class="headerSVG" id="headerSVGright">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
+            <rect x="49" y="20" width="3" height="28" fill="black"/>
+            <path d="M69 47V50H49V47L69 47Z" fill="black"/>
+            <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
+            <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5228 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9521 78.6813 32.3006Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0784 25.0784 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
+          </svg>
         </div>
       </div>
     </header>
@@ -111,7 +136,12 @@
       <div class="alarms-container scroll">
         <div class="alarm buffer"></div>
       </div>
-      <img src="media/icons/add.svg" alt="+" id="addAlarm" onclick="addAlarm()">
+      <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="addAlarm" onclick="addAlarm()">
+        <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
+        <path class="barOnSVG" d="M45 30.5C45 27.4624 47.4624 25 50.5 25C53.5376 25 56 27.4624 56 30.5V70.5C56 73.5376 53.5376 76 50.5 76C47.4624 76 45 73.5376 45 70.5V30.5Z" fill="#36454F"/>
+        <path class="barOnSVG" d="M30.5 56C27.4624 56 25 53.5376 25 50.5C25 47.4624 27.4624 45 30.5 45H70.5C73.5376 45 76 47.4624 76 50.5C76 53.5376 73.5376 56 70.5 56H30.5Z" fill="#36454F"/>
+      </svg>
+      <!--<img src="media/icons/add.svg" alt="+" id="addAlarm" onclick="addAlarm()">-->
     </div>
     </section>
     <section id="settings" class="borderRadius">
@@ -146,17 +176,11 @@
         <div id="accessibility" class="settingsContainer">
           <div class="settingsLabel">Font Customization</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
-          <!--<div class="settingsLabel">Colour Blind Modes</div>
-          <div class="settingsButton" onclick="$('#filter').toggle(500)">Change</div>-->
         </div>
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
         <div id="animation" class="settingsContainer">
           <div class="settingsLabel">Settings Animation</div>
           <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
-          <!--<div class="settingsLabel">Animation Speed</div>
-          <div class="settingsButton">Normal</div>
-          <div class="settingsLabel">Hover Animations</div>
-          <div class="settingsButton">On</div>-->
         </div>
         <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
         <div id="clockSettings" class="settingsContainer">
