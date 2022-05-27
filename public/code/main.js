@@ -139,7 +139,7 @@ function showSettings() {
   }
 
   // Stretches box to fit screen
-  $("#settings").css("height","100vh");
+  $("#settings").css("height","100%");
   $("#settings").css("width","100%");
 
   // Moves box into view
