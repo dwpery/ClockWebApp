@@ -34,7 +34,6 @@
 </ol>
 <h2 id="3">How often are updates released?</h2>
 <p>Updates are released one a week featuring new features, bug fixes and more. Major content releases will come every couple weeks and will have major new features implemented into them. Stay tuned for what is coming in Cock Web App's near future!</p>
-<p>Next major update: v2.1.3<br>Release Date: 25 April 2022</p>
 <h2 id="4">How can I request a feature / report a bug?</h2>
 <p>Open an issue on the GitHub page with either a bug or a feature you'd like to implement. If it's a bug a fix will be implemented in a future update and if it's a feature it may take longer to implement.</p>
 <h2 id="5">How can I contribute code to the main project?</h2>

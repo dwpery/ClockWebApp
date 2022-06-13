@@ -16,6 +16,7 @@
     <script type="module">
       import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
       const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
    </script>
   </head>
   <body>
@@ -229,11 +230,11 @@
           <div class="settingsLabel">Legacy Versions</div>
           <div class="settingsButton" onclick="$('#versions').toggle(500)">View</div>
           <div class="settingsLabel">Channel</div>
-          <div class="settingsButton" onclick="location.href='https://os-clock.web.app/'">Beta</div>
+          <div class="settingsButton">Stable</div>
         </div>
         <hr>
         <div class="buildInfo">
-          <div>v.3.0.1 (Official Build) beta (64-bit)</div>
+          <div>v.3.0.2 (Official Build) (64-bit)</div>
           <div>Clock Web App is made possible by <a href="https://www.pwabuilder.com/" target="_blank">PWABuilder</a></div>
           <div>Github Edition</div><br>
         </div>
