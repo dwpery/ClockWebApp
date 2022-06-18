@@ -281,7 +281,7 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch {
+#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch, #timerChange {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -290,18 +290,22 @@ label {
 }
 
 #startTimer, #pauseTimer, #startStopwatch, #pauseStopwatch {
-  transform: translate(50%, 75%);
+  transform: translate(-50%, 75%);
 }
 
 #resetTimer, #resetStopwatch {
-  transform: translate(-150%, 75%);
+  transform: translate(-250%, 75%);
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover {
+#timerChange {
+  transform: translate(150%, 75%);
+}
+
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover {
   cursor: pointer;
 }
 
-#pauseTimer, #pauseStopwatch {
+#pauseTimer, #pauseStopwatch { 
   display: none;
 }
 

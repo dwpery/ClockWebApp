@@ -412,16 +412,18 @@ function changeAlarmSound(x) {
 // Swaps between timer and stopwatch
 function timerChanger() {
   if (isStopwatch === false) {
+    $("#timerChange").css("transform","translate(150%, 75%) rotate(180deg)")
+    console.log("1")
     $(".timerMain").hide();
     $(".timerControls").hide();
     $(".stopwatch").show();
-    $("#stopwatchLabel").html("Timer");
     isStopwatch = true;
   } else {
+    $("#timerChange").css("transform","translate(150%, 75%) rotate(0)")
+    console.log("2")
     $(".timerMain").show();
     $(".timerControls").show();
     $(".stopwatch").hide();
-    $("#stopwatchLabel").html("Stopwatch");
     isStopwatch = false;
   }
 }
