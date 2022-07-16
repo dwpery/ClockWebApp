@@ -281,31 +281,27 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch, #timerChange {
+.timerControls {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: 10vh;
-  width: 10vh;
+  transform: translate(-50%, 50%);
+  width: 60vh;
 }
 
-#startTimer, #pauseTimer, #startStopwatch, #pauseStopwatch {
-  transform: translate(-50%, 75%);
-}
-
-#resetTimer, #resetStopwatch {
-  transform: translate(-250%, 75%);
-}
-
-#timerChange {
-  transform: translate(150%, 75%);
+ul {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover {
   cursor: pointer;
 }
 
-#pauseTimer, #pauseStopwatch { 
+#pauseStopwatch { 
   display: none;
 }
 
@@ -547,6 +543,11 @@ hr {
 
 .settingsContainer {
   display: none;
+}
+
+li svg {
+  height: 10vh;
+
 }
 
 .classicFont { font-family: 'Major Mono Display', monospace; }

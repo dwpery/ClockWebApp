@@ -219,8 +219,7 @@ function startTimer() {
   if (timerSeconds < 0) {timerSeconds = 0}
 
   // Changes Icon
-  $("#startTimer").css("display","none");
-  $("#pauseTimer").css("display","block");
+  $("#timerChangeContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseTimer" onclick="pauseTimer()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
 
   // Changes from Input to Display
   $(".timerInput").css("display","none");
@@ -291,8 +290,7 @@ function resetTimer() {
   $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   
   // Changes Icon
-  $("#startTimer").css("display","block");
-  $("#pauseTimer").css("display","none");
+  $("#timerChangeContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startTimer" onclick="startTimer()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/></svg>');
   
   // Changes from Input to Display
   $(".timerInput").css("display","block");
@@ -412,15 +410,14 @@ function changeAlarmSound(x) {
 // Swaps between timer and stopwatch
 function timerChanger() {
   if (isStopwatch === false) {
-    $("#timerChange").css("transform","translate(150%, 75%) rotate(180deg)")
+    $("#timerChange").css("transform","rotate(180deg)");
     console.log("1")
     $(".timerMain").hide();
     $(".timerControls").hide();
     $(".stopwatch").show();
     isStopwatch = true;
   } else {
-    $("#timerChange").css("transform","translate(150%, 75%) rotate(0)")
-    console.log("2")
+    $("#timerChange").css("transform","rotate(360deg)");
     $(".timerMain").show();
     $(".timerControls").show();
     $(".stopwatch").hide();
