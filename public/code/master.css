@@ -273,7 +273,7 @@ label {
   right: 1.5vh;
   top: 0.75vh;
   font-size: 7.5vh;
-  transition: 0.75s;
+  transition: 0.25s;
 }
 
 #close-settings:hover, .closeSwitcher:hover {
@@ -287,6 +287,7 @@ label {
   left: 50%;
   transform: translate(-50%, 50%);
   width: 60vh;
+  transition: 1s;
 }
 
 ul {
@@ -652,6 +653,11 @@ li svg {
 
   .buildInfo {
     font-size: 1.5vh;
+  }
+
+  .timerControls {
+    transform: translate(-50%, 175%);
+    width: 45vh;
   }
 }
 
