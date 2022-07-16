@@ -301,10 +301,6 @@ ul {
   cursor: pointer;
 }
 
-#pauseStopwatch { 
-  display: none;
-}
-
 #addAlarm {
   position: fixed;
   left: 50%;
