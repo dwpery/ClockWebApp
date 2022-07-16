@@ -273,7 +273,7 @@ label {
   right: 1.5vh;
   top: 0.75vh;
   font-size: 7.5vh;
-  transition: 0.75s;
+  transition: 0.25s;
 }
 
 #close-settings:hover, .closeSwitcher:hover {
@@ -281,28 +281,25 @@ label {
   color: grey;
 }
 
-#startTimer, #pauseTimer, #resetTimer, #startStopwatch, #resetStopwatch, #pauseStopwatch {
+.timerControls {
   position: fixed;
   top: 50%;
   left: 50%;
-  height: 10vh;
-  width: 10vh;
+  transform: translate(-50%, 50%);
+  width: 60vh;
+  transition: 1s;
 }
 
-#startTimer, #pauseTimer, #startStopwatch, #pauseStopwatch {
-  transform: translate(50%, 75%);
+ul {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#resetTimer, #resetStopwatch {
-  transform: translate(-150%, 75%);
-}
-
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover {
   cursor: pointer;
-}
-
-#pauseTimer, #pauseStopwatch {
-  display: none;
 }
 
 #addAlarm {
@@ -545,6 +542,11 @@ hr {
   display: none;
 }
 
+li svg {
+  height: 10vh;
+
+}
+
 .classicFont { font-family: 'Major Mono Display', monospace; }
 .wetFont { font-family: 'Rubik Wet Paint', cursive; }
 .arialFont { font-family: 'Arial'; }
@@ -651,6 +653,11 @@ hr {
 
   .buildInfo {
     font-size: 1.5vh;
+  }
+
+  .timerControls {
+    transform: translate(-50%, 175%);
+    width: 45vh;
   }
 }
 

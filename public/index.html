@@ -71,7 +71,7 @@
         </div>
       </div>
     </header>
-    <section id="timerPannel">
+    <section id="timerPannel">       
       <div class="timerMain">
         <div class="timerInput">
           <input id="hours" placeholder="00" type="number"/ min="0" max="99" /><span>h</span>
@@ -85,62 +85,44 @@
         </div>
       </div>
       <div class="timerControls">
-        <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startTimer" onclick="startTimer()">
-          <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-          <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>
-        </svg>
-        <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseTimer" onclick="pauseTimer()">
-          <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-          <path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/>
-          <path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>
-        </svg>
-        <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetTimer" onclick="resetTimer()">
-          <g clip-path="url(#clip0_0_1)">
-            <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-            <path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/>
-            <rect class="coverSVG" x="59.1317" y="36.0043" width="30" height="14" transform="rotate(-45 59.1317 36.0043)" fill="#C4C4C4"/>
-            <rect class="coverSVG" x="11.0485" y="75.6023" width="30" height="14" transform="rotate(-45 11.0485 75.6023)" fill="#C4C4C4"/>
-            <path class="barOnSVG" d="M22.0086 68.8848L38.2306 68.5727L21.6965 85.1068L22.0086 68.8848Z" fill="#36454F"/>
-            <path class="barOnSVG" d="M78.5772 32.1152L61.7428 33.0397L79.5016 15.2809L78.5772 32.1152Z" fill="#36454F"/>
-          </g>
-          <defs>
-            <clipPath id="clip0_0_1">
-              <rect width="100" height="100" fill="white"/>
-            </clipPath>
-          </defs>
-        </svg>
+        <ul>
+          <li id="timerResetContainer">
+            <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetTimer" onclick="resetTimer()">
+              <g clip-path="url(#clip0_0_1)">
+                <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
+                <path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/>
+                <rect class="coverSVG" x="59.1317" y="36.0043" width="30" height="14" transform="rotate(-45 59.1317 36.0043)" fill="#C4C4C4"/>
+                <rect class="coverSVG" x="11.0485" y="75.6023" width="30" height="14" transform="rotate(-45 11.0485 75.6023)" fill="#C4C4C4"/>
+                <path class="barOnSVG" d="M22.0086 68.8848L38.2306 68.5727L21.6965 85.1068L22.0086 68.8848Z" fill="#36454F"/>
+                <path class="barOnSVG" d="M78.5772 32.1152L61.7428 33.0397L79.5016 15.2809L78.5772 32.1152Z" fill="#36454F"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_0_1">
+                  <rect width="100" height="100" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </li>
+          <li id="timerPlayContainer">
+            <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startTimer" onclick="startTimer()">
+              <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
+              <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>
+            </svg>
+          </li>
+          <li>
+            <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="timerChange" onclick="timerChanger()">
+              <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
+              <path class="barOnSVG" d="M46.8492 79.7695C42.944 83.6748 36.6123 83.6748 32.7071 79.7695L31.2929 78.3553C27.3876 74.4501 27.3876 68.1184 31.2929 64.2132L53.2132 42.2929C57.1184 38.3876 63.4501 38.3876 67.3553 42.2929L68.7695 43.7071C72.6748 47.6123 72.6748 53.944 68.7695 57.8492L46.8492 79.7695Z" fill="#36454F"/>
+              <path class="barOnSVG" d="M31.0711 36.6274C27.1658 32.7222 27.1658 26.3905 31.0711 22.4853L32.4853 21.0711C36.3905 17.1658 42.7222 17.1658 46.6274 21.0711L68.5477 42.9914C72.453 46.8966 72.453 53.2283 68.5477 57.1335L67.1335 58.5477C63.2283 62.453 56.8966 62.453 52.9914 58.5477L31.0711 36.6274Z" fill="#36454F"/>
+            </svg> 
+          </li>
+        </ul>
       </div>
       <div class="stopwatch">
         <div class="stopwatchDisplay">
           <span id="span4">0</span><span>h</span>
           <span id="span5">0</span><span>m</span>
           <span id="span6">0</span><span>s</span>
-        </div>
-        <div class="stopwatchControls">
-          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()">
-            <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-            <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>
-          </svg>
-          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()">
-            <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-            <path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/>
-            <path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>
-          </svg>
-          <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetStopwatch" onclick="resetStopwatch()">
-            <g clip-path="url(#clip0_0_1)">
-              <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-              <path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/>
-              <rect class="coverSVG" x="59.1317" y="36.0043" width="30" height="14" transform="rotate(-45 59.1317 36.0043)" fill="#C4C4C4"/>
-              <rect class="coverSVG" x="11.0485" y="75.6023" width="30" height="14" transform="rotate(-45 11.0485 75.6023)" fill="#C4C4C4"/>
-              <path class="barOnSVG" d="M22.0086 68.8848L38.2306 68.5727L21.6965 85.1068L22.0086 68.8848Z" fill="#36454F"/>
-              <path class="barOnSVG" d="M78.5772 32.1152L61.7428 33.0397L79.5016 15.2809L78.5772 32.1152Z" fill="#36454F"/>
-            </g>
-            <defs>
-              <clipPath id="clip0_0_1">
-                <rect width="100" height="100" fill="white"/>
-              </clipPath>
-            </defs>
-          </svg>
         </div>
       </div>
     </section>
@@ -217,8 +199,6 @@
         <div id="timerSettings" class="settingsContainer">
           <div class="settingsLabel">Always Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
-          <div class="settingsLabel" id="stopwatchLabel">Stopwatch</div>
-          <div class="settingsButton" id="switchButton" onclick="timerChanger()">Switch</div>
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
         <div id="alarmSettings" class="settingsContainer">
@@ -236,6 +216,7 @@
         <div class="buildInfo">
           <div>v.3.0.2 (Official Build) (64-bit)</div>
           <div>Clock Web App is made possible by <a href="https://www.pwabuilder.com/" target="_blank">PWABuilder</a></div>
+          <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffe</a></div>
           <div>Github Edition</div><br>
         </div>
       </div>
