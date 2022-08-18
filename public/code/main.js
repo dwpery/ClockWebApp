@@ -30,6 +30,8 @@ var audio = new Audio(alarmSounds[activeAlarmSound]);
 var isStopwatch = false;
 // Settings animation, True = On, False = Off
 var settingsAnimation = true;
+// Timer Transition, True = On, False = Off
+var timerTransition = true;
 // false = Light, true = Dark
 var isDark = false;
 
@@ -340,6 +342,18 @@ function settingsAnimControl() {
   } else {
     settingsAnimation = true;
     $("#setAnimButton").html("On");
+  }
+}
+
+// Turns transition from Timer to Stopwatch on and off
+function timerTransitionAni() {
+  if (timerTransition == true) {
+    timerTransition = false;
+    $("#ttsTransButton").html("Off");
+    $("#timerChange").css("transition","0");
+  } else {
+    timerTransition = true;
+    $("#ttsTransButton").html("On");
   }
 }
 
