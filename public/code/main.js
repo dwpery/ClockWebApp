@@ -350,10 +350,11 @@ function timerTransitionAni() {
   if (timerTransition == true) {
     timerTransition = false;
     $("#ttsTransButton").html("Off");
-    $("#timerChange").css("transition","0");
+    $("#timerChange").css("transition","0s");
   } else {
     timerTransition = true;
     $("#ttsTransButton").html("On");
+    $("#timerChange").css("transition","0.25s");
   }
 }
 
