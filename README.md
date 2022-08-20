@@ -33,7 +33,7 @@
 <li>Follow your systems prompts until the app is installed</li>
 </ol>
 <h2 id="3">How often are updates released?</h2>
-<p>Updates are released one a week featuring new features, bug fixes and more. Major content releases will come every couple weeks and will have major new features implemented into them. Stay tuned for what is coming in Cock Web App's near future!</p>
+<p>Updates are released once a month featuring new features, bug fixes and more. Major content releases will come every couple weeks and will have major new features implemented into them. Stay tuned for what is coming in Clock Web App's near future!</p>
 <h2 id="4">How can I request a feature / report a bug?</h2>
 <p>Open an issue on the GitHub page with either a bug or a feature you'd like to implement. If it's a bug a fix will be implemented in a future update and if it's a feature it may take longer to implement.</p>
 <h2 id="5">How can I contribute code to the main project?</h2>
@@ -42,4 +42,4 @@
 <h1 align="center">Clock API</h1>
 <h5 align="center">An Open Source and free to use Clock API</h5>
 <h2>What is planned?</h2>
-<p>The Clock API will make it easier than ever before to implement clock related features into your Websites and OS with easy to use syntax</p>
+<p>The Clock API will make it easier than ever before to implement clock related features into your Websites and OS with easy to use syntax. Stay tuned for future updates!</p>
