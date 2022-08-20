@@ -32,8 +32,15 @@ var isStopwatch = false;
 var settingsAnimation = true;
 // Timer Transition, True = On, False = Off
 var timerTransition = true;
-// false = Light, true = Dark
-var isDark = false;
+// Get Item from LocalStorage or highScore === 0
+var isDark = localStorage.getItem('darkMode') || "false";
+console.log(localStorage.getItem('darkMode'))
+
+if (localStorage.getItem('darkMode') == "true") {
+  $("html").addClass("dark");
+  $("#themeButton").html("Dark");
+  $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
+}
 
 // Main Code
 
@@ -96,20 +103,22 @@ setInterval(function() {
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
 
+  hours = date.getHours();
+
   // Accounts for 12 hour
   if (clockMode === false) {
       
       // Selects between AM and PM
-      var ampm = (hours < 12) ? "AM" : "PM";
+      var ampm = (date.getHours() < 12) ? "AM" : "PM";
       // Prints AM / PM
       $(".ampm").html(ampm);
       // Gets hour in 12 hour format
-      hours = (hours > 12) ? hours - 12 : hours;
+      hours = (date.getHours() > 12) ? date.getHours() - 12 : date.getHours();
+
 
   }
 
   // Pads integers < 10
-  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
   minutes = (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
   seconds = (date.getSeconds() < 10 ? "0" : "" ) + date.getSeconds();
 
@@ -444,13 +453,15 @@ function timerChanger() {
 
 // Changes between light and dark
 function themeChanger() {
-  if (isDark === false) {
+  if (isDark == "false") {
     isDark = true;
+    localStorage.setItem('darkMode', isDark);
     $("html").addClass("dark");
     $("#themeButton").html("Dark");
     $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
-  } else if (isDark === true) {
+  } else if (isDark == "true") {
     isDark = false;
+    localStorage.setItem('darkMode', isDark);
     $("html").removeClass("dark");
     $("#themeButton").html("Light");
     $("meta[name='theme-color']").attr("content", "#D3D3D3");
