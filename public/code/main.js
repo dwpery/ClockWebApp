@@ -96,20 +96,22 @@ setInterval(function() {
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
 
+  hours = date.getHours();
+
   // Accounts for 12 hour
   if (clockMode === false) {
       
       // Selects between AM and PM
-      var ampm = (hours < 12) ? "AM" : "PM";
+      var ampm = (date.getHours() < 12) ? "AM" : "PM";
       // Prints AM / PM
       $(".ampm").html(ampm);
       // Gets hour in 12 hour format
-      hours = (hours > 12) ? hours - 12 : hours;
+      hours = (date.getHours() > 12) ? date.getHours() - 12 : date.getHours();
+
 
   }
 
   // Pads integers < 10
-  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
   minutes = (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
   seconds = (date.getSeconds() < 10 ? "0" : "" ) + date.getSeconds();
 
