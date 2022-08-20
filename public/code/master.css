@@ -117,43 +117,6 @@ header {
   transition: 0.75s;
 }
 
-.alertBox {
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%);
-  top: -5vh;
-  height: 5vh;
-  background-color: #D3D3D3;
-  width: 55vh;
-  color: black;
-  border-radius: 2.5vh;
-  transition: 1s;
-}
-
-.close {
-  position: absolute;
-  height: 5vh;
-  width: 5vh;
-  font-size: 3.25vh;
-  text-align: center;
-  right: 0;
-  transition: 0.25s;
-}
-
-.close:hover {
-  cursor: pointer;
-  color: #36454F;
-}
-
-.message {
-  position: absolute;
-  height: 5vh;
-  right: 5vh;
-  width: 50vh;
-  font-size: 3.25vh;
-  text-align: center;
-}
-
 #settings {
   position: fixed;
   top: 0;
@@ -283,11 +246,11 @@ label {
 
 .timerControls {
   position: fixed;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%);
   width: 60vh;
   transition: 1s;
+  bottom: 27.9vh;
 }
 
 ul {
@@ -562,13 +525,24 @@ li svg {
     border-radius: 10vh 10vh 0 0;
   }
 
-  .mobilePadding {
+  .settingsPadding, .timerPadding, .clockPadding, .alarmPadding {
     position: fixed;
     bottom: 0;
     height: 2.5vh;
-    width: 100%;
+    width: 25%;
+    left: 0;
     background-color: #D3D3D3;
+    transition: 0.25s;
   }
+
+  .timerPadding { left: 25%; }
+  .clockPadding { left: 50%; }
+  .alarmPadding { left: 75%; }
+
+  .item1:hover .settingsPadding { background-color: #B3B3B3; }
+  .item2:hover .timerPadding { background-color: #B3B3B3; }
+  .item3:hover .clockPadding { background-color: #B3B3B3; }
+  .item4:hover .alarmPadding { background-color: #B3B3B3; }
 
   .item1 { border-radius: 10vh 0 0 0; }
   .item4 { border-radius: 0 10vh 0 0; }
@@ -603,7 +577,7 @@ li svg {
   }
 
   #addAlarm {
-    bottom: 10vh;
+    bottom: 12.5vh;
   }
 
   #settings-container {
@@ -664,8 +638,9 @@ li svg {
   }
 
   .timerControls {
-    transform: translate(-50%, 175%);
+    transform: translate(-50%);
     width: 45vh;
+    bottom: 12.5vh;
   }
 }
 
@@ -695,12 +670,12 @@ li svg {
 }
 
 /* Header bar colour */
-.dark header {
+.dark header, .dark .alarmPadding, .dark .settingsPadding, .dark .clockPadding, .dark .timerPadding {
   background-color: rgb(76, 82, 85);
 }
 
 /* Hover effect for header, and backgroud of svg */
-.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG {
+.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
   background-color: #697074; fill: #697074;
 }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
