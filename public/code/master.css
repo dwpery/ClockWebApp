@@ -642,6 +642,10 @@ li svg {
     width: 45vh;
     bottom: 12.5vh;
   }
+
+  .buffer {
+    height: 20vh;
+  }
 }
 
 /* Dark Mode UI */
