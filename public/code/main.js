@@ -1,15 +1,11 @@
 // Variable Bank
 
-// False = No, True = Yes
-var isAlertClosed = false;
 // True = Digital, False = Analog
 var isDigital = true;
 // Value for timer
 var value = 1;
 // Value for stopwatch
 var sValue = 1;
-// False = No, True = Yes
-var doubleDigits = false;
 // Holds amout of Alarms
 var numOfAlarms = 0;
 // Contains Alarm names
@@ -35,8 +31,10 @@ var timerTransition = true;
 var dateFormat = localStorage.getItem('dateFormat') || "false";
 // True = 24, False = 12
 var clockMode = localStorage.getItem('clockMode') || "false";
-// Get Item from LocalStorage or 
+// False = Light, True = Dark
 var isDark = localStorage.getItem('darkMode') || "false";
+// False = No, True = Yes
+var doubleDigits = localStorage.getItem('doubleDigits') || "false";
 
 // Local Storage retrieval and setups
 
@@ -52,6 +50,10 @@ if (localStorage.getItem('clockMode') == "true") {
 
 if (localStorage.getItem('dateFormat') == "true") {
   $("#dateFormatButton").html("MM/DD");
+}
+
+if (localStorage.getItem('doubleDigits') == "true") {
+  $("#doubleDigitsButton").html("On");
 }
 
 // Main Code
@@ -286,7 +288,7 @@ function countdown() {
   var ph = timerHours;
 
   // Pads with zeros
-  if (doubleDigits == true) {
+  if (doubleDigits == "true") {
     ps = (ps < 10 ? "0" : "" ) + ps;
     pm = (pm < 10 ? "0" : "" ) + pm;
     ph = (ph < 10 ? "0" : "" ) + ph;
@@ -351,13 +353,14 @@ function dateFormatChanger() {
 
 // Swaps chunky numbers on / off (Timer Panel)
 function doubleDigitsChanger() {
-  if (doubleDigits == false) {
-    doubleDigits = true;
+  if (doubleDigits == "false") {
+    doubleDigits = "true";
     $("#doubleDigitsButton").html("On");
   } else {
-    doubleDigits = false;
+    doubleDigits = "false";
     $("#doubleDigitsButton").html("Off");
   }
+  localStorage.setItem('doubleDigits', doubleDigits);
 }
 
 // Turns settings opening animation on / off
@@ -528,7 +531,7 @@ function stopwatch() {
   pSH = stopwatchH;
 
   // Pads integers
-  if (doubleDigits === true) {
+  if (doubleDigits === "true") {
     pSS = (pSS < 10 ? "0" : "" ) + pSS;
     pSM = (pSM < 10 ? "0" : "" ) + pSM;
     pSH = (pSH < 10 ? "0" : "" ) + pSH;
