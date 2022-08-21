@@ -1,9 +1,5 @@
 // Variable Bank
 
-// False = dd/mm, True = mm/dd
-var dateFormat = false;
-// True = 24, False = 12
-var clockMode = localStorage.getItem('clockMode') || "false";
 // False = No, True = Yes
 var isAlertClosed = false;
 // True = Digital, False = Analog
@@ -32,8 +28,17 @@ var isStopwatch = false;
 var settingsAnimation = true;
 // Timer Transition, True = On, False = Off
 var timerTransition = true;
-// Get Item from LocalStorage or highScore === 0
+
+// Local Storage Variables
+
+// False = dd/mm, True = mm/dd
+var dateFormat = localStorage.getItem('dateFormat') || "false";
+// True = 24, False = 12
+var clockMode = localStorage.getItem('clockMode') || "false";
+// Get Item from LocalStorage or 
 var isDark = localStorage.getItem('darkMode') || "false";
+
+// Local Storage retrieval and setups
 
 if (localStorage.getItem('darkMode') == "true") {
   $("html").addClass("dark");
@@ -42,7 +47,11 @@ if (localStorage.getItem('darkMode') == "true") {
 }
 
 if (localStorage.getItem('clockMode') == "true") {
-    $("#clockModeButton").html("On");
+  $("#clockModeButton").html("On");
+}
+
+if (localStorage.getItem('dateFormat') == "true") {
+  $("#dateFormatButton").html("MM/DD");
 }
 
 // Main Code
@@ -78,7 +87,7 @@ setInterval(function() {
   var date = new Date();
 
   // Selects which date format to use
-  if(dateFormat === false) {
+  if(dateFormat == "false") {
       var today = String(date.getDate()).padStart(2, '0') + "/" + String(date.getMonth() + 1).padStart(2, '0') + "/" + date.getFullYear();
   } else {
       var today = String(date.getMonth() + 1).padStart(2, '0') + "/" + String(date.getDate()).padStart(2, '0') + "/" + date.getFullYear();
@@ -329,12 +338,14 @@ function clockModeChanger() {
 
 // Changes between the World and USA
 function dateFormatChanger() {
-  if (dateFormat == false) {
-    dateFormat = true;
+  if (dateFormat == "false") {
+    dateFormat = "true";
     $("#dateFormatButton").html("MM/DD");
+    localStorage.setItem('dateFormat', dateFormat);
   } else {
-    dateFormat = false;
+    dateFormat = "false";
     $("#dateFormatButton").html("DD/MM");
+    localStorage.setItem('dateFormat', dateFormat);
   }
 }
 
