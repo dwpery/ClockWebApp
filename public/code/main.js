@@ -34,7 +34,6 @@ var settingsAnimation = true;
 var timerTransition = true;
 // Get Item from LocalStorage or highScore === 0
 var isDark = localStorage.getItem('darkMode') || "false";
-console.log(localStorage.getItem('darkMode'))
 
 if (localStorage.getItem('darkMode') == "true") {
   $("html").addClass("dark");
