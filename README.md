@@ -37,7 +37,7 @@
 <h2 id="4">How can I request a feature / report a bug?</h2>
 <p>Open an issue on the GitHub page with either a bug or a feature you'd like to implement. If it's a bug a fix will be implemented in a future update and if it's a feature it may take longer to implement.</p>
 <h2 id="5">How can I contribute code to the main project?</h2>
-<p>Once you have chosen an issue to fix or a feature to implement, fork the project and then work in the repository. Once complete subit the code in a pull request and wait for the feature to be merged or wait for feedback on how to improve your code. Make sure your code is commented and well formatted.</p>
+<p>Once you have chosen an issue to fix or a feature to implement, fork the project and then work in the repository. Once complete submit the code in a pull request and wait for the feature to be merged or wait for feedback on how to improve your code. Make sure your code is commented and well formatted.</p>
 <!-- API -->
 <h1 align="center">Clock API</h1>
 <h5 align="center">An Open Source and free to use Clock API</h5>
