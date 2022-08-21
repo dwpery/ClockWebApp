@@ -458,13 +458,13 @@ function timerChanger() {
 // Changes between light and dark
 function themeChanger() {
   if (isDark == "false") {
-    isDark = true;
+    isDark = "true";
     localStorage.setItem('darkMode', isDark);
     $("html").addClass("dark");
     $("#themeButton").html("Dark");
     $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
   } else if (isDark == "true") {
-    isDark = false;
+    isDark = "false";
     localStorage.setItem('darkMode', isDark);
     $("html").removeClass("dark");
     $("#themeButton").html("Light");
