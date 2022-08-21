@@ -3,7 +3,7 @@
 // False = dd/mm, True = mm/dd
 var dateFormat = false;
 // True = 24, False = 12
-var clockMode = false;
+var clockMode = localStorage.getItem('clockMode') || "false";
 // False = No, True = Yes
 var isAlertClosed = false;
 // True = Digital, False = Analog
@@ -39,6 +39,10 @@ if (localStorage.getItem('darkMode') == "true") {
   $("html").addClass("dark");
   $("#themeButton").html("Dark");
   $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
+}
+
+if (localStorage.getItem('clockMode') == "true") {
+    $("#clockModeButton").html("On");
 }
 
 // Main Code
@@ -107,7 +111,7 @@ setInterval(function() {
   hours = date.getHours();
 
   // Accounts for 12 hour
-  if (clockMode === false) {
+  if (clockMode == "false") {
       
       // Selects between AM and PM
       var ampm = (date.getHours() < 12) ? "AM" : "PM";
@@ -312,12 +316,14 @@ function resetTimer() {
 
 // Swaps 24 hour format on or off
 function clockModeChanger() {
-  if (clockMode == false) {
-    clockMode = true;
+  if (clockMode == "false") {
+    clockMode = "true";
     $("#clockModeButton").html("On");
+    localStorage.setItem('clockMode', clockMode);
   } else {
-    clockMode = false;
+    clockMode = "false";
     $("#clockModeButton").html("Off");
+    localStorage.setItem('clockMode', clockMode);
   }
 }
 
