@@ -34,7 +34,6 @@ var settingsAnimation = true;
 var timerTransition = true;
 // Get Item from LocalStorage or highScore === 0
 var isDark = localStorage.getItem('darkMode') || "false";
-console.log(localStorage.getItem('darkMode'))
 
 if (localStorage.getItem('darkMode') == "true") {
   $("html").addClass("dark");
@@ -49,6 +48,8 @@ $(document).ready(function() {
   showClock();
   // Hides unnused UI onload
   $(".stopwatch").hide();
+  $("#stopwatchPlayContainer").hide();
+  $("#stopwatchResetContainer").hide();
   // Gets users timezone
   var tza = () => {
     var { 1: tz } = new Date().toString().match(/\((.+)\)/);
@@ -114,8 +115,7 @@ setInterval(function() {
       $(".ampm").html(ampm);
       // Gets hour in 12 hour format
       hours = (date.getHours() > 12) ? date.getHours() - 12 : date.getHours();
-
-
+      hours = (date.getHours() < 1) ? date.getHours() + 12 : hours;
   }
 
   // Pads integers < 10
@@ -438,15 +438,19 @@ function timerChanger() {
     console.log("1")
     $(".timerMain").hide();
     $(".stopwatch").show();
-    $("#timerResetContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetStopwatch" onclick="resetStopwatch()"><g clip-path="url(#clip0_0_1)"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/><rect class="coverSVG" x="59.1317" y="36.0043" width="30" height="14" transform="rotate(-45 59.1317 36.0043)" fill="#C4C4C4"/><rect class="coverSVG" x="11.0485" y="75.6023" width="30" height="14" transform="rotate(-45 11.0485 75.6023)" fill="#C4C4C4"/><path class="barOnSVG" d="M22.0086 68.8848L38.2306 68.5727L21.6965 85.1068L22.0086 68.8848Z" fill="#36454F"/><path class="barOnSVG" d="M78.5772 32.1152L61.7428 33.0397L79.5016 15.2809L78.5772 32.1152Z" fill="#36454F"/></g><defs><clipPath id="clip0_0_1"><rect width="100" height="100" fill="white"/></clipPath></defs></svg>');
-    $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
+    $("#timerResetContainer").hide();
+    $("#stopwatchResetContainer").show();
+    $("#timerPlayContainer").hide();
+    $("#stopwatchPlayContainer").show();
     isStopwatch = true;
   } else {
     $("#timerChange").css("transform","rotate(360deg)");
     $(".timerMain").show();
     $(".stopwatch").hide();
-    $("#timerResetContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="resetTimer" onclick="resetTimer()"> <g clip-path="url(#clip0_0_1)"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" fill-rule="evenodd" clip-rule="evenodd" d="M77.1629 77.37C91.8076 62.7254 91.8076 38.9817 77.1629 24.337C62.5183 9.69238 38.7746 9.69238 24.1299 24.337C9.48528 38.9817 9.48528 62.7254 24.1299 77.37C38.7746 92.0147 62.5183 92.0147 77.1629 77.37ZM71.1525 72.0667C82.8683 60.351 82.8683 41.3561 71.1525 29.6403C59.4368 17.9246 40.4419 17.9246 28.7261 29.6403C17.0104 41.3561 17.0104 60.351 28.7261 72.0667C40.4419 83.7825 59.4368 83.7825 71.1525 72.0667Z" fill="#36454F"/> <rect class="coverSVG" x="59.1317" y="36.0043" width="30" height="14" transform="rotate(-45 59.1317 36.0043)" fill="#C4C4C4"/> <rect class="coverSVG" x="11.0485" y="75.6023" width="30" height="14" transform="rotate(-45 11.0485 75.6023)" fill="#C4C4C4"/> <path class="barOnSVG" d="M22.0086 68.8848L38.2306 68.5727L21.6965 85.1068L22.0086 68.8848Z" fill="#36454F"/> <path class="barOnSVG" d="M78.5772 32.1152L61.7428 33.0397L79.5016 15.2809L78.5772 32.1152Z" fill="#36454F"/> </g> <defs> <clipPath id="clip0_0_1"> <rect width="100" height="100" fill="white"/> </clipPath> </defs> </svg>');
-    $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startTimer" onclick="startTimer()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
+    $("#timerResetContainer").show();
+    $("#stopwatchResetContainer").hide();
+    $("#timerPlayContainer").show();
+    $("#stopwatchPlayContainer").hide();
     isStopwatch = false;
   }
 }
@@ -454,13 +458,13 @@ function timerChanger() {
 // Changes between light and dark
 function themeChanger() {
   if (isDark == "false") {
-    isDark = true;
+    isDark = "true";
     localStorage.setItem('darkMode', isDark);
     $("html").addClass("dark");
     $("#themeButton").html("Dark");
     $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
   } else if (isDark == "true") {
-    isDark = false;
+    isDark = "false";
     localStorage.setItem('darkMode', isDark);
     $("html").removeClass("dark");
     $("#themeButton").html("Light");
@@ -481,7 +485,7 @@ function startStopwatch() {
   $("#span6").html(stopwatchS);
 
   // Changes Icon
-  $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
+  $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
 
   stopwatchCycle = setInterval(stopwatch, 1000);
 }
@@ -523,10 +527,10 @@ function stopwatch() {
 function pauseStopwatch() {
   if (sValue == 1) {
     sValue = 0;
-    $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
+    $("#pauseStopwatch").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
   } else {
     sValue = 1;
-    $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
+    $("#pauseStopwatch").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   }
 }
 
@@ -543,5 +547,5 @@ function resetStopwatch() {
   sValue = 1;
   $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   // Changes Icon
-  $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
+  $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
 }
