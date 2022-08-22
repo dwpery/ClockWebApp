@@ -20,10 +20,6 @@ var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal
 var audio = new Audio(alarmSounds[activeAlarmSound]);
 // False = No, True = Yes
 var isStopwatch = false;
-// Settings animation, True = On, False = Off
-var settingsAnimation = true;
-// Timer Transition, True = On, False = Off
-var timerTransition = true;
 
 // Local Storage Variables
 
@@ -35,6 +31,10 @@ var clockMode = localStorage.getItem('clockMode') || "false";
 var isDark = localStorage.getItem('darkMode') || "false";
 // False = No, True = Yes
 var doubleDigits = localStorage.getItem('doubleDigits') || "false";
+// Settings animation, True = On, False = Off
+var settingsAnimation = localStorage.getItem('settingsAnim') || "true";
+// Timer Transition, True = On, False = Off
+var timerTransition = localStorage.getItem("timerTrans") || "true";
 
 // Local Storage retrieval and setups
 
@@ -54,6 +54,15 @@ if (localStorage.getItem('dateFormat') == "true") {
 
 if (localStorage.getItem('doubleDigits') == "true") {
   $("#doubleDigitsButton").html("On");
+}
+
+if (localStorage.getItem('settingsAnim') == "false") {
+  $("#setAnimButton").html("Off");
+}
+
+if (localStorage.getItem('timerTrans') == "false") {
+  $("#ttsTransButton").html("Off");
+  $("#timerChange").css("transition","0s");
 }
 
 // Main Code
@@ -146,7 +155,7 @@ setInterval(function() {
 function showSettings() {
 
   // Checks wether animation is on
-  if (settingsAnimation == true) {
+  if (settingsAnimation == "true") {
     
     $("#settings").css("transition","1.5s");
 
@@ -178,7 +187,7 @@ function showSettings() {
 // Closes the Settings pannel
 function closeSettings() {
 
-  if (settingsAnimation == true) {
+  if (settingsAnimation == "true") {
     $("#settings").css("transition","1.5s");
   } else {
     $("#settings").css("transition","0s");
@@ -365,26 +374,28 @@ function doubleDigitsChanger() {
 
 // Turns settings opening animation on / off
 function settingsAnimControl() {
-  if (settingsAnimation == true) {
-    settingsAnimation = false;
+  if (settingsAnimation == "true") {
+    settingsAnimation = "false";
     $("#setAnimButton").html("Off");
   } else {
-    settingsAnimation = true;
+    settingsAnimation = "true";
     $("#setAnimButton").html("On");
   }
+  localStorage.setItem('settingsAnim', settingsAnimation);
 }
 
 // Turns transition from Timer to Stopwatch on and off
 function timerTransitionAni() {
-  if (timerTransition == true) {
-    timerTransition = false;
+  if (timerTransition == "true") {
+    timerTransition = "false";
     $("#ttsTransButton").html("Off");
     $("#timerChange").css("transition","0s");
   } else {
-    timerTransition = true;
+    timerTransition = "true";
     $("#ttsTransButton").html("On");
     $("#timerChange").css("transition","0.25s");
   }
+  localStorage.setItem('timerTrans', timerTransition);
 }
 
 // Adds alarm to container
