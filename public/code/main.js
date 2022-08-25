@@ -149,7 +149,7 @@ setInterval(function() {
   // Prints time
   $(".display").html(hours + ":" + minutes + ":" + seconds);
 
-},1000);
+}, 10);
 
 // Opens the Settings pannel
 function showSettings() {
