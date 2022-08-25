@@ -56,7 +56,7 @@ header {
   transform: translate(-50%, -70%);
 }
 
-.timerDisplay {
+.stopwatch, #stopwatchPlayContainer, #stopwatchResetContainer, .timerDisplay {
   display: none;
 }
 

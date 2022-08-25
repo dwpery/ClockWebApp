@@ -18,8 +18,6 @@ var activeAlarmSound = 0;
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
 // Default alarm
 var audio = new Audio(alarmSounds[activeAlarmSound]);
-// False = No, True = Yes
-var isStopwatch = false;
 
 // Local Storage Variables
 
@@ -35,6 +33,8 @@ var doubleDigits = localStorage.getItem('doubleDigits') || "false";
 var settingsAnimation = localStorage.getItem('settingsAnim') || "true";
 // Timer Transition, True = On, False = Off
 var timerTransition = localStorage.getItem("timerTrans") || "true";
+// False = Timer, True = Stopwatch
+var isStopwatch = localStorage.getItem("isStopwatch") || "false";
 
 // Local Storage retrieval and setups
 
@@ -65,15 +65,21 @@ if (localStorage.getItem('timerTrans') == "false") {
   $("#timerChange").css("transition","0s");
 }
 
+if (localStorage.getItem('isStopwatch') == "true") {
+  $("#timerChange").css("transform","rotate(180deg)");
+  $(".timerMain").hide();
+  $(".stopwatch").show();
+  $("#timerResetContainer").hide();
+  $("#stopwatchResetContainer").show();
+  $("#timerPlayContainer").hide();
+  $("#stopwatchPlayContainer").show();
+}
+
 // Main Code
 
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
-  // Hides unnused UI onload
-  $(".stopwatch").hide();
-  $("#stopwatchPlayContainer").hide();
-  $("#stopwatchResetContainer").hide();
   // Gets users timezone
   var tza = () => {
     var { 1: tz } = new Date().toString().match(/\((.+)\)/);
@@ -464,16 +470,16 @@ function changeAlarmSound(x) {
 
 // Swaps between timer and stopwatch
 function timerChanger() {
-  if (isStopwatch === false) {
+  if (isStopwatch == "false") {
     $("#timerChange").css("transform","rotate(180deg)");
-    console.log("1")
     $(".timerMain").hide();
     $(".stopwatch").show();
     $("#timerResetContainer").hide();
     $("#stopwatchResetContainer").show();
     $("#timerPlayContainer").hide();
     $("#stopwatchPlayContainer").show();
-    isStopwatch = true;
+    isStopwatch = "true";
+    localStorage.setItem('isStopwatch', isStopwatch);
   } else {
     $("#timerChange").css("transform","rotate(360deg)");
     $(".timerMain").show();
@@ -482,7 +488,8 @@ function timerChanger() {
     $("#stopwatchResetContainer").hide();
     $("#timerPlayContainer").show();
     $("#stopwatchPlayContainer").hide();
-    isStopwatch = false;
+    isStopwatch = "false";
+    localStorage.setItem('isStopwatch', isStopwatch);
   }
 }
 
