@@ -646,6 +646,14 @@ li svg {
   .buffer {
     height: 20vh;
   }
+  
+  .ampm {
+    transform: translate(-50%, 65%);
+  }
+
+  .date {
+    transform: translate(-50%, -165%);
+  }
 }
 
 /* Dark Mode UI */
