@@ -56,7 +56,7 @@ header {
   transform: translate(-50%, -70%);
 }
 
-.timerDisplay {
+.stopwatch, #stopwatchPlayContainer, #stopwatchResetContainer, .timerDisplay {
   display: none;
 }
 
@@ -646,6 +646,14 @@ li svg {
   .buffer {
     height: 20vh;
   }
+  
+  .ampm {
+    transform: translate(-50%, 65%);
+  }
+
+  .date {
+    transform: translate(-50%, -165%);
+  }
 }
 
 /* Dark Mode UI */
@@ -691,6 +699,6 @@ li svg {
 .dark #submit { color: rgb(79, 184, 255); }
 
 /* Washed out red colours */
-.dark #span1, .dark #span2, .dark #span3, .dark #hours, .dark #minutes, .dark #seconds  {
+.dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
   color: rgb(255, 43, 43);
 }

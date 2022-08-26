@@ -1,19 +1,11 @@
 // Variable Bank
 
-// False = dd/mm, True = mm/dd
-var dateFormat = false;
-// True = 24, False = 12
-var clockMode = false;
-// False = No, True = Yes
-var isAlertClosed = false;
 // True = Digital, False = Analog
 var isDigital = true;
 // Value for timer
 var value = 1;
 // Value for stopwatch
 var sValue = 1;
-// False = No, True = Yes
-var doubleDigits = false;
 // Holds amout of Alarms
 var numOfAlarms = 0;
 // Contains Alarm names
@@ -26,14 +18,25 @@ var activeAlarmSound = 0;
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
 // Default alarm
 var audio = new Audio(alarmSounds[activeAlarmSound]);
-// False = No, True = Yes
-var isStopwatch = false;
-// Settings animation, True = On, False = Off
-var settingsAnimation = true;
-// Timer Transition, True = On, False = Off
-var timerTransition = true;
-// Get Item from LocalStorage or highScore === 0
+
+// Local Storage Variables
+
+// False = dd/mm, True = mm/dd
+var dateFormat = localStorage.getItem('dateFormat') || "false";
+// True = 24, False = 12
+var clockMode = localStorage.getItem('clockMode') || "false";
+// False = Light, True = Dark
 var isDark = localStorage.getItem('darkMode') || "false";
+// False = No, True = Yes
+var doubleDigits = localStorage.getItem('doubleDigits') || "false";
+// Settings animation, True = On, False = Off
+var settingsAnimation = localStorage.getItem('settingsAnim') || "true";
+// Timer Transition, True = On, False = Off
+var timerTransition = localStorage.getItem("timerTrans") || "true";
+// False = Timer, True = Stopwatch
+var isStopwatch = localStorage.getItem("isStopwatch") || "false";
+
+// Local Storage retrieval and setups
 
 if (localStorage.getItem('darkMode') == "true") {
   $("html").addClass("dark");
@@ -41,15 +44,42 @@ if (localStorage.getItem('darkMode') == "true") {
   $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
 }
 
+if (localStorage.getItem('clockMode') == "true") {
+  $("#clockModeButton").html("On");
+}
+
+if (localStorage.getItem('dateFormat') == "true") {
+  $("#dateFormatButton").html("MM/DD");
+}
+
+if (localStorage.getItem('doubleDigits') == "true") {
+  $("#doubleDigitsButton").html("On");
+}
+
+if (localStorage.getItem('settingsAnim') == "false") {
+  $("#setAnimButton").html("Off");
+}
+
+if (localStorage.getItem('timerTrans') == "false") {
+  $("#ttsTransButton").html("Off");
+  $("#timerChange").css("transition","0s");
+}
+
+if (localStorage.getItem('isStopwatch') == "true") {
+  $("#timerChange").css("transform","rotate(180deg)");
+  $(".timerMain").hide();
+  $(".stopwatch").show();
+  $("#timerResetContainer").hide();
+  $("#stopwatchResetContainer").show();
+  $("#timerPlayContainer").hide();
+  $("#stopwatchPlayContainer").show();
+}
+
 // Main Code
 
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
-  // Hides unnused UI onload
-  $(".stopwatch").hide();
-  $("#stopwatchPlayContainer").hide();
-  $("#stopwatchResetContainer").hide();
   // Gets users timezone
   var tza = () => {
     var { 1: tz } = new Date().toString().match(/\((.+)\)/);
@@ -74,7 +104,7 @@ setInterval(function() {
   var date = new Date();
 
   // Selects which date format to use
-  if(dateFormat === false) {
+  if(dateFormat == "false") {
       var today = String(date.getDate()).padStart(2, '0') + "/" + String(date.getMonth() + 1).padStart(2, '0') + "/" + date.getFullYear();
   } else {
       var today = String(date.getMonth() + 1).padStart(2, '0') + "/" + String(date.getDate()).padStart(2, '0') + "/" + date.getFullYear();
@@ -107,7 +137,7 @@ setInterval(function() {
   hours = date.getHours();
 
   // Accounts for 12 hour
-  if (clockMode === false) {
+  if (clockMode == "false") {
       
       // Selects between AM and PM
       var ampm = (date.getHours() < 12) ? "AM" : "PM";
@@ -125,13 +155,13 @@ setInterval(function() {
   // Prints time
   $(".display").html(hours + ":" + minutes + ":" + seconds);
 
-},1000);
+}, 10);
 
 // Opens the Settings pannel
 function showSettings() {
 
   // Checks wether animation is on
-  if (settingsAnimation == true) {
+  if (settingsAnimation == "true") {
     
     $("#settings").css("transition","1.5s");
 
@@ -163,7 +193,7 @@ function showSettings() {
 // Closes the Settings pannel
 function closeSettings() {
 
-  if (settingsAnimation == true) {
+  if (settingsAnimation == "true") {
     $("#settings").css("transition","1.5s");
   } else {
     $("#settings").css("transition","0s");
@@ -273,7 +303,7 @@ function countdown() {
   var ph = timerHours;
 
   // Pads with zeros
-  if (doubleDigits == true) {
+  if (doubleDigits == "true") {
     ps = (ps < 10 ? "0" : "" ) + ps;
     pm = (pm < 10 ? "0" : "" ) + pm;
     ph = (ph < 10 ? "0" : "" ) + ph;
@@ -312,59 +342,66 @@ function resetTimer() {
 
 // Swaps 24 hour format on or off
 function clockModeChanger() {
-  if (clockMode == false) {
-    clockMode = true;
+  if (clockMode == "false") {
+    clockMode = "true";
     $("#clockModeButton").html("On");
+    localStorage.setItem('clockMode', clockMode);
   } else {
-    clockMode = false;
+    clockMode = "false";
     $("#clockModeButton").html("Off");
+    localStorage.setItem('clockMode', clockMode);
   }
 }
 
 // Changes between the World and USA
 function dateFormatChanger() {
-  if (dateFormat == false) {
-    dateFormat = true;
+  if (dateFormat == "false") {
+    dateFormat = "true";
     $("#dateFormatButton").html("MM/DD");
+    localStorage.setItem('dateFormat', dateFormat);
   } else {
-    dateFormat = false;
+    dateFormat = "false";
     $("#dateFormatButton").html("DD/MM");
+    localStorage.setItem('dateFormat', dateFormat);
   }
 }
 
 // Swaps chunky numbers on / off (Timer Panel)
 function doubleDigitsChanger() {
-  if (doubleDigits == false) {
-    doubleDigits = true;
+  if (doubleDigits == "false") {
+    doubleDigits = "true";
     $("#doubleDigitsButton").html("On");
   } else {
-    doubleDigits = false;
+    doubleDigits = "false";
     $("#doubleDigitsButton").html("Off");
   }
+  localStorage.setItem('doubleDigits', doubleDigits);
 }
 
 // Turns settings opening animation on / off
 function settingsAnimControl() {
-  if (settingsAnimation == true) {
-    settingsAnimation = false;
+  if (settingsAnimation == "true") {
+    settingsAnimation = "false";
     $("#setAnimButton").html("Off");
   } else {
-    settingsAnimation = true;
+    settingsAnimation = "true";
     $("#setAnimButton").html("On");
   }
+  localStorage.setItem('settingsAnim', settingsAnimation);
 }
 
 // Turns transition from Timer to Stopwatch on and off
 function timerTransitionAni() {
-  if (timerTransition == true) {
-    timerTransition = false;
+  if (timerTransition == "true") {
+    timerTransition = "false";
     $("#ttsTransButton").html("Off");
     $("#timerChange").css("transition","0s");
   } else {
-    timerTransition = true;
+    timerTransition = "true";
     $("#ttsTransButton").html("On");
     $("#timerChange").css("transition","0.25s");
   }
+  localStorage.setItem('timerTrans', timerTransition);
 }
 
 // Adds alarm to container
@@ -433,16 +470,16 @@ function changeAlarmSound(x) {
 
 // Swaps between timer and stopwatch
 function timerChanger() {
-  if (isStopwatch === false) {
+  if (isStopwatch == "false") {
     $("#timerChange").css("transform","rotate(180deg)");
-    console.log("1")
     $(".timerMain").hide();
     $(".stopwatch").show();
     $("#timerResetContainer").hide();
     $("#stopwatchResetContainer").show();
     $("#timerPlayContainer").hide();
     $("#stopwatchPlayContainer").show();
-    isStopwatch = true;
+    isStopwatch = "true";
+    localStorage.setItem('isStopwatch', isStopwatch);
   } else {
     $("#timerChange").css("transform","rotate(360deg)");
     $(".timerMain").show();
@@ -451,7 +488,8 @@ function timerChanger() {
     $("#stopwatchResetContainer").hide();
     $("#timerPlayContainer").show();
     $("#stopwatchPlayContainer").hide();
-    isStopwatch = false;
+    isStopwatch = "false";
+    localStorage.setItem('isStopwatch', isStopwatch);
   }
 }
 
@@ -511,7 +549,7 @@ function stopwatch() {
   pSH = stopwatchH;
 
   // Pads integers
-  if (doubleDigits === true) {
+  if (doubleDigits === "true") {
     pSS = (pSS < 10 ? "0" : "" ) + pSS;
     pSM = (pSM < 10 ? "0" : "" ) + pSM;
     pSH = (pSH < 10 ? "0" : "" ) + pSH;
