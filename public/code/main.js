@@ -10,8 +10,6 @@ var numOfAlarms = 0;
 var alarmNames = new Array;
 // Contains Alarm times
 var alarmTimes = new Array;
-// Active Alarm Sound
-var activeAlarmSound = 0;
 // Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6                               7                              8                               9
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
 // Default alarm
@@ -35,6 +33,8 @@ var settingsAnimation = localStorage.getItem('settingsAnim') || "true";
 var timerTransition = localStorage.getItem("timerTrans") || "true";
 // False = Timer, True = Stopwatch
 var isStopwatch = localStorage.getItem("isStopwatch") || "false";
+// Active Alarm Sound
+var activeAlarmSound = 0;
 
 // Local Storage retrieval and setups
 
@@ -113,7 +113,7 @@ setInterval(function() {
   $(".date").html(today);
 
   // Creates time to compare to alarm time
-  var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + date.getMinutes();
+  var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
 
   // Cycles through all Alarms
   for (var i = 0; i < numOfAlarms; i++) {
