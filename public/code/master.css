@@ -261,7 +261,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover {
   cursor: pointer;
 }
 
@@ -272,6 +272,14 @@ ul {
   bottom: 3.5vh;
   height: 12.5vh;
   width: 12.5vh;
+}
+
+#focusMode {
+  position: fixed;
+  right: 2vh;
+  bottom: 2vh;
+  height: 11vh;
+  width: 11vh;
 }
 
 hr {
@@ -578,6 +586,12 @@ li svg {
 
   #addAlarm {
     bottom: 12.5vh;
+  }
+
+  #focusMode {
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 13.5vh;
   }
 
   #settings-container {
