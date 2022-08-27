@@ -518,6 +518,10 @@ li svg {
 
 }
 
+.clear {
+  background-color: #FFF;
+}
+
 .classicFont { font-family: 'Major Mono Display', monospace; }
 .wetFont { font-family: 'Rubik Wet Paint', cursive; }
 .arialFont { font-family: 'Arial'; }
@@ -711,6 +715,7 @@ li svg {
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
+.dark .clear { background-color: #292b2d; }
 
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
