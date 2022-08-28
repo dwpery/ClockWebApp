@@ -261,7 +261,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover {
   cursor: pointer;
 }
 
@@ -272,6 +272,14 @@ ul {
   bottom: 3.5vh;
   height: 12.5vh;
   width: 12.5vh;
+}
+
+#focusMode {
+  position: fixed;
+  right: 2vh;
+  bottom: 2vh;
+  height: 11vh;
+  width: 11vh;
 }
 
 hr {
@@ -510,6 +518,10 @@ li svg {
 
 }
 
+.clear {
+  background-color: #FFF;
+}
+
 .classicFont { font-family: 'Major Mono Display', monospace; }
 .wetFont { font-family: 'Rubik Wet Paint', cursive; }
 .arialFont { font-family: 'Arial'; }
@@ -578,6 +590,12 @@ li svg {
 
   #addAlarm {
     bottom: 12.5vh;
+  }
+
+  #focusMode {
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 13.5vh;
   }
 
   #settings-container {
@@ -659,7 +677,7 @@ li svg {
 /* Dark Mode UI */
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect {
+.dark .headerSVG path, .dark .headerSVG rect, .dark #focusPath {
   fill: #f5f5f5;
 }
 
@@ -697,6 +715,7 @@ li svg {
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark #remove { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
+.dark .clear { background-color: #292b2d; }
 
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
