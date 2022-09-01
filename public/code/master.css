@@ -677,8 +677,12 @@ li svg {
 /* Dark Mode UI */
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect, .dark #focusPath {
+.dark .headerSVG path, .dark .headerSVG rect {
   fill: #f5f5f5;
+}
+
+.dark #focusPath {
+  fill: #697074;
 }
 
 /* Colour for alarm creation menu */
