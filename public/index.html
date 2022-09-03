@@ -79,9 +79,18 @@
     <section id="timerPannel">       
       <div class="timerMain">
         <div class="timerInput">
-          <input id="hours" placeholder="00" type="number"/ min="0" max="99" /><span>h</span>
-          <input id="minutes" placeholder="00" type="number" min="0" max="59"/><span>m</span>
-          <input id="seconds" placeholder="00" type="number" min="0" max="59"/><span>s</span>
+          <div class="gridDiv">
+            <input id="hours" placeholder="00" type="number"/ min="0" max="99" />
+            <div class="smallLabel">h</div>
+          </div>
+          <div class="gridDiv">
+            <input id="minutes" placeholder="00" type="number" min="0" max="59"/>
+            <div class="smallLabel">m</div>
+          </div>
+          <div class="gridDiv">
+            <input id="seconds" placeholder="00" type="number" min="0" max="59"/>
+            <div class="smallLabel">s</div>
+          </div>
         </div>
         <div class="timerDisplay">
           <span id="span1"></span><span>h</span>

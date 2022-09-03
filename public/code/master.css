@@ -56,6 +56,10 @@ header {
   transform: translate(-50%, -70%);
 }
 
+#hours, #minutes, #seconds, .smallLabel, .gridDiv {
+  display: inline;
+}
+
 .stopwatch, #stopwatchPlayContainer, #stopwatchResetContainer, .timerDisplay {
   display: none;
 }
@@ -620,19 +624,11 @@ li svg {
   }
 
   #hours, #minutes, #seconds {
-    font-size: 6vh;
-    width: 7vh;
+    font-size: 12.5vh;
+    width: 13.5vh;
   }
 
   .timerDisplay {
-    font-size: 6vh;
-  }
-
-  span, #span4, #span5, #span6 {
-    font-size: 5vh;
-  }
-
-  #span1, #span2, #span3 {
     font-size: 6vh;
   }
 
@@ -671,6 +667,21 @@ li svg {
 
   .date {
     transform: translate(-50%, -165%);
+  }
+
+  .gridDiv {
+    display: block;
+  }
+
+  #hours, #minutes, #seconds {
+    position: relative;
+    left: 1.5vh;
+  }
+  
+  .smallLabel {
+    position: relative;
+    left: -1.5vh;
+    font-size: 12.5vh;
   }
 }
 
