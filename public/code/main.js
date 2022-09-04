@@ -38,7 +38,6 @@ var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
 
 // Default alarm
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
-console.log(alarmSounds[activeAlarmSound]);
 
 // Local Storage retrieval and setups
 
@@ -287,6 +286,12 @@ function countdown() {
   
   // Resets if empty
   if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
+    audio.play();
+    setTimeout(function() {
+      audio.pause();
+      audio.remove();
+      audio.currentTime = 0;
+    }, 5000)
     resetTimer();
   }
 
