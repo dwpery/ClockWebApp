@@ -696,6 +696,10 @@ li svg {
   fill: #697074;
 }
 
+.dark #focusMode:hover #focusPath {
+  fill: #36454F;
+}
+
 /* Colour for alarm creation menu */
 .dark .alarm, .dark .alarmName, .dark .alarmTime {
   background-color: rgb(102, 109, 113);
