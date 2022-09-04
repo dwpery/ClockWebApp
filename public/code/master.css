@@ -56,7 +56,7 @@ header {
   transform: translate(-50%, -70%);
 }
 
-#hours, #minutes, #seconds, .smallLabel, .gridDiv {
+#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3 {
   display: inline;
 }
 
