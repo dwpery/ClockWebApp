@@ -143,7 +143,7 @@ setInterval(function() {
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
 
-  hours = date.getHours();
+  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
   // Accounts for 12 hour
   if (clockMode == "false") {
