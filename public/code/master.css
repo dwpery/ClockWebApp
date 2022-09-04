@@ -56,6 +56,10 @@ header {
   transform: translate(-50%, -70%);
 }
 
+#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3, #span4, #span5, #span6 {
+  display: inline;
+}
+
 .stopwatch, #stopwatchPlayContainer, #stopwatchResetContainer, .timerDisplay {
   display: none;
 }
@@ -614,25 +618,17 @@ li svg {
     font-size: 10vh;
   }
 
-  .timerInput, .timerDisplay {
+  .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
     text-align: center;
   }
 
   #hours, #minutes, #seconds {
-    font-size: 6vh;
-    width: 7vh;
+    font-size: 12.5vh;
+    width: 13.5vh;
   }
 
   .timerDisplay {
-    font-size: 6vh;
-  }
-
-  span, #span4, #span5, #span6 {
-    font-size: 5vh;
-  }
-
-  #span1, #span2, #span3 {
     font-size: 6vh;
   }
 
@@ -672,13 +668,36 @@ li svg {
   .date {
     transform: translate(-50%, -165%);
   }
+
+  .gridDiv {
+    display: block;
+  }
+}
+
+#hours, #minutes, #seconds {
+  position: relative;
+  left: 1.5vh;
+}
+
+.smallLabel {
+  position: relative;
+  left: -1.5vh;
+  font-size: 12.5vh;
 }
 
 /* Dark Mode UI */
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect, .dark #focusPath {
+.dark .headerSVG path, .dark .headerSVG rect {
   fill: #f5f5f5;
+}
+
+.dark #focusPath {
+  fill: #697074;
+}
+
+.dark #focusMode:hover #focusPath {
+  fill: #36454F;
 }
 
 /* Colour for alarm creation menu */

@@ -33,10 +33,12 @@ var timerTransition = localStorage.getItem("timerTrans") || "true";
 var isStopwatch = localStorage.getItem("isStopwatch") || "false";
 // Active Alarm Sound
 var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
+// Hide focus mode
+var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
 
 // Default alarm
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
-console.log(alarmSounds[activeAlarmSound])
+console.log(alarmSounds[activeAlarmSound]);
 
 // Local Storage retrieval and setups
 
@@ -75,6 +77,11 @@ if (localStorage.getItem('isStopwatch') == "true") {
   $("#stopwatchResetContainer").show();
   $("#timerPlayContainer").hide();
   $("#stopwatchPlayContainer").show();
+}
+
+if (localStorage.getItem("hideFocusMode") == "true") {
+  $("#hideFocusModeBttn").html("On");
+  $("#focusMode").hide();
 }
 
 // Main Code
@@ -136,7 +143,7 @@ setInterval(function() {
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
 
-  hours = date.getHours();
+  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
   // Accounts for 12 hour
   if (clockMode == "false") {
@@ -419,6 +426,19 @@ function timerTransitionAni() {
     $("#timerChange").css("transition","0.25s");
   }
   localStorage.setItem('timerTrans', timerTransition);
+}
+
+function hideFocusModeCon() {
+  if (hideFocusMode == "true") {
+    hideFocusMode = "false";
+    $("#focusMode").show();
+    $("#hideFocusModeBttn").html("Off");
+  } else {
+    hideFocusMode = "true";
+    $("#focusMode").hide();
+    $("#hideFocusModeBttn").html("On");
+  }
+  localStorage.setItem('hideFocusMode', hideFocusMode);
 }
 
 // Adds alarm to container
