@@ -35,6 +35,8 @@ var isStopwatch = localStorage.getItem("isStopwatch") || "false";
 var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
 // Hide focus mode
 var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
+// Play sound when timer completed
+var timerSound = localStorage.getItem("timerSound") || "true";
 
 // Default alarm
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
@@ -286,12 +288,14 @@ function countdown() {
   
   // Resets if empty
   if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    audio.play();
-    setTimeout(function() {
-      audio.pause();
-      audio.remove();
-      audio.currentTime = 0;
-    }, 5000)
+    if (timerSound == "true") {
+      audio.play();
+      setTimeout(function() {
+        audio.pause();
+        audio.remove();
+        audio.currentTime = 0;
+      }, 5000)
+    }
     resetTimer();
   }
 
@@ -444,6 +448,17 @@ function hideFocusModeCon() {
     $("#hideFocusModeBttn").html("On");
   }
   localStorage.setItem('hideFocusMode', hideFocusMode);
+}
+
+function timerSoundChanger() {
+  if (timerSound == "true") {
+    timerSound = "false";
+    $("#timerSoundButton").html("Off");
+  } else {
+    timerSound = "true";
+    $("#timerSoundButton").html("On");
+  }
+  localStorage.setItem('timerSound', timerSound);
 }
 
 // Adds alarm to container
