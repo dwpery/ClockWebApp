@@ -293,6 +293,8 @@ hr {
 
 .buildInfo {
   position: relative;
+  left: 50%;
+  transform: translate(-50%);
   padding: 2.5vh;
   width: 100%;
   font-family: "Arial";
