@@ -742,3 +742,29 @@ li svg {
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
   color: rgb(255, 43, 43);
 }
+
+/* Custom Font stuff */
+
+.defaultFont {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.classicFont {
+  font-family: 'Major Mono Display', monospace;
+}
+
+.wetFont {
+  font-family: 'Rubik Wet Paint', cursive;
+} 
+
+.arialFont {
+  font-family: 'Arial';
+}
+
+.bubbleFont {
+  font-family: 'Rubik Microbe', cursive;
+}
+
+.robotFont {
+  font-family: 'Roboto Mono', monospace;
+}

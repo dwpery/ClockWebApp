@@ -271,7 +271,7 @@
         <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Version & Channel</div>
         <div id="versionsChannel" class="settingsContainer">
           <div class="settingsLabel">Version</div>
-          <div class="settingsButton">v3.1.1</div>
+          <div class="settingsButton">v3.1.2</div>
           <div class="settingsLabel">Channel</div>
           <div class="settingsButton">Stable</div>
           <div class="settingsLabel">Open Source docs</div>
@@ -304,12 +304,12 @@
         <div class="switcherTitle">Fonts</div>
         <div class="closeSwitcher" onclick="$('#font').toggle(500)">x</div>
         <div class="switcherContainer scroll">
-          <div class="switcherOption defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
-          <div class="switcherOption classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
-          <div class="switcherOption wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
-          <div class="switcherOption arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
-          <div class="switcherOption bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
-          <div class="switcherOption robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
+          <div class="switcherOption defaultFont" onclick="changeFont(0)">Default</div>
+          <div class="switcherOption classicFont" onclick="changeFont(1)">Classic</div>
+          <div class="switcherOption wetFont" onclick="changeFont(2)">Wet Paint</div>
+          <div class="switcherOption arialFont" onclick="changeFont(3)">Arial</div>
+          <div class="switcherOption bubbleFont" onclick="changeFont(4)">Bubble</div>
+          <div class="switcherOption robotFont" onclick="changeFont(5)">Roboto Mono</div>
         </div>
       </div>
     </section>
