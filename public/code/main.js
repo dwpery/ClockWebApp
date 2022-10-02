@@ -527,6 +527,31 @@ function changeAlarmSound(x) {
   }, 5000)
 }
 
+// Changes active font
+
+function changeFont(x) {
+  $("body").removeClass("defaultFont");
+  $("body").removeClass("classicFont");
+  $("body").removeClass("wetFont");
+  $("body").removeClass("arialFont");
+  $("body").removeClass("bubbleFont");
+  $("body").removeClass("robotFont");
+
+  if (x == 0) {
+    $("body").addClass("defaultFont");
+  } else if (x == 1) {
+    $("body").addClass("classicFont");
+  } else if (x == 2) {
+    $("body").addClass("wetFont");
+  } else if (x == 3) {
+    $("body").addClass("arialFont");
+  } else if (x == 4) {
+    $("body").addClass("bubbleFont");
+  } else {
+    $("body").addClass("robotFont");
+  }
+}
+
 // Swaps between timer and stopwatch
 function timerChanger() {
   if (isStopwatch == "false") {
