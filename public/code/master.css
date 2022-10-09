@@ -535,6 +535,28 @@ li svg {
 .robotFont { font-family: 'Roboto Mono', monospace; }
 .defaultFont { font-family: 'Zen Kaku Gothic Antique', sans-serif; }
 
+/* Changes because of different fonts */
+
+.robotFont .display {
+  font-size: 12vh;
+  transform: translate(-50%, -53%);
+}
+
+.arialFont .date {
+  font-size: 3vh;
+  transform: translate(-50%, -270%);
+}
+
+.arialFont .display {
+  font-size: 14vh;
+  transform: translate(-50%, -50%);
+}
+
+.arialFont .ampm {
+  font-size: 3vh;
+  transform: translate(-50%, 170%);
+}
+
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
