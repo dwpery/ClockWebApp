@@ -557,6 +557,29 @@ li svg {
   transform: translate(-50%, 170%);
 }
 
+.arialFont .settingsButton {
+  margin-top: -6vh;
+}
+
+.wetFont .date {
+  font-size: 3vh;
+  transform: translate(-50%, -250%);
+}
+
+.wetFont .display {
+  font-size: 13vh;
+  transform: translate(-50%, -50%);
+}
+
+.wetFont .ampm {
+  font-size: 3vh;
+  transform: translate(-50%, 150%);
+}
+
+.wetFont .settingsButton {
+  margin-top: -6vh;
+}
+
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
