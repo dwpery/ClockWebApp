@@ -580,6 +580,29 @@ li svg {
   margin-top: -6vh;
 }
 
+.classicFont .date {
+  font-size: 4vh;
+  transform: translate(-50%, -240%);
+}
+
+.classicFont .display {
+  transform: translate(-50%, -55%);
+  font-size: 10vh;
+}
+
+.classicFont .ampm {
+  font-size: 4vh;
+  transform: translate(-50%, 130%);
+}
+
+.classicFont .settingsButton {
+  margin-top: -5.5vh;
+}
+
+.classicFont #settings-container{
+  width: 50%;
+}
+
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
