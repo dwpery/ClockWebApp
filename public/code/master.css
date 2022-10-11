@@ -742,6 +742,27 @@ li svg {
   .gridDiv {
     display: block;
   }
+
+  /*Fonts*/
+
+  .arialFont .date {
+    font-size: 4vh;
+    transform: translate(-50%, -190%);
+  }
+
+  .arialFont .display {
+    font-size: 10vh;
+    transform: translate(-50%, -50%);
+  }
+
+  .arialFont .ampm {
+    font-size: 4vh;
+    transform: translate(-50%, 100%);
+  }
+
+  .arialFont .settingsButton {
+    margin-top: -4vh;
+  }
 }
 
 #hours, #minutes, #seconds {
