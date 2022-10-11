@@ -537,6 +537,10 @@ li svg {
 
 /* Changes because of different fonts */
 
+.defaultFont .display {
+  font-size: 10vh;
+}
+
 .robotFont .display {
   font-size: 12vh;
   transform: translate(-50%, -53%);
@@ -684,10 +688,6 @@ li svg {
     width: 90%;
   }
 
-  .display {
-    font-size: 10vh;
-  }
-
   .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
     text-align: center;
@@ -762,6 +762,30 @@ li svg {
 
   .arialFont .settingsButton {
     margin-top: -4vh;
+  }
+
+  .classicFont #settings-container {
+    width: 90%;
+  }
+  
+  .classicFont .date {
+    font-size: 4vh;
+  }
+  
+  .classicFont .display {
+    font-size: 7.5vh;
+  }
+  
+  .classicFont .ampm {
+    font-size: 4vh;
+  }
+
+  .classicFont .settingsHeading {
+    font-size: 4.5vh;
+  }
+
+  .classicFont .settingsButton {
+    margin-top: -3.5vh;
   }
 }
 
