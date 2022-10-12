@@ -571,7 +571,7 @@ li svg {
 }
 
 .wetFont .display {
-  font-size: 13vh;
+  font-size: 12vh;
   transform: translate(-50%, -50%);
 }
 
@@ -605,6 +605,23 @@ li svg {
 
 .classicFont #settings-container{
   width: 50%;
+}
+
+.bubbleFont .date {
+  transform: translate(-50%, -200%);
+}
+
+.bubbleFont .display {
+  transform: translate(-50%, -50%);
+  font-size: 13vh;
+}
+
+.bubbleFont .ampm {
+  transform: translate(-50%, 100%);
+}
+
+.bubbleFont .settingsButton {
+  margin-top: -6vh;
 }
 
 /* Mobile UI */
