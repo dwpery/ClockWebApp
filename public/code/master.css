@@ -607,6 +607,10 @@ li svg {
   width: 50%;
 }
 
+.classicFont .timerInput, .classicFont .stopwatchDisplay {
+  font-size: unset;
+}
+
 .bubbleFont .date {
   transform: translate(-50%, -200%);
 }
@@ -866,6 +870,10 @@ li svg {
 
   .bubbleFont #settings-container {
     width: 99%;
+  }
+
+  .classicFont .timerInput, .classicFont .stopwatchDisplay {
+    font-size: 12.5vh;
   }
 }
 
