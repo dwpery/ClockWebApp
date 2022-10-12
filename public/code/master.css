@@ -538,7 +538,7 @@ li svg {
 /* Changes because of different fonts */
 
 .defaultFont .display {
-  font-size: 10vh;
+  font-size: 15vh;
 }
 
 .robotFont .display {
@@ -745,6 +745,10 @@ li svg {
 
   /*Fonts*/
 
+  .defaultFont .display {
+    font-size: 10vh;
+  }
+
   .arialFont .date {
     font-size: 4vh;
     transform: translate(-50%, -190%);
@@ -765,7 +769,7 @@ li svg {
   }
 
   .classicFont #settings-container {
-    width: 90%;
+    width: 100%;
   }
   
   .classicFont .date {
@@ -786,6 +790,32 @@ li svg {
 
   .classicFont .settingsButton {
     margin-top: -3.5vh;
+  }
+
+  .classicFont .settingsLabel {
+    font-size: 2.5vh;
+  }
+
+  .robotFont .date {
+    font-size: 3vh;
+    transform: translate(-50%, -220%);
+  }
+
+  .robotFont .display {
+    font-size: 9vh;
+  }
+
+  .robotFont .ampm {
+    font-size: 3vh;
+    transform: translate(-50%, 120%);
+  }
+
+  .robotFont .settingsButton {
+    margin-top: -5vh;
+  }
+
+  .robotFont #settings-container {
+    width: 95%;
   }
 }
 
