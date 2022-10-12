@@ -817,6 +817,18 @@ li svg {
   .robotFont #settings-container {
     width: 95%;
   }
+
+  .wetFont .display {
+    font-size: 9vh;
+  }
+
+  .wetFont #settings-container {
+    width: 100%;
+  }
+
+  .wetFont .settingsButton {
+    margin-top: -4.5vh;
+  }
 }
 
 #hours, #minutes, #seconds {
