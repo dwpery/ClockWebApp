@@ -829,6 +829,27 @@ li svg {
   .wetFont .settingsButton {
     margin-top: -4.5vh;
   }
+
+  .bubbleFont .date {
+    transform: translate(-50%, -180%);
+  } 
+
+  .bubbleFont .display {
+    transform: translate(-50%, -50%);
+    font-size: 8vh;
+  }
+
+  .bubbleFont .ampm {
+    transform: translate(-50%, 80%);
+  }
+
+  .bubbleFont .settingsButton {
+    margin-top: -4vh;
+  }
+
+  .bubbleFont #settings-container {
+    width: 99%;
+  }
 }
 
 #hours, #minutes, #seconds {
