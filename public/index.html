@@ -231,11 +231,11 @@
           <div class="settingsLabel">Feature Request</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
           <div class="settingsLabel">Security Issue</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View</div>
         </div>
         <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
         <div id="accessibility" class="settingsContainer">
-          <div class="settingsLabel">Font Customization</div>
+          <div class="settingsLabel">Font</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
         </div>
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
@@ -258,7 +258,7 @@
         </div>
         <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
         <div id="timerSettings" class="settingsContainer">
-          <div class="settingsLabel">Always Double Digits</div>
+          <div class="settingsLabel">Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
           <div class="settingsLabel">Ring when finished</div>
           <div class="settingsButton" id="timerSoundButton" onclick="timerSoundChanger()">On</div>
@@ -271,7 +271,7 @@
         <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Version & Channel</div>
         <div id="versionsChannel" class="settingsContainer">
           <div class="settingsLabel">Version</div>
-          <div class="settingsButton">v3.1.1</div>
+          <div class="settingsButton">v3.1.2</div>
           <div class="settingsLabel">Channel</div>
           <div class="settingsButton">Stable</div>
           <div class="settingsLabel">Open Source docs</div>
@@ -279,8 +279,6 @@
         </div>
         <hr>
         <div class="buildInfo">
-          <div>Honouring HM Queen Elizabeth II</div>
-          <div>1926 - 2022</div><br>
           <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffe</a></div>
           <div>Github Edition</div><br>
         </div>
@@ -304,12 +302,12 @@
         <div class="switcherTitle">Fonts</div>
         <div class="closeSwitcher" onclick="$('#font').toggle(500)">x</div>
         <div class="switcherContainer scroll">
-          <div class="switcherOption defaultFont" onclick="$('body').css('font-family', 'Zen Kaku Gothic Antique, sans-serif'), $('.display').css('font-size','15vh')">Default</div>
-          <div class="switcherOption classicFont" onclick="$('body').css('font-family', 'Major Mono Display, monospace'), $('.display').css('font-size','7.5vh')">Classic</div>
-          <div class="switcherOption wetFont" onclick="$('body').css('font-family', 'Rubik Wet Paint, cursive'), $('.display').css('font-size','10vh')">Wet Paint</div>
-          <div class="switcherOption arialFont" onclick="$('body').css('font-family', 'Arial'), $('.display').css('font-size','10vh')">Arial</div>
-          <div class="switcherOption bubbleFont" onclick="$('body').css('font-family', 'Rubik Microbe, cursive'), $('.display').css('font-size','10vh')">Bubble</div>
-          <div class="switcherOption robotFont" onclick="$('body').css('font-family', 'Roboto Mono, monospace'), $('.display').css('font-size','10vh')">Roboto Mono</div>
+          <div class="switcherOption defaultFont" onclick="changeFont('0')">Default</div>
+          <div class="switcherOption classicFont" onclick="changeFont('1')">Classic</div>
+          <div class="switcherOption wetFont" onclick="changeFont('2')">Wet Paint</div>
+          <div class="switcherOption arialFont" onclick="changeFont('3')">Arial</div>
+          <div class="switcherOption bubbleFont" onclick="changeFont('4')">Bubble</div>
+          <div class="switcherOption robotFont" onclick="changeFont('5')">Roboto Mono</div>
         </div>
       </div>
     </section>

@@ -37,6 +37,8 @@ var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
 var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
 // Play sound when timer completed
 var timerSound = localStorage.getItem("timerSound") || "true";
+// Current Font
+var currentFont = localStorage.getItem("currentFont") || "0";
 
 // Default alarm
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
@@ -101,6 +103,8 @@ $(document).ready(function() {
   }
   // Prints users timezone
   $("#timeZoneButton").html(tza);
+  // Sets Font
+  changeFont(currentFont);
 })
 
 // Makes alarm loop when finished
@@ -525,6 +529,38 @@ function changeAlarmSound(x) {
     cancelAlarm();
     audio.currentTime = 0;
   }, 5000)
+}
+
+// Changes active font
+
+function changeFont(x) {
+  $("body").removeClass("defaultFont");
+  $("body").removeClass("classicFont");
+  $("body").removeClass("wetFont");
+  $("body").removeClass("arialFont");
+  $("body").removeClass("bubbleFont");
+  $("body").removeClass("robotFont");
+
+  if (x == "0") {
+    $("body").addClass("defaultFont");
+    currentFont = x;
+  } else if (x == "1") {
+    $("body").addClass("classicFont");
+    currentFont = x;
+  } else if (x == "2") {
+    $("body").addClass("wetFont");
+    currentFont = x;
+  } else if (x == "3") {
+    $("body").addClass("arialFont");
+    currentFont = x;
+  } else if (x == "4") {
+    $("body").addClass("bubbleFont");
+    currentFont = x;
+  } else {
+    $("body").addClass("robotFont");
+    currentFont = x;
+  }
+  localStorage.setItem('currentFont', currentFont);
 }
 
 // Swaps between timer and stopwatch

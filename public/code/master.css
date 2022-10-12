@@ -535,6 +535,99 @@ li svg {
 .robotFont { font-family: 'Roboto Mono', monospace; }
 .defaultFont { font-family: 'Zen Kaku Gothic Antique', sans-serif; }
 
+/* Changes because of different fonts */
+
+.defaultFont .display {
+  font-size: 15vh;
+}
+
+.robotFont .display {
+  font-size: 12vh;
+  transform: translate(-50%, -53%);
+}
+
+.arialFont .date {
+  font-size: 3vh;
+  transform: translate(-50%, -270%);
+}
+
+.arialFont .display {
+  font-size: 14vh;
+  transform: translate(-50%, -50%);
+}
+
+.arialFont .ampm {
+  font-size: 3vh;
+  transform: translate(-50%, 170%);
+}
+
+.arialFont .settingsButton {
+  margin-top: -6vh;
+}
+
+.wetFont .date {
+  font-size: 3vh;
+  transform: translate(-50%, -250%);
+}
+
+.wetFont .display {
+  font-size: 12vh;
+  transform: translate(-50%, -50%);
+}
+
+.wetFont .ampm {
+  font-size: 3vh;
+  transform: translate(-50%, 150%);
+}
+
+.wetFont .settingsButton {
+  margin-top: -6vh;
+}
+
+.classicFont .date {
+  font-size: 4vh;
+  transform: translate(-50%, -240%);
+}
+
+.classicFont .display {
+  transform: translate(-50%, -55%);
+  font-size: 10vh;
+}
+
+.classicFont .ampm {
+  font-size: 4vh;
+  transform: translate(-50%, 130%);
+}
+
+.classicFont .settingsButton {
+  margin-top: -5.5vh;
+}
+
+.classicFont #settings-container{
+  width: 50%;
+}
+
+.classicFont .timerInput, .classicFont .stopwatchDisplay {
+  font-size: unset;
+}
+
+.bubbleFont .date {
+  transform: translate(-50%, -200%);
+}
+
+.bubbleFont .display {
+  transform: translate(-50%, -50%);
+  font-size: 13vh;
+}
+
+.bubbleFont .ampm {
+  transform: translate(-50%, 100%);
+}
+
+.bubbleFont .settingsButton {
+  margin-top: -6vh;
+}
+
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
@@ -616,10 +709,6 @@ li svg {
     width: 90%;
   }
 
-  .display {
-    font-size: 10vh;
-  }
-
   .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
     text-align: center;
@@ -673,6 +762,118 @@ li svg {
 
   .gridDiv {
     display: block;
+  }
+
+  /*Fonts*/
+
+  .defaultFont .display {
+    font-size: 10vh;
+  }
+
+  .arialFont .date {
+    font-size: 4vh;
+    transform: translate(-50%, -190%);
+  }
+
+  .arialFont .display {
+    font-size: 10vh;
+    transform: translate(-50%, -50%);
+  }
+
+  .arialFont .ampm {
+    font-size: 4vh;
+    transform: translate(-50%, 100%);
+  }
+
+  .arialFont .settingsButton {
+    margin-top: -4vh;
+  }
+
+  .classicFont #settings-container {
+    width: 100%;
+  }
+  
+  .classicFont .date {
+    font-size: 4vh;
+  }
+  
+  .classicFont .display {
+    font-size: 7.5vh;
+  }
+  
+  .classicFont .ampm {
+    font-size: 4vh;
+  }
+
+  .classicFont .settingsHeading {
+    font-size: 4.5vh;
+  }
+
+  .classicFont .settingsButton {
+    margin-top: -3.5vh;
+  }
+
+  .classicFont .settingsLabel {
+    font-size: 2.5vh;
+  }
+
+  .robotFont .date {
+    font-size: 3vh;
+    transform: translate(-50%, -220%);
+  }
+
+  .robotFont .display {
+    font-size: 8vh;
+  }
+
+  .robotFont .ampm {
+    font-size: 3vh;
+    transform: translate(-50%, 120%);
+  }
+
+  .robotFont .settingsButton {
+    margin-top: -5vh;
+  }
+
+  .robotFont #settings-container {
+    width: 95%;
+  }
+
+  .wetFont .display {
+    font-size: 8vh;
+  }
+
+  .wetFont #settings-container {
+    width: 100%;
+  }
+
+  .wetFont .settingsButton {
+    margin-top: -4.5vh;
+  }
+
+  .bubbleFont .date {
+    transform: translate(-50%, -180%);
+  } 
+
+  .bubbleFont .display {
+    transform: translate(-50%, -50%);
+    font-size: 8vh;
+  }
+
+  .bubbleFont .ampm {
+    transform: translate(-50%, 80%);
+  }
+
+  .bubbleFont .settingsButton {
+    margin-top: -4vh;
+  }
+
+  .bubbleFont #settings-container {
+    width: 99%;
+  }
+
+  .classicFont .timerInput, .classicFont .stopwatchDisplay {
+    font-size: 12.5vh;
   }
 }
 
@@ -741,4 +942,30 @@ li svg {
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
   color: rgb(255, 43, 43);
+}
+
+/* Custom Font stuff */
+
+.defaultFont {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.classicFont {
+  font-family: 'Major Mono Display', monospace;
+}
+
+.wetFont {
+  font-family: 'Rubik Wet Paint', cursive;
+} 
+
+.arialFont {
+  font-family: 'Arial';
+}
+
+.bubbleFont {
+  font-family: 'Rubik Microbe', cursive;
+}
+
+.robotFont {
+  font-family: 'Roboto Mono', monospace;
 }
