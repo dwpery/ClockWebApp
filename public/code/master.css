@@ -755,6 +755,10 @@ li svg {
     transform: translate(-50%, 65%);
   }
 
+  .display {
+    font-size: 10vh;
+  }
+
   .date {
     transform: translate(-50%, -165%);
   }
