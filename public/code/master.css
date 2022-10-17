@@ -280,8 +280,9 @@ ul {
 
 #focusMode {
   position: fixed;
-  right: 2vh;
-  bottom: 2vh;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 20vh;
   height: 11vh;
   width: 11vh;
 }
