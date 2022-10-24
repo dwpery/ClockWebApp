@@ -254,7 +254,7 @@
           <div class="settingsLabel">Day & Month Format</div>
           <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
           <div class="settingsLabel">Time Zone</div>
-          <div class="settingsButton" id="timeZoneButton">sussy</div>
+          <div class="settingsButton" id="timeZoneButton" onclick="$('#timezone').toggle(500)">sussy</div>
         </div>
         <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
         <div id="timerSettings" class="settingsContainer">
@@ -308,6 +308,37 @@
           <div class="switcherOption arialFont" onclick="changeFont('3')">Arial</div>
           <div class="switcherOption bubbleFont" onclick="changeFont('4')">Bubble</div>
           <div class="switcherOption robotFont" onclick="changeFont('5')">Roboto Mono</div>
+        </div>
+      </div>
+      <div class="switcher" id="timezone">
+        <div class="switcherTitle">Timezones</div>
+        <div class="closeSwitcher" onclick="$('#timezone').toggle(500)">x</div>
+        <div class="switcherContainer scroll">
+          <div class="switcherOption">UTC -12</div>
+          <div class="switcherOption">UTC -11</div>
+          <div class="switcherOption">UTC -10</div>
+          <div class="switcherOption">UTC -9</div>
+          <div class="switcherOption">UTC -8</div>
+          <div class="switcherOption">UTC -7</div>
+          <div class="switcherOption">UTC -6</div>
+          <div class="switcherOption">UTC -5</div>
+          <div class="switcherOption">UTC -4</div>
+          <div class="switcherOption">UTC -3</div>
+          <div class="switcherOption">UTC -2</div>
+          <div class="switcherOption">UTC -1</div>
+          <div class="switcherOption">UTC 0</div>
+          <div class="switcherOption">UTC +1</div>
+          <div class="switcherOption">UTC +2</div>
+          <div class="switcherOption">UTC +3</div>
+          <div class="switcherOption">UTC +4</div>
+          <div class="switcherOption">UTC +5</div>
+          <div class="switcherOption">UTC +6</div>
+          <div class="switcherOption">UTC +7</div>
+          <div class="switcherOption">UTC +8</div>
+          <div class="switcherOption">UTC +9</div>
+          <div class="switcherOption">UTC +10</div>
+          <div class="switcherOption">UTC +11</div>
+          <div class="switcherOption">UTC +12</div>
         </div>
       </div>
     </section>
