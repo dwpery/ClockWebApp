@@ -694,7 +694,7 @@ li svg {
   #focusMode {
     left: 50%;
     transform: translate(-50%);
-    bottom: 13.5vh;
+    bottom: null;
   }
 
   #settings-container {
