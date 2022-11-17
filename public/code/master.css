@@ -883,6 +883,14 @@ li svg {
   .classicFont .timerInput, .classicFont .stopwatchDisplay {
     font-size: 12.5vh;
   }
+
+  #timezone {
+    width: 100%;
+  }
+
+  #timezone .switcherOption {
+    font-size: 3vh;
+  }
 }
 
 #hours, #minutes, #seconds {
