@@ -467,6 +467,10 @@ hr {
   display: none;
 }
 
+#timezone {
+  width: 57vh;
+}
+
 .switcherTitle {
   font-size: 5vh;
   font-weight: bolder;
