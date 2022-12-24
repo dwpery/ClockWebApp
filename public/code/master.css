@@ -280,8 +280,9 @@ ul {
 
 #focusMode {
   position: fixed;
-  right: 2vh;
-  bottom: 2vh;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 20vh;
   height: 11vh;
   width: 11vh;
 }
@@ -466,24 +467,27 @@ hr {
   display: none;
 }
 
+#timezone {
+  width: 57vh;
+}
+
 .switcherTitle {
-  font-size: 4vh;
+  font-size: 5vh;
   font-weight: bolder;
   text-align: center;
-  text-decoration: underline;
 }
 
 .switcherContainer {
   margin-top: 0vh;
-  height: 40vh;
+  height: 35vh;
 }
 
 .closeSwitcher {
   position: absolute;
-  font-size: 4.5vh;
+  font-size: 6vh;
   left: 50%;
   transform: translate(-50%);
-  bottom: -0.5vh;
+  bottom: 1vh;
   transition: 0.25s;
 }
 
@@ -694,7 +698,7 @@ li svg {
   #focusMode {
     left: 50%;
     transform: translate(-50%);
-    bottom: 13.5vh;
+    bottom: null;
   }
 
   #settings-container {
@@ -754,6 +758,10 @@ li svg {
   
   .ampm {
     transform: translate(-50%, 65%);
+  }
+
+  .display {
+    font-size: 10vh;
   }
 
   .date {
@@ -874,6 +882,14 @@ li svg {
 
   .classicFont .timerInput, .classicFont .stopwatchDisplay {
     font-size: 12.5vh;
+  }
+
+  #timezone {
+    width: 100%;
+  }
+
+  #timezone .switcherOption {
+    font-size: 3vh;
   }
 }
 
