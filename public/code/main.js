@@ -370,6 +370,21 @@ for (let i = 0; i < aryIannaTimeZones.length; i++) {
     $("#timezoneList").append("<div class=\"switcherOption\">" + aryIannaTimeZones[i] + "</div>");
 }
 
+// Sets dark theme if system is dark on first load
+
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+if (darkThemeMq.matches) {
+  if (localStorage.getItem('darkMode') == null) {
+    $("html").addClass("dark");
+    $("#themeButton").html("Dark");
+    $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
+    isDark = "true";
+    localStorage.setItem('darkMode', isDark);
+  }
+} else {
+  // Theme set to light. Light is default.
+}
+
 // Local Storage Variables
 
 // False = dd/mm, True = mm/dd
