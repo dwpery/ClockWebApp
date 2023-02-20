@@ -213,8 +213,6 @@
         <div class="settingsHeading static" align="center">Settings</div>
         <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
         <div id="general" class="settingsContainer">
-          <div class="settingsLabel">Dark / Light mode</div>
-          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
           <div class="settingsLabel">Privacy Policy</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
           <div class="settingsLabel">Security Policy</div>
@@ -231,10 +229,12 @@
           <div class="settingsLabel">Feature Request</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
           <div class="settingsLabel">Security Issue</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">Report</div>
         </div>
-        <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
-        <div id="accessibility" class="settingsContainer">
+        <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customization</div>
+        <div id="customization" class="settingsContainer">
+          <div class="settingsLabel">Dark / Light mode</div>
+          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
           <div class="settingsLabel">Font</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
         </div>
@@ -280,7 +280,7 @@
         <hr>
         <div class="buildInfo">
           <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffe</a></div>
-          <div>Github Edition</div><br>
+          <div>GitHub Edition</div><br>
         </div>
       </div>
       <div class="switcher" id="alarm">
