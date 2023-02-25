@@ -41,6 +41,8 @@ const timeZones = [
 	"Asia/Tokyo",
 	"Pacific/Guam"
 ];
+// Stores what time zone is active
+var timeZoneNumber = 24;
 
 for (let i = 0; i < timeZones.length; i++) {
     $("#timezoneList").append("<div class=\"switcherOption\">" + timeZones[i] + "</div>");
@@ -151,6 +153,10 @@ $(document).ready(function() {
   $("#timeZoneButton").html(tza);
   // Sets Font
   changeFont(currentFont);
+  // Loads timezones
+  for (let i = 0; i < timeZones.length; i++) {
+    $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + [i] + "\">" + timeZones[i] + "</div>");
+  }
 })
 
 // Makes alarm loop when finished
@@ -160,8 +166,33 @@ audio.addEventListener('ended', function() {
 }, false);
 
 setInterval(function() {
-  
+  // Declares date variable
   var date = new Date();
+
+  // Const for custom time zone
+  const timesInAllTimeZones = timeZones.map(timeZone => {
+    const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
+      timeZone: timeZone,
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: clockMode
+    });
+    // Get the current time in the local timezone
+    const localTime = new Date();
+
+    // If statement for 12/24 hour clock
+    const timeString = dateTimeFormat.format(localTime);
+    if (clockMode == false) {
+      const amPm = timeString.slice(-2); // Extract the last two characters (AM/PM)
+    }
+
+    return {
+      timeZone: timeZone,
+      time: timeString.slice(0, -3),
+      amPm: amPm
+    };
+  });
 
   // Selects which date format to use
   if(dateFormat == "false") {
