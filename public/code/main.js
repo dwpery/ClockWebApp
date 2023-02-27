@@ -44,10 +44,6 @@ const timeZones = [
 // Stores what time zone is active
 var timeZoneNumber = 24;
 
-for (let i = 0; i < timeZones.length; i++) {
-    $("#timezoneList").append("<div class=\"switcherOption\">" + timeZones[i] + "</div>");
-}
-
 // Sets dark theme if system is dark on first load
 
 const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -67,8 +63,8 @@ if (darkThemeMq.matches) {
 
 // False = dd/mm, True = mm/dd
 var dateFormat = localStorage.getItem('dateFormat') || "false";
-// True = 24, False = 12
-var clockMode = localStorage.getItem('clockMode') || "false";
+// True = 12, False = 24
+var clockMode = localStorage.getItem('clockMode') || "true";
 // False = Light, True = Dark
 var isDark = localStorage.getItem('darkMode') || "false";
 // False = No, True = Yes
@@ -99,7 +95,7 @@ if (localStorage.getItem('darkMode') == "true") {
   $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
 }
 
-if (localStorage.getItem('clockMode') == "true") {
+if (localStorage.getItem('clockMode') == "false") {
   $("#clockModeButton").html("On");
 }
 
@@ -169,31 +165,6 @@ setInterval(function() {
   // Declares date variable
   var date = new Date();
 
-  // Const for custom time zone
-  const timesInAllTimeZones = timeZones.map(timeZone => {
-    const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
-      timeZone: timeZone,
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-      hour12: clockMode
-    });
-    // Get the current time in the local timezone
-    const localTime = new Date();
-
-    // If statement for 12/24 hour clock
-    const timeString = dateTimeFormat.format(localTime);
-    if (clockMode == false) {
-      const amPm = timeString.slice(-2); // Extract the last two characters (AM/PM)
-    }
-
-    return {
-      timeZone: timeZone,
-      time: timeString.slice(0, -3),
-      amPm: amPm
-    };
-  });
-
   // Selects which date format to use
   if(dateFormat == "false") {
       var today = String(date.getDate()).padStart(2, '0') + "/" + String(date.getMonth() + 1).padStart(2, '0') + "/" + date.getFullYear();
@@ -225,27 +196,56 @@ setInterval(function() {
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
 
-  hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
+  // Timzeone handler
+  const timesInAllTimeZones = timeZones.map(timeZone => {
+    const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
+      timeZone: timeZone,
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: clockMode
+    });
 
-  // Accounts for 12 hour
-  if (clockMode == "false") {
+    // Get the current time in the local timezone
+    const localTime = new Date();
+
+    // If statement for 12/24 hour clock
+    const timeString = dateTimeFormat.format(localTime);
+    const amPm = timeString.slice(-2); // Extract the last two characters (AM/PM)
+
+    return {
+      timeZone: timeZone,
+      time: timeString.slice(0, -3),
+      amPm: amPm
+    };
+  });
+
+  if (timeZoneNumber != 24) {
+    $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
+    $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
+    $("#timeZoneButton").html(timesInAllTimeZones[timeZoneNumber].timeZone);
+  } else {
+    hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
+
+    // Accounts for 12 hour
+    if (clockMode == "true") {
       
       // Selects between AM and PM
-      var ampm = (date.getHours() < 12) ? "AM" : "PM";
+      var ampmT = (date.getHours() < 12) ? "AM" : "PM";
       // Prints AM / PM
-      $(".ampm").html(ampm);
+      $(".ampm").html(ampmT);
       // Gets hour in 12 hour format
       hours = (date.getHours() > 12) ? date.getHours() - 12 : date.getHours();
       hours = (date.getHours() < 1) ? date.getHours() + 12 : hours;
+    }
+
+    // Pads integers < 10
+    minutes = (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
+    seconds = (date.getSeconds() < 10 ? "0" : "" ) + date.getSeconds();
+
+    // Prints time
+    $(".display").html(hours + ":" + minutes + ":" + seconds);
   }
-
-  // Pads integers < 10
-  minutes = (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
-  seconds = (date.getSeconds() < 10 ? "0" : "" ) + date.getSeconds();
-
-  // Prints time
-  $(".display").html(hours + ":" + minutes + ":" + seconds);
-
 }, 10);
 
 // Opens the Settings pannel
@@ -456,12 +456,12 @@ function focusModeControl() {
 
 // Swaps 24 hour format on or off
 function clockModeChanger() {
-  if (clockMode == "false") {
-    clockMode = "true";
+  if (clockMode == "true") {
+    clockMode = "false";
     $("#clockModeButton").html("On");
     localStorage.setItem('clockMode', clockMode);
   } else {
-    clockMode = "false";
+    clockMode = "true";
     $("#clockModeButton").html("Off");
     localStorage.setItem('clockMode', clockMode);
   }
