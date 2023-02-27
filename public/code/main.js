@@ -223,7 +223,7 @@ setInterval(function() {
   if (timeZoneNumber != 24) {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
-    $("#timeZoneButton").html(timesInAllTimeZones[timeZoneNumber].timeZone);
+    $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
   } else {
     hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
