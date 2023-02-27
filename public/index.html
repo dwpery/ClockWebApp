@@ -6,7 +6,7 @@
     <script defer src="code/main.js"></script>
     <link rel="manifest" href="manifest.json" />
     <link href="code/master.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="media/icons/favicon.png">
     <link rel="apple-touch-icon" href="media/icons/favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,12 +213,8 @@
         <div class="settingsHeading static" align="center">Settings</div>
         <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
         <div id="general" class="settingsContainer">
-          <div class="settingsLabel">Dark / Light mode</div>
-          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
           <div class="settingsLabel">Privacy Policy</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/PRIVACYPOLICY.md'">View</div>
-          <div class="settingsLabel">Security Policy</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/docs/SECURITY.md'">View</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/public/docs/PRIVACYPOLICY.md'">View</div>
           <div class="settingsLabel">Github Repository</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
           <div class="settingsLabel">Firebase Edition</div>
@@ -231,10 +227,12 @@
           <div class="settingsLabel">Feature Request</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
           <div class="settingsLabel">Security Issue</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">View</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">Report</div>
         </div>
-        <div class="settingsHeading" onclick="$('#accessibility').toggle(500)">Accessibility</div>
-        <div id="accessibility" class="settingsContainer">
+        <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customization</div>
+        <div id="customization" class="settingsContainer">
+          <div class="settingsLabel">Dark / Light mode</div>
+          <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
           <div class="settingsLabel">Font</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
         </div>
@@ -273,14 +271,14 @@
           <div class="settingsLabel">Version</div>
           <div class="settingsButton">v3.1.3</div>
           <div class="settingsLabel">Channel</div>
-          <div class="settingsButton">Beta</div>
+          <div class="settingsButton">Stable</div>
           <div class="settingsLabel">Open Source docs</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/public/docs/OpenSourceList.md'">View</div>
         </div>
         <hr>
         <div class="buildInfo">
           <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffe</a></div>
-          <div>Github Edition</div><br>
+          <div>GitHub Edition</div><br>
         </div>
       </div>
       <div class="switcher" id="alarm">

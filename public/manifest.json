@@ -2,7 +2,7 @@
   "name": "ClockWebApp",
   "short_name": "Clock",
   "theme_color": "#D3D3D3",
-  "background_color": "#ffffff",
+  "background_color": "#292b2d",
   "display": "fullscreen",
   "scope": "/",
   "start_url": "/",
