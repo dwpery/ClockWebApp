@@ -176,8 +176,6 @@ setInterval(function() {
   } else {
       var today = String(date.getMonth() + 1).padStart(2, '0') + "/" + String(date.getDate()).padStart(2, '0') + "/" + date.getFullYear();
   }
-  // Prints out date
-  $(".date").html(today);
 
   // Creates time to compare to alarm time
   var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
@@ -200,15 +198,17 @@ setInterval(function() {
   
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
+  // Clears AM / PM incase of 24 hour format
+  $(".date").html("");
 
   // Timzeone handler
-  const timesInAllTimeZones = timeZones.map(timeZone => {
-    const dateTimeFormat = new Intl.DateTimeFormat('en-US', {
+  var timesInAllTimeZones = timeZones.map(timeZone => {
+    var dateTimeFormat = new Intl.DateTimeFormat('en-US', {
       timeZone: timeZone,
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric',
-      hour12: clockMode
+      hour12: (clockMode === "true")
     });
 
     // Get the current time in the local timezone
@@ -216,11 +216,18 @@ setInterval(function() {
 
     // If statement for 12/24 hour clock
     const timeString = dateTimeFormat.format(localTime);
-    const amPm = timeString.slice(-2); // Extract the last two characters (AM/PM)
+    if (clockMode == "false") {
+      // Extract the last two characters (AM/PM)
+      var amPm = "";
+      var timeZonetimeFull = timeString;
+    } else {
+      var amPm = timeString.slice(-2);
+      var timeZonetimeFull = timeString.slice(0, -3);
+    }
 
     return {
       timeZone: timeZone,
-      time: timeString.slice(0, -3),
+      time: timeZonetimeFull,
       amPm: amPm
     };
   });
@@ -229,6 +236,7 @@ setInterval(function() {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
+    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
   } else {
     hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
@@ -250,6 +258,9 @@ setInterval(function() {
 
     // Prints time
     $(".display").html(hours + ":" + minutes + ":" + seconds);
+
+    // Prints out date
+    $(".date").html(today);
   }
 }, 10);
 
