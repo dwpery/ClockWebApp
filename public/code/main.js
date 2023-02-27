@@ -43,6 +43,8 @@ const timeZones = [
 ];
 // Stores what time zone is active
 var timeZoneNumber = 24;
+// Stores local timezone number
+var localTimeZoneNumber = 0;
 
 // Sets dark theme if system is dark on first load
 
@@ -152,6 +154,9 @@ $(document).ready(function() {
   // Loads timezones
   for (let i = 0; i < timeZones.length; i++) {
     $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + [i] + "\">" + timeZones[i] + "</div>");
+    if (timeZones[i] == Intl.DateTimeFormat().resolvedOptions().timeZone) {
+      localTimeZoneNumber = i;
+    }
   }
 })
 
@@ -220,7 +225,7 @@ setInterval(function() {
     };
   });
 
-  if (timeZoneNumber != 24) {
+  if (timeZoneNumber != 24 && timeZoneNumber != localTimeZoneNumber) {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
