@@ -345,8 +345,9 @@ hr {
   left: 50%;
   top: 1.5vh;
   transform: translate(-50%);
-  text-align: center;
-  font-size: 5vh;
+  text-align: left;
+  font-weight: bold;
+  font-size: 4.5vh;
   width: 80%;
   border: none;
   border-bottom: 0.5vh solid #000;
@@ -361,7 +362,6 @@ hr {
   transform: translate(-50%);
   text-align: center;
   font-size: 5vh;
-  width: 80%;
   border: none;
   outline: none;
   background-color: #B3B3B3;
