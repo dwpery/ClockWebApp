@@ -897,12 +897,13 @@ li svg {
     top: 3vh;
     left: 50%;
     transform: translate(-50%);
+    width: 80%;
   }
 
   #submit {
     bottom: 1vh;
     right: initial;
-    left: 7.5vh;
+    left: 6.5vh;
   }
 
   #remove {
