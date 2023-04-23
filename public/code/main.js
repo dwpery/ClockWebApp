@@ -236,7 +236,7 @@ setInterval(function() {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
-    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
+    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').valueremove)
   } else {
     hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
@@ -560,7 +560,7 @@ function timerSoundChanger() {
 
 // Adds alarm to container
 function addAlarm() {
-  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div><div id="submit" onclick="submitAlarm(this)">Submit</div></div>');
+  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
 }
 
 // Removes alarm

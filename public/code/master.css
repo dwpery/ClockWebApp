@@ -357,9 +357,8 @@ hr {
 
 .alarmTime {
   position: relative;
-  left: 50%;
-  top: 2vh;
-  transform: translate(-50%);
+  top: 4vh;
+  left: 7vh;
   text-align: center;
   font-size: 5vh;
   border: none;
@@ -368,19 +367,21 @@ hr {
 }
 
 #remove {
-  position: relative;
-  top: 3vh;
+  position: absolute;
+  right: 7.8vh;
+  bottom: 2vh;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
   color: #F00;
 }
 
 #submit {
-  position: relative;
-  top: -4vh;
+  position: absolute;
+  bottom: 7vh;
+  right: 7.5vh;
   text-align: center;
   color: #00F;
-  font-size: 3vh;
+  font-size: 3.5vh;
 }
 
 .printAlarmName {
@@ -890,6 +891,23 @@ li svg {
 
   #timezone .switcherOption {
     font-size: 3vh;
+  }
+
+  .alarmTime {
+    top: 3vh;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  #submit {
+    bottom: 1vh;
+    right: initial;
+    left: 7.5vh;
+  }
+
+  #remove {
+    bottom: 1vh;
+    right: 7.3vh;
   }
 }
 
