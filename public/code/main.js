@@ -180,21 +180,20 @@ setInterval(function() {
 
   // FUTURE REFERENCE
 
-  /*for (var i = 0; i < numOfAlarms; i++) {
+  for (var i = 0; i < numOfAlarms; i++) {
     
     // Checks if current time matches alarm time
-    if (checkTime == alarmTimes[i] && date.getSeconds() == "00") {   
+    if (checkTime == alarms[i].time && date.getSeconds() == "00") {
       // Prints alarm information
-      $(".activeAlarmName").html(alarmNames[i]);
-      $(".activeAlarmTime").html(alarmTimes[i]);
-      
+      $(".activeAlarmName").html(alarms[i].name);
+      $(".activeAlarmTime").html(alarms[i].time);
       // Plays audio and activates alarm menu
       audio.play();
       $("#alarmActive").css("display","block");
     }
 
-  }*/
-  
+  }
+
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
   // Clears AM / PM incase of 24 hour format
