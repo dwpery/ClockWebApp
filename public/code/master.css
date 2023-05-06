@@ -265,7 +265,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover {
   cursor: pointer;
 }
 
@@ -370,13 +370,17 @@ hr {
   background-color: #B3B3B3;
 }
 
-#remove {
+#remove, .removeFinalAlarm {
   position: absolute;
   right: 7.8vh;
   bottom: 2vh;
   text-align: center;
   font-size: 3.5vh;
   color: #F00;
+}
+
+.removeFinalAlarm {
+  right: 5vh;
 }
 
 #submit {
@@ -979,7 +983,7 @@ li svg {
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
-.dark #remove { color: rgb(255, 43, 43); }
+.dark #remove, .dark .removeFinalAlarm { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
 

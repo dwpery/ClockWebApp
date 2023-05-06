@@ -575,7 +575,24 @@ function submitAlarm(x) {
     alarms.push(newAlarm);
     // Adds final alarm to container
     $(x).closest('.alarm').css("height","15vh");
-    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).name + '</div><div class="printAlarmTime">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).time + '</div>');
+    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).name + '</div><div class="printAlarmTime">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
+  }
+}
+
+function removeFinalAlarm(x) {
+  const deletedAlarmName = $(x).siblings('.printAlarmName').html();
+  $(x).closest('.alarm').remove();
+
+  // Find the index of alarm to be deleted
+  const alarmIndex = alarms.findIndex(alarm => alarm.name == deletedAlarmName);
+
+  if (alarmIndex !== -1) {
+    // Remove the alarm from the alarms array
+    const removedAlarm = alarms.splice(alarmIndex, 1)[0];
+    numOfAlarms-=1;
+    console.log(`Removed alarm with name: ${removedAlarm.name}`);
+  } else {
+    console.log(`No alarm found with name: ${alarmName}`);
   }
 }
 
