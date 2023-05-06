@@ -567,15 +567,15 @@ function removeAlarm(x) {
 }
 
 function submitAlarm(x) {
-  if ($(".alarmName").val() == "" || $(".alarmTime").val() == "") {
+  if ($(x).siblings(".alarmName").val() == "" || $(x).siblings(".alarmTime").val() == "") {
     // Nothing
   } else {
-    numOfAlarms +=1;
-    const newAlarm = { alarmNum: numOfAlarms, name: $(".alarmName").val(), time: $(".alarmTime").val()};
+    const newAlarm = { name: $(x).siblings(".alarmName").val(), time: $(x).siblings(".alarmTime").val()};
     alarms.push(newAlarm);
     // Adds final alarm to container
     $(x).closest('.alarm').css("height","15vh");
-    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).name + '</div><div class="printAlarmTime">' + alarms.find(alarm => alarm.alarmNum === numOfAlarms).time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
+    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms[numOfAlarms].name + '</div><div class="printAlarmTime">' + alarms[numOfAlarms].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
+    numOfAlarms +=1;
   }
 }
 
