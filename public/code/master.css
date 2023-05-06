@@ -324,7 +324,7 @@ hr {
   transition: 0.5s;
 }
 
-.alarm {
+.alarm, .printedAlarm {
   position: relative;
   left: 50%;
   margin-top: 5vh;
@@ -333,6 +333,10 @@ hr {
   height: 20vh;
   background-color: #B3B3B3;
   border-radius: 5vh;
+}
+
+.printedAlarm {
+  height: 15vh;
 }
 
 .buffer {
@@ -386,20 +390,21 @@ hr {
 
 .printAlarmName {
   position: relative;
-  left: 50%;
   top: 0.5vh;
-  transform: translate(-50%);
-  text-align: center;
+  margin-left: 5vh;
+  overflow: scroll;
+  width: 85%;
   font-size: 5vh;
+  white-space: nowrap;
 }
 
 .printAlarmTime {
   position: relative;
-  left: 50%;
   top: 1vh;
-  transform: translate(-50%);
-  text-align: center;
-  font-size: 3vh;
+  left: 5vh;
+  font-style: italic;
+  font-size: 3.5vh;
+  margin-top: -0.5vh;
 }
 
 #alarmActive {
@@ -909,6 +914,10 @@ li svg {
   #remove {
     bottom: 1vh;
     right: 7.3vh;
+  }
+
+  .printAlarmName {
+    width: 80%;
   }
 }
 
