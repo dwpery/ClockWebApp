@@ -167,7 +167,7 @@ $(document).ready(function() {
       localTimeZoneNumber = i;
     }
   }
-  if (numOfAlarms >= 0) {
+  if (numOfAlarms > 0 || numOfAlarms === 0) {
     for (var i = 0; i <= numOfAlarms; i++) {
       $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
     }
@@ -605,7 +605,7 @@ function submitAlarm(x) {
 
 function removeFinalAlarm(x) {
   const deletedAlarmName = $(x).siblings('.printAlarmName').html();
-  $(x).closest('.printedAlarm').remove();
+  $(x).closest('.alarm').remove();
 
   // Find the index of alarm to be deleted
   const alarmIndex = alarms.findIndex(alarm => alarm.name == deletedAlarmName);
