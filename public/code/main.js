@@ -4,10 +4,6 @@
 var value = 1;
 // Value for stopwatch
 var sValue = 1;
-// Holds amout of Alarms
-var numOfAlarms = 0;
-// Alarms container
-const alarms = []
 // Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6                               7                              8                               9
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
 // False = Normal, True = Focus
@@ -83,6 +79,13 @@ var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
 var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
+// Holds amout of Alarms
+var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
+if (numOfAlarms == "null") {
+  numOfAlarms = null;
+}
+// Hols alarms in array
+const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
 
 // Initiates alarm sound
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
@@ -156,6 +159,11 @@ $(document).ready(function() {
       localTimeZoneNumber = i;
     }
   }
+  if (numOfAlarms >= 0) {
+    for (var i = 0; i <= numOfAlarms; i++) {
+      $('.alarms-container').prepend('<div class="alarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
+    }
+  }
 })
 
 // Makes alarm loop when finished
@@ -178,20 +186,22 @@ setInterval(function() {
   // Creates time to compare to alarm time
   var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
 
-  // FUTURE REFERENCE
+  // Code that makes alarms ring
 
-  for (var i = 0; i < numOfAlarms; i++) {
+  if (numOfAlarms >= 0) {
+    for (var i = 0; i <= numOfAlarms; i++) {
     
-    // Checks if current time matches alarm time
-    if (checkTime == alarms[i].time && date.getSeconds() == "00") {
-      // Prints alarm information
-      $(".activeAlarmName").html(alarms[i].name);
-      $(".activeAlarmTime").html(alarms[i].time);
-      // Plays audio and activates alarm menu
-      audio.play();
-      $("#alarmActive").css("display","block");
+      // Checks if current time matches alarm time
+      if (checkTime == alarms[i].time && date.getSeconds() == "00") {
+        // Prints alarm information
+        $(".activeAlarmName").html(alarms[i].name);
+        $(".activeAlarmTime").html(alarms[i].time);
+        // Plays audio and activates alarm menu
+        audio.play();
+        $("#alarmActive").css("display","block");
+      }
+  
     }
-
   }
 
   // Clears AM / PM incase of 24 hour format
@@ -574,8 +584,14 @@ function submitAlarm(x) {
     alarms.push(newAlarm);
     // Adds final alarm to container
     $(x).closest('.alarm').css("height","15vh");
+    if (numOfAlarms === null) {
+      numOfAlarms = 0;
+    } else {
+      numOfAlarms += 1;
+    }
     $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms[numOfAlarms].name + '</div><div class="printAlarmTime">' + alarms[numOfAlarms].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
-    numOfAlarms +=1;
+    localStorage.setItem('numOfAlarms', numOfAlarms);
+    localStorage.setItem('alarms', JSON.stringify(alarms));
   }
 }
 
@@ -589,10 +605,13 @@ function removeFinalAlarm(x) {
   if (alarmIndex !== -1) {
     // Remove the alarm from the alarms array
     const removedAlarm = alarms.splice(alarmIndex, 1)[0];
-    numOfAlarms-=1;
-    console.log(`Removed alarm with name: ${removedAlarm.name}`);
-  } else {
-    console.log(`No alarm found with name: ${alarmName}`);
+    if (numOfAlarms === 0) {
+      numOfAlarms = null;
+    } else {
+      numOfAlarms -= 1;
+    }
+    localStorage.setItem('numOfAlarms', numOfAlarms);
+    localStorage.setItem('alarms', JSON.stringify(alarms));
   }
 }
 
