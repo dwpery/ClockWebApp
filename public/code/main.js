@@ -81,9 +81,17 @@ var timerSound = localStorage.getItem("timerSound") || "true";
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
 var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
-if (numOfAlarms == "null") {
-  numOfAlarms = null;
+// Makees values right data type
+if (numOfAlarms === null ) {
+  // nothing
+} else {
+  if (numOfAlarms == "null") {
+    numOfAlarms = null;
+  } else {
+    numOfAlarms = Number(numOfAlarms);
+  }
 }
+
 // Hols alarms in array
 const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
 
@@ -161,7 +169,7 @@ $(document).ready(function() {
   }
   if (numOfAlarms >= 0) {
     for (var i = 0; i <= numOfAlarms; i++) {
-      $('.alarms-container').prepend('<div class="alarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
+      $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
     }
   }
 })
@@ -188,7 +196,7 @@ setInterval(function() {
 
   // Code that makes alarms ring
 
-  if (numOfAlarms >= 0) {
+  if (numOfAlarms > 0 || numOfAlarms === 0) {
     for (var i = 0; i <= numOfAlarms; i++) {
     
       // Checks if current time matches alarm time
@@ -597,7 +605,7 @@ function submitAlarm(x) {
 
 function removeFinalAlarm(x) {
   const deletedAlarmName = $(x).siblings('.printAlarmName').html();
-  $(x).closest('.alarm').remove();
+  $(x).closest('.printedAlarm').remove();
 
   // Find the index of alarm to be deleted
   const alarmIndex = alarms.findIndex(alarm => alarm.name == deletedAlarmName);
