@@ -4,12 +4,6 @@
 var value = 1;
 // Value for stopwatch
 var sValue = 1;
-// Holds amout of Alarms
-var numOfAlarms = 0;
-// Contains Alarm names
-var alarmNames = new Array;
-// Contains Alarm times
-var alarmTimes = new Array;
 // Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6                               7                              8                               9
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
 // False = Normal, True = Focus
@@ -85,8 +79,23 @@ var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
 var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
+// Holds amout of Alarms
+var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
+// Makees values right data type
+if (numOfAlarms === null ) {
+  // nothing
+} else {
+  if (numOfAlarms == "null") {
+    numOfAlarms = null;
+  } else {
+    numOfAlarms = Number(numOfAlarms);
+  }
+}
 
-// Default alarm
+// Hols alarms in array
+const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
+
+// Initiates alarm sound
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
 
 // Local Storage retrieval and setups
@@ -158,6 +167,11 @@ $(document).ready(function() {
       localTimeZoneNumber = i;
     }
   }
+  if (numOfAlarms >= 0) {
+    for (var i = 0; i <= numOfAlarms; i++) {
+      $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
+    }
+  }
 })
 
 // Makes alarm loop when finished
@@ -180,22 +194,24 @@ setInterval(function() {
   // Creates time to compare to alarm time
   var checkTime = (date.getHours() < 10 ? "0" : "" ) + date.getHours() + ":" + (date.getMinutes() < 10 ? "0" : "" ) + date.getMinutes();
 
-  // Cycles through all Alarms
-  for (var i = 0; i < numOfAlarms; i++) {
-    
-    // Checks if current time matches alarm time
-    if (checkTime == alarmTimes[i] && date.getSeconds() == "00") {   
-      // Prints alarm information
-      $(".activeAlarmName").html(alarmNames[i]);
-      $(".activeAlarmTime").html(alarmTimes[i]);
-      
-      // Plays audio and activates alarm menu
-      audio.play();
-      $("#alarmActive").css("display","block");
-    }
+  // Code that makes alarms ring
 
-  }
+  if (numOfAlarms > 0 || numOfAlarms === 0) {
+    for (var i = 0; i <= numOfAlarms; i++) {
+    
+      // Checks if current time matches alarm time
+      if (checkTime == alarms[i].time && date.getSeconds() == "00") {
+        // Prints alarm information
+        $(".activeAlarmName").html(alarms[i].name);
+        $(".activeAlarmTime").html(alarms[i].time);
+        // Plays audio and activates alarm menu
+        audio.play();
+        $("#alarmActive").css("display","block");
+      }
   
+    }
+  }
+
   // Clears AM / PM incase of 24 hour format
   $(".ampm").html("");
   // Clears AM / PM incase of 24 hour format
@@ -236,7 +252,7 @@ setInterval(function() {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
-    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
+    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').valueremove)
   } else {
     hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
@@ -560,28 +576,50 @@ function timerSoundChanger() {
 
 // Adds alarm to container
 function addAlarm() {
-  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="remove" onclick="removeAlarm(this)">Remove</div><div id="submit" onclick="submitAlarm(this)">Submit</div></div>');
+  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
 }
 
 // Removes alarm
 function removeAlarm(x) {
   $(x).closest('.alarm').remove();
-  numOfAlarms -= 1;
 }
 
 function submitAlarm(x) {
-  if ($(".alarmName").val() == "" || $(".alarmTime").val() == "") {
+  if ($(x).siblings(".alarmName").val() == "" || $(x).siblings(".alarmTime").val() == "") {
     // Nothing
   } else {
-    // Adds data to arrays
-    alarmNames[numOfAlarms] = $(".alarmName").val();
-    alarmTimes[numOfAlarms] = $(".alarmTime").val();
-
+    const newAlarm = { name: $(x).siblings(".alarmName").val(), time: $(x).siblings(".alarmTime").val()};
+    alarms.push(newAlarm);
     // Adds final alarm to container
     $(x).closest('.alarm').css("height","15vh");
-    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarmNames[numOfAlarms] + '</div><div class="printAlarmTime">' + alarmTimes[numOfAlarms] + '</div>');
+    if (numOfAlarms === null) {
+      numOfAlarms = 0;
+    } else {
+      numOfAlarms += 1;
+    }
+    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms[numOfAlarms].name + '</div><div class="printAlarmTime">' + alarms[numOfAlarms].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
+    localStorage.setItem('numOfAlarms', numOfAlarms);
+    localStorage.setItem('alarms', JSON.stringify(alarms));
+  }
+}
 
-    numOfAlarms += 1;
+function removeFinalAlarm(x) {
+  const deletedAlarmName = $(x).siblings('.printAlarmName').html();
+  $(x).closest('.printedAlarm').remove();
+
+  // Find the index of alarm to be deleted
+  const alarmIndex = alarms.findIndex(alarm => alarm.name == deletedAlarmName);
+
+  if (alarmIndex !== -1) {
+    // Remove the alarm from the alarms array
+    const removedAlarm = alarms.splice(alarmIndex, 1)[0];
+    if (numOfAlarms === 0) {
+      numOfAlarms = null;
+    } else {
+      numOfAlarms -= 1;
+    }
+    localStorage.setItem('numOfAlarms', numOfAlarms);
+    localStorage.setItem('alarms', JSON.stringify(alarms));
   }
 }
 

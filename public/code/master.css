@@ -265,7 +265,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover {
   cursor: pointer;
 }
 
@@ -324,7 +324,7 @@ hr {
   transition: 0.5s;
 }
 
-.alarm {
+.alarm, .printedAlarm {
   position: relative;
   left: 50%;
   margin-top: 5vh;
@@ -333,6 +333,10 @@ hr {
   height: 20vh;
   background-color: #B3B3B3;
   border-radius: 5vh;
+}
+
+.printedAlarm {
+  height: 15vh;
 }
 
 .buffer {
@@ -345,8 +349,9 @@ hr {
   left: 50%;
   top: 1.5vh;
   transform: translate(-50%);
-  text-align: center;
-  font-size: 5vh;
+  text-align: left;
+  font-weight: bold;
+  font-size: 4.5vh;
   width: 80%;
   border: none;
   border-bottom: 0.5vh solid #000;
@@ -356,49 +361,54 @@ hr {
 
 .alarmTime {
   position: relative;
-  left: 50%;
-  top: 2vh;
-  transform: translate(-50%);
+  top: 4vh;
+  left: 7vh;
   text-align: center;
   font-size: 5vh;
-  width: 80%;
   border: none;
   outline: none;
   background-color: #B3B3B3;
 }
 
-#remove {
-  position: relative;
-  top: 3vh;
+#remove, .removeFinalAlarm {
+  position: absolute;
+  right: 7.8vh;
+  bottom: 2vh;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
   color: #F00;
 }
 
+.removeFinalAlarm {
+  right: 5vh;
+}
+
 #submit {
-  position: relative;
-  top: -4vh;
+  position: absolute;
+  bottom: 7vh;
+  right: 7.5vh;
   text-align: center;
   color: #00F;
-  font-size: 3vh;
+  font-size: 3.5vh;
 }
 
 .printAlarmName {
   position: relative;
-  left: 50%;
   top: 0.5vh;
-  transform: translate(-50%);
-  text-align: center;
+  margin-left: 5vh;
+  overflow: scroll;
+  width: 85%;
   font-size: 5vh;
+  white-space: nowrap;
 }
 
 .printAlarmTime {
   position: relative;
-  left: 50%;
   top: 1vh;
-  transform: translate(-50%);
-  text-align: center;
-  font-size: 3vh;
+  left: 5vh;
+  font-style: italic;
+  font-size: 3.5vh;
+  margin-top: -0.5vh;
 }
 
 #alarmActive {
@@ -687,7 +697,7 @@ li svg {
     top: 0;
   }
 
-  .alarm {
+  .alarm, .printedAlarm {
     width: 85%;
   }
 
@@ -702,7 +712,7 @@ li svg {
   }
 
   #settings-container {
-    width: 90%;
+    width: 100%;
   }
 
   .alarms-container {
@@ -891,6 +901,28 @@ li svg {
   #timezone .switcherOption {
     font-size: 3vh;
   }
+
+  .alarmTime {
+    top: 3vh;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+  }
+
+  #submit {
+    bottom: 1vh;
+    right: initial;
+    left: 6.5vh;
+  }
+
+  #remove {
+    bottom: 1vh;
+    right: 7.3vh;
+  }
+
+  .printAlarmName {
+    width: 80%;
+  }
 }
 
 #hours, #minutes, #seconds {
@@ -920,7 +952,7 @@ li svg {
 }
 
 /* Colour for alarm creation menu */
-.dark .alarm, .dark .alarmName, .dark .alarmTime {
+.dark .alarm, .dark .printedAlarm, .dark .alarmName, .dark .alarmTime {
   background-color: rgb(102, 109, 113);
   color: #f5f5f5;
 }
@@ -951,7 +983,7 @@ li svg {
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
-.dark #remove { color: rgb(255, 43, 43); }
+.dark #remove, .dark .removeFinalAlarm { color: rgb(255, 43, 43); }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
 
