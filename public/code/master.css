@@ -903,20 +903,21 @@ li svg {
   }
 
   .alarmTime {
-    top: 3vh;
+    top: 2.5vh;
     left: 50%;
     transform: translate(-50%);
+    border: 0.5vh solid #FFF;
     width: 80%;
   }
 
   #submit {
-    bottom: 1vh;
+    bottom: 0.25vh;
     right: initial;
     left: 6.5vh;
   }
 
   #remove {
-    bottom: 1vh;
+    bottom: 0.25vh;
     right: 7.3vh;
   }
 
