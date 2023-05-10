@@ -659,7 +659,10 @@ function changeAlarmSound(x) {
   setTimeout(function() {
     cancelAlarm();
     audio.currentTime = 0;
-  }, 5000)
+  }, 4000)
+
+  $('#alarm').toggle(500);
+  closeSettings();
 }
 
 // Changes active font
