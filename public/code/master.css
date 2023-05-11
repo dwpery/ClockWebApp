@@ -6,6 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap'); /* font-family: 'Rubik Microbe', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); /* font-family: 'Roboto Mono', monospace; */
 
+/* Variables */
+
+:root {
+  --themeColour: #FF0000;
+}
+
 /* Computer UI + Carry over to Mobile */
 
 body {
@@ -65,7 +71,7 @@ header {
 }
 
 #hours, #minutes, #seconds, #span1, #span2, #span3, #span4, #span5, #span6 {
-  color: #FF0000;
+  color: var(--themeColour);
   font-size: 12.5vh;
   width: 15vh;
   border: none;
@@ -74,7 +80,7 @@ header {
 
 #hours:hover, #minutes:hover, #seconds:hover {
   cursor: pointer;
-  border-bottom: 0.5vh solid red;
+  border-bottom: 0.5vh solid var(--themeColour);
 }
 
 .digital {
@@ -87,7 +93,7 @@ header {
   background-color: black;
   border-radius: 5vh;
   transition: 0.75s;
-  color: red;
+  color: var(--themeColour);
 }
 
 .digital:hover {
@@ -233,6 +239,12 @@ label {
   cursor: pointer;
   color: #36454F;
   border-color: #36454F;
+}
+
+#colourButton {
+  background-color: var(--themeColour);
+  padding: 3.5vh;
+  color: var(--themeColour);
 }
 
 #close-settings {
@@ -924,6 +936,10 @@ li svg {
   .printAlarmName {
     width: 80%;
   }
+
+  #colourButton {
+    padding: 2.5vh;
+  }
 }
 
 #hours, #minutes, #seconds {
@@ -967,7 +983,7 @@ li svg {
 /* Clock Display dark colour */
 .dark .digital {
   background-color: rgb(6, 6, 6);
-  color: rgb(255, 43, 43);
+  color: var(--themeColour);
 }
 
 /* Header bar colour */
@@ -984,13 +1000,13 @@ li svg {
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
-.dark #remove, .dark .removeFinalAlarm { color: rgb(255, 43, 43); }
+.dark #remove, .dark .removeFinalAlarm { color: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
 
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
-  color: rgb(255, 43, 43);
+  color: var(--themeColour);
 }
 
 /* Custom Font stuff */

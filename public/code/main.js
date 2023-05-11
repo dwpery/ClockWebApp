@@ -80,7 +80,10 @@ var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
-var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
+var numOfAlarms = localStorage.getItem('numOfAlarms') || numOfAlarms;
+// Holds custom theme colour
+var themeColour = localStorage.getItem('themeColour') || '#FF0000';
+$('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
 // Makees values right data type
 if (numOfAlarms === null ) {
   // nothing
@@ -279,6 +282,14 @@ setInterval(function() {
     $(".date").html(today);
   }
 }, 10);
+
+setTimeout (function() {
+  setInterval (function() {
+    document.documentElement.style.setProperty('--themeColour', themeColour);
+    themeColour = $("#colourButton").val();
+    localStorage.setItem('themeColour', themeColour);  
+  },10)
+},10)
 
 // Opens the Settings pannel
 function showSettings() {
@@ -817,8 +828,16 @@ function resetStopwatch() {
   $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
 }
 
+// Resets theme colour
+function resetThemeColour() {
+  $('#colourButton').remove();
+  themeColour = "#FF0000";
+  $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
+}
+
 // Clears app data and reloads page
 function resetApp() {
   localStorage.clear();
+  resetThemeColour();
   location.reload();
 }
