@@ -915,10 +915,11 @@ li svg {
   }
 
   .alarmTime {
-    top: 2.5vh;
+    top: 2vh;
     left: 50%;
     transform: translate(-50%);
-    border: 0.5vh solid #FFF;
+    border: 0.5vh solid rgb(206, 192, 170);
+    border-radius: 2vh;
     width: 80%;
   }
 

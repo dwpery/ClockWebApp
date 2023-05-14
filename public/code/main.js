@@ -80,7 +80,7 @@ var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
-var numOfAlarms = localStorage.getItem('numOfAlarms') || numOfAlarms;
+var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
 // Holds custom theme colour
 var themeColour = localStorage.getItem('themeColour') || '#FF0000';
 $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
@@ -587,7 +587,7 @@ function timerSoundChanger() {
 
 // Adds alarm to container
 function addAlarm() {
-  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
+  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
 }
 
 // Removes alarm
