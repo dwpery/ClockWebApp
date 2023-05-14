@@ -423,7 +423,7 @@ hr {
   margin-top: -0.5vh;
 }
 
-#alarmActive {
+#alarmActive, #timerActive {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -434,25 +434,31 @@ hr {
   z-index: 10;
 }
 
-.activeAlarmName {
+.activeAlarmName, .activeTimerName {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-150%);
   font-size: 10vh;
+  text-align: center;
   color: #FFF;
+}
+
+.activeTimerName {
+  transform: translate(-50%,-100%);
+  color: var(--themeColour);
 }
 
 .activeAlarmTime {
   position: fixed;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   font-size: 15vh;
-  color: #0F0;
+  color: var(--themeColour);
 }
 
-.cancelContainer, .snoozeContainer {
+.cancelContainer, .snoozeContainer, .cancelTimerContainer {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -461,6 +467,10 @@ hr {
   height: 10vh;
   width: 10vh;
   border-radius: 50%;
+}
+
+.cancelTimerContainer {
+  transform: translate(-50%, 25%);
 }
 
 .snoozeContainer {
@@ -940,6 +950,10 @@ li svg {
 
   #colourButton {
     padding: 2.5vh;
+  }
+
+  .activeAlarmName, .activeTimerName {
+    font-size: 7vh;
   }
 }
 

@@ -80,7 +80,7 @@ var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
-var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
+var numOfAlarms = localStorage.getItem('numOfAlarms') || null;
 // Holds custom theme colour
 var themeColour = localStorage.getItem('themeColour') || '#FF0000';
 $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
@@ -412,14 +412,8 @@ function countdown() {
   
   // Resets if empty
   if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    if (timerSound == "true") {
-      audio.play();
-      setTimeout(function() {
-        audio.pause();
-        audio.remove();
-        audio.currentTime = 0;
-      }, 5000)
-    }
+    $("#timerActive").css("display","block");
+    audio.play();
     resetTimer();
   }
 
@@ -639,6 +633,13 @@ function cancelAlarm() {
   $("#alarmActive").css("display","none");
   audio.pause();
   audio.remove();
+}
+
+function cancelTimer() {
+  $("#timerActive").css("display","none");
+  audio.pause();
+  audio.remove();
+  audio.currentTime = 0;
 }
 
 function snoozeAlarm() {
