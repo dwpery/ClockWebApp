@@ -564,6 +564,30 @@ li svg {
   background-color: #FFF;
 }
 
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinning-path {
+  animation: spin 2.25s linear infinite;
+}
+
 .classicFont { font-family: 'Major Mono Display', monospace; }
 .wetFont { font-family: 'Rubik Wet Paint', cursive; }
 .arialFont { font-family: 'Arial'; }

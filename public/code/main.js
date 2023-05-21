@@ -177,6 +177,10 @@ $(document).ready(function() {
       $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
     }
   }
+  setTimeout(function() {
+    $('.loader').toggle(250);
+    $('.loader').css('border-radius','5vh')
+  }, 1000)
 })
 
 // Makes alarm loop when finished
