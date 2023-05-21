@@ -94,12 +94,14 @@ if (numOfAlarms === null ) {
     numOfAlarms = Number(numOfAlarms);
   }
 }
-
 // Hols alarms in array
 const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
-
 // Initiates alarm sound
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
+// Snooze Alarm Number
+var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
+// Snooze Length value
+var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
 
 // Local Storage retrieval and setups
 
@@ -647,7 +649,13 @@ function snoozeAlarm() {
   setTimeout( function() {
     $("#alarmActive").css("display","block");
     audio.play();
-  }, 300000)
+  }, snoozelengthValue[snoozeAlarmNumber])
+}
+
+function changeSnoozeLenght(x) {
+  $('#snoozeLength').toggle(500);
+  snoozeAlarmNumber = x;
+  localStorage.setItem('snoozeAlarmNumber', snoozeAlarmNumber)
 }
 
 // Changes alarm sound

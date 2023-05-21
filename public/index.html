@@ -273,6 +273,7 @@
           <div class="settingsLabel">Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
           <div class="settingsLabel">Snooze Length</div>
+          <div class="settingsButton" onclick='$("#snoozeLength").toggle(500)'>Change</div>
         </div>
         <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Version & Channel</div>
         <div id="versionsChannel" class="settingsContainer">
@@ -320,6 +321,22 @@
         <div class="switcherTitle">Timezones</div>
         <div class="closeSwitcher" onclick="$('#timezone').toggle(500)">x</div>
         <div class="switcherContainer scroll" id="timezoneList">
+        </div>
+      </div>
+      <div class="switcher" id="snoozeLength">
+        <div class="switcherTitle">Snooze Length</div>
+        <div class="closeSwitcher" onclick="$('#snoozeLength').toggle(500)">x</div>
+        <div class="switcherContainer scroll" id="timezoneList">
+          <div class="switcherOption" onclick="changeSnoozeLenght(0)">1 minute</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(1)">2 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(2)">3 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(3)">4 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(4)">5 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(5)">6 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(6)">7 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(7)">8 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(8)">9 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(9)">10 minutes</div>
         </div>
       </div>
     </section>
