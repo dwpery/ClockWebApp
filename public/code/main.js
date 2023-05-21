@@ -178,7 +178,7 @@ $(document).ready(function() {
     }
   }
   setTimeout(function() {
-    $('.loader').toggle(250);
+    $('.loader').toggle(500);
     $('.loader').css('border-radius','5vh')
   }, 1000)
 })
