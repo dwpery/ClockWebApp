@@ -138,6 +138,22 @@ header {
   z-index: 10;
 }
 
+.settingsHeader {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  height: 12vh;
+  z-index: 11;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
+}
+
+.settingsBuffer {
+  height: 10vh;
+}
+
 .borderRadius {
   border-radius: 0 0 150vh 0;
 }
@@ -211,6 +227,9 @@ label {
 .static {
   text-align: center;
   font-size: 7.5vh;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .static:hover {
@@ -248,11 +267,13 @@ label {
 }
 
 #close-settings {
-  position: fixed;
+  position: absolute;
   right: 1.5vh;
-  top: 0.75vh;
+  top: 50%;
+  transform: translate(0, -50%);
   font-size: 7.5vh;
   transition: 0.25s;
+  z-index: 2;
 }
 
 #close-settings:hover, .closeSwitcher:hover {
@@ -572,7 +593,7 @@ li svg {
   width: 100%;
   height: 100%;
   background-color: #000;
-  z-index: 10;
+  z-index: 12;
   display: flex;
   justify-content: center;
   align-items: center;

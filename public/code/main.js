@@ -308,6 +308,7 @@ function showSettings() {
     // Reveals settings list
     setTimeout(function() {
       $("#settings-container").css("display","block");
+      $(".settingsHeader").css("display","block");
     },1750)
 
   } else {
@@ -316,6 +317,7 @@ function showSettings() {
     
     // Reveals settings list
     $("#settings-container").css("display","block");
+    $(".settingsHeader").css("display","block");
 
   }
 
@@ -338,6 +340,7 @@ function closeSettings() {
   } else {
     $("#settings").css("transition","0s");
     $("#settings-container").css("display","none");
+    $(".settingsHeader").css("display","none");
   }
 
   // Shrinks box to exit screen (Length)
@@ -350,6 +353,7 @@ function closeSettings() {
   $("#settings").addClass("borderRadius");
   // Hides settings list
   $("#settings-container").css("display","none");
+  $(".settingsHeader").css("display","none");
 }
 
 // Shows the Timer pannel, closes others
