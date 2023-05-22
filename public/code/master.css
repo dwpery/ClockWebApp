@@ -268,10 +268,10 @@ label {
 
 #close-settings {
   position: absolute;
-  right: 1.5vh;
+  right: 28%;
   top: 50%;
   transform: translate(0, -50%);
-  font-size: 7.5vh;
+  font-size: 6vh;
   transition: 0.25s;
   z-index: 2;
 }
@@ -806,6 +806,11 @@ li svg {
 
   .settingsHeading {
     font-size: 5vh;
+  }
+
+  #close-settings {
+    font-size: 5vh;
+    right: 1.5vh;
   }
 
   .settingsLabel {
