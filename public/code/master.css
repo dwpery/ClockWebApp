@@ -709,6 +709,22 @@ li svg {
   margin-top: -6vh;
 }
 
+/* Tablet UI */
+
+@media screen and (max-width: 1250px) {
+  .alarms-container {
+    width: 80%;
+  }
+
+  #settings-container {
+    width: 55%;
+  }
+
+  #close-settings {
+    right: 23%;
+  }
+}
+
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
