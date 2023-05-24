@@ -75,8 +75,6 @@ var isStopwatch = localStorage.getItem("isStopwatch") || "false";
 var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
 // Hide focus mode
 var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
-// Play sound when timer completed
-var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
@@ -576,17 +574,6 @@ function hideFocusModeCon() {
     $("#hideFocusModeBttn").html("On");
   }
   localStorage.setItem('hideFocusMode', hideFocusMode);
-}
-
-function timerSoundChanger() {
-  if (timerSound == "true") {
-    timerSound = "false";
-    $("#timerSoundButton").html("Off");
-  } else {
-    timerSound = "true";
-    $("#timerSoundButton").html("On");
-  }
-  localStorage.setItem('timerSound', timerSound);
 }
 
 // Adds alarm to container
