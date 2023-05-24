@@ -318,6 +318,7 @@ ul {
   bottom: 20vh;
   height: 11vh;
   width: 11vh;
+  transition: 0.75s;
 }
 
 hr {
@@ -583,6 +584,7 @@ li svg {
 
 .clear {
   background-color: #FFF;
+  transform: translate(-50%, -50%) scale(2);
 }
 
 .loader {
@@ -728,6 +730,10 @@ li svg {
 /* Mobile UI */
 
 @media screen and (max-width: 800px) {
+  .clear {
+    transform: translate(-50%, -50%);
+  }
+
   header {
     bottom: 2.5vh;
     border-radius: 10vh 10vh 0 0;
