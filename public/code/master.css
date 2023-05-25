@@ -56,6 +56,10 @@ header {
 
 .timerInput, .timerDisplay, .stopwatchDisplay {
   position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 50%;
   top: 50%;
   font-size: 12.5vh;
@@ -711,9 +715,21 @@ li svg {
   margin-top: -6vh;
 }
 
+.responsiveDisplay {
+  display: flex;
+}
+
 /* Tablet UI */
 
 @media screen and (max-width: 1250px) {
+  #mobile {
+    display: block;
+  }
+
+  #computer {
+    display: none;
+  }
+
   .alarms-container {
     width: 80%;
   }
@@ -725,11 +741,43 @@ li svg {
   #close-settings {
     right: 23%;
   }
+
+  .timerInput, .timerDisplay, .stopwatchDisplay {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #hours, #minutes, #seconds {
+    font-size: 12.5vh;
+    width: 13.5vh;
+  }
+
+  .timerDisplay {
+    display: none;
+    font-size: 6vh;
+  }
+
+  .timerControls {
+    transform: translate(-50%);
+    width: 45vh;
+    bottom: 12.5vh;
+  }
+
+  .gridDiv {
+    display: block;
+  }
+
+  .responsiveDisplay {
+    display: block;
+  }
 }
 
 /* Mobile UI */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .clear {
     transform: translate(-50%, -50%);
   }
@@ -814,15 +862,22 @@ li svg {
 
   .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
   #hours, #minutes, #seconds {
     font-size: 12.5vh;
     width: 13.5vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .timerDisplay {
+    display: none;
     font-size: 6vh;
   }
 
@@ -1026,6 +1081,10 @@ li svg {
 
   .activeAlarmName, .activeTimerName {
     font-size: 7vh;
+  }
+
+  .responsiveDisplay {
+    display: block;
   }
 }
 

@@ -406,7 +406,7 @@ function startTimer() {
 
   // Changes from Input to Display
   $(".timerInput").css("display","none");
-  $(".timerDisplay").css("display","block");
+  $(".timerDisplay").addClass("responsiveDisplay");
 
   // Prints values
   $("#span1").html(timerHours);
