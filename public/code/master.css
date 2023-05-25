@@ -731,7 +731,11 @@ li svg {
   }
 
   .alarms-container {
-    width: 80%;
+    width: 100%;
+  }
+
+  .alarm, .printedAlarm {
+    width: 85%;
   }
 
   #settings-container {
@@ -772,6 +776,10 @@ li svg {
 
   .responsiveDisplay {
     display: block;
+  }
+
+  .clear {
+    transform: translate(-50%, -50%);
   }
 }
 
