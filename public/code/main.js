@@ -150,20 +150,10 @@ if (localStorage.getItem("hideFocusMode") == "true") {
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
-  // Gets users timezone
-  var tza = () => {
-    var { 1: tz } = new Date().toString().match(/\((.+)\)/);
-    if (tz.includes(" ")) {
-      return tz .split(" ") .map(([first]) => first) .join("");
-    } else {
-      return tz;
-    }
-  }
-  // Prints users timezone
-  $("#timeZoneButton").html(tza);
   // Sets Font
   changeFont(currentFont);
   // Loads timezones
+  $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + 24 + "\">Default</div>");
   for (let i = 0; i < timeZones.length; i++) {
     $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + [i] + "\">" + timeZones[i] + "</div>");
     if (timeZones[i] == Intl.DateTimeFormat().resolvedOptions().timeZone) {
@@ -254,6 +244,19 @@ setInterval(function() {
       amPm: amPm
     };
   });
+
+  // Gets users timezone
+  var tza = () => {
+    var { 1: tz } = new Date().toString().match(/\((.+)\)/);
+    if (tz.includes(" ")) {
+      return tz .split(" ") .map(([first]) => first) .join("");
+    } else {
+      return tz;
+    }
+  }
+
+  // Prints users timezone
+  $("#timeZoneButton").html(tza);
 
   if (timeZoneNumber != 24 && timeZoneNumber != localTimeZoneNumber) {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
