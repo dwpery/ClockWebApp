@@ -207,10 +207,13 @@
       </svg>
     </div>
     </section>
-    <section id="settings" class="borderRadius">
-      <div id="settings-container" class="scroll">
-        <div id="close-settings" onclick="closeSettings()">x</div>
-        <div class="settingsHeading static" align="center">Settings</div>
+    <div class="settingsHeader">
+      <div id="close-settings" onclick="closeSettings()">X</div>
+      <div class="settingsHeading static" align="center">Settings</div>
+    </div>
+    <section id="settings" class="scroll borderRadius">
+      <div id="settings-container">
+        <div class="settingsBuffer"></div>
         <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
         <div id="general" class="settingsContainer">
           <div class="settingsLabel">Privacy Policy</div>
@@ -219,6 +222,8 @@
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
           <div class="settingsLabel">Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
+          <div class="settingsLabel">Clear App Data</div>
+          <div class="settingsButton" onclick="resetApp()">Clear</div>
         </div>
         <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
         <div id="contact" class="settingsContainer">
@@ -229,12 +234,17 @@
           <div class="settingsLabel">Security Issue</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">Report</div>
         </div>
-        <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customization</div>
+        <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customisation</div>
         <div id="customization" class="settingsContainer">
           <div class="settingsLabel">Dark / Light mode</div>
           <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
           <div class="settingsLabel">Font</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
+          <div id="themeChangerCon">
+            <div class="settingsLabel">Theme Colour</div>
+          </div>
+          <div class="settingsLabel">Reset Theme Colour</div>
+          <div class="settingsButton" onclick="resetThemeColour()">Reset</div>
         </div>
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
         <div id="animation" class="settingsContainer">
@@ -258,18 +268,18 @@
         <div id="timerSettings" class="settingsContainer">
           <div class="settingsLabel">Double Digits</div>
           <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
-          <div class="settingsLabel">Ring when finished</div>
-          <div class="settingsButton" id="timerSoundButton" onclick="timerSoundChanger()">On</div>
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
         <div id="alarmSettings" class="settingsContainer">
           <div class="settingsLabel">Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
+          <div class="settingsLabel">Snooze Length</div>
+          <div class="settingsButton" onclick='$("#snoozeLength").toggle(500)'>Change</div>
         </div>
         <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Version & Channel</div>
         <div id="versionsChannel" class="settingsContainer">
           <div class="settingsLabel">Version</div>
-          <div class="settingsButton">v3.1.4</div>
+          <div class="settingsButton">v3.1.5</div>
           <div class="settingsLabel">Channel</div>
           <div class="settingsButton">Stable</div>
           <div class="settingsLabel">Open Source docs</div>
@@ -277,7 +287,7 @@
         </div>
         <hr>
         <div class="buildInfo">
-          <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffe</a></div>
+          <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffee</a></div>
           <div>GitHub Edition</div><br>
         </div>
       </div>
@@ -314,6 +324,22 @@
         <div class="switcherContainer scroll" id="timezoneList">
         </div>
       </div>
+      <div class="switcher" id="snoozeLength">
+        <div class="switcherTitle">Snooze Length</div>
+        <div class="closeSwitcher" onclick="$('#snoozeLength').toggle(500)">x</div>
+        <div class="switcherContainer scroll" id="timezoneList">
+          <div class="switcherOption" onclick="changeSnoozeLenght(0)">1 minute</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(1)">2 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(2)">3 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(3)">4 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(4)">5 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(5)">6 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(6)">7 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(7)">8 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(8)">9 minutes</div>
+          <div class="switcherOption" onclick="changeSnoozeLenght(9)">10 minutes</div>
+        </div>
+      </div>
     </section>
     <section id="alarmActive">
       <div class="activeAlarmName"></div>
@@ -341,5 +367,23 @@
         </svg>
       </div>
     </section>
+    <section id="timerActive">
+      <div class="activeTimerName">Timer Complete!</div>
+      <div class="cancelTimerContainer">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="cancelAlarm" onclick="cancelTimer()">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
+          <rect x="47" y="12" width="7" height="9" fill="black"/>
+          <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
+          <path d="M42.9545 37.0909L49.9943 48.9886H50.267L57.3409 37.0909H65.6761L55.0227 54.5455L65.9148 72H57.4261L50.267 60.0852H49.9943L42.8352 72H34.3807L45.3068 54.5455L34.5852 37.0909H42.9545Z" fill="black"/>
+        </svg>          
+      </div>
+    </section>
+    <div class="loader">
+      <svg class="svgLoader spinning-path" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="white"/>
+        <rect x="49" y="21" width="3" height="28" fill="white"/>
+        <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="white"/>
+      </svg>
+    </div>
   </body>
 </html>

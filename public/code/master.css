@@ -6,6 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap'); /* font-family: 'Rubik Microbe', cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap'); /* font-family: 'Roboto Mono', monospace; */
 
+/* Variables */
+
+:root {
+  --themeColour: #FF0000;
+}
+
 /* Computer UI + Carry over to Mobile */
 
 body {
@@ -50,6 +56,10 @@ header {
 
 .timerInput, .timerDisplay, .stopwatchDisplay {
   position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 50%;
   top: 50%;
   font-size: 12.5vh;
@@ -65,7 +75,7 @@ header {
 }
 
 #hours, #minutes, #seconds, #span1, #span2, #span3, #span4, #span5, #span6 {
-  color: #FF0000;
+  color: var(--themeColour);
   font-size: 12.5vh;
   width: 15vh;
   border: none;
@@ -74,7 +84,7 @@ header {
 
 #hours:hover, #minutes:hover, #seconds:hover {
   cursor: pointer;
-  border-bottom: 0.5vh solid red;
+  border-bottom: 0.5vh solid var(--themeColour);
 }
 
 .digital {
@@ -87,7 +97,7 @@ header {
   background-color: black;
   border-radius: 5vh;
   transition: 0.75s;
-  color: red;
+  color: var(--themeColour);
 }
 
 .digital:hover {
@@ -130,6 +140,22 @@ header {
   background-color: #B3B3B3;
   transition: 1.5s;
   z-index: 10;
+}
+
+.settingsHeader {
+  display: none;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  height: 12vh;
+  z-index: 11;
+  width: 100%;
+  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
+}
+
+.settingsBuffer {
+  height: 10vh;
 }
 
 .borderRadius {
@@ -205,6 +231,9 @@ label {
 .static {
   text-align: center;
   font-size: 7.5vh;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .static:hover {
@@ -235,12 +264,20 @@ label {
   border-color: #36454F;
 }
 
+#colourButton {
+  background-color: var(--themeColour);
+  padding: 3.5vh;
+  color: var(--themeColour);
+}
+
 #close-settings {
-  position: fixed;
-  right: 1.5vh;
-  top: 0.75vh;
-  font-size: 7.5vh;
+  position: absolute;
+  right: 28%;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 6vh;
   transition: 0.25s;
+  z-index: 2;
 }
 
 #close-settings:hover, .closeSwitcher:hover {
@@ -285,6 +322,7 @@ ul {
   bottom: 20vh;
   height: 11vh;
   width: 11vh;
+  transition: 0.75s;
 }
 
 hr {
@@ -411,7 +449,7 @@ hr {
   margin-top: -0.5vh;
 }
 
-#alarmActive {
+#alarmActive, #timerActive {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -422,25 +460,31 @@ hr {
   z-index: 10;
 }
 
-.activeAlarmName {
+.activeAlarmName, .activeTimerName {
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-150%);
   font-size: 10vh;
+  text-align: center;
   color: #FFF;
+}
+
+.activeTimerName {
+  transform: translate(-50%,-100%);
+  color: var(--themeColour);
 }
 
 .activeAlarmTime {
   position: fixed;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
   font-size: 15vh;
-  color: #0F0;
+  color: var(--themeColour);
 }
 
-.cancelContainer, .snoozeContainer {
+.cancelContainer, .snoozeContainer, .cancelTimerContainer {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -449,6 +493,10 @@ hr {
   height: 10vh;
   width: 10vh;
   border-radius: 50%;
+}
+
+.cancelTimerContainer {
+  transform: translate(-50%, 25%);
 }
 
 .snoozeContainer {
@@ -540,6 +588,31 @@ li svg {
 
 .clear {
   background-color: #FFF;
+  transform: translate(-50%, -50%) scale(2);
+}
+
+.loader {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinning-path {
+  animation: spin 2.25s linear infinite;
 }
 
 .classicFont { font-family: 'Major Mono Display', monospace; }
@@ -642,9 +715,81 @@ li svg {
   margin-top: -6vh;
 }
 
+.responsiveDisplay {
+  display: flex;
+}
+
+/* Tablet UI */
+
+@media screen and (max-width: 1250px) {
+  #mobile {
+    display: block;
+  }
+
+  #computer {
+    display: none;
+  }
+
+  .alarms-container {
+    width: 100%;
+  }
+
+  .alarm, .printedAlarm {
+    width: 85%;
+  }
+
+  #settings-container {
+    width: 55%;
+  }
+
+  #close-settings {
+    right: 23%;
+  }
+
+  .timerInput, .timerDisplay, .stopwatchDisplay {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #hours, #minutes, #seconds {
+    font-size: 12.5vh;
+    width: 13.5vh;
+  }
+
+  .timerDisplay {
+    display: none;
+    font-size: 6vh;
+  }
+
+  .timerControls {
+    transform: translate(-50%);
+    width: 45vh;
+    bottom: 12.5vh;
+  }
+
+  .gridDiv {
+    display: block;
+  }
+
+  .responsiveDisplay {
+    display: block;
+  }
+
+  .clear {
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* Mobile UI */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
+  .clear {
+    transform: translate(-50%, -50%);
+  }
+
   header {
     bottom: 2.5vh;
     border-radius: 10vh 10vh 0 0;
@@ -712,7 +857,7 @@ li svg {
   }
 
   #settings-container {
-    width: 100%;
+    width: 90%;
   }
 
   .alarms-container {
@@ -725,20 +870,32 @@ li svg {
 
   .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
   #hours, #minutes, #seconds {
     font-size: 12.5vh;
     width: 13.5vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .timerDisplay {
+    display: none;
     font-size: 6vh;
   }
 
   .settingsHeading {
     font-size: 5vh;
+  }
+
+  #close-settings {
+    font-size: 5vh;
+    right: 1.5vh;
   }
 
   .settingsLabel {
@@ -903,25 +1060,39 @@ li svg {
   }
 
   .alarmTime {
-    top: 3vh;
+    top: 2vh;
     left: 50%;
     transform: translate(-50%);
+    border: 0.5vh solid rgb(206, 192, 170);
+    border-radius: 2vh;
     width: 80%;
   }
 
   #submit {
-    bottom: 1vh;
+    bottom: 0.25vh;
     right: initial;
     left: 6.5vh;
   }
 
   #remove {
-    bottom: 1vh;
+    bottom: 0.25vh;
     right: 7.3vh;
   }
 
   .printAlarmName {
     width: 80%;
+  }
+
+  #colourButton {
+    padding: 2.5vh;
+  }
+
+  .activeAlarmName, .activeTimerName {
+    font-size: 7vh;
+  }
+
+  .responsiveDisplay {
+    display: block;
   }
 }
 
@@ -966,7 +1137,7 @@ li svg {
 /* Clock Display dark colour */
 .dark .digital {
   background-color: rgb(6, 6, 6);
-  color: rgb(255, 43, 43);
+  color: var(--themeColour);
 }
 
 /* Header bar colour */
@@ -983,13 +1154,13 @@ li svg {
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
-.dark #remove, .dark .removeFinalAlarm { color: rgb(255, 43, 43); }
+.dark #remove, .dark .removeFinalAlarm { color: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
 
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
-  color: rgb(255, 43, 43);
+  color: var(--themeColour);
 }
 
 /* Custom Font stuff */

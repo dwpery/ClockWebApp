@@ -75,12 +75,13 @@ var isStopwatch = localStorage.getItem("isStopwatch") || "false";
 var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
 // Hide focus mode
 var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
-// Play sound when timer completed
-var timerSound = localStorage.getItem("timerSound") || "true";
 // Current Font
 var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds amout of Alarms
-var numOfAlarms = localStorage.getItem('numOfAlarms', numOfAlarms);
+var numOfAlarms = localStorage.getItem('numOfAlarms') || null;
+// Holds custom theme colour
+var themeColour = localStorage.getItem('themeColour') || '#FF0000';
+$('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
 // Makees values right data type
 if (numOfAlarms === null ) {
   // nothing
@@ -91,12 +92,14 @@ if (numOfAlarms === null ) {
     numOfAlarms = Number(numOfAlarms);
   }
 }
-
 // Hols alarms in array
 const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
-
 // Initiates alarm sound
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
+// Snooze Alarm Number
+var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
+// Snooze Length value
+var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
 
 // Local Storage retrieval and setups
 
@@ -147,20 +150,10 @@ if (localStorage.getItem("hideFocusMode") == "true") {
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
-  // Gets users timezone
-  var tza = () => {
-    var { 1: tz } = new Date().toString().match(/\((.+)\)/);
-    if (tz.includes(" ")) {
-      return tz .split(" ") .map(([first]) => first) .join("");
-    } else {
-      return tz;
-    }
-  }
-  // Prints users timezone
-  $("#timeZoneButton").html(tza);
   // Sets Font
   changeFont(currentFont);
   // Loads timezones
+  $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + 24 + "\">Default</div>");
   for (let i = 0; i < timeZones.length; i++) {
     $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + [i] + "\">" + timeZones[i] + "</div>");
     if (timeZones[i] == Intl.DateTimeFormat().resolvedOptions().timeZone) {
@@ -172,6 +165,10 @@ $(document).ready(function() {
       $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
     }
   }
+  setTimeout(function() {
+    $('.loader').toggle(500);
+    $('.loader').css('border-radius','5vh')
+  }, 1000)
 })
 
 // Makes alarm loop when finished
@@ -248,6 +245,19 @@ setInterval(function() {
     };
   });
 
+  // Gets users timezone
+  var tza = () => {
+    var { 1: tz } = new Date().toString().match(/\((.+)\)/);
+    if (tz.includes(" ")) {
+      return tz .split(" ") .map(([first]) => first) .join("");
+    } else {
+      return tz;
+    }
+  }
+
+  // Prints users timezone
+  $("#timeZoneButton").html(tza);
+
   if (timeZoneNumber != 24 && timeZoneNumber != localTimeZoneNumber) {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
@@ -280,6 +290,14 @@ setInterval(function() {
   }
 }, 10);
 
+setTimeout (function() {
+  setInterval (function() {
+    document.documentElement.style.setProperty('--themeColour', themeColour);
+    themeColour = $("#colourButton").val();
+    localStorage.setItem('themeColour', themeColour);  
+  },10)
+},10)
+
 // Opens the Settings pannel
 function showSettings() {
 
@@ -291,6 +309,7 @@ function showSettings() {
     // Reveals settings list
     setTimeout(function() {
       $("#settings-container").css("display","block");
+      $(".settingsHeader").css("display","block");
     },1750)
 
   } else {
@@ -299,6 +318,7 @@ function showSettings() {
     
     // Reveals settings list
     $("#settings-container").css("display","block");
+    $(".settingsHeader").css("display","block");
 
   }
 
@@ -321,6 +341,7 @@ function closeSettings() {
   } else {
     $("#settings").css("transition","0s");
     $("#settings-container").css("display","none");
+    $(".settingsHeader").css("display","none");
   }
 
   // Shrinks box to exit screen (Length)
@@ -333,6 +354,7 @@ function closeSettings() {
   $("#settings").addClass("borderRadius");
   // Hides settings list
   $("#settings-container").css("display","none");
+  $(".settingsHeader").css("display","none");
 }
 
 // Shows the Timer pannel, closes others
@@ -387,7 +409,7 @@ function startTimer() {
 
   // Changes from Input to Display
   $(".timerInput").css("display","none");
-  $(".timerDisplay").css("display","block");
+  $(".timerDisplay").addClass("responsiveDisplay");
 
   // Prints values
   $("#span1").html(timerHours);
@@ -401,14 +423,8 @@ function countdown() {
   
   // Resets if empty
   if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    if (timerSound == "true") {
-      audio.play();
-      setTimeout(function() {
-        audio.pause();
-        audio.remove();
-        audio.currentTime = 0;
-      }, 5000)
-    }
+    $("#timerActive").css("display","block");
+    audio.play();
     resetTimer();
   }
 
@@ -476,12 +492,14 @@ function focusModeControl() {
   if (isFocus == false) {
     isFocus = true;
     $("header").hide();
-    $(".digital").addClass("clear")
+    $(".digital").addClass("clear");
+    $("#focusMode").css("bottom", "12vh");
     $("#focusMode").html('<path id="focusPath" class="barOnSVG" d="M73.6607 42.8571H59.8214C58.3371 42.8571 57.1429 41.6629 57.1429 40.1786V26.3393C57.1429 25.6027 57.7455 25 58.4821 25H62.9464C63.683 25 64.2857 25.6027 64.2857 26.3393V35.7143H73.6607C74.3973 35.7143 75 36.317 75 37.0536V41.5179C75 42.2545 74.3973 42.8571 73.6607 42.8571ZM42.8571 40.1786V26.3393C42.8571 25.6027 42.2545 25 41.5179 25H37.0536C36.317 25 35.7143 25.6027 35.7143 26.3393V35.7143H26.3393C25.6027 35.7143 25 36.317 25 37.0536V41.5179C25 42.2545 25.6027 42.8571 26.3393 42.8571H40.1786C41.6629 42.8571 42.8571 41.6629 42.8571 40.1786ZM42.8571 73.6607V59.8214C42.8571 58.3371 41.6629 57.1429 40.1786 57.1429H26.3393C25.6027 57.1429 25 57.7455 25 58.4821V62.9464C25 63.683 25.6027 64.2857 26.3393 64.2857H35.7143V73.6607C35.7143 74.3973 36.317 75 37.0536 75H41.5179C42.2545 75 42.8571 74.3973 42.8571 73.6607ZM64.2857 73.6607V64.2857H73.6607C74.3973 64.2857 75 63.683 75 62.9464V58.4821C75 57.7455 74.3973 57.1429 73.6607 57.1429H59.8214C58.3371 57.1429 57.1429 58.3371 57.1429 59.8214V73.6607C57.1429 74.3973 57.7455 75 58.4821 75H62.9464C63.683 75 64.2857 74.3973 64.2857 73.6607Z" fill="#36454F"/>')
   } else {
     isFocus = false;
     $("header").show();
-    $(".digital").removeClass("clear")
+    $(".digital").removeClass("clear");
+    $("#focusMode").css("bottom", "20vh");
     $("#focusMode").html('<g clip-path="url(#clip0_0_1)"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M25 42.5781V30.4688C25 29.1699 26.1942 28.125 27.6786 28.125H41.5179C42.2545 28.125 42.8571 28.6523 42.8571 29.2969V33.2031C42.8571 33.8477 42.2545 34.375 41.5179 34.375H32.1429V42.5781C32.1429 43.2227 31.5402 43.75 30.8036 43.75H26.3393C25.6027 43.75 25 43.2227 25 42.5781ZM57.1429 29.2969V33.2031C57.1429 33.8477 57.7455 34.375 58.4821 34.375H67.8571V42.5781C67.8571 43.2227 68.4598 43.75 69.1964 43.75H73.6607C74.3973 43.75 75 43.2227 75 42.5781V30.4688C75 29.1699 73.8058 28.125 72.3214 28.125H58.4821C57.7455 28.125 57.1429 28.6523 57.1429 29.2969ZM73.6607 56.25H69.1964C68.4598 56.25 67.8571 56.7773 67.8571 57.4219V65.625H58.4821C57.7455 65.625 57.1429 66.1523 57.1429 66.7969V70.7031C57.1429 71.3477 57.7455 71.875 58.4821 71.875H72.3214C73.8058 71.875 75 70.8301 75 69.5312V57.4219C75 56.7773 74.3973 56.25 73.6607 56.25ZM42.8571 70.7031V66.7969C42.8571 66.1523 42.2545 65.625 41.5179 65.625H32.1429V57.4219C32.1429 56.7773 31.5402 56.25 30.8036 56.25H26.3393C25.6027 56.25 25 56.7773 25 57.4219V69.5312C25 70.8301 26.1942 71.875 27.6786 71.875H41.5179C42.2545 71.875 42.8571 71.3477 42.8571 70.7031Z" fill="#36454F"/></g><defs><clipPath id="clip0_0_1"><rect width="100" height="100" fill="white"/></clipPath></defs>');
   }
 }
@@ -563,20 +581,9 @@ function hideFocusModeCon() {
   localStorage.setItem('hideFocusMode', hideFocusMode);
 }
 
-function timerSoundChanger() {
-  if (timerSound == "true") {
-    timerSound = "false";
-    $("#timerSoundButton").html("Off");
-  } else {
-    timerSound = "true";
-    $("#timerSoundButton").html("On");
-  }
-  localStorage.setItem('timerSound', timerSound);
-}
-
 // Adds alarm to container
 function addAlarm() {
-  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime" placeholder="Morning Alarm"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
+  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
 }
 
 // Removes alarm
@@ -630,12 +637,25 @@ function cancelAlarm() {
   audio.remove();
 }
 
+function cancelTimer() {
+  $("#timerActive").css("display","none");
+  audio.pause();
+  audio.remove();
+  audio.currentTime = 0;
+}
+
 function snoozeAlarm() {
   cancelAlarm();
   setTimeout( function() {
     $("#alarmActive").css("display","block");
     audio.play();
-  }, 300000)
+  }, snoozelengthValue[snoozeAlarmNumber])
+}
+
+function changeSnoozeLenght(x) {
+  $('#snoozeLength').toggle(500);
+  snoozeAlarmNumber = x;
+  localStorage.setItem('snoozeAlarmNumber', snoozeAlarmNumber)
 }
 
 // Changes alarm sound
@@ -659,7 +679,10 @@ function changeAlarmSound(x) {
   setTimeout(function() {
     cancelAlarm();
     audio.currentTime = 0;
-  }, 5000)
+  }, 4000)
+
+  $('#alarm').toggle(500);
+  closeSettings();
 }
 
 // Changes active font
@@ -812,4 +835,18 @@ function resetStopwatch() {
   $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
   // Changes Icon
   $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
+}
+
+// Resets theme colour
+function resetThemeColour() {
+  $('#colourButton').remove();
+  themeColour = "#FF0000";
+  $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
+}
+
+// Clears app data and reloads page
+function resetApp() {
+  localStorage.clear();
+  resetThemeColour();
+  location.reload();
 }
