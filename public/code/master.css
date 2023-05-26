@@ -472,7 +472,6 @@ hr {
 
 .activeTimerName {
   transform: translate(-50%,-100%);
-  color: var(--themeColour);
 }
 
 .activeAlarmTime {
@@ -497,6 +496,7 @@ hr {
 
 .cancelTimerContainer {
   transform: translate(-50%, 25%);
+  background-color: var(--themeColour);
 }
 
 .snoozeContainer {
