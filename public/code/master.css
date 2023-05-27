@@ -316,13 +316,23 @@ ul {
 }
 
 #focusMode {
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%);
-  bottom: 20vh;
   height: 11vh;
   width: 11vh;
   transition: 0.75s;
+}
+
+.clockControls {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20vh;
+  transition: 0.75s;
+}
+
+.clockMove {
+  bottom: 12vh;
 }
 
 hr {
@@ -722,6 +732,10 @@ li svg {
 /* Tablet UI */
 
 @media screen and (max-width: 1250px) {
+  .clockMove {
+    bottom: 20vh;
+  }
+
   #mobile {
     display: block;
   }
@@ -786,6 +800,10 @@ li svg {
 /* Mobile UI */
 
 @media screen and (max-width: 850px) {
+  .clockMove {
+    bottom: 20vh;
+  }
+  
   .clear {
     transform: translate(-50%, -50%);
   }
@@ -848,12 +866,6 @@ li svg {
 
   #addAlarm {
     bottom: 12.5vh;
-  }
-
-  #focusMode {
-    left: 50%;
-    transform: translate(-50%);
-    bottom: null;
   }
 
   #settings-container {
