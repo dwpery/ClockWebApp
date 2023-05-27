@@ -302,7 +302,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover, #clockChanger:hover {
   cursor: pointer;
 }
 
@@ -315,17 +315,18 @@ ul {
   width: 12.5vh;
 }
 
-#focusMode {
+#focusMode, #clockChanger {
   height: 11vh;
   width: 11vh;
-  transition: 0.75s;
 }
 
 .clockControls {
-  width: 100%;
+  width: 45vh;
   position: fixed;
+  left: 50%;
+  transform: translate(-50%);
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   bottom: 20vh;
   transition: 0.75s;
@@ -736,6 +737,10 @@ li svg {
     bottom: 20vh;
   }
 
+  .clockControls {
+    width: 70%;
+  }
+
   #mobile {
     display: block;
   }
@@ -803,7 +808,11 @@ li svg {
   .clockMove {
     bottom: 20vh;
   }
-  
+
+  .clockControls {
+    width: 70%;
+  }
+
   .clear {
     transform: translate(-50%, -50%);
   }
