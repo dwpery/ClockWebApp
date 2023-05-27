@@ -39,6 +39,8 @@ const timeZones = [
 var timeZoneNumber = 24;
 // Stores local timezone number
 var localTimeZoneNumber = 0;
+// Snooze Length value
+var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
 
 // Sets dark theme if system is dark on first load
 
@@ -98,8 +100,8 @@ const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem(
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
 // Snooze Alarm Number
 var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
-// Snooze Length value
-var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
+// True = Analog, False = Digital
+var isAnalog = localStorage.getItem('isAnalog') || "false";
 
 // Local Storage retrieval and setups
 
@@ -143,6 +145,10 @@ if (localStorage.getItem('isStopwatch') == "true") {
 if (localStorage.getItem("hideFocusMode") == "true") {
   $("#hideFocusModeBttn").html("On");
   $("#focusMode").hide();
+}
+
+if (isAnalog == "true") {
+  $("#clockSVG").html('<path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="black"/><rect x="49" y="21" width="3" height="28" fill="black"/><path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="black"/>')
 }
 
 // Main Code
