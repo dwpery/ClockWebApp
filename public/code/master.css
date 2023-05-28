@@ -1139,7 +1139,7 @@ li svg {
   fill: #697074;
 }
 
-.dark #focusMode:hover #focusPath {
+.dark #focusMode:hover #focusPath, .dark #clockChanger:hover #focusPath {
   fill: #36454F;
 }
 
