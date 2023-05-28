@@ -233,6 +233,7 @@ label {
   font-size: 7.5vh;
   position: absolute;
   top: 50%;
+  transition: 1.5s;
   transform: translate(0, -50%);
 }
 
