@@ -37,6 +37,9 @@ header {
   position: absolute;
   height: 8.5vh;
   width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: inherit;
   transition: 0.25s;
 }
@@ -163,12 +166,8 @@ header {
 }
 
 label {
-  position: absolute;
-  left: 50%;
-  top: 50%;
   font-size: 5vh;
   transition: 0.25s;
-  transform: translate(-50%,-50%);
 }
 
 .item:hover label {
@@ -182,10 +181,6 @@ label {
 }
 
 .headerSVG {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
   height: 8.5vh;
   width: 8.5vh;
   transition: 0.25s;
