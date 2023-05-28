@@ -154,7 +154,7 @@ header {
   height: 12vh;
   z-index: 11;
   width: 100%;
-  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
+  background: linear-gradient(to bottom, #f5f5f5, rgba(0, 0, 0, 0));
 }
 
 .settingsBuffer {
@@ -1155,6 +1155,11 @@ li svg {
 .dark .digital {
   background-color: rgb(6, 6, 6);
   color: var(--themeColour);
+}
+
+/* Settings header */
+.dark .settingsHeader {
+  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
 }
 
 /* Header bar colour */
