@@ -191,16 +191,6 @@ label {
   width: 9.5vh;
 }
 
-#headerSVGleft, #headerSVGright {
-  height: 6.375vh;
-  width: 6.375vh;
-}
-
-.item:hover #headerSVGleft, .item:hover #headerSVGright {
-  height: 7.375vh;
-  width: 7.375vh;
-}
-
 #settings-container {
   position: absolute;
   left: 50%;
@@ -729,6 +719,16 @@ li svg {
 /* Tablet UI */
 
 @media screen and (max-width: 1250px) {
+  #headerSVGleft, #headerSVGright {
+    height: 6.375vh;
+    width: 6.375vh;
+  }
+  
+  .item:hover #headerSVGleft, .item:hover #headerSVGright {
+    height: 7.375vh;
+    width: 7.375vh;
+  }
+
   .clockMove {
     bottom: 20vh;
   }
@@ -737,11 +737,7 @@ li svg {
     width: 70%;
   }
 
-  #mobile {
-    display: block;
-  }
-
-  #computer {
+  label {
     display: none;
   }
 
@@ -801,6 +797,16 @@ li svg {
 /* Mobile UI */
 
 @media screen and (max-width: 850px) {
+  #sideSVG {
+    height: 6.375vh;
+    width: 6.375vh;
+  }
+  
+  .item:hover #sideSVG {
+    height: 7.375vh;
+    width: 7.375vh;
+  }
+  
   .clockMove {
     bottom: 20vh;
   }
@@ -853,11 +859,7 @@ li svg {
     border-radius: 0 150vh 0 0;
   }
 
-  #mobile {
-    display: block;
-  }
-
-  #computer {
+  label {
     display: none;
   }
 
