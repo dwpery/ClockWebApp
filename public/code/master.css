@@ -222,10 +222,6 @@ label {
   transform: translate(0, -50%);
 }
 
-.static:hover {
-  cursor: default;
-}
-
 .settingsLabel {
   font-size: 4vh;
   font-weight: bold;
