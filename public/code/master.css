@@ -103,10 +103,6 @@ header {
   color: var(--themeColour);
 }
 
-.digital:hover {
-  cursor: default;
-}
-
 .display {
   position: absolute;
   top: 50%;
