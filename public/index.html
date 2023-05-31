@@ -41,7 +41,7 @@
         </div>
         <div class="item item2" onclick="showTimer()">
           <div class="timerPadding"></div>
-          <svg viewbox="0 0 110 90" class="headerSVG">
+          <svg viewbox="0 0 110 90" class="headerSVG" id="timerSVG">
             <mask id="path-1-inside-1_0_1" fill="white">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M56.2964 50.5L74.3157 86.25H26.6843L44.7036 50.5L26.6843 14.75H74.3157L56.2964 50.5Z"/>
             </mask>
@@ -51,7 +51,7 @@
             <path d="M50.5 51L39.6747 30.75L61.3253 30.75L50.5 51Z" fill="black"/>
             <path d="M50.5 59L67.3875 80.75H33.6125L50.5 59Z" fill="black"/>
           </svg>
-          <label inert>Timer</label>
+          <label id="timerLabel" inert>Timer</label>
         </div>
         <div class="item item3" onclick="showClock()">
           <div class="clockPadding"></div>

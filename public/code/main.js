@@ -140,6 +140,8 @@ if (localStorage.getItem('isStopwatch') == "true") {
   $("#stopwatchResetContainer").show();
   $("#timerPlayContainer").hide();
   $("#stopwatchPlayContainer").show();
+  $("#timerLabel").html("Stopwatch");
+  $("#timerSVG").html('<path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50ZM47.7241 25.5345C47.7241 23.9633 48.9978 22.6897 50.569 22.6897C52.1401 22.6897 53.4138 23.9633 53.4138 25.5345V42.679L61.0812 35.0116C62.1922 33.9006 63.9934 33.9006 65.1044 35.0116C66.2153 36.1226 66.2153 37.9238 65.1044 39.0348L53.0348 51.1044C52.8657 51.2735 52.6806 51.4168 52.4844 51.5345C51.9789 51.995 51.3067 52.2759 50.569 52.2759C48.9978 52.2759 47.7241 51.0022 47.7241 49.431V25.5345Z" fill="black"/><rect x="48" y="1" width="5" height="12" rx="2" fill="black"/><rect x="44" y="7" width="5" height="13" rx="2" transform="rotate(-90 44 7)" fill="black"/>');
 }
 
 if (localStorage.getItem("hideFocusMode") == "true") {
@@ -737,6 +739,8 @@ function timerChanger() {
     $("#stopwatchResetContainer").show();
     $("#timerPlayContainer").hide();
     $("#stopwatchPlayContainer").show();
+    $("#timerSVG").html('<path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="black"/><path fill-rule="evenodd" clip-rule="evenodd" d="M83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50ZM47.7241 25.5345C47.7241 23.9633 48.9978 22.6897 50.569 22.6897C52.1401 22.6897 53.4138 23.9633 53.4138 25.5345V42.679L61.0812 35.0116C62.1922 33.9006 63.9934 33.9006 65.1044 35.0116C66.2153 36.1226 66.2153 37.9238 65.1044 39.0348L53.0348 51.1044C52.8657 51.2735 52.6806 51.4168 52.4844 51.5345C51.9789 51.995 51.3067 52.2759 50.569 52.2759C48.9978 52.2759 47.7241 51.0022 47.7241 49.431V25.5345Z" fill="black"/><rect x="48" y="1" width="5" height="12" rx="2" fill="black"/><rect x="44" y="7" width="5" height="13" rx="2" transform="rotate(-90 44 7)" fill="black"/>');
+    $("#timerLabel").html("Stopwatch");
     isStopwatch = "true";
     localStorage.setItem('isStopwatch', isStopwatch);
   } else {
@@ -747,6 +751,8 @@ function timerChanger() {
     $("#stopwatchResetContainer").hide();
     $("#timerPlayContainer").show();
     $("#stopwatchPlayContainer").hide();
+    $("#timerSVG").html('<mask id="path-1-inside-1_0_1" fill="white"><path fill-rule="evenodd" clip-rule="evenodd" d="M56.2964 50.5L74.3157 86.25H26.6843L44.7036 50.5L26.6843 14.75H74.3157L56.2964 50.5Z"/></mask><path d="M56.2964 50.5L54.5104 49.5998L54.0567 50.5L54.5104 51.4002L56.2964 50.5ZM74.3157 86.25V88.25H77.5635L76.1017 85.3498L74.3157 86.25ZM26.6843 86.25L24.8983 85.3498L23.4365 88.25H26.6843V86.25ZM44.7036 50.5L46.4895 51.4002L46.9433 50.5L46.4895 49.5998L44.7036 50.5ZM26.6843 14.75V12.75H23.4365L24.8983 15.6502L26.6843 14.75ZM74.3157 14.75L76.1017 15.6502L77.5635 12.75H74.3157V14.75ZM54.5104 51.4002L72.5297 87.1502L76.1017 85.3498L58.0824 49.5998L54.5104 51.4002ZM74.3157 84.25H26.6843V88.25H74.3157V84.25ZM28.4703 87.1502L46.4895 51.4002L42.9176 49.5998L24.8983 85.3498L28.4703 87.1502ZM46.4895 49.5998L28.4703 13.8498L24.8983 15.6502L42.9176 51.4002L46.4895 49.5998ZM26.6843 16.75H74.3157V12.75H26.6843V16.75ZM72.5297 13.8498L54.5104 49.5998L58.0824 51.4002L76.1017 15.6502L72.5297 13.8498Z" fill="black" mask="url(#path-1-inside-1_0_1)"/><rect x="23" y="10" width="54" height="7" rx="3.5" fill="black"/><rect x="23" y="84" width="54" height="7" rx="3.5" fill="black"/><path d="M50.5 51L39.6747 30.75L61.3253 30.75L50.5 51Z" fill="black"/><path d="M50.5 59L67.3875 80.75H33.6125L50.5 59Z" fill="black"/>');
+    $("#timerLabel").html("Timer");
     isStopwatch = "false";
     localStorage.setItem('isStopwatch', isStopwatch);
   }
