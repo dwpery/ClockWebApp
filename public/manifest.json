@@ -9,22 +9,22 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "images/pwaIcon-192.png",
+      "src": "media/icon/pwaIcon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-256.png",
+      "src": "media/icon/pwaIcon-256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-384.png",
+      "src": "media/icon/pwaIcon-384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-512.png",
+      "src": "media/icon/pwaIcon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
