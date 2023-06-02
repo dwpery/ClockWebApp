@@ -172,6 +172,14 @@ label {
   font-size: 6vh;
 }
 
+path, rect {
+  transition: 0.25s;
+}
+
+.item:hover path, .item:hover rect {
+  fill: #36454F;
+}
+
 #mobile {
   display: none;
 }
@@ -1123,6 +1131,14 @@ li svg {
   fill: #f5f5f5;
 }
 
+.dark .item:hover path, .dark .item:hover rect, .dark .item:hover circle {
+  fill: #bbbbbb;
+}
+
+.dark .item:hover label {
+  color: #bbbbbb;
+}
+
 .dark #focusPath {
   fill: #697074;
 }
@@ -1164,10 +1180,11 @@ li svg {
   background-color: #697074; fill: #697074;
 }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
-.dark .item:hover label, .dark .buildInfo div a { color: #f5f5f5; }
+.dark .buildInfo div a { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
+.dark .settingsButton:hover { border-color: #36454F; }
 .dark #remove, .dark .removeFinalAlarm { color: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
