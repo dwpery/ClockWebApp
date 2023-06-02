@@ -709,21 +709,27 @@ function changeFont(x) {
 
   if (x == "0") {
     $("body").addClass("defaultFont");
+    $("#fontButton").html("Default");
     currentFont = x;
   } else if (x == "1") {
     $("body").addClass("classicFont");
+    $("#fontButton").html("Classic");
     currentFont = x;
   } else if (x == "2") {
     $("body").addClass("wetFont");
+    $("#fontButton").html("Wet Paint");
     currentFont = x;
   } else if (x == "3") {
     $("body").addClass("arialFont");
+    $("#fontButton").html("Arial");
     currentFont = x;
   } else if (x == "4") {
     $("body").addClass("bubbleFont");
+    $("#fontButton").html("Bubble");
     currentFont = x;
   } else {
     $("body").addClass("robotFont");
+    $("#fontButton").html("Roboto");
     currentFont = x;
   }
   localStorage.setItem('currentFont', currentFont);

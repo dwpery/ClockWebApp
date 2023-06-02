@@ -244,15 +244,15 @@
         </div>
         <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customisation</div>
         <div id="customization" class="settingsContainer">
-          <div class="settingsLabel" inert>Dark / Light mode</div>
+          <div class="settingsLabel" inert>Main Theme</div>
           <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
-          <div class="settingsLabel" inert>Font</div>
-          <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
           <div id="themeChangerCon">
             <div class="settingsLabel" inert>Theme Colour</div>
           </div>
-          <div class="settingsLabel" inert>Reset Theme Colour</div>
+          <div class="settingsLabel" inert>Reset Colour</div>
           <div class="settingsButton" onclick="resetThemeColour()">Reset</div>
+          <div class="settingsLabel" inert>Font</div>
+          <div class="settingsButton" onclick="$('#font').toggle(500)" id="fontButton">Default</div>
         </div>
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
         <div id="animation" class="settingsContainer">
