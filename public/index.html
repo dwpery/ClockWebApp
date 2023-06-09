@@ -264,9 +264,15 @@
         <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
         <div id="clockSettings" class="settingsContainer">
           <div class="settingsLabel" inert>24 Hour Clock</div>
-          <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
+          <label class="switch">
+            <input id="clockModeButton" type="checkbox" onclick="clockModeChanger()">
+            <span class="slider round"></span>
+          </label>
           <div class="settingsLabel" inert>Hide Focus Mode</div>
-          <div class="settingsButton" id="hideFocusModeBttn" onclick="hideFocusModeCon()">Off</div>
+          <label class="switch">
+            <input id="hideFocusModeBttn" type="checkbox" onclick="hideFocusModeCon()">
+            <span class="slider round"></span>
+          </label>
           <div class="settingsLabel" inert>Date Format</div>
           <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
           <div class="settingsLabel" inert>Time Zone</div>
@@ -275,7 +281,10 @@
         <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
         <div id="timerSettings" class="settingsContainer">
           <div class="settingsLabel" inert>Double Digits</div>
-          <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
+          <label class="switch">
+            <input id="doubleDigitsButton" type="checkbox" onclick="doubleDigitsChanger()">
+            <span class="slider round"></span>
+          </label>
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
         <div id="alarmSettings" class="settingsContainer">

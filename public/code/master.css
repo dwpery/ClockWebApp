@@ -379,6 +379,52 @@ hr {
   height: 15vh;
 }
 
+.switch {
+  position: absolute;
+  margin-top: -5vh;
+  right: 5vw;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--themeColour);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
 .alarmName {
   position: relative;
   left: 50%;
@@ -722,6 +768,10 @@ li svg {
   #headerSVGleft, #headerSVGright {
     height: 6.375vh;
     width: 6.375vh;
+  }
+
+  .switch {
+    margin-top: -4.75vh;
   }
   
   .item:hover #headerSVGleft, .item:hover #headerSVGright {
@@ -1179,6 +1229,8 @@ li svg {
 .dark .item:hover, .dark .circleOnSVG, .dark .coverSVG, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
   background-color: #697074; fill: #697074;
 }
+
+.dark .slider { background-color: #ccc; }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
 .dark .buildInfo div a { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }

@@ -112,7 +112,7 @@ if (localStorage.getItem('darkMode') == "true") {
 }
 
 if (localStorage.getItem('clockMode') == "false") {
-  $("#clockModeButton").html("On");
+  $("#clockModeButton").prop("checked", true);
 }
 
 if (localStorage.getItem('dateFormat') == "true") {
@@ -120,7 +120,7 @@ if (localStorage.getItem('dateFormat') == "true") {
 }
 
 if (localStorage.getItem('doubleDigits') == "true") {
-  $("#doubleDigitsButton").html("On");
+  $("#doubleDigitsButton").prop("checked", true);
 }
 
 if (localStorage.getItem('settingsAnim') == "false") {
@@ -145,7 +145,7 @@ if (localStorage.getItem('isStopwatch') == "true") {
 }
 
 if (localStorage.getItem("hideFocusMode") == "true") {
-  $("#hideFocusModeBttn").html("On");
+  $("#hideFocusModeBttn").prop("checked", true);
   $("#focusMode").hide();
 }
 
@@ -520,11 +520,11 @@ function focusModeControl() {
 function clockModeChanger() {
   if (clockMode == "true") {
     clockMode = "false";
-    $("#clockModeButton").html("On");
+    $("#clockModeButton").prop("checked", true);
     localStorage.setItem('clockMode', clockMode);
   } else {
     clockMode = "true";
-    $("#clockModeButton").html("Off");
+    $("#clockModeButton").prop("checked", false);
     localStorage.setItem('clockMode', clockMode);
   }
 }
@@ -546,10 +546,10 @@ function dateFormatChanger() {
 function doubleDigitsChanger() {
   if (doubleDigits == "false") {
     doubleDigits = "true";
-    $("#doubleDigitsButton").html("On");
+    $("#doubleDigitsButton").prop("checked", true);
   } else {
     doubleDigits = "false";
-    $("#doubleDigitsButton").html("Off");
+    $("#doubleDigitsButton").prop("checked", false);
   }
   localStorage.setItem('doubleDigits', doubleDigits);
 }
@@ -584,11 +584,11 @@ function hideFocusModeCon() {
   if (hideFocusMode == "true") {
     hideFocusMode = "false";
     $("#focusMode").show();
-    $("#hideFocusModeBttn").html("Off");
+    $("#hideFocusModeBttn").prop("checked", false);;
   } else {
     hideFocusMode = "true";
     $("#focusMode").hide();
-    $("#hideFocusModeBttn").html("On");
+    $("#hideFocusModeBttn").prop("checked", true);;
   }
   localStorage.setItem('hideFocusMode', hideFocusMode);
 }
