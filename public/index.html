@@ -266,12 +266,17 @@
           <div class="settingsLabel" inert>24 Hour Clock</div>
           <label class="switch">
             <input id="clockModeButton" type="checkbox" onclick="clockModeChanger()">
-            <span class="slider round"></span>
+            <span class="slider"></span>
           </label>
           <div class="settingsLabel" inert>Hide Focus Mode</div>
           <label class="switch">
             <input id="hideFocusModeBttn" type="checkbox" onclick="hideFocusModeCon()">
-            <span class="slider round"></span>
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel">Hide Switcher</div>
+          <label class="switch">
+            <input id="hideClockSwitcher" type="checkbox" onclick="hideClockSwitcher()">
+            <span class="slider"></span>
           </label>
           <div class="settingsLabel" inert>Date Format</div>
           <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
@@ -283,7 +288,7 @@
           <div class="settingsLabel" inert>Double Digits</div>
           <label class="switch">
             <input id="doubleDigitsButton" type="checkbox" onclick="doubleDigitsChanger()">
-            <span class="slider round"></span>
+            <span class="slider"></span>
           </label>
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
