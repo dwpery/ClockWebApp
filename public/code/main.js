@@ -196,7 +196,9 @@ audio.addEventListener('ended', function() {
   this.play();
 }, false);
 
-setInterval(function() {
+interval = setInterval(mainFunction, 10);
+
+function mainFunction() {
   // Declares date variable
   var date = new Date();
 
@@ -308,7 +310,7 @@ setInterval(function() {
     // Prints out date
     $(".date").html(today);
   }
-}, 10);
+};
 
 setTimeout (function() {
   setInterval (function() {
@@ -912,5 +914,7 @@ function resetThemeColour() {
 function resetApp() {
   localStorage.clear();
   resetThemeColour();
+  clearInterval(interval)
+  localStorage.setItem("timeZoneNumber", 24)
   location.reload();
 }
