@@ -37,8 +37,6 @@ const timeZones = [
 	"Asia/Tokyo",
 	"Pacific/Guam"
 ];
-// Stores what time zone is active
-var timeZoneNumber = 24;
 // Stores local timezone number
 var localTimeZoneNumber = 0;
 // Snooze Length value
@@ -106,6 +104,8 @@ var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
 var isAnalog = localStorage.getItem('isAnalog') || "false";
 // True = Switcher hidden, False = Switcher showing
 var isClockSwitcher = localStorage.getItem('isClockSwitcher') || "false";
+// Stores what time zone is active
+var timeZoneNumber = Number(localStorage.getItem('timeZoneNumber')) || 24;
 
 // Local Storage retrieval and setups
 
@@ -278,6 +278,7 @@ setInterval(function() {
   $("#timeZoneButton").html(tza);
 
   if (timeZoneNumber != 24 && timeZoneNumber != localTimeZoneNumber) {
+    localStorage.setItem("timeZoneNumber", timeZoneNumber)
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
