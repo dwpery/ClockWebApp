@@ -104,6 +104,8 @@ var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
 var isAnalog = localStorage.getItem('isAnalog') || "false";
 // True = Switcher hidden, False = Switcher showing
 var isClockSwitcher = localStorage.getItem('isClockSwitcher') || "false";
+// True = Switcher hidden, False = Switcher showing
+var isTimerSwitcher = localStorage.getItem('isTimerSwitcher') || "false";
 // Stores what time zone is active
 var timeZoneNumber = Number(localStorage.getItem('timeZoneNumber')) || 24;
 
@@ -162,6 +164,11 @@ if (isAnalog == "true") {
 if (isClockSwitcher == "true") {
   $("#hideClockSwitcher").prop("checked", true);
   $("#clockChanger").hide();
+}
+
+if (isTimerSwitcher == "true") {
+  $("#hideTimerSwitcher").prop("checked", true);
+  $("#timerChangerContainer").hide();
 }
 
 // Main Code
@@ -616,6 +623,19 @@ function hideClockSwitcher() {
     $("#clockChanger").show();
   }
   localStorage.setItem('isClockSwitcher', isClockSwitcher);
+}
+
+function hideTimerSwitcher() {
+  if (isTimerSwitcher == "false") {
+    isTimerSwitcher = "true";
+    $("#hideTimerSwitcher").prop("checked", true);
+    $("#timerChangerContainer").hide();
+  } else {
+    isTimerSwitcher = "false";
+    $("#hideTimerSwitcher").prop("checked", false);
+    $("#timerChangerContainer").show();
+  }
+  localStorage.setItem('isTimerSwitcher', isTimerSwitcher);
 }
 
 // Adds alarm to container
