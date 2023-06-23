@@ -6,6 +6,8 @@ var value = 1;
 var sValue = 1;
 // Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6                               7                              8                               9
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
+// List of alarm names
+var alarmNames = new Array("Default","Rock","Harp","Rooster","Trumpet","Cuckoo","Alien","Buzzer","Rapid","Retro") 
 // False = Normal, True = Focus
 var isFocus = false;
 // Timezones
@@ -694,6 +696,7 @@ function changeSnoozeLenght(x) {
 function changeAlarmSound(x) {
   // Gets chosen alarm ready to play
   activeAlarmSound = x;
+  $("#alarmSoundButton").html(alarmNames[x]);
   audio = new Audio(alarmSounds[activeAlarmSound]);
 
   localStorage.setItem("activeAlarmSound", activeAlarmSound)
