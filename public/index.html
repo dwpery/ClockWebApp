@@ -239,8 +239,6 @@
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
           <div class="settingsLabel" inert>Feature Request</div>
           <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
-          <div class="settingsLabel" inert>Security Issue</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">Report</div>
         </div>
         <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customisation</div>
         <div id="customization" class="settingsContainer">
@@ -288,6 +286,11 @@
           <div class="settingsLabel" inert>Double Digits</div>
           <label class="switch">
             <input id="doubleDigitsButton" type="checkbox" onclick="doubleDigitsChanger()">
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel">Hide Switcher</div>
+          <label class="switch">
+            <input id="hideTimerSwitcher" type="checkbox" onclick="hideTimerSwitcher()">
             <span class="slider"></span>
           </label>
         </div>
