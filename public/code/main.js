@@ -136,6 +136,7 @@ if (localStorage.getItem('settingsAnim') == "false") {
 
 if (localStorage.getItem('timerTrans') == "false") {
   $("#ttsTransButton").prop("checked", false);
+  $("#clockChanger").css("transition","0s");
   $("#timerChange").css("transition","0s");
 }
 
@@ -597,11 +598,13 @@ function timerTransitionAni() {
     timerTransition = "false";
     $("#ttsTransButton").prop("checked", false);
     $("#timerChange").css("transition","0s");
+    $("#clockChanger").css("transition","0s");
   } else {
     timerTransition = "true";
     $("#ttsTransButton").html("On");
     $("#ttsTransButton").prop("checked", true);
     $("#timerChange").css("transition","0.25s");
+    $("#clockChanger").css("transition","0.25s");
   }
   localStorage.setItem('timerTrans', timerTransition);
 }
