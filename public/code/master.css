@@ -593,6 +593,7 @@ hr {
 }
 
 .switcherOption {
+  display: block;
   font-size: 3.5vh;
   text-align: center;
   transition: 0.25s;

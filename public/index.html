@@ -255,9 +255,15 @@
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
         <div id="animation" class="settingsContainer">
           <div class="settingsLabel" inert>Settings Open / Close</div>
-          <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
+          <label class="switch">
+            <input id="setAnimButton" type="checkbox" onclick="settingsAnimControl()" checked>
+            <span class="slider"></span>
+          </label>
           <div class="settingsLabel" inert>Timer to Stopwatch</div>
-          <div class="settingsButton" id="ttsTransButton" onclick="timerTransitionAni()">On</div>
+          <label class="switch">
+            <input id="ttsTransButton" type="checkbox" onclick="timerTransition()" checked>
+            <span class="slider"></span>
+          </label>
         </div>
         <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
         <div id="clockSettings" class="settingsContainer">
@@ -320,7 +326,7 @@
         <div class="switcherTitle">Alarm Sounds</div>
         <div class="closeSwitcher" onclick="$('#alarm').toggle(500)">x</div>
         <div class="switcherContainer scroll">
-          <div class="switcherOption" onclick="changeAlarmSound(0)">Default</div>
+          <span class="switcherOption" onclick="changeAlarmSound(0)">Default</span>
           <div class="switcherOption" onclick="changeAlarmSound(1)">Rock</div>
           <div class="switcherOption" onclick="changeAlarmSound(2)">Harp</div>
           <div class="switcherOption" onclick="changeAlarmSound(3)">Rooster</div>

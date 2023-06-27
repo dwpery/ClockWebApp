@@ -119,6 +119,7 @@ if (localStorage.getItem('darkMode') == "true") {
 
 if (localStorage.getItem('clockMode') == "false") {
   $("#clockModeButton").prop("checked", true);
+  
 }
 
 if (localStorage.getItem('dateFormat') == "true") {
@@ -130,11 +131,11 @@ if (localStorage.getItem('doubleDigits') == "true") {
 }
 
 if (localStorage.getItem('settingsAnim') == "false") {
-  $("#setAnimButton").html("Off");
+  $("#setAnimButton").prop("checked", false);
 }
 
 if (localStorage.getItem('timerTrans') == "false") {
-  $("#ttsTransButton").html("Off");
+  $("#ttsTransButton").prop("checked", false);
   $("#timerChange").css("transition","0s");
 }
 
@@ -582,10 +583,10 @@ function doubleDigitsChanger() {
 function settingsAnimControl() {
   if (settingsAnimation == "true") {
     settingsAnimation = "false";
-    $("#setAnimButton").html("Off");
+    $("#setAnimButton").prop("checked", false);
   } else {
     settingsAnimation = "true";
-    $("#setAnimButton").html("On");
+    $("#setAnimButton").prop("checked", true);
   }
   localStorage.setItem('settingsAnim', settingsAnimation);
 }
@@ -594,11 +595,12 @@ function settingsAnimControl() {
 function timerTransitionAni() {
   if (timerTransition == "true") {
     timerTransition = "false";
-    $("#ttsTransButton").html("Off");
+    $("#ttsTransButton").prop("checked", false);
     $("#timerChange").css("transition","0s");
   } else {
     timerTransition = "true";
     $("#ttsTransButton").html("On");
+    $("#ttsTransButton").prop("checked", true);
     $("#timerChange").css("transition","0.25s");
   }
   localStorage.setItem('timerTrans', timerTransition);
