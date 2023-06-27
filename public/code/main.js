@@ -191,6 +191,11 @@ $(document).ready(function() {
       $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
     }
   }
+  if (snoozeAlarmNumber == 0) {
+    $("#alarmSnoozeButton").html("1 minute");
+  } else {
+    $("#alarmSnoozeButton").html(snoozeAlarmNumber + 1 + " minutes");
+  }
   setTimeout(function() {
     $('.loader').toggle(500);
     $('.loader').css('border-radius','5vh')
@@ -711,6 +716,11 @@ function snoozeAlarm() {
 
 function changeSnoozeLenght(x) {
   $('#snoozeLength').toggle(500);
+  if (x == 0) {
+    $("#alarmSnoozeButton").html("1 minute");
+  } else {
+    $("#alarmSnoozeButton").html(x + 1 + " minutes");
+  }
   snoozeAlarmNumber = x;
   localStorage.setItem('snoozeAlarmNumber', snoozeAlarmNumber)
 }
