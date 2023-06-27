@@ -288,7 +288,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover, #clockChanger:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover, #clockChanger:hover, .deleteData:hover, .cancelData:hover {
   cursor: pointer;
 }
 
@@ -649,6 +649,32 @@ li svg {
   transition: 0.25s;
 }
 
+#resetConfirm {
+  width: 50vh;
+  height: 15vh;
+  z-index: 20;
+}
+
+.deleteData {
+  position: absolute;
+  bottom: 2vh;
+  left: 4.5vh;
+  font-size: 3.5vh;
+  color: #F00;
+}
+
+.dark .cancelData {
+  color: rgb(79, 184, 255);
+}
+
+.cancelData {
+  position: absolute;
+  bottom: 2vh;
+  right: 4.5vh;
+  font-size: 3.5vh;
+  color: #00F;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -849,6 +875,10 @@ li svg {
   #sideSVG {
     height: 6.375vh;
     width: 6.375vh;
+  }
+
+  #resetConfirm {
+    width: 90%;
   }
   
   .item:hover #sideSVG {
