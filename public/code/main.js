@@ -128,6 +128,9 @@ if (localStorage.getItem('dateFormat') == "true") {
 
 if (localStorage.getItem('doubleDigits') == "true") {
   $("#doubleDigitsButton").prop("checked", true);
+  $("#span4").html("00");
+  $("#span5").html("00");
+  $("#span6").html("00");
 }
 
 if (localStorage.getItem('settingsAnim') == "false") {
@@ -448,9 +451,15 @@ function startTimer() {
   $(".timerDisplay").addClass("responsiveDisplay");
 
   // Prints values
-  $("#span1").html(timerHours);
-  $("#span2").html(timerMinutes);
-  $("#span3").html(timerSeconds);
+  if (doubleDigits == "true") {
+    $("#span1").html((timerHours < 10 ? "0" : "" ) + timerHours);
+    $("#span2").html((timerMinutes < 10 ? "0" : "" ) +timerMinutes);
+    $("#span3").html((timerSeconds < 10 ? "0" : "" ) +timerSeconds);
+  } else {
+    $("#span1").html(timerHours);
+    $("#span2").html(timerMinutes);
+    $("#span3").html(timerSeconds);
+  }
 
   intervalId = setInterval(countdown, 1000)
 }
@@ -572,9 +581,16 @@ function dateFormatChanger() {
 function doubleDigitsChanger() {
   if (doubleDigits == "false") {
     doubleDigits = "true";
+    $("#span4").html("00");
+    $("#span5").html("00");
+    $("#span6").html("00");
     $("#doubleDigitsButton").prop("checked", true);
+
   } else {
     doubleDigits = "false";
+    $("#span4").html("0");
+    $("#span5").html("0");
+    $("#span6").html("0");
     $("#doubleDigitsButton").prop("checked", false);
   }
   localStorage.setItem('doubleDigits', doubleDigits);
@@ -871,6 +887,17 @@ function startStopwatch() {
   $("#span4").html(stopwatchH);
   $("#span5").html(stopwatchM);
   $("#span6").html(stopwatchS);
+
+  // Prints values
+  if (doubleDigits == "true") {
+    $("#span4").html((stopwatchH < 10 ? "0" : "" ) + stopwatchH);
+    $("#span5").html((stopwatchM < 10 ? "0" : "" ) + stopwatchM);
+    $("#span6").html((stopwatchS < 10 ? "0" : "" ) + stopwatchS);
+  } else {
+    $("#span1").html(stopwatchH);
+    $("#span2").html(stopwatchM);
+    $("#span3").html(stopwatchS);
+  }
 
   // Changes Icon
   $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
