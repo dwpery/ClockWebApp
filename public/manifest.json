@@ -1,9 +1,9 @@
 {
-  "name": "ClockWebApp",
+  "name": "Clock Web App",
   "short_name": "Clock",
   "theme_color": "#D3D3D3",
   "background_color": "#292b2d",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "orientation": "portrait",
