@@ -201,11 +201,12 @@ $(document).ready(function() {
   } else {
     $("#alarmSnoozeButton").html(snoozeAlarmNumber + 1 + " minutes");
   }
-  setTimeout(function() {
-    $('.loader').toggle(500);
-    $('.loader').css('border-radius','5vh')
-  }, 1000)
 })
+
+$(window).on('load', function() {
+  $('.loader').toggle(500);
+  $('.loader').css('border-radius','5vh');
+});
 
 // Makes alarm loop when finished
 audio.addEventListener('ended', function() {
