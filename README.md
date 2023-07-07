@@ -1,40 +1,36 @@
-<p align="center"><img width="150" src="public/media/icons/ReadMeIcon.svg"></p>
+<p align="center"><img width="125" src="public/media/icons/ReadMeIcon.svg"></p>
 <h1 align="center"><b>Clock Web App</b></h1>
 <p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_"><img src="public/media/icons/APKicon.svg"></a><img src="public/media/icons/VersionIcon.svg"></p>
-<p>Clock Web App is an Open Source Progressive Web App designed to be simple and easy to use but feature rich offering every feature and more you'd expect from a Clock App.</p>
+<p><b>Clock Web App</b> is an <b>Open Source Progressive Web App</b> designed to be <b>simple and easy to use but feature rich</b> offering every feature and more you'd expect from a Clock App.</p>
 <h2>Contents</h2>
 <ol>
-<li><a href="#1">What is Clock Web App?</a></li>
-<li><a href="#2">How do I install Clock Web App?</a></li>
+<li><a href="#1">How do I install Clock Web App?</a></li>
 <li><a href="#3">How often are updates released?</a></li>
-<li><a href="#4">How can I contribute / report a bug?</a></li>
-<li><a href="#5">How can I contribute code to the main project?</a></li>
 </ol>
-<h2 id="2">How do I install Clock Web App?</h2>
+<h2 id="1">How do I install Clock Web App?</h2>
 <h3>Desktop</h3>
 <p>Follow the instructions bellow to download the Clock PWA:</p>
 <ol>
 <li>Go to <a href="https://os-clock.web.app/">https://os-clock.web.app/</a></li>
-<li>Click the install button in the search bar</li>
-<li>It will open automatically</li>
+<li>Click the three dots button</li>
+<li>Click the Install App button</li>
 </ol>
 <h3>Android</h3>
-<p>Follow the instructions bellow to download the Clock android app:</p>
+<p>Follow the instructions bellow to download ClockPWA on Android:</p>
 <h4>Method 1</h4>
 <ol>
 <li>Go to <a href="https://os-clock.web.app/">https://os-clock.web.app/</a></li>
-<li>Press the three dots icon</li>
-<li>Press Install App</li>
+<li>Press the three dots button</li>
+<li>Press the Install App button</li>
 </ol>
 <h4>Method 2</h4>
 <ol>
-<li>Follow the <a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_">download</a> link</li>
-<li>You may need to sign in with your Google account</li>
-<li>Follow your systems prompts until the app is installed</li>
+<li>Click the <a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_">download</a> link</li>
+<p>(You may need to sign in with your Google account)</p>
+<li>Follow your systems prompts until the App is installed</li>
 </ol>
-<h2 id="3">How often are updates released?</h2>
-<p>As I am working toward the end of Clock Web App updates will come out when the work on features is done. This will be roughly every 2 months but in reality I am only working on this when I have time so they will release when ready.</p>
-<h2 id="4">How can I request a feature / report a bug?</h2>
-<p>Open an issue on the GitHub page with either a bug or a feature you'd like to implement. If it's a bug a fix will be implemented in a future update and if it's a feature it may take longer to implement.</p>
-<h2 id="5">How can I contribute code to the main project?</h2>
-<p>Once you have chosen an issue to fix or a feature to implement, fork the project and then work in the repository. Once complete submit the code in a pull request and wait for the feature to be merged or wait for feedback on how to improve your code. Make sure your code is commented and well formatted.</p>
+<h2 id="2">Why use Clock Web App?</h2>
+<p>Clock Web App can be used as an alternative to Clock apps developed by Big Tech companies. It is also perfect for use on slower systems as it is built in the Web and can also run on web based Operating Systems like ChromeOS.</p><br>
+<p>Clock Web App also offers a wide host of customisation options that other apps simply don't have. You can hide UI elements you dont want, change the theme and accent colours and disable animations you dont want to see all the time. These features greatly improve the user experience as you can make the app your own.</p>
+<h2 id="3">Will there be future updates?</h2>
+<p>As of v3.2.0 Clock Web App has been sunsetted and will not recieve regular content updates anymore. However, this does not mean that the app will not occasionally recieve small maintenance updates to keep it up to date with modern Web standards.</p>
