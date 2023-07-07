@@ -1,5 +1,6 @@
-<h1 align="center">Clock Web App</h1>
-<h5 align="center">An Open Source Clock Web Application</h5>
+<p align="center"><img width="150" src="public/media/icons/ReadMeIcon.svg"></p>
+<h1 align="center"><b>Clock Web App</b></h1>
+<p>Clock Web App is an Open Source Progressive Web App designed to be simple and easy to use but feature rich offering every feature and more you'd expect from a Clock App.</p>
 <h2>Contents</h2>
 <ol>
 <li><a href="#1">What is Clock Web App?</a></li>
@@ -8,8 +9,6 @@
 <li><a href="#4">How can I contribute / report a bug?</a></li>
 <li><a href="#5">How can I contribute code to the main project?</a></li>
 </ol>
-<h2 id="1">What is Clock Web App?</h2>
-<p>Clock Web App is an Open Source project that brings a feature rich Clock app to any system for completely free. It is developed for Web Based Operating Systems and is powerful software that is easy to use and easy to develop as it has a clean code base.</p>
 <h2 id="2">How do I install Clock Web App?</h2>
 <h3>Desktop</h3>
 <p>Follow the instructions bellow to download the Clock PWA:</p>
