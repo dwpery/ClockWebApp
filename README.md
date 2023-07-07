@@ -1,10 +1,11 @@
 <p align="center"><img width="125" src="public/media/icons/ReadMeIcon.svg"></p>
 <h1 align="center"><b>Clock Web App</b></h1>
-<p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_"><img src="public/media/icons/APKicon.svg"></a><img src="public/media/icons/VersionIcon.svg"></p>
+<p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_"><img src="public/media/icons/APKicon.svg"></a><a href="https://github.com/dwpery/ClockWebApp/releases"><img src="public/media/icons/VersionIcon.svg"></a></p>
 <p><b>Clock Web App</b> is an <b>Open Source Progressive Web App</b> designed to be <b>simple and easy to use but feature rich</b> offering every feature and more you'd expect from a Clock App.</p>
 <h2>Contents</h2>
 <ol>
 <li><a href="#1">How do I install Clock Web App?</a></li>
+<li><a href="#2">Why use Clock Web App?</a></li>
 <li><a href="#3">How often are updates released?</a></li>
 </ol>
 <h2 id="1">How do I install Clock Web App?</h2>
