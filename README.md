@@ -1,7 +1,7 @@
 <p align="center"><img width="125" src="public/media/icons/ReadMeIcon.svg"></p>
 <h1 align="center"><b>Clock Web App</b></h1>
 <p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_"><img src="public/media/icons/APKicon.svg"></a><a href="https://github.com/dwpery/ClockWebApp/releases"><img src="public/media/icons/VersionIcon.svg"></a></p>
-<p><b>Clock Web App</b> is an <b>Open Source Progressive Web App</b> designed to be <b>simple and easy to use but feature rich</b> offering every feature and more you'd expect from a Clock App.</p>
+<p><b>Clock Web App</b> is an <b>Open Source Progressive Web App</b> designed to be <b>simple</b> and <b>easy</b> to use but <b>feature rich</b> offering <b>every feature and more</b> you'd expect from a Clock App.</p>
 <h2>Contents</h2>
 <ol>
 <li><a href="#1">How do I install Clock Web App?</a></li>
@@ -36,3 +36,5 @@
 <p>Clock Web App also offers a wide host of customisation options that other apps simply don't have. You can hide UI elements you dont want, change the theme and accent colours and disable animations you dont want to see all the time. These features greatly improve the user experience as you can make the app your own.</p>
 <h2 id="3">Will there be future updates?</h2>
 <p>As of v3.2.0 Clock Web App has been sunsetted and will not recieve regular content updates anymore. However, this does not mean that the app will not occasionally recieve small maintenance updates to keep it up to date with modern Web standards.</p>
+<h2 id="4">Can I use the code?</h2>
+<p>This project is MIT licensed so you can install and use the source code however you wish wether that is too build off of the app and make a different version or if you're going to take a small section of the code and implement it into your own project.</p>

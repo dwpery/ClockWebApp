@@ -82,7 +82,8 @@ header {
   font-size: 12.5vh;
   width: 15vh;
   border: none;
-  outline: none
+  outline: none;
+  text-align: center;
 }
 
 #hours:hover, #minutes:hover, #seconds:hover {

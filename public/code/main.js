@@ -131,6 +131,9 @@ if (localStorage.getItem('doubleDigits') == "true") {
   $("#span4").html("00");
   $("#span5").html("00");
   $("#span6").html("00");
+  $("#hours").attr("placeholder", "00");
+  $("#minutes").attr("placeholder", "00");
+  $("#seconds").attr("placeholder", "00");
 }
 
 if (localStorage.getItem('settingsAnim') == "false") {
@@ -586,13 +589,18 @@ function doubleDigitsChanger() {
     $("#span4").html("00");
     $("#span5").html("00");
     $("#span6").html("00");
+    $("#hours").attr("placeholder", "00");
+    $("#minutes").attr("placeholder", "00");
+    $("#seconds").attr("placeholder", "00");
     $("#doubleDigitsButton").prop("checked", true);
-
   } else {
     doubleDigits = "false";
     $("#span4").html("0");
     $("#span5").html("0");
     $("#span6").html("0");
+    $("#hours").attr("placeholder", "0");
+    $("#minutes").attr("placeholder", "0");
+    $("#seconds").attr("placeholder", "0");
     $("#doubleDigitsButton").prop("checked", false);
   }
   localStorage.setItem('doubleDigits', doubleDigits);
