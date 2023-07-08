@@ -977,6 +977,7 @@ function resetStopwatch() {
 
 // Resets theme colour
 function resetThemeColour() {
+  $('#resetColourConfirm').toggle(500);
   $('#colourButton').remove();
   themeColour = "#FF0000";
   $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')

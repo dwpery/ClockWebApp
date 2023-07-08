@@ -651,7 +651,7 @@ li svg {
   transition: 0.25s;
 }
 
-#resetConfirm {
+.resetConfirm {
   width: 50vh;
   height: 15vh;
   z-index: 20;
@@ -879,7 +879,7 @@ li svg {
     width: 6.375vh;
   }
 
-  #resetConfirm {
+  .resetConfirm {
     width: 90%;
   }
   

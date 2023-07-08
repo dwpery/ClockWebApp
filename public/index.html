@@ -231,7 +231,7 @@
           <div class="settingsLabel" inert>Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
           <div class="settingsLabel" inert>Clear App Data</div>
-          <div class="settingsButton" onclick="$('#resetConfirm').toggle(500)">Clear</div>
+          <div class="settingsButton" onclick="$('#resetAppConfirm').toggle(500)">Clear</div>
         </div>
         <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
         <div id="contact" class="settingsContainer">
@@ -248,7 +248,7 @@
             <div class="settingsLabel" inert>Theme Colour</div>
           </div>
           <div class="settingsLabel" inert>Reset Colour</div>
-          <div class="settingsButton" onclick="resetThemeColour()">Reset</div>
+          <div class="settingsButton" onclick="$('#resetColourConfirm').toggle(500)">Reset</div>
           <div class="settingsLabel" inert>Font</div>
           <div class="settingsButton" onclick="$('#font').toggle(500)" id="fontButton">Default</div>
         </div>
@@ -414,10 +414,15 @@
         <path fill-rule="evenodd" clip-rule="evenodd" d="M83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50ZM47.7241 25.5345C47.7241 23.9633 48.9978 22.6897 50.569 22.6897C52.1401 22.6897 53.4138 23.9633 53.4138 25.5345V49.431C53.4138 50.0573 53.2114 50.6362 52.8686 51.1062C52.7525 51.7397 52.4219 52.3375 51.8875 52.7811L38.7541 63.6835C37.5452 64.687 35.7516 64.5205 34.7481 63.3116C33.7446 62.1027 33.9111 60.3092 35.12 59.3056L47.7241 48.8426V25.5345Z" fill="white"/>
       </svg>
     </div>
-    <div class="switcher" id="resetConfirm">
+    <div class="switcher resetConfirm" id="resetAppConfirm">
       <div class="switcherTitle" inert>Are you sure?</div>
-      <div class="deleteData" onclick="resetApp()">Delete</div>
-      <div class="cancelData" onclick="$('#resetConfirm').toggle(500)">Cancel</div>
+      <div class="deleteData" onclick="resetApp()">Reset</div>
+      <div class="cancelData" onclick="$('#resetAppConfirm').toggle(500)">Cancel</div>
+    </div>
+    <div class="switcher resetConfirm" id="resetColourConfirm">
+      <div class="switcherTitle" inert>Are you sure?</div>
+      <div class="deleteData" onclick="resetThemeColour()">Reset</div>
+      <div class="cancelData" onclick="$('#resetColourConfirm').toggle(500)">Cancel</div>
     </div>
   </body>
 </html>
