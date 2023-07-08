@@ -7,6 +7,12 @@
   "scope": "/",
   "start_url": "/",
   "orientation": "portrait",
+  "description": "An Open Source Clock app that allows you to use a timer, stopwatch, alarms and customise the app to be your own!",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": [
+    "utilities"
+  ],
   "icons": [
     {
       "src": "media/icons/pwaIcon-192.png",
