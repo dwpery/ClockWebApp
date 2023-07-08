@@ -10,21 +10,22 @@
 </ol>
 <h2 id="1">How do I install Clock Web App?</h2>
 <h3>Desktop</h3>
-<p>Follow the instructions bellow to download the Clock PWA:</p>
+<p>Follow the instructions bellow to download the ClockPWA:</p>
 <ol>
 <li>Go to <a href="https://os-clock.web.app/">https://os-clock.web.app/</a></li>
 <li>Click the three dots button</li>
 <li>Click the Install App button</li>
 </ol>
 <h3>Android</h3>
-<p>Follow the instructions bellow to download ClockPWA on Android:</p>
 <h4>Method 1</h4>
+<p>Follow the instructions bellow to download the ClockPWA:</p>
 <ol>
 <li>Go to <a href="https://os-clock.web.app/">https://os-clock.web.app/</a></li>
 <li>Press the three dots button</li>
 <li>Press the Install App button</li>
 </ol>
 <h4>Method 2</h4>
+<p>Follow the instructions bellow to download the Clock.apk file:</p>
 <ol>
 <li>Click the <a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_">download</a> link</li>
 <p>(You may need to sign in with your Google account)</p>

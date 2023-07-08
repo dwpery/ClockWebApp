@@ -99,7 +99,7 @@ header {
   width: 65vh;
   background-color: black;
   border-radius: 5vh;
-  transition: 0.75s;
+  transition: 0s;
   color: var(--themeColour);
 }
 

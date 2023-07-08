@@ -206,6 +206,7 @@ $(document).ready(function() {
 $(window).on('load', function() {
   $('.loader').toggle(500);
   $('.loader').css('border-radius','5vh');
+  $('.digital').css('transition', '0.75s');
 });
 
 // Makes alarm loop when finished
