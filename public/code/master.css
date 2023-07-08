@@ -798,7 +798,7 @@ li svg {
   }
 
   .switch {
-    margin-top: -4.75vh;
+    margin-top: -4vh;
   }
   
   .item:hover #headerSVGleft, .item:hover #headerSVGright {
