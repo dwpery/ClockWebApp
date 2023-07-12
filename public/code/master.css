@@ -69,7 +69,11 @@ header {
   transform: translate(-50%, -70%);
 }
 
-#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3, #span4, #span5, #span6 {
+.gridDiv {
+  padding: 2vh;
+}
+
+#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3, .stopwatchNumber {
   display: inline;
 }
 
@@ -77,13 +81,17 @@ header {
   display: none;
 }
 
-#hours, #minutes, #seconds, #span1, #span2, #span3, #span4, #span5, #span6 {
+#hours, #minutes, #seconds, #span1, #span2, #span3, .stopwatchNumber {
   color: var(--themeColour);
   font-size: 12.5vh;
   width: 15vh;
   border: none;
   outline: none;
   text-align: center;
+}
+
+#span7, #milliLabel {
+  font-size: 9.375vh;
 }
 
 #hours:hover, #minutes:hover, #seconds:hover {
@@ -793,6 +801,10 @@ li svg {
 /* Tablet UI */
 
 @media screen and (max-width: 1250px) {
+  .gridDiv {
+    padding: 0;
+  }
+
   #headerSVGleft, #headerSVGright {
     height: 6.375vh;
     width: 6.375vh;
@@ -1274,7 +1286,7 @@ li svg {
 .dark .clear { background-color: #292b2d; }
 
 /* Washed out red colours */
-.dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
+.dark #span1, .dark #span2, .dark #span3, .dark .stopwatchNumber, .dark #hours, .dark #minutes, .dark #seconds  {
   color: var(--themeColour);
 }
 
