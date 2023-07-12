@@ -470,6 +470,15 @@ hr {
 }
 
 .removeFinalAlarm {
+  position: absolute;
+  top: 1vh;
+  left: 3vh;
+  height: 7.5vh;
+  width: 7.5vh;
+  fill: #F00;
+}
+
+.removeFinalAlarm {
   right: 5vh;
 }
 
@@ -485,9 +494,9 @@ hr {
 .printAlarmName {
   position: relative;
   top: 0.5vh;
-  margin-left: 5vh;
+  margin-left: 10vh;
   overflow: scroll;
-  width: 85%;
+  width: 80%;
   font-size: 5vh;
   white-space: nowrap;
 }
@@ -1191,7 +1200,7 @@ li svg {
   }
 
   .printAlarmName {
-    width: 80%;
+    width: 65%;
   }
 
   #colourButton {
@@ -1281,7 +1290,7 @@ li svg {
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
 .dark .settingsButton:hover { border-color: #36454F; }
-.dark #remove, .dark .removeFinalAlarm { color: #F00; }
+.dark #remove, .dark .removeFinalAlarm { fill: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
 .dark .clear { background-color: #292b2d; }
 
