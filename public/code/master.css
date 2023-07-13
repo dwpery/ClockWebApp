@@ -397,6 +397,11 @@ hr {
   height: 34px;
 }
 
+.switch2 {
+  margin-top: -3.5vh;
+  right: 10.5vh;
+}
+
 .switch input {
   display: none;
 }
@@ -817,6 +822,11 @@ li svg {
 
   .switch {
     margin-top: -4vh;
+  }
+
+  .switch2 {
+    margin-top: -3vh;
+    right: 10.5vh;
   }
   
   .item:hover #headerSVGleft, .item:hover #headerSVGright {
