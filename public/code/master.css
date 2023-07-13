@@ -471,15 +471,11 @@ hr {
 
 .removeFinalAlarm {
   position: absolute;
-  top: 1vh;
-  left: 3vh;
-  height: 7.5vh;
-  width: 7.5vh;
+  top: 7.5vh;
+  right: 4.5vh;
+  height: 6vh;
+  width: 6vh;
   fill: #F00;
-}
-
-.removeFinalAlarm {
-  right: 5vh;
 }
 
 #submit {
@@ -494,9 +490,9 @@ hr {
 .printAlarmName {
   position: relative;
   top: 0.5vh;
-  margin-left: 10vh;
+  margin-left: 5vh;
   overflow: scroll;
-  width: 80%;
+  width: 85%;
   font-size: 5vh;
   white-space: nowrap;
 }
@@ -1200,7 +1196,7 @@ li svg {
   }
 
   .printAlarmName {
-    width: 65%;
+    width: 80%;
   }
 
   #colourButton {
