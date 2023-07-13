@@ -813,6 +813,7 @@ li svg {
 @media screen and (max-width: 1250px) {
   .gridDiv {
     padding: 0;
+    display: block;
   }
 
   #headerSVGleft, #headerSVGright {
@@ -885,10 +886,6 @@ li svg {
     bottom: 12.5vh;
   }
 
-  .gridDiv {
-    display: block;
-  }
-
   .responsiveDisplay {
     display: block;
   }
@@ -913,18 +910,6 @@ li svg {
   .item:hover #sideSVG {
     height: 7.375vh;
     width: 7.375vh;
-  }
-  
-  .clockMove {
-    bottom: 20vh;
-  }
-
-  .clockControls {
-    width: 70%;
-  }
-
-  .clear {
-    transform: translate(-50%, -50%);
   }
 
   header {
@@ -967,16 +952,8 @@ li svg {
     border-radius: 0 150vh 0 0;
   }
 
-  label {
-    display: none;
-  }
-
   .alarms-container {
     top: 0;
-  }
-
-  .alarm, .printedAlarm {
-    width: 85%;
   }
 
   #addAlarm {
@@ -987,32 +964,14 @@ li svg {
     width: 90%;
   }
 
-  .alarms-container {
-    width: 100%;
-  }
-
   .digital {
     width: 90%;
   }
 
-  .timerInput, .timerDisplay, .stopwatchDisplay {
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
   #hours, #minutes, #seconds {
-    font-size: 12.5vh;
-    width: 13.5vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-
-  .timerDisplay {
-    display: none;
-    font-size: 6vh;
   }
 
   .settingsHeading {
@@ -1039,12 +998,6 @@ li svg {
     font-size: 1.5vh;
   }
 
-  .timerControls {
-    transform: translate(-50%);
-    width: 45vh;
-    bottom: 12.5vh;
-  }
-
   .buffer {
     height: 20vh;
   }
@@ -1059,10 +1012,6 @@ li svg {
 
   .date {
     transform: translate(-50%, -165%);
-  }
-
-  .gridDiv {
-    display: block;
   }
 
   /*Fonts*/
@@ -1215,10 +1164,6 @@ li svg {
 
   .activeAlarmName, .activeTimerName {
     font-size: 7vh;
-  }
-
-  .responsiveDisplay {
-    display: block;
   }
 }
 
