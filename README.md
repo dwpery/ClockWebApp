@@ -6,7 +6,8 @@
 <ol>
 <li><a href="#1">How do I install Clock Web App?</a></li>
 <li><a href="#2">Why use Clock Web App?</a></li>
-<li><a href="#3">How often are updates released?</a></li>
+<li><a href="#3">Will there be future updates?</a></li>
+<li><a href="#4">Can I use the code?</a></li>
 </ol>
 <h2 id="1">How do I install Clock Web App?</h2>
 <h3>Desktop</h3>
