@@ -1,8 +1,17 @@
 {
   "name": "Clock Web App",
   "short_name": "Clock",
-  "theme_color": "#D3D3D3",
-  "background_color": "#292b2d",
+  "version": "3.2.0",
+  "theme": {
+    "dark": {
+      "theme_color": "#D3D3D3",
+      "background_color": "#292b2d"
+    },
+    "light": {
+      "theme_color": "#B3B3B3",
+      "background_color": "#FFFFFF"
+    }
+  },
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
