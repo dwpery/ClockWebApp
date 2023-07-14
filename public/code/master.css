@@ -1341,8 +1341,16 @@ li svg {
   background-color: rgb(76, 82, 85);
 }
 
+.dark .circleOnSVG, .dark .coverSVG {
+  fill: rgb(76, 82, 85);
+}
+
+.dark .barOnSVG {
+  fill: #172128;
+}
+
 /* Hover effect for header, and backgroud of svg */
-.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
+.dark .item:hover, .dark .circleOnSVG:hover, .dark .coverSVG:hover, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
   background-color: #697074; fill: #697074;
 }
 
