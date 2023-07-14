@@ -211,6 +211,17 @@ function mainFunction() {
     // Prints time
     $(".display").html(hours + ":" + minutes + ":" + seconds);
 
+    var now = new Date();
+		var hour = now.getHours() % 12;
+		var minute = now.getMinutes();
+		var second = now.getSeconds();
+		var hourRotation = (hour * 30) + (minute * 0.5);
+		var minuteRotation = (minute * 6) + (second * 0.1);
+		var secondRotation = second * 6;
+    document.querySelector('.hour-hand').style.transform = 'rotate(' + hourRotation + 'deg)';
+		document.querySelector('.minute-hand').style.transform = 'rotate(' + minuteRotation + 'deg)';
+		document.querySelector('.second-hand').style.transform = 'rotate(' + secondRotation + 'deg)';
+
     // Prints out date
     $(".date").html(today);
   }

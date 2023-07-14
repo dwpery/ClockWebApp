@@ -1275,3 +1275,99 @@ li svg {
 .robotFont {
   font-family: 'Roboto Mono', monospace;
 }
+
+.analog {
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) scale(0.75);
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  border: 10px solid #000;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #777;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.hand {
+  background-color: #333;
+  position: absolute;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.hour-hand {
+  width: 10px;
+  height: 100px;
+  left: calc(50% - 5px);
+  top: calc(50% - 100px);
+  border-radius: 8px 8px 0 0;
+}
+
+.minute-hand {
+  width: 8px;
+  height: 140px;
+  left: calc(50% - 4px);
+  top: calc(50% - 140px);
+  border-radius: 8px 8px 0 0;
+}
+
+.second-hand {
+  width: 4px;
+  height: 145px;
+  left: calc(50% - 2px);
+  top: calc(50% - 150px);
+  background-color: var(--themeColour);
+}
+
+.center-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 7px);
+  top: calc(50% - 7px);
+  z-index: 3;
+}
+
+.number {
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1;
+  color: #000;
+}
+
+.number-12 {
+  top: 8%;
+  left: calc(50% - 12px);
+}
+
+.number-3 {
+  top: calc(50% - 16px);
+  right: 8%;
+}
+
+.number-6 {
+  bottom: 8%;
+  left: calc(50% - 8px);
+}
+
+.number-9 {
+  top: calc(50% - 16px);
+  left: 8%;
+}
