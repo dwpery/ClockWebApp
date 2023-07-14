@@ -43,6 +43,18 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "media/icons/foreground.png",
+      "sizes": "399x399",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "media/icons/background.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
