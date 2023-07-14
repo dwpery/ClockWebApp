@@ -1,5 +1,5 @@
 // Hols alarms in array
-const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
+var alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
 // Holds amout of Alarms
 var numOfAlarms = localStorage.getItem('numOfAlarms') || null;
 
@@ -79,4 +79,15 @@ function snoozeAlarm() {
         $("#alarmActive").css("display","block");
         audio.play();
     }, snoozelengthValue[snoozeAlarmNumber])
+}
+
+function resetAlarmsContainer() {
+    numOfAlarms = null;
+    alarms = [];
+    $('#resetAlarmsConfirm').toggle(500);
+
+    $(".alarms-container").html("");
+
+    localStorage.setItem('numOfAlarms', numOfAlarms);
+    localStorage.setItem('alarms', JSON.stringify(alarms));
 }

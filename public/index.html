@@ -310,6 +310,8 @@
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
         <div id="alarmSettings" class="settingsContainer">
+          <div class="settingsLabel" inert>Clear Alarms</div>
+          <div class="settingsButton" onclick="$('#resetAlarmsConfirm').toggle(500)">Clear</div>
           <div class="settingsLabel" inert>Alarm Sound</div>
           <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Default</div>
           <div class="settingsLabel" inert>Snooze for</div>
@@ -424,13 +426,18 @@
     </div>
     <div class="switcher resetConfirm" id="resetAppConfirm">
       <div class="switcherTitle" inert>Are you sure?</div>
-      <div class="deleteData" onclick="resetApp()">Reset</div>
+      <div class="deleteData" onclick="resetApp()">Clear</div>
       <div class="cancelData" onclick="$('#resetAppConfirm').toggle(500)">Cancel</div>
     </div>
     <div class="switcher resetConfirm" id="resetColourConfirm">
       <div class="switcherTitle" inert>Are you sure?</div>
       <div class="deleteData" onclick="resetThemeColour()">Reset</div>
       <div class="cancelData" onclick="$('#resetColourConfirm').toggle(500)">Cancel</div>
+    </div>
+    <div class="switcher resetConfirm" id="resetAlarmsConfirm">
+      <div class="switcherTitle" inert>Are you sure?</div>
+      <div class="deleteData" onclick="resetAlarmsContainer()">Clear</div>
+      <div class="cancelData" onclick="$('#resetAlarmsConfirm').toggle(500)">Cancel</div>
     </div>
   </body>
 </html>
