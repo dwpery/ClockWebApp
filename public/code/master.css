@@ -139,6 +139,106 @@ header {
   transition: 0.75s;
 }
 
+.analog {
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  border: 10px solid #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-60%) scale(0.75);
+  transition: 0.75s;
+  margin: 20px auto;
+}
+
+.border-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #777;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.hand {
+  background-color: #333;
+  position: absolute;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.hour-hand {
+  width: 10px;
+  height: 100px;
+  left: calc(50% - 5px);
+  top: calc(50% - 100px);
+  border-radius: 8px 8px 0 0;
+  transition-timing-function: steps(1);
+}
+
+.minute-hand {
+  width: 8px;
+  height: 140px;
+  left: calc(50% - 4px);
+  top: calc(50% - 140px);
+  border-radius: 8px 8px 0 0;
+  transition-timing-function: steps(1);
+}
+
+.second-hand {
+  width: 4px;
+  height: 150px;
+  left: calc(50% - 2px);
+  top: calc(50% - 150px);
+  background-color: var(--themeColour);
+  transition-timing-function: steps(1);
+}
+
+.center-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 7px);
+  top: calc(50% - 7px);
+  z-index: 3;
+}
+
+.number {
+  position: absolute;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.number-12 {
+  top: 8%;
+  left: calc(50% - 12px);
+}
+
+.number-3 {
+  top: calc(50% - 16px);
+  right: 8%;
+}
+
+.number-6 {
+  bottom: 8%;
+  left: calc(50% - 8px);
+}
+
+.number-9 {
+  top: calc(50% - 16px);
+  left: 8%;
+}
 #settings {
   position: fixed;
   top: 0;
@@ -649,9 +749,13 @@ li svg {
 
 }
 
-.clear {
+.clear, .clear2 {
   background-color: #FFF;
   transform: translate(-50%, -50%) scale(2);
+}
+
+.clear2 {
+  transform: translate(-50%, -60%) scale(1.25);
 }
 
 .loader {
@@ -888,6 +992,10 @@ li svg {
 
   .responsiveDisplay {
     display: block;
+  }
+
+  .clear2 {
+    transform: translate(-50%, -60%) scale(0.75);
   }
 
   .clear {
@@ -1243,7 +1351,7 @@ li svg {
 .dark .settingsButton:hover { border-color: #36454F; }
 .dark #remove, .dark .removeFinalAlarm { fill: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
-.dark .clear { background-color: #292b2d; }
+.dark .clear, .darl .clear2 { background-color: #292b2d; }
 
 /* Washed out red colours */
 .dark #span1, .dark #span2, .dark #span3, .dark .stopwatchNumber, .dark #hours, .dark #minutes, .dark #seconds  {
@@ -1274,100 +1382,4 @@ li svg {
 
 .robotFont {
   font-family: 'Roboto Mono', monospace;
-}
-
-.analog {
-  position: fixed;
-  display: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%) scale(0.75);
-  width: 300px;
-  height: 300px;
-  background-color: #f5f5f5;
-  border-radius: 50%;
-  border: 10px solid #000;
-  justify-content: center;
-  align-items: center;
-}
-
-.border-ring {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 5px solid #777;
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-}
-
-.hand {
-  background-color: #333;
-  position: absolute;
-  transform-origin: bottom center;
-  z-index: 2;
-}
-
-.hour-hand {
-  width: 10px;
-  height: 100px;
-  left: calc(50% - 5px);
-  top: calc(50% - 100px);
-  border-radius: 8px 8px 0 0;
-}
-
-.minute-hand {
-  width: 8px;
-  height: 140px;
-  left: calc(50% - 4px);
-  top: calc(50% - 140px);
-  border-radius: 8px 8px 0 0;
-}
-
-.second-hand {
-  width: 4px;
-  height: 145px;
-  left: calc(50% - 2px);
-  top: calc(50% - 150px);
-  background-color: var(--themeColour);
-}
-
-.center-dot {
-  width: 14px;
-  height: 14px;
-  background-color: #333;
-  border-radius: 50%;
-  position: absolute;
-  left: calc(50% - 7px);
-  top: calc(50% - 7px);
-  z-index: 3;
-}
-
-.number {
-  position: absolute;
-  font-size: 30px;
-  font-weight: bold;
-  z-index: 1;
-  color: #000;
-}
-
-.number-12 {
-  top: 8%;
-  left: calc(50% - 12px);
-}
-
-.number-3 {
-  top: calc(50% - 16px);
-  right: 8%;
-}
-
-.number-6 {
-  bottom: 8%;
-  left: calc(50% - 8px);
-}
-
-.number-9 {
-  top: calc(50% - 16px);
-  left: 8%;
 }
