@@ -944,7 +944,7 @@ li svg {
   }
 
   .analog {
-    transform: translate(-50%,-60%) scale(0.6);
+    transform: translate(-50%,-60%) scale(0.7);
   }
 
   .clockControls {
