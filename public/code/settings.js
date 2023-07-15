@@ -23,16 +23,6 @@ var currentFont = localStorage.getItem("currentFont") || "0";
 // Holds custom theme colour
 var themeColour = localStorage.getItem('themeColour') || '#FF0000';
 $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
-// Makees values right data type
-if (numOfAlarms === null ) {
-  // nothing
-} else {
-  if (numOfAlarms == "null") {
-    numOfAlarms = null;
-  } else {
-    numOfAlarms = Number(numOfAlarms);
-  }
-}
 // Snooze Alarm Number
 var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
 // True = Analog, False = Digital

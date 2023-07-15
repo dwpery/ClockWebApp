@@ -2,6 +2,16 @@
 var alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
 // Holds amout of Alarms
 var numOfAlarms = localStorage.getItem('numOfAlarms') || null;
+// Makees values right data type
+if (numOfAlarms === null ) {
+    // nothing
+} else {
+    if (numOfAlarms == "null") {
+      numOfAlarms = null;
+    } else {
+      numOfAlarms = Number(numOfAlarms);
+    }
+}
 
 // Adds alarm to container
 function addAlarm() {
