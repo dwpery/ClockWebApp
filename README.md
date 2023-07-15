@@ -1,6 +1,6 @@
 <p align="center"><img width="125" src="public/media/icons/ReadMeIcon.svg"></p>
 <h1 align="center"><b>Clock Web App</b></h1>
-<p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_"><img src="public/media/icons/APKicon.svg"></a><a href="https://github.com/dwpery/ClockWebApp/releases"><img src="public/media/icons/VersionIcon.svg"></a></p>
+<p align="center"><a href="https://os-clock.web.app/"><img src="public/media/icons/PWAicon.svg"></a><a href="https://drive.google.com/u/0/uc?id=16VpLBZUMnh4tvo7MQJ0ul6Ev_5NbC2tD&export=download"><img src="public/media/icons/APKicon.svg"></a><a href="https://github.com/dwpery/ClockWebApp/releases"><img src="public/media/icons/VersionIcon.svg"></a></p>
 <p><b>Clock Web App</b> is an <b>Open Source Progressive Web App</b> designed to be <b>simple</b> and <b>easy</b> to use but <b>feature rich</b> offering <b>every feature and more</b> you'd expect from a Clock App.</p>
 <h2>Contents</h2>
 <ol>
