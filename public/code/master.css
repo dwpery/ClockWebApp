@@ -916,6 +916,10 @@ li svg {
     display: block;
   }
 
+  .stopwatchDisplay {
+    transform: translate(-50%, -57%);
+  }
+
   #headerSVGleft, #headerSVGright {
     height: 6.375vh;
     width: 6.375vh;
@@ -987,7 +991,7 @@ li svg {
   .timerControls {
     transform: translate(-50%);
     width: 45vh;
-    bottom: 12.5vh;
+    bottom: 3vh;
   }
 
   .responsiveDisplay {
@@ -1009,6 +1013,14 @@ li svg {
   #sideSVG {
     height: 6.375vh;
     width: 6.375vh;
+  }
+
+  .stopwatchDisplay {
+    transform: translate(-50%, -65%);
+  }
+
+  .timerControls {
+    bottom: 12.5vh;
   }
 
   .resetConfirm {
