@@ -28,7 +28,7 @@
 <h4>Method 2</h4>
 <p>Follow the instructions bellow to download the Clock.apk file:</p>
 <ol>
-<li>Click the <a href="https://drive.google.com/uc?export=download&id=1OhX2CCzYLbsjv38_Bv8tRDUciHQ44gx_">download</a> link</li>
+<li>Click the <a href="https://drive.google.com/u/0/uc?id=16VpLBZUMnh4tvo7MQJ0ul6Ev_5NbC2tD&export=download">download</a> link</li>
 <p>(You may need to sign in with your Google account)</p>
 <li>Follow your systems prompts until the App is installed</li>
 </ol>
