@@ -37,6 +37,9 @@ header {
   position: absolute;
   height: 8.5vh;
   width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: inherit;
   transition: 0.25s;
 }
@@ -57,7 +60,7 @@ header {
 .timerInput, .timerDisplay, .stopwatchDisplay {
   position: fixed;
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   left: 50%;
@@ -66,7 +69,11 @@ header {
   transform: translate(-50%, -70%);
 }
 
-#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3, #span4, #span5, #span6 {
+.gridDiv {
+  padding: 2vh;
+}
+
+#hours, #minutes, #seconds, .smallLabel, .gridDiv, #span1, #span2, #span3, .stopwatchNumber {
   display: inline;
 }
 
@@ -74,12 +81,17 @@ header {
   display: none;
 }
 
-#hours, #minutes, #seconds, #span1, #span2, #span3, #span4, #span5, #span6 {
+#hours, #minutes, #seconds, #span1, #span2, #span3, .stopwatchNumber {
   color: var(--themeColour);
   font-size: 12.5vh;
   width: 15vh;
   border: none;
-  outline: none
+  outline: none;
+  text-align: center;
+}
+
+#span7, #milliLabel {
+  font-size: 9.375vh;
 }
 
 #hours:hover, #minutes:hover, #seconds:hover {
@@ -96,12 +108,7 @@ header {
   width: 65vh;
   background-color: black;
   border-radius: 5vh;
-  transition: 0.75s;
   color: var(--themeColour);
-}
-
-.digital:hover {
-  cursor: default;
 }
 
 .display {
@@ -110,7 +117,6 @@ header {
   left: 50%;
   transform: translate(-50%, -55%);
   font-size: 15vh;
-  transition: 0.75s;
 }
 
 .ampm {
@@ -119,7 +125,6 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, 80%);
-  transition: 0.75s;
 }
 
 .date {
@@ -128,7 +133,107 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, -185%);
+}
+
+.analog {
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  border: 10px solid #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-60%) scale(0.75);
   transition: 0.75s;
+  margin: 20px auto;
+}
+
+.border-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #777;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.hand {
+  background-color: #333;
+  position: absolute;
+  transform-origin: bottom center;
+  z-index: 2;
+}
+
+.hour-hand {
+  width: 10px;
+  height: 100px;
+  left: calc(50% - 5px);
+  top: calc(50% - 100px);
+  border-radius: 8px 8px 0 0;
+  transition-timing-function: steps(1);
+}
+
+.minute-hand {
+  width: 8px;
+  height: 140px;
+  left: calc(50% - 4px);
+  top: calc(50% - 140px);
+  border-radius: 8px 8px 0 0;
+  transition-timing-function: steps(1);
+}
+
+.second-hand {
+  width: 4px;
+  height: 150px;
+  left: calc(50% - 2px);
+  top: calc(50% - 150px);
+  background-color: var(--themeColour);
+  transition-timing-function: steps(1);
+}
+
+.center-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #222;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 7px);
+  top: calc(50% - 7px);
+  z-index: 3;
+}
+
+.number {
+  position: absolute;
+  font-size: 35px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.number-12 {
+  top: 10%;
+  left: calc(50% - 17px);
+}
+
+.number-3 {
+  top: calc(50% - 20px);
+  right: 10px;
+}
+
+.number-6 {
+  bottom: 10%;
+  left: calc(50% - 10px);
+}
+
+.number-9 {
+  top: calc(50% - 20px);
+  left: 10px;
 }
 
 #settings {
@@ -151,7 +256,7 @@ header {
   height: 12vh;
   z-index: 11;
   width: 100%;
-  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
+  background: linear-gradient(to bottom, #f5f5f5, rgba(0, 0, 0, 0));
 }
 
 .settingsBuffer {
@@ -163,12 +268,8 @@ header {
 }
 
 label {
-  position: absolute;
-  left: 50%;
-  top: 50%;
   font-size: 5vh;
   transition: 0.25s;
-  transform: translate(-50%,-50%);
 }
 
 .item:hover label {
@@ -177,15 +278,19 @@ label {
   font-size: 6vh;
 }
 
+path, rect {
+  transition: 0.25s;
+}
+
+.item:hover path, .item:hover rect {
+  fill: #36454F;
+}
+
 #mobile {
   display: none;
 }
 
 .headerSVG {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
   height: 8.5vh;
   width: 8.5vh;
   transition: 0.25s;
@@ -194,16 +299,6 @@ label {
 .item:hover .headerSVG {
   height: 9.5vh;
   width: 9.5vh;
-}
-
-#headerSVGleft, #headerSVGright {
-  height: 6.375vh;
-  width: 6.375vh;
-}
-
-.item:hover #headerSVGleft, .item:hover #headerSVGright {
-  height: 7.375vh;
-  width: 7.375vh;
 }
 
 #settings-container {
@@ -233,11 +328,8 @@ label {
   font-size: 7.5vh;
   position: absolute;
   top: 50%;
+  transition: 1.5s;
   transform: translate(0, -50%);
-}
-
-.static:hover {
-  cursor: default;
 }
 
 .settingsLabel {
@@ -302,7 +394,7 @@ ul {
   align-items: center;
 }
 
-#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover {
+#startTimer:hover, #pauseTimer:hover, #addAlarm:hover, #resetTimer:hover, #startStopwatch:hover, #resetStopwatch:hover, #pauseStopwatch:hover, #remove:hover, #submit:hover, .cancelAlarm:hover, .snoozeAlarm:hover, #timerChange:hover, #focusMode:hover, .removeFinalAlarm:hover, #clockChanger:hover, .deleteData:hover, .cancelData:hover {
   cursor: pointer;
 }
 
@@ -315,14 +407,25 @@ ul {
   width: 12.5vh;
 }
 
-#focusMode {
+#focusMode, #clockChanger {
+  height: 11vh;
+  width: 11vh;
+}
+
+.clockControls {
+  width: 45vh;
   position: fixed;
   left: 50%;
   transform: translate(-50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   bottom: 20vh;
-  height: 11vh;
-  width: 11vh;
   transition: 0.75s;
+}
+
+.clockMove {
+  bottom: 12vh;
 }
 
 hr {
@@ -382,6 +485,57 @@ hr {
   height: 15vh;
 }
 
+.switch {
+  position: absolute;
+  margin-top: -5vh;
+  right: 5vw;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch2 {
+  margin-top: -3.5vh;
+  right: 10.5vh;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--themeColour);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
 .alarmName {
   position: relative;
   left: 50%;
@@ -418,7 +572,12 @@ hr {
 }
 
 .removeFinalAlarm {
-  right: 5vh;
+  position: absolute;
+  top: 7.5vh;
+  right: 4.5vh;
+  height: 6vh;
+  width: 6vh;
+  fill: #F00;
 }
 
 #submit {
@@ -472,7 +631,6 @@ hr {
 
 .activeTimerName {
   transform: translate(-50%,-100%);
-  color: var(--themeColour);
 }
 
 .activeAlarmTime {
@@ -497,6 +655,7 @@ hr {
 
 .cancelTimerContainer {
   transform: translate(-50%, 25%);
+  background-color: var(--themeColour);
 }
 
 .snoozeContainer {
@@ -550,6 +709,7 @@ hr {
 }
 
 .switcherOption {
+  display: block;
   font-size: 3.5vh;
   text-align: center;
   transition: 0.25s;
@@ -586,9 +746,13 @@ li svg {
 
 }
 
-.clear {
+.clear, .clear2 {
   background-color: #FFF;
   transform: translate(-50%, -50%) scale(2);
+}
+
+.clear2 {
+  transform: translate(-50%, -60%) scale(1.25);
 }
 
 .loader {
@@ -604,6 +768,32 @@ li svg {
   justify-content: center;
   align-items: center;
   transition: 0.25s;
+}
+
+.resetConfirm {
+  width: 50vh;
+  height: 15vh;
+  z-index: 20;
+}
+
+.deleteData {
+  position: absolute;
+  bottom: 2vh;
+  left: 4.5vh;
+  font-size: 3.5vh;
+  color: #F00;
+}
+
+.dark .cancelData {
+  color: rgb(79, 184, 255);
+}
+
+.cancelData {
+  position: absolute;
+  bottom: 2vh;
+  right: 4.5vh;
+  font-size: 3.5vh;
+  color: #00F;
 }
 
 @keyframes spin {
@@ -722,11 +912,47 @@ li svg {
 /* Tablet UI */
 
 @media screen and (max-width: 1250px) {
-  #mobile {
+  .gridDiv {
+    padding: 0;
     display: block;
   }
 
-  #computer {
+  .stopwatchDisplay {
+    transform: translate(-50%, -57%);
+  }
+
+  #headerSVGleft, #headerSVGright {
+    height: 6.375vh;
+    width: 6.375vh;
+  }
+
+  .switch {
+    margin-top: -4vh;
+  }
+
+  .switch2 {
+    margin-top: -3vh;
+    right: 10.5vh;
+  }
+  
+  .item:hover #headerSVGleft, .item:hover #headerSVGright {
+    height: 7.375vh;
+    width: 7.375vh;
+  }
+
+  .clockMove {
+    bottom: 20vh;
+  }
+
+  .analog {
+    transform: translate(-50%,-60%) scale(0.7);
+  }
+
+  .clockControls {
+    width: 70%;
+  }
+
+  label {
     display: none;
   }
 
@@ -748,7 +974,6 @@ li svg {
 
   .timerInput, .timerDisplay, .stopwatchDisplay {
     width: 100%;
-    display: block;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -767,15 +992,15 @@ li svg {
   .timerControls {
     transform: translate(-50%);
     width: 45vh;
-    bottom: 12.5vh;
-  }
-
-  .gridDiv {
-    display: block;
+    bottom: 3vh;
   }
 
   .responsiveDisplay {
     display: block;
+  }
+
+  .clear2 {
+    transform: translate(-50%, -60%) scale(0.7);
   }
 
   .clear {
@@ -786,8 +1011,26 @@ li svg {
 /* Mobile UI */
 
 @media screen and (max-width: 850px) {
-  .clear {
-    transform: translate(-50%, -50%);
+  #sideSVG {
+    height: 6.375vh;
+    width: 6.375vh;
+  }
+
+  .stopwatchDisplay {
+    transform: translate(-50%, -65%);
+  }
+
+  .timerControls {
+    bottom: 12.5vh;
+  }
+
+  .resetConfirm {
+    width: 90%;
+  }
+  
+  .item:hover #sideSVG {
+    height: 7.375vh;
+    width: 7.375vh;
   }
 
   header {
@@ -830,63 +1073,26 @@ li svg {
     border-radius: 0 150vh 0 0;
   }
 
-  #mobile {
-    display: block;
-  }
-
-  #computer {
-    display: none;
-  }
-
   .alarms-container {
     top: 0;
-  }
-
-  .alarm, .printedAlarm {
-    width: 85%;
   }
 
   #addAlarm {
     bottom: 12.5vh;
   }
 
-  #focusMode {
-    left: 50%;
-    transform: translate(-50%);
-    bottom: null;
-  }
-
   #settings-container {
     width: 90%;
-  }
-
-  .alarms-container {
-    width: 100%;
   }
 
   .digital {
     width: 90%;
   }
 
-  .timerInput, .timerDisplay, .stopwatchDisplay {
-    width: 100%;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
   #hours, #minutes, #seconds {
-    font-size: 12.5vh;
-    width: 13.5vh;
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-
-  .timerDisplay {
-    display: none;
-    font-size: 6vh;
   }
 
   .settingsHeading {
@@ -913,12 +1119,6 @@ li svg {
     font-size: 1.5vh;
   }
 
-  .timerControls {
-    transform: translate(-50%);
-    width: 45vh;
-    bottom: 12.5vh;
-  }
-
   .buffer {
     height: 20vh;
   }
@@ -933,10 +1133,6 @@ li svg {
 
   .date {
     transform: translate(-50%, -165%);
-  }
-
-  .gridDiv {
-    display: block;
   }
 
   /*Fonts*/
@@ -1090,10 +1286,6 @@ li svg {
   .activeAlarmName, .activeTimerName {
     font-size: 7vh;
   }
-
-  .responsiveDisplay {
-    display: block;
-  }
 }
 
 #hours, #minutes, #seconds {
@@ -1110,15 +1302,23 @@ li svg {
 /* Dark Mode UI */
 
 /* Makes header SVGs white */
-.dark .headerSVG path, .dark .headerSVG rect {
+.dark .headerSVG path, .dark .headerSVG rect, .dark .headerSVG circle {
   fill: #f5f5f5;
+}
+
+.dark .item:hover path, .dark .item:hover rect, .dark .item:hover circle {
+  fill: #bbbbbb;
+}
+
+.dark .item:hover label {
+  color: #bbbbbb;
 }
 
 .dark #focusPath {
   fill: #697074;
 }
 
-.dark #focusMode:hover #focusPath {
+.dark #focusMode:hover #focusPath, .dark #clockChanger:hover #focusPath, .dark .border-ring {
   fill: #36454F;
 }
 
@@ -1140,26 +1340,42 @@ li svg {
   color: var(--themeColour);
 }
 
+/* Settings header */
+.dark .settingsHeader {
+  background: linear-gradient(to bottom, rgb(43, 39, 39), rgba(0, 0, 0, 0));
+}
+
 /* Header bar colour */
-.dark header, .dark .alarmPadding, .dark .settingsPadding, .dark .clockPadding, .dark .timerPadding {
+.dark header, .dark .alarmPadding, .dark .settingsPadding, .dark .clockPadding, .dark .timerPadding, .dark .analog {
   background-color: rgb(76, 82, 85);
 }
 
+.dark .circleOnSVG, .dark .coverSVG {
+  fill: rgb(76, 82, 85);
+}
+
+.dark .barOnSVG {
+  fill: #172128;
+}
+
 /* Hover effect for header, and backgroud of svg */
-.dark .item:hover, .dark .circleOnSVG, .dark .coverSVG, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
+.dark .item:hover, .dark .circleOnSVG:hover, .dark .coverSVG:hover, .dark .item:hover .settingsPadding, .dark .item:hover .timerPadding, .dark .item:hover .clockPadding, .dark .item:hover .alarmPadding {
   background-color: #697074; fill: #697074;
 }
+
+.dark .slider { background-color: #ccc; }
 .dark .buttonSVG:hover .circleOnSVG, .dark .buttonSVG:hover .coverSVG { fill: #697074; }
-.dark .item:hover label, .dark .buildInfo div a { color: #f5f5f5; }
+.dark .buildInfo div a, .dark .number { color: #f5f5f5; }
 .dark #settings { background-color: rgb(102, 109, 113); }
 .dark .switcher { background-color: rgb(76, 82, 85); }
 .dark .settingsButton { border-color: rgb(206, 192, 170); }
-.dark #remove, .dark .removeFinalAlarm { color: #F00; }
+.dark .settingsButton:hover { border-color: #36454F; }
+.dark #remove, .dark .removeFinalAlarm { fill: #F00; }
 .dark #submit { color: rgb(79, 184, 255); }
-.dark .clear { background-color: #292b2d; }
+.dark .clear, .darl .clear2 { background-color: #292b2d; }
 
 /* Washed out red colours */
-.dark #span1, .dark #span2, .dark #span3, .dark #span4, .dark #span5, .dark #span6, .dark #hours, .dark #minutes, .dark #seconds  {
+.dark #span1, .dark #span2, .dark #span3, .dark .stopwatchNumber, .dark #hours, .dark #minutes, .dark #seconds  {
   color: var(--themeColour);
 }
 

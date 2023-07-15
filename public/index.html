@@ -2,16 +2,20 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
     <title>Clock Web App</title>
+    <script defer src="code/alarms.js"></script>
+    <script defer src="code/stopwatch.js"></script>
+    <script defer src="code/timer.js"></script>
+    <script defer src="code/settings.js"></script>
     <script defer src="code/main.js"></script>
     <link rel="manifest" href="manifest.json" />
     <link href="code/master.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="media/icons/favicon.png">
     <link rel="apple-touch-icon" href="media/icons/favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The best Open Source Clock Web App that features Alarms, a timer, a stopwatch and many other intuitive features">
-    <meta name="keywords" content="clock, open, source, web, app, alarm, alarms, timer, stopwatch, custom, customization, free, simple, easy, dark, mode, light, theme, options">
+    <meta name="description" content="An Open Source Clock app that allows you to use a timer, stopwatch, alarms and customise the app to be your own!">
+    <meta name="keywords" content="clock, open, source, web, app, alarm, alarms, timer, stopwatch, custom, customization, free, simple, easy, dark, mode, light, theme, options, pwa, customisation">
     <meta name="theme-color" content="#D3D3D3">
     <meta name="google-site-verification" content="o-L-sjhbPbgJadoeZ97KpikGK0CqR4D8TCJfPo7Snos" />
     <script type="module">
@@ -22,88 +26,86 @@
   </head>
   <body>
     <header>
-      <div id="computer">
-        <div class="item item1" onclick="showSettings()"><label>Settings</label></div>
-        <div class="item item2" onclick="showTimer()"><label>Timer</label></div>
-        <div class="item item3" onclick="showClock()"><label>Clock</label></div>
-        <div class="item item4" onclick="showAlarm()"><label>Alarms</label></div>
-      </div>
-      <div id="mobile">
+      <div id="header">
         <div class="item item1" onclick="showSettings()">
           <div class="settingsPadding"></div>
-          <svg viewbox="0 0 110 90" fill="none" class="headerSVG" id="headerSVGleft">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M50 64C58.2843 64 65 57.2843 65 49C65 40.7157 58.2843 34 50 34C41.7157 34 35 40.7157 35 49C35 57.2843 41.7157 64 50 64ZM50 62C57.1797 62 63 56.1797 63 49C63 41.8203 57.1797 36 50 36C42.8203 36 37 41.8203 37 49C37 56.1797 42.8203 62 50 62Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M46 11H54V22V25C55.6569 25 57 23.6569 57 22V11C57 9.34315 55.6569 8 54 8H46C44.3431 8 43 9.34315 43 11V22C43 23.6569 44.3431 25 46 25V22L46 11Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M46 74C44.3431 74 43 75.3431 43 77V88C43 89.6569 44.3431 91 46 91H54C55.6569 91 57 89.6569 57 88V77C57 75.3431 55.6569 74 54 74V77V88H46L46 77V74Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M88 54H78H77H74C74 55.6569 75.3431 57 77 57H88C89.6569 57 91 55.6569 91 54V46C91 44.3431 89.6569 43 88 43H77C75.3431 43 74 44.3431 74 46H77H78H88V54Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 54V46H23H26C26 44.3431 24.6569 43 23 43H12C10.3431 43 9 44.3431 9 46V54C9 55.6569 10.3431 57 12 57H23C24.6569 57 26 55.6569 26 54H23H12Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.2426 25.8995L25.8995 20.2426L33.0558 27.3989L33.6777 28.0208L35.799 30.1421C36.9706 28.9706 36.9706 27.0711 35.799 25.8995L28.0208 18.1213C26.8492 16.9497 24.9498 16.9497 23.7782 18.1213L18.1213 23.7782C16.9498 24.9497 16.9498 26.8492 18.1213 28.0208L25.8995 35.799C27.0711 36.9706 28.9706 36.9706 30.1421 35.799L28.0208 33.6777L27.399 33.0558L20.2426 25.8995Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M64.1213 69.7782C62.9498 70.9498 62.9498 72.8492 64.1213 74.0208L71.8995 81.799C73.0711 82.9706 74.9706 82.9706 76.1421 81.799L81.799 76.1421C82.9706 74.9706 82.9706 73.0711 81.799 71.8995L74.0208 64.1213C72.8492 62.9498 70.9498 62.9498 69.7782 64.1213L71.8995 66.2426L72.0863 66.4295L79.6777 74.0208L74.0208 79.6777L66.4295 72.0863L66.2426 71.8995L64.1213 69.7782Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M30.14 64.1192L27.6296 66.6296L27.6317 66.6317L20.2426 74.0208L25.8995 79.6777L33.2886 72.2886L33.2963 72.2963L35.8067 69.7859C36.9706 70.9581 36.968 72.8518 35.799 74.0208L28.0208 81.799C26.8492 82.9706 24.9498 82.9706 23.7782 81.799L18.1213 76.1421C16.9498 74.9706 16.9498 73.0711 18.1213 71.8995L25.8995 64.1213C27.0704 62.9505 28.9683 62.9498 30.14 64.1192Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M54 76.7003C58.4452 76.0279 62.5369 74.2521 65.9981 71.655L63.3908 69.0477C60.6151 71.0239 57.399 72.4024 53.9224 73H54V76.7003ZM76.6403 54C75.9232 58.4373 74.1632 62.5167 71.6253 65.9684L69.0296 63.3728C70.9794 60.6032 72.3608 57.3904 73 53.9113V54H76.6403ZM72.0084 33.5659C74.524 37.1638 76.2103 41.405 76.7834 46H73.1495C72.6292 42.3991 71.3183 39.0602 69.4021 36.1722L72.0084 33.5659ZM66.5216 27.7479C62.9525 24.9315 58.6714 23.0063 54 22.2997V26H53.9221C57.6243 26.6363 61.0311 28.1582 63.9252 30.3443L66.5216 27.7479ZM23.3597 54C24.0735 58.4166 25.8204 62.4786 28.3392 65.92L30.9358 63.3234C29.0043 60.565 27.6354 57.3696 27 53.911V54H23.3597ZM46 76.7003C41.5391 76.0256 37.4342 74.2395 33.9652 71.6274L36.5717 69.0209C39.3559 71.0114 42.5854 72.3997 46.0777 73H46V76.7003ZM36.0329 30.3761C38.936 28.1729 42.3579 26.6394 46.078 26H46V22.2997C41.3106 23.009 37.0146 24.9463 33.4373 27.7804L36.0329 30.3761ZM30.5651 36.2219L27.9577 33.6145C25.4609 37.2021 23.7871 41.4257 23.2166 46H26.8506C27.3679 42.4198 28.6668 39.0986 30.5651 36.2219Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M74.0208 20.2426L79.6777 25.8995L71.8995 33.6777L71.898 33.6762L69.7767 35.7975L69.7782 35.799C70.9498 36.9706 72.8492 36.9706 74.0208 35.799L81.799 28.0208C82.9706 26.8492 82.9706 24.9498 81.799 23.7782L76.1421 18.1213C74.9706 16.9498 73.0711 16.9498 71.8995 18.1213L64.1213 25.8995C62.9498 27.0711 62.9498 28.9706 64.1213 30.1421L64.1244 30.1452L66.2457 28.0239L66.2426 28.0208L74.0208 20.2426Z" fill="black"/>
+          <svg id="sideSVG" viewbox="0 0 110 90" fill="none" class="headerSVG">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50 77C64.9117 77 77 64.9117 77 50C77 35.0883 64.9117 23 50 23C35.0883 23 23 35.0883 23 50C23 64.9117 35.0883 77 50 77ZM50.5 69C60.7173 69 69 60.7173 69 50.5C69 40.2827 60.7173 32 50.5 32C40.2827 32 32 40.2827 32 50.5C32 60.7173 40.2827 69 50.5 69Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 64C57.9558 64 64 57.9558 64 50.5C64 43.0442 57.9558 37 50.5 37C43.0442 37 37 43.0442 37 50.5C37 57.9558 43.0442 64 50.5 64ZM50.5 59C55.1944 59 59 55.1944 59 50.5C59 45.8056 55.1944 42 50.5 42C45.8056 42 42 45.8056 42 50.5C42 55.1944 45.8056 59 50.5 59Z" fill="black"/>
+            <rect x="43" y="9" width="14" height="17" rx="3" fill="black"/>
+            <rect x="43" y="74" width="14" height="17" rx="3" fill="black"/>
+            <rect x="25.9584" y="83.9411" width="14" height="17" rx="3" transform="rotate(-135 25.9584 83.9411)" fill="black"/>
+            <rect x="71.9203" y="37.9792" width="14" height="17" rx="3" transform="rotate(-135 71.9203 37.9792)" fill="black"/>
+            <rect x="9" y="57" width="14" height="17" rx="3" transform="rotate(-90 9 57)" fill="black"/>
+            <rect x="74" y="57" width="14" height="17" rx="3" transform="rotate(-90 74 57)" fill="black"/>
+            <rect x="16.0589" y="25.9584" width="14" height="17" rx="3" transform="rotate(-45 16.0589 25.9584)" fill="black"/>
+            <rect x="62.0208" y="71.9203" width="14" height="17" rx="3" transform="rotate(-45 62.0208 71.9203)" fill="black"/>
           </svg>
+          <label inert>Settings</label>
         </div>
         <div class="item item2" onclick="showTimer()">
           <div class="timerPadding"></div>
-          <svg viewbox="0 0 110 90" class="headerSVG">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
-            <rect x="47" y="12" width="7" height="9" fill="black"/>
-            <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
-            <rect x="49" y="27" width="3" height="28" fill="black"/>
-            <path d="M60.4715 38.7793L62.929 40.5L51.4575 56.883L49 55.1623L60.4715 38.7793Z" fill="black"/>
+          <svg viewbox="0 0 110 90" class="headerSVG" id="timerSVG">
+            <mask id="path-1-inside-1_0_1" fill="white">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M56.2964 50.5L74.3157 86.25H26.6843L44.7036 50.5L26.6843 14.75H74.3157L56.2964 50.5Z"/>
+            </mask>
+            <path d="M56.2964 50.5L54.5104 49.5998L54.0567 50.5L54.5104 51.4002L56.2964 50.5ZM74.3157 86.25V88.25H77.5635L76.1017 85.3498L74.3157 86.25ZM26.6843 86.25L24.8983 85.3498L23.4365 88.25H26.6843V86.25ZM44.7036 50.5L46.4895 51.4002L46.9433 50.5L46.4895 49.5998L44.7036 50.5ZM26.6843 14.75V12.75H23.4365L24.8983 15.6502L26.6843 14.75ZM74.3157 14.75L76.1017 15.6502L77.5635 12.75H74.3157V14.75ZM54.5104 51.4002L72.5297 87.1502L76.1017 85.3498L58.0824 49.5998L54.5104 51.4002ZM74.3157 84.25H26.6843V88.25H74.3157V84.25ZM28.4703 87.1502L46.4895 51.4002L42.9176 49.5998L24.8983 85.3498L28.4703 87.1502ZM46.4895 49.5998L28.4703 13.8498L24.8983 15.6502L42.9176 51.4002L46.4895 49.5998ZM26.6843 16.75H74.3157V12.75H26.6843V16.75ZM72.5297 13.8498L54.5104 49.5998L58.0824 51.4002L76.1017 15.6502L72.5297 13.8498Z" fill="black" mask="url(#path-1-inside-1_0_1)"/>
+            <rect x="23" y="10" width="54" height="7" rx="3.5" fill="black"/>
+            <rect x="23" y="84" width="54" height="7" rx="3.5" fill="black"/>
+            <path d="M50.5 51L39.6747 30.75L61.3253 30.75L50.5 51Z" fill="black"/>
+            <path d="M50.5 59L67.3875 80.75H33.6125L50.5 59Z" fill="black"/>
           </svg>
+          <label id="timerLabel" inert>Timer</label>
         </div>
         <div class="item item3" onclick="showClock()">
           <div class="clockPadding"></div>
-          <svg viewbox="0 0 110 90" class="headerSVG">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="black"/>
-            <rect x="49" y="21" width="3" height="28" fill="black"/>
-            <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="black"/>
+          <svg viewbox="0 0 110 90" class="headerSVG" id="clockSVG">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21 18C13.268 18 7 24.268 7 32V69C7 76.732 13.268 83 21 83H80C87.732 83 94 76.732 94 69V32C94 24.268 87.732 18 80 18H21ZM18.064 60.04C19.024 60.8933 20.3573 61.32 22.064 61.32C23.7707 61.32 25.0933 60.8933 26.032 60.04C26.992 59.1867 27.664 57.9067 28.048 56.2C28.4533 54.4933 28.656 52.36 28.656 49.8C28.656 47.24 28.4533 45.1067 28.048 43.4C27.664 41.672 26.992 40.3813 26.032 39.528C25.0933 38.6747 23.7707 38.248 22.064 38.248C20.3573 38.248 19.024 38.6747 18.064 39.528C17.104 40.3813 16.4213 41.672 16.016 43.4C15.632 45.1067 15.44 47.24 15.44 49.8C15.44 52.36 15.632 54.4933 16.016 56.2C16.4213 57.9067 17.104 59.1867 18.064 60.04ZM23.92 57.32C23.472 57.8107 22.8533 58.056 22.064 58.056C21.2747 58.056 20.6453 57.8107 20.176 57.32C19.7067 56.808 19.3653 55.9547 19.152 54.76C18.96 53.5653 18.864 51.912 18.864 49.8C18.864 47.6667 18.96 46.0027 19.152 44.808C19.3653 43.6133 19.7067 42.7707 20.176 42.28C20.6453 41.768 21.2747 41.512 22.064 41.512C22.8533 41.512 23.472 41.768 23.92 42.28C24.3893 42.7707 24.7307 43.6133 24.944 44.808C25.1573 46.0027 25.264 47.6667 25.264 49.8C25.264 51.912 25.1573 53.5653 24.944 54.76C24.7307 55.9547 24.3893 56.808 23.92 57.32ZM34.1265 60.04C35.0865 60.8933 36.4198 61.32 38.1265 61.32C39.8332 61.32 41.1558 60.8933 42.0945 60.04C43.0545 59.1867 43.7265 57.9067 44.1105 56.2C44.5158 54.4933 44.7185 52.36 44.7185 49.8C44.7185 47.24 44.5158 45.1067 44.1105 43.4C43.7265 41.672 43.0545 40.3813 42.0945 39.528C41.1558 38.6747 39.8332 38.248 38.1265 38.248C36.4198 38.248 35.0865 38.6747 34.1265 39.528C33.1665 40.3813 32.4838 41.672 32.0785 43.4C31.6945 45.1067 31.5025 47.24 31.5025 49.8C31.5025 52.36 31.6945 54.4933 32.0785 56.2C32.4838 57.9067 33.1665 59.1867 34.1265 60.04ZM39.9825 57.32C39.5345 57.8107 38.9158 58.056 38.1265 58.056C37.3372 58.056 36.7078 57.8107 36.2385 57.32C35.7692 56.808 35.4278 55.9547 35.2145 54.76C35.0225 53.5653 34.9265 51.912 34.9265 49.8C34.9265 47.6667 35.0225 46.0027 35.2145 44.808C35.4278 43.6133 35.7692 42.7707 36.2385 42.28C36.7078 41.768 37.3372 41.512 38.1265 41.512C38.9158 41.512 39.5345 41.768 39.9825 42.28C40.4518 42.7707 40.7932 43.6133 41.0065 44.808C41.2198 46.0027 41.3265 47.6667 41.3265 49.8C41.3265 51.912 41.2198 53.5653 41.0065 54.76C40.7932 55.9547 40.4518 56.808 39.9825 57.32ZM48.525 60.648C49.0157 61.1173 49.5917 61.352 50.253 61.352C50.9143 61.352 51.4797 61.1173 51.949 60.648C52.4397 60.1787 52.685 59.6133 52.685 58.952C52.685 58.2693 52.4397 57.6933 51.949 57.224C51.4797 56.7547 50.9143 56.52 50.253 56.52C49.5917 56.52 49.0157 56.7547 48.525 57.224C48.0557 57.6933 47.821 58.2693 47.821 58.952C47.821 59.6133 48.0557 60.1787 48.525 60.648ZM48.525 49.32C49.0157 49.7893 49.5917 50.024 50.253 50.024C50.9143 50.024 51.4797 49.7893 51.949 49.32C52.4397 48.8507 52.685 48.2853 52.685 47.624C52.685 46.9413 52.4397 46.376 51.949 45.928C51.4797 45.4587 50.9143 45.224 50.253 45.224C49.5917 45.224 49.0157 45.4587 48.525 45.928C48.0557 46.376 47.821 46.9413 47.821 47.624C47.821 48.2853 48.0557 48.8507 48.525 49.32ZM58.439 60.04C59.399 60.8933 60.7323 61.32 62.439 61.32C64.1457 61.32 65.4683 60.8933 66.407 60.04C67.367 59.1867 68.039 57.9067 68.423 56.2C68.8283 54.4933 69.031 52.36 69.031 49.8C69.031 47.24 68.8283 45.1067 68.423 43.4C68.039 41.672 67.367 40.3813 66.407 39.528C65.4683 38.6747 64.1457 38.248 62.439 38.248C60.7323 38.248 59.399 38.6747 58.439 39.528C57.479 40.3813 56.7963 41.672 56.391 43.4C56.007 45.1067 55.815 47.24 55.815 49.8C55.815 52.36 56.007 54.4933 56.391 56.2C56.7963 57.9067 57.479 59.1867 58.439 60.04ZM64.295 57.32C63.847 57.8107 63.2283 58.056 62.439 58.056C61.6497 58.056 61.0203 57.8107 60.551 57.32C60.0817 56.808 59.7403 55.9547 59.527 54.76C59.335 53.5653 59.239 51.912 59.239 49.8C59.239 47.6667 59.335 46.0027 59.527 44.808C59.7403 43.6133 60.0817 42.7707 60.551 42.28C61.0203 41.768 61.6497 41.512 62.439 41.512C63.2283 41.512 63.847 41.768 64.295 42.28C64.7643 42.7707 65.1057 43.6133 65.319 44.808C65.5323 46.0027 65.639 47.6667 65.639 49.8C65.639 51.912 65.5323 53.5653 65.319 54.76C65.1057 55.9547 64.7643 56.808 64.295 57.32ZM74.5015 60.04C75.4615 60.8933 76.7948 61.32 78.5015 61.32C80.2082 61.32 81.5308 60.8933 82.4695 60.04C83.4295 59.1867 84.1015 57.9067 84.4855 56.2C84.8908 54.4933 85.0935 52.36 85.0935 49.8C85.0935 47.24 84.8908 45.1067 84.4855 43.4C84.1015 41.672 83.4295 40.3813 82.4695 39.528C81.5308 38.6747 80.2082 38.248 78.5015 38.248C76.7948 38.248 75.4615 38.6747 74.5015 39.528C73.5415 40.3813 72.8588 41.672 72.4535 43.4C72.0695 45.1067 71.8775 47.24 71.8775 49.8C71.8775 52.36 72.0695 54.4933 72.4535 56.2C72.8588 57.9067 73.5415 59.1867 74.5015 60.04ZM80.3575 57.32C79.9095 57.8107 79.2908 58.056 78.5015 58.056C77.7122 58.056 77.0828 57.8107 76.6135 57.32C76.1442 56.808 75.8028 55.9547 75.5895 54.76C75.3975 53.5653 75.3015 51.912 75.3015 49.8C75.3015 47.6667 75.3975 46.0027 75.5895 44.808C75.8028 43.6133 76.1442 42.7707 76.6135 42.28C77.0828 41.768 77.7122 41.512 78.5015 41.512C79.2908 41.512 79.9095 41.768 80.3575 42.28C80.8268 42.7707 81.1682 43.6133 81.3815 44.808C81.5948 46.0027 81.7015 47.6667 81.7015 49.8C81.7015 51.912 81.5948 53.5653 81.3815 54.76C81.1682 55.9547 80.8268 56.808 80.3575 57.32Z" fill="black"/>
           </svg>
+          <label inert>Clock</label>
         </div>
         <div class="item item4" onclick="showAlarm()">
           <div class="alarmPadding"></div>
-          <svg viewBox="0 0 110 90" class="headerSVG" id="headerSVGright">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
-            <rect x="49" y="20" width="3" height="28" fill="black"/>
-            <path d="M69 47V50H49V47L69 47Z" fill="black"/>
-            <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
-            <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5228 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9521 78.6813 32.3006Z" fill="black"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0784 25.0784 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
+          <svg id="sideSVG" viewBox="0 0 110 90" class="headerSVG">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50ZM47.7241 25.5345C47.7241 23.9633 48.9978 22.6897 50.569 22.6897C52.1401 22.6897 53.4138 23.9633 53.4138 25.5345V47H67.9138C69.4849 47 70.7586 48.2737 70.7586 49.8448C70.7586 51.416 69.4849 52.6897 67.9138 52.6897H50.8448C49.7676 52.6897 48.8302 52.0909 48.3473 51.208C47.9573 50.7212 47.7241 50.1033 47.7241 49.431V25.5345Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5733 28.6658C82.8492 27.5304 86 23.6331 86 19C86 13.4772 81.5229 9 76 9C70.7656 9 66.4705 13.0217 66.0361 18.1437C70.9882 20.6414 75.2784 24.2599 78.5733 28.6658Z" fill="black"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9638 18.1437C29.0118 20.6414 24.7216 24.2598 21.4266 28.6658C17.1508 27.5304 14 23.6331 14 19C14 13.4772 18.4772 9 24 9C29.2344 9 33.5295 13.0217 33.9638 18.1437Z" fill="black"/>
+            <rect x="72" y="79.2426" width="6" height="14" rx="3" transform="rotate(-45 72 79.2426)" fill="black"/>
+            <rect x="24.8995" y="75" width="6" height="14" rx="3" transform="rotate(45 24.8995 75)" fill="black"/>
           </svg>
+          <label inert>Alarms</label>
         </div>
       </div>
     </header>
     <section id="timerPannel">       
       <div class="timerMain">
-        <div class="timerInput">
+        <div class="timerInput responsiveDisplay">
           <div class="gridDiv">
-            <input id="hours" placeholder="00" type="number"/ min="0" max="99" />
-            <div class="smallLabel">h</div>
+            <input id="hours" placeholder="0" type="number"/ min="0" max="99" />
+            <div class="smallLabel" inert>h</div>
           </div>
           <div class="gridDiv">
-            <input id="minutes" placeholder="00" type="number" min="0" max="59"/>
-            <div class="smallLabel">m</div>
+            <input id="minutes" placeholder="0" type="number" min="0" max="59"/>
+            <div class="smallLabel" inert>m</div>
           </div>
           <div class="gridDiv">
-            <input id="seconds" placeholder="00" type="number" min="0" max="59"/>
-            <div class="smallLabel">s</div>
+            <input id="seconds" placeholder="0" type="number" min="0" max="59"/>
+            <div class="smallLabel" inert>s</div>
           </div>
         </div>
         <div class="timerDisplay">
           <div class="gridDiv">
-            <div id="span1"></div>
-            <div class="smallLabel">h</div>
+            <div id="span1" inert></div>
+            <div class="smallLabel" inert>h</div>
           </div>
           <div class="gridDiv">
-            <div id="span2"></div>
-            <div class="smallLabel">m</div>
+            <div id="span2" inert></div>
+            <div class="smallLabel" inert>m</div>
           </div>
           <div class="gridDiv">
-            <div id="span3"></div>
-            <div class="smallLabel">s</div>
+            <div id="span3" inert></div>
+            <div class="smallLabel" inert>s</div>
           </div>
         </div>
       </div>
@@ -152,7 +154,7 @@
               <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>
             </svg>
           </li>
-          <li>
+          <li id="timerChangerContainer">
             <svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="timerChange" onclick="timerChanger()">
               <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
               <path class="barOnSVG" d="M46.8492 79.7695C42.944 83.6748 36.6123 83.6748 32.7071 79.7695L31.2929 78.3553C27.3876 74.4501 27.3876 68.1184 31.2929 64.2132L53.2132 42.2929C57.1184 38.3876 63.4501 38.3876 67.3553 42.2929L68.7695 43.7071C72.6748 47.6123 72.6748 53.944 68.7695 57.8492L46.8492 79.7695Z" fill="#36454F"/>
@@ -162,39 +164,61 @@
         </ul>
       </div>
       <div class="stopwatch">
-        <div class="stopwatchDisplay">
+        <div class="stopwatchDisplay responsiveDisplay" inert>
           <div class="gridDiv">
-            <div id="span4">0</div>
+            <div id="span4" class="stopwatchNumber">0</div>
             <div class="smallLabel">h</div>
           </div>
           <div class="gridDiv">
-            <div id="span5">0</div>
+            <div id="span5" class="stopwatchNumber">0</div>
             <div class="smallLabel">m</div>
           </div>
           <div class="gridDiv">
-            <div id="span6">0</div>
+            <div id="span6" class="stopwatchNumber">0</div>
             <div class="smallLabel">s</div>
+          </div>
+          <div class="gridDiv">
+            <div id="span7" class="stopwatchNumber">0</div>
+            <div id="milliLabel"class="smallLabel">ms</div>
           </div>
         </div>
       </div>
     </section>
     <section id="clockPannel">
-      <div class="digital">
+      <div class="digital" inert>
         <div class="date"></div>
         <div class="display"></div>
         <div class="ampm"></div>
       </div>
-      <svg class="buttonSVG" id="focusMode" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="focusModeControl()">
-        <g clip-path="url(#clip0_0_1)">
+      <div class="analog" inert>
+        <div class="border-ring"></div>
+		    <div class="hour-hand hand"></div>
+		    <div class="minute-hand hand"></div>
+		    <div class="second-hand hand"></div>
+		    <div class="center-dot"></div>
+		    <div class="number number-12">12</div>
+		    <div class="number number-3">3</div>
+		    <div class="number number-6">6</div>
+		    <div class="number number-9">9</div>
+      </div>
+      <div class="clockControls">
+        <svg class="buttonSVG" id="focusMode" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="focusModeControl()">
+          <g clip-path="url(#clip0_0_1)">
+            <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
+            <path class="barOnSVG" d="M25 42.5781V30.4688C25 29.1699 26.1942 28.125 27.6786 28.125H41.5179C42.2545 28.125 42.8571 28.6523 42.8571 29.2969V33.2031C42.8571 33.8477 42.2545 34.375 41.5179 34.375H32.1429V42.5781C32.1429 43.2227 31.5402 43.75 30.8036 43.75H26.3393C25.6027 43.75 25 43.2227 25 42.5781ZM57.1429 29.2969V33.2031C57.1429 33.8477 57.7455 34.375 58.4821 34.375H67.8571V42.5781C67.8571 43.2227 68.4598 43.75 69.1964 43.75H73.6607C74.3973 43.75 75 43.2227 75 42.5781V30.4688C75 29.1699 73.8058 28.125 72.3214 28.125H58.4821C57.7455 28.125 57.1429 28.6523 57.1429 29.2969ZM73.6607 56.25H69.1964C68.4598 56.25 67.8571 56.7773 67.8571 57.4219V65.625H58.4821C57.7455 65.625 57.1429 66.1523 57.1429 66.7969V70.7031C57.1429 71.3477 57.7455 71.875 58.4821 71.875H72.3214C73.8058 71.875 75 70.8301 75 69.5312V57.4219C75 56.7773 74.3973 56.25 73.6607 56.25ZM42.8571 70.7031V66.7969C42.8571 66.1523 42.2545 65.625 41.5179 65.625H32.1429V57.4219C32.1429 56.7773 31.5402 56.25 30.8036 56.25H26.3393C25.6027 56.25 25 56.7773 25 57.4219V69.5312C25 70.8301 26.1942 71.875 27.6786 71.875H41.5179C42.2545 71.875 42.8571 71.3477 42.8571 70.7031Z" fill="#36454F"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_0_1">
+              <rect width="100" height="100" fill="white"/>
+            </clipPath>
+            </defs>
+        </svg>
+        <svg id="clockChanger" class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="clockChanger()">
           <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/>
-          <path class="barOnSVG" d="M25 42.5781V30.4688C25 29.1699 26.1942 28.125 27.6786 28.125H41.5179C42.2545 28.125 42.8571 28.6523 42.8571 29.2969V33.2031C42.8571 33.8477 42.2545 34.375 41.5179 34.375H32.1429V42.5781C32.1429 43.2227 31.5402 43.75 30.8036 43.75H26.3393C25.6027 43.75 25 43.2227 25 42.5781ZM57.1429 29.2969V33.2031C57.1429 33.8477 57.7455 34.375 58.4821 34.375H67.8571V42.5781C67.8571 43.2227 68.4598 43.75 69.1964 43.75H73.6607C74.3973 43.75 75 43.2227 75 42.5781V30.4688C75 29.1699 73.8058 28.125 72.3214 28.125H58.4821C57.7455 28.125 57.1429 28.6523 57.1429 29.2969ZM73.6607 56.25H69.1964C68.4598 56.25 67.8571 56.7773 67.8571 57.4219V65.625H58.4821C57.7455 65.625 57.1429 66.1523 57.1429 66.7969V70.7031C57.1429 71.3477 57.7455 71.875 58.4821 71.875H72.3214C73.8058 71.875 75 70.8301 75 69.5312V57.4219C75 56.7773 74.3973 56.25 73.6607 56.25ZM42.8571 70.7031V66.7969C42.8571 66.1523 42.2545 65.625 41.5179 65.625H32.1429V57.4219C32.1429 56.7773 31.5402 56.25 30.8036 56.25H26.3393C25.6027 56.25 25 56.7773 25 57.4219V69.5312C25 70.8301 26.1942 71.875 27.6786 71.875H41.5179C42.2545 71.875 42.8571 71.3477 42.8571 70.7031Z" fill="#36454F"/>
-        </g>
-        <defs>
-          <clipPath id="clip0_0_1">
-            <rect width="100" height="100" fill="white"/>
-          </clipPath>
-          </defs>
-      </svg>  
+          <path class="barOnSVG" d="M46.8492 79.7695C42.944 83.6748 36.6123 83.6748 32.7071 79.7695L31.2929 78.3553C27.3876 74.4501 27.3876 68.1184 31.2929 64.2132L53.2132 42.2929C57.1184 38.3876 63.4501 38.3876 67.3553 42.2929L68.7695 43.7071C72.6748 47.6123 72.6748 53.944 68.7695 57.8492L46.8492 79.7695Z" fill="#36454F"/>
+          <path class="barOnSVG" d="M31.0711 36.6274C27.1658 32.7222 27.1658 26.3905 31.0711 22.4853L32.4853 21.0711C36.3905 17.1658 42.7222 17.1658 46.6274 21.0711L68.5477 42.9914C72.453 46.8966 72.453 53.2283 68.5477 57.1335L67.1335 58.5477C63.2283 62.453 56.8966 62.453 52.9914 58.5477L31.0711 36.6274Z" fill="#36454F"/>
+        </svg> 
+      </div>
     </section>
     <section id="alarmPannel">
       <div class="alarms-container scroll">
@@ -209,101 +233,127 @@
     </section>
     <div class="settingsHeader">
       <div id="close-settings" onclick="closeSettings()">X</div>
-      <div class="settingsHeading static" align="center">Settings</div>
+      <div class="settingsHeading static" align="center" inert>Settings</div>
     </div>
     <section id="settings" class="scroll borderRadius">
       <div id="settings-container">
         <div class="settingsBuffer"></div>
         <div class="settingsHeading" onclick="$('#general').toggle(500)">General</div>
         <div id="general" class="settingsContainer">
-          <div class="settingsLabel">Privacy Policy</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/public/docs/PRIVACYPOLICY.md'">View</div>
-          <div class="settingsLabel">Github Repository</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp'">Open</div>
-          <div class="settingsLabel">Firebase Edition</div>
+          <div class="settingsLabel" inert>Privacy Policy</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/dwpery/ClockWebApp/blob/main/public/docs/PRIVACYPOLICY.md'">View</div>
+          <div class="settingsLabel" inert>Github Repository</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/dwpery/ClockWebApp'">Open</div>
+          <div class="settingsLabel" inert>Firebase Edition</div>
           <div class="settingsButton" onclick="location.href='https://os-clock.web.app'">Open</div>
-          <div class="settingsLabel">Clear App Data</div>
-          <div class="settingsButton" onclick="resetApp()">Clear</div>
+          <div class="settingsLabel" inert>Clear App Data</div>
+          <div class="settingsButton" onclick="$('#resetAppConfirm').toggle(500)">Clear</div>
         </div>
         <div class="settingsHeading" onclick="$('#contact').toggle(500)">Contact</div>
         <div id="contact" class="settingsContainer">
-          <div class="settingsLabel">Report a bug</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
-          <div class="settingsLabel">Feature Request</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
-          <div class="settingsLabel">Security Issue</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/security/policy'">Report</div>
+          <div class="settingsLabel" inert>Report a bug</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/dwpery/ClockWebApp/issues/new?assignees=&labels=&template=bug_report.md&title='">Report</div>
+          <div class="settingsLabel" inert>Feature Request</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/dwpery/ClockWebApp/issues/new?assignees=&labels=&template=feature_request.md&title='">Request</div>
         </div>
         <div class="settingsHeading" onclick="$('#customization').toggle(500)">Customisation</div>
         <div id="customization" class="settingsContainer">
-          <div class="settingsLabel">Dark / Light mode</div>
+          <div class="settingsLabel" inert>Main Theme</div>
           <div class="settingsButton" id="themeButton" onclick="themeChanger()">Light</div>
-          <div class="settingsLabel">Font</div>
-          <div class="settingsButton" onclick="$('#font').toggle(500)">Change</div>
           <div id="themeChangerCon">
-            <div class="settingsLabel">Theme Colour</div>
+            <div class="settingsLabel" inert>Theme Colour</div>
           </div>
-          <div class="settingsLabel">Reset Theme Colour</div>
-          <div class="settingsButton" onclick="resetThemeColour()">Reset</div>
+          <div class="settingsLabel" inert>Reset Colour</div>
+          <div class="settingsButton" onclick="$('#resetColourConfirm').toggle(500)">Reset</div>
+          <div class="settingsLabel" inert>Font</div>
+          <div class="settingsButton" onclick="$('#font').toggle(500)" id="fontButton">Default</div>
         </div>
         <div class="settingsHeading" onclick="$('#animation').toggle(500)">Animation</div>
         <div id="animation" class="settingsContainer">
-          <div class="settingsLabel">Settings Open / Close</div>
-          <div class="settingsButton" id="setAnimButton" onclick="settingsAnimControl()">On</div>
-          <div class="settingsLabel">Timer to Stopwatch</div>
-          <div class="settingsButton" id="ttsTransButton" onclick="timerTransitionAni()">On</div>
+          <div class="settingsLabel" inert>Settings Open / Close</div>
+          <label class="switch">
+            <input id="setAnimButton" type="checkbox" onclick="settingsAnimControl()" checked>
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel" inert>Switcher spinning</div>
+          <label class="switch">
+            <input id="ttsTransButton" type="checkbox" onclick="timerTransitionAni()" checked>
+            <span class="slider"></span>
+          </label>
         </div>
         <div class="settingsHeading" onclick="$('#clockSettings').toggle(500)">Clock Panel</div>
         <div id="clockSettings" class="settingsContainer">
-          <div class="settingsLabel">24 Hour Clock</div>
-          <div class="settingsButton" id="clockModeButton" onclick="clockModeChanger()">Off</div>
-          <div class="settingsLabel">Hide Focus Mode</div>
-          <div class="settingsButton" id="hideFocusModeBttn" onclick="hideFocusModeCon()">Off</div>
-          <div class="settingsLabel">Date Format</div>
+          <div class="settingsLabel" inert>24 Hour Clock</div>
+          <label class="switch">
+            <input id="clockModeButton" type="checkbox" onclick="clockModeChanger()">
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel" inert>Hide Focus Mode</div>
+          <label class="switch">
+            <input id="hideFocusModeBttn" type="checkbox" onclick="hideFocusModeCon()">
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel">Hide Switcher</div>
+          <label class="switch">
+            <input id="hideClockSwitcher" type="checkbox" onclick="hideClockSwitcher()">
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel" inert>Date Format</div>
           <div class="settingsButton" id="dateFormatButton" onclick="dateFormatChanger()">DD/MM</div>
-          <div class="settingsLabel">Time Zone</div>
+          <div class="settingsLabel" inert>Time Zone</div>
           <div class="settingsButton" id="timeZoneButton" onclick="$('#timezone').toggle(500)">sussy</div>
         </div>
         <div class="settingsHeading" onclick="$('#timerSettings').toggle(500)">Timer Panel</div>
         <div id="timerSettings" class="settingsContainer">
-          <div class="settingsLabel">Double Digits</div>
-          <div class="settingsButton" id="doubleDigitsButton" onclick="doubleDigitsChanger()">Off</div>
+          <div class="settingsLabel" inert>Double Digits</div>
+          <label class="switch">
+            <input id="doubleDigitsButton" type="checkbox" onclick="doubleDigitsChanger()">
+            <span class="slider"></span>
+          </label>
+          <div class="settingsLabel">Hide Switcher</div>
+          <label class="switch">
+            <input id="hideTimerSwitcher" type="checkbox" onclick="hideTimerSwitcher()">
+            <span class="slider"></span>
+          </label>
         </div>
         <div class="settingsHeading" onclick="$('#alarmSettings').toggle(500)">Alarm Panel</div>
         <div id="alarmSettings" class="settingsContainer">
-          <div class="settingsLabel">Alarm Sound</div>
-          <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Change</div>
-          <div class="settingsLabel">Snooze Length</div>
-          <div class="settingsButton" onclick='$("#snoozeLength").toggle(500)'>Change</div>
+          <div class="settingsLabel" inert>Clear Alarms</div>
+          <div class="settingsButton" onclick="$('#resetAlarmsConfirm').toggle(500)">Clear</div>
+          <div class="settingsLabel" inert>Alarm Sound</div>
+          <div class="settingsButton" id="alarmSoundButton" onclick="$('#alarm').toggle(500)">Default</div>
+          <div class="settingsLabel" inert>Snooze for</div>
+          <div class="settingsButton" id="alarmSnoozeButton" onclick='$("#snoozeLength").toggle(500)'>1 minute</div>
         </div>
-        <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Version & Channel</div>
+        <div class="settingsHeading" onclick="$('#versionsChannel').toggle(500)">Build Details</div>
         <div id="versionsChannel" class="settingsContainer">
-          <div class="settingsLabel">Version</div>
-          <div class="settingsButton">v3.1.5</div>
-          <div class="settingsLabel">Channel</div>
-          <div class="settingsButton">Stable</div>
-          <div class="settingsLabel">Open Source docs</div>
-          <div class="settingsButton" onclick="location.href='https://github.com/SpicyPTV/ClockWebApp/blob/main/public/docs/OpenSourceList.md'">View</div>
+          <div class="settingsLabel" inert>Version</div>
+          <div class="settingsButton" inert>v3.2.0</div>
+          <div class="settingsLabel" inert>Channel</div>
+          <div class="settingsButton" inert>Stable</div>
+          <div class="settingsLabel" inert>Open Source docs</div>
+          <div class="settingsButton" onclick="location.href='https://github.com/dwpery/ClockWebApp/blob/main/public/docs/OpenSourceList.md'">View</div>
         </div>
         <hr>
         <div class="buildInfo">
-          <div>Want to support me? <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffee</a></div>
-          <div>GitHub Edition</div><br>
+          <div><span inert>Want to support me?</span> <a href="https://www.buymeacoffee.com/PieterEdwards">Buy me a coffee</a></div>
+          <div inert>GitHub Edition</div><br>
         </div>
       </div>
       <div class="switcher" id="alarm">
         <div class="switcherTitle">Alarm Sounds</div>
         <div class="closeSwitcher" onclick="$('#alarm').toggle(500)">x</div>
         <div class="switcherContainer scroll">
-          <div class="switcherOption" onclick="changeAlarmSound(0)">Default</div>
-          <div class="switcherOption" onclick="changeAlarmSound(2)">Harp Strumming</div>
+          <span class="switcherOption" onclick="changeAlarmSound(0)">Default</span>
+          <div class="switcherOption" onclick="changeAlarmSound(1)">Rock</div>
+          <div class="switcherOption" onclick="changeAlarmSound(2)">Harp</div>
           <div class="switcherOption" onclick="changeAlarmSound(3)">Rooster</div>
-          <div class="switcherOption" onclick="changeAlarmSound(4)">Military Trumpet</div>
-          <div class="switcherOption" onclick="changeAlarmSound(5)">Cuckoo Clock</div>
-          <div class="switcherOption" onclick="changeAlarmSound(6)">Alien Ship</div>
+          <div class="switcherOption" onclick="changeAlarmSound(4)">Trumpet</div>
+          <div class="switcherOption" onclick="changeAlarmSound(5)">Cuckoo</div>
+          <div class="switcherOption" onclick="changeAlarmSound(6)">Alien</div>
           <div class="switcherOption" onclick="changeAlarmSound(7)">Buzzer</div>
-          <div class="switcherOption" onclick="changeAlarmSound(8)">Digital</div>
-          <div class="switcherOption" onclick="changeAlarmSound(9)">Vintage</div>
+          <div class="switcherOption" onclick="changeAlarmSound(8)">Rapid</div>
+          <div class="switcherOption" onclick="changeAlarmSound(9)">Retro</div>
         </div>
       </div>
       <div class="switcher" id="font">
@@ -346,24 +396,22 @@
       <div class="activeAlarmTime"></div>
       <div class="cancelContainer">
         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="cancelAlarm" onclick="cancelAlarm()">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
-          <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
-          <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5229 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9522 78.6813 32.3006Z" fill="black"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0785 25.0785 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
-          <path d="M42.3125 31.1875L49.7188 43.5L57.2188 31.1875H64L52.9375 47.875L64.3438 65H57.6562L49.8438 52.3125L42.0312 65H35.3125L46.6875 47.875L35.6562 31.1875H42.3125Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 83C68.2254 83 83 68.2254 83 50C83 31.7746 68.2254 17 50 17C31.7746 17 17 31.7746 17 50C17 68.2254 31.7746 83 50 83ZM49.9943 43.9886L42.9545 32.0909H34.5852L45.3068 49.5455L34.3807 67H42.8352L49.9943 55.0852H50.267L57.4261 67H65.9148L55.0227 49.5455L65.6761 32.0909H57.3409L50.267 43.9886H49.9943Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5733 28.6658C82.8492 27.5304 86 23.6331 86 19C86 13.4772 81.5229 9 76 9C70.7656 9 66.4705 13.0217 66.0361 18.1437C70.9882 20.6414 75.2784 24.2599 78.5733 28.6658Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9638 18.1437C29.0118 20.6414 24.7216 24.2598 21.4266 28.6658C17.1508 27.5304 14 23.6331 14 19C14 13.4772 18.4772 9 24 9C29.2344 9 33.5295 13.0217 33.9638 18.1437Z" fill="black"/>
+          <rect x="72" y="79.2426" width="6" height="14" rx="3" transform="rotate(-45 72 79.2426)" fill="black"/>
+          <rect x="24.8995" y="75" width="6" height="14" rx="3" transform="rotate(45 24.8995 75)" fill="black"/>
         </svg>
       </div>
       <div class="snoozeContainer">
         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="snoozeAlarm" onclick="snoozeAlarm()">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 86C71.2107 86 88 69.2107 88 48.5C88 27.7893 71.2107 11 50.5 11C29.7893 11 13 27.7893 13 48.5C13 69.2107 29.7893 86 50.5 86ZM50.5 81C68.4493 81 83 66.4493 83 48.5C83 30.5507 68.4493 16 50.5 16C32.5507 16 18 30.5507 18 48.5C18 66.4493 32.5507 81 50.5 81Z" fill="black"/>
-          <rect x="19.6737" y="85.3263" width="15.4614" height="6" transform="rotate(-45 19.6737 85.3263)" fill="black"/>
-          <rect x="70" y="74.3934" width="15.4614" height="6" transform="rotate(45 70 74.3934)" fill="black"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.6813 32.3006C82.3824 30.8344 85 27.2229 85 23C85 17.4772 80.5229 13 75 13C70.6363 13 66.9255 15.795 65.56 19.6924C71.0403 22.5633 75.6002 26.9522 78.6813 32.3006Z" fill="black"/>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M34.5893 20.1544C29.3911 23.0785 25.0785 27.3911 22.1544 32.5893C18.0178 31.3636 15 27.5342 15 23C15 17.4772 19.4772 13 25 13C29.5342 13 33.3636 16.0178 34.5893 20.1544Z" fill="black"/>
-          <path d="M40.7148 68.0801V69H34.9375V68.0801H40.7148ZM40.5273 61.2891L35.207 69H34.5098V68.1562L39.8242 60.4688H40.5273V61.2891ZM40.0469 60.4688V61.3945H34.5859V60.4688H40.0469Z" fill="black"/>
-          <path d="M51.0723 57.6201V59H42.4062V57.6201H51.0723ZM50.791 47.4336L42.8105 59H41.7646V57.7344L49.7363 46.2031H50.791V47.4336ZM50.0703 46.2031V47.5918H41.8789V46.2031H50.0703Z" fill="black"/>
-          <path d="M66.4297 43.1602V45H54.875V43.1602H66.4297ZM66.0547 29.5781L55.4141 45H54.0195V43.3125L64.6484 27.9375H66.0547V29.5781ZM65.0938 27.9375V29.7891H54.1719V27.9375H65.0938Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 83C68.2254 83 83 68.2254 83 50C83 31.7746 68.2254 17 50 17C31.7746 17 17 31.7746 17 50C17 68.2254 31.7746 83 50 83ZM40.7148 72V71.0801H35.8417L40.5273 64.2891V63.4688H40.0469H39.8242H34.5859V64.3945H39.1842L34.5098 71.1562V72H34.9375H35.207H40.7148ZM49.3271 57.1016V59H41.3379H40.3447H39.6768V57.5498L46.2135 48.1104H39.7031V46.2031H47.5342H48.2988H49.1602V47.6182L42.6426 57.1016H49.3271ZM65.8633 45V42.2578H57.2087L65.6875 29.8945V27.9375H64.4805H63.2969H52.8672V30.6914H61.3859L52.8555 42.9844V45H53.7695H55.3281H65.8633Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M78.5733 28.6658C82.8492 27.5304 86 23.6331 86 19C86 13.4772 81.5229 9 76 9C70.7656 9 66.4705 13.0217 66.0361 18.1437C70.9882 20.6414 75.2784 24.2599 78.5733 28.6658Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M33.9638 18.1437C29.0118 20.6414 24.7216 24.2598 21.4266 28.6658C17.1508 27.5304 14 23.6331 14 19C14 13.4772 18.4772 9 24 9C29.2344 9 33.5295 13.0217 33.9638 18.1437Z" fill="black"/>
+          <rect x="72" y="79.2426" width="6" height="14" rx="3" transform="rotate(-45 72 79.2426)" fill="black"/>
+          <rect x="24.8995" y="75" width="6" height="14" rx="3" transform="rotate(45 24.8995 75)" fill="black"/>
         </svg>
       </div>
     </section>
@@ -371,19 +419,33 @@
       <div class="activeTimerName">Timer Complete!</div>
       <div class="cancelTimerContainer">
         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="cancelAlarm" onclick="cancelTimer()">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 93C71.2107 93 88 76.2107 88 55.5C88 34.7893 71.2107 18 50.5 18C29.7893 18 13 34.7893 13 55.5C13 76.2107 29.7893 93 50.5 93ZM50.5 88C68.4493 88 83 73.4493 83 55.5C83 37.5507 68.4493 23 50.5 23C32.5507 23 18 37.5507 18 55.5C18 73.4493 32.5507 88 50.5 88Z" fill="black"/>
-          <rect x="47" y="12" width="7" height="9" fill="black"/>
-          <rect x="43" y="14" width="6" height="15" transform="rotate(-90 43 14)" fill="black"/>
-          <path d="M42.9545 37.0909L49.9943 48.9886H50.267L57.3409 37.0909H65.6761L55.0227 54.5455L65.9148 72H57.4261L50.267 60.0852H49.9943L42.8352 72H34.3807L45.3068 54.5455L34.5852 37.0909H42.9545Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 94C71.5391 94 89 76.5391 89 55C89 33.4609 71.5391 16 50 16C28.4609 16 11 33.4609 11 55C11 76.5391 28.4609 94 50 94ZM50 90.6571C69.6929 90.6571 85.6571 74.6929 85.6571 55C85.6571 35.3071 69.6929 19.3429 50 19.3429C30.3071 19.3429 14.3429 35.3071 14.3429 55C14.3429 74.6929 30.3071 90.6571 50 90.6571Z" fill="black"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M50 88C68.2254 88 83 73.2254 83 55C83 36.7746 68.2254 22 50 22C31.7746 22 17 36.7746 17 55C17 73.2254 31.7746 88 50 88ZM49.9943 48.9886L42.9545 37.0909H34.5852L45.3068 54.5455L34.3807 72H42.8352L49.9943 60.0852H50.267L57.4261 72H65.9148L55.0227 54.5455L65.6761 37.0909H57.3409L50.267 48.9886H49.9943Z" fill="black"/>
+          <rect x="47" y="6" width="6" height="12" rx="2" fill="black"/>
+          <rect x="43" y="11" width="5" height="14" rx="2" transform="rotate(-90 43 11)" fill="black"/>
         </svg>          
       </div>
     </section>
     <div class="loader">
       <svg class="svgLoader spinning-path" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5 87C71.2107 87 88 70.2107 88 49.5C88 28.7893 71.2107 12 50.5 12C29.7893 12 13 28.7893 13 49.5C13 70.2107 29.7893 87 50.5 87ZM50.5 82C68.4493 82 83 67.4493 83 49.5C83 31.5507 68.4493 17 50.5 17C32.5507 17 18 31.5507 18 49.5C18 67.4493 32.5507 82 50.5 82Z" fill="white"/>
-        <rect x="49" y="21" width="3" height="28" fill="white"/>
-        <path d="M49.4715 47L51.929 48.7207L40.4575 65.1038L38 63.383L49.4715 47Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M50 89C71.5391 89 89 71.5391 89 50C89 28.4609 71.5391 11 50 11C28.4609 11 11 28.4609 11 50C11 71.5391 28.4609 89 50 89ZM50 85.6571C69.6929 85.6571 85.6571 69.6929 85.6571 50C85.6571 30.3071 69.6929 14.3429 50 14.3429C30.3071 14.3429 14.3429 30.3071 14.3429 50C14.3429 69.6929 30.3071 85.6571 50 85.6571Z" fill="white"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M83 50C83 68.2254 68.2254 83 50 83C31.7746 83 17 68.2254 17 50C17 31.7746 31.7746 17 50 17C68.2254 17 83 31.7746 83 50ZM47.7241 25.5345C47.7241 23.9633 48.9978 22.6897 50.569 22.6897C52.1401 22.6897 53.4138 23.9633 53.4138 25.5345V49.431C53.4138 50.0573 53.2114 50.6362 52.8686 51.1062C52.7525 51.7397 52.4219 52.3375 51.8875 52.7811L38.7541 63.6835C37.5452 64.687 35.7516 64.5205 34.7481 63.3116C33.7446 62.1027 33.9111 60.3092 35.12 59.3056L47.7241 48.8426V25.5345Z" fill="white"/>
       </svg>
+    </div>
+    <div class="switcher resetConfirm" id="resetAppConfirm">
+      <div class="switcherTitle" inert>Are you sure?</div>
+      <div class="deleteData" onclick="resetApp()">Clear</div>
+      <div class="cancelData" onclick="$('#resetAppConfirm').toggle(500)">Cancel</div>
+    </div>
+    <div class="switcher resetConfirm" id="resetColourConfirm">
+      <div class="switcherTitle" inert>Are you sure?</div>
+      <div class="deleteData" onclick="resetThemeColour()">Reset</div>
+      <div class="cancelData" onclick="$('#resetColourConfirm').toggle(500)">Cancel</div>
+    </div>
+    <div class="switcher resetConfirm" id="resetAlarmsConfirm">
+      <div class="switcherTitle" inert>Are you sure?</div>
+      <div class="deleteData" onclick="resetAlarmsContainer()">Clear</div>
+      <div class="cancelData" onclick="$('#resetAlarmsConfirm').toggle(500)">Cancel</div>
     </div>
   </body>
 </html>

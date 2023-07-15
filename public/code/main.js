@@ -6,6 +6,8 @@ var value = 1;
 var sValue = 1;
 // Alarm Sounds                         0                                1                             2                             3                               4                                 5                             6                               7                              8                               9
 var alarmSounds = new Array("media/alarms/default.mp3","media/alarms/heavy-metal.mp3","media/alarms/harp-strumming.mp3","media/alarms/rooster.mp3","media/alarms/military-trumpet.mp3","media/alarms/cuckoo-clock.mp3","media/alarms/alien-ship.mp3","media/alarms/buzzer-alarm.wav","media/alarms/digital-alarm.wav","media/alarms/vintage-alarm.wav");
+// List of alarm names
+var alarmNames = new Array("Default","Rock","Harp","Rooster","Trumpet","Cuckoo","Alien","Buzzer","Rapid","Retro") 
 // False = Normal, True = Focus
 var isFocus = false;
 // Timezones
@@ -35,14 +37,14 @@ const timeZones = [
 	"Asia/Tokyo",
 	"Pacific/Guam"
 ];
-// Stores what time zone is active
-var timeZoneNumber = 24;
 // Stores local timezone number
 var localTimeZoneNumber = 0;
+// Snooze Length value
+var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
 
 // Sets dark theme if system is dark on first load
 
-const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+var darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
 if (darkThemeMq.matches) {
   if (localStorage.getItem('darkMode') == null) {
     $("html").addClass("dark");
@@ -55,103 +57,16 @@ if (darkThemeMq.matches) {
   // Theme set to light. Light is default.
 }
 
-// Local Storage Variables
-
-// False = dd/mm, True = mm/dd
-var dateFormat = localStorage.getItem('dateFormat') || "false";
-// True = 12, False = 24
-var clockMode = localStorage.getItem('clockMode') || "true";
-// False = Light, True = Dark
-var isDark = localStorage.getItem('darkMode') || "false";
-// False = No, True = Yes
-var doubleDigits = localStorage.getItem('doubleDigits') || "false";
-// Settings animation, True = On, False = Off
-var settingsAnimation = localStorage.getItem('settingsAnim') || "true";
-// Timer Transition, True = On, False = Off
-var timerTransition = localStorage.getItem("timerTrans") || "true";
-// False = Timer, True = Stopwatch
-var isStopwatch = localStorage.getItem("isStopwatch") || "false";
-// Active Alarm Sound
-var activeAlarmSound = localStorage.getItem("activeAlarmSound") || "0";
-// Hide focus mode
-var hideFocusMode = localStorage.getItem("hideFocusMode") || "false";
-// Current Font
-var currentFont = localStorage.getItem("currentFont") || "0";
-// Holds amout of Alarms
-var numOfAlarms = localStorage.getItem('numOfAlarms') || null;
-// Holds custom theme colour
-var themeColour = localStorage.getItem('themeColour') || '#FF0000';
-$('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
-// Makees values right data type
-if (numOfAlarms === null ) {
-  // nothing
-} else {
-  if (numOfAlarms == "null") {
-    numOfAlarms = null;
-  } else {
-    numOfAlarms = Number(numOfAlarms);
-  }
-}
-// Hols alarms in array
-const alarms = localStorage.getItem('alarms') ? JSON.parse(localStorage.getItem('alarms')) : [];
 // Initiates alarm sound
 var audio = new Audio(alarmSounds[parseInt(activeAlarmSound, 10)]);
-// Snooze Alarm Number
-var snoozeAlarmNumber = Number(localStorage.getItem('snoozeAlarmNumber') || 0);
-// Snooze Length value
-var snoozelengthValue = new Array(60000, 120000, 180000, 240000, 300000, 360000, 420000, 480000, 540000, 600000)
-
-// Local Storage retrieval and setups
-
-if (localStorage.getItem('darkMode') == "true") {
-  $("html").addClass("dark");
-  $("#themeButton").html("Dark");
-  $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
-}
-
-if (localStorage.getItem('clockMode') == "false") {
-  $("#clockModeButton").html("On");
-}
-
-if (localStorage.getItem('dateFormat') == "true") {
-  $("#dateFormatButton").html("MM/DD");
-}
-
-if (localStorage.getItem('doubleDigits') == "true") {
-  $("#doubleDigitsButton").html("On");
-}
-
-if (localStorage.getItem('settingsAnim') == "false") {
-  $("#setAnimButton").html("Off");
-}
-
-if (localStorage.getItem('timerTrans') == "false") {
-  $("#ttsTransButton").html("Off");
-  $("#timerChange").css("transition","0s");
-}
-
-if (localStorage.getItem('isStopwatch') == "true") {
-  $("#timerChange").css("transform","rotate(180deg)");
-  $(".timerMain").hide();
-  $(".stopwatch").show();
-  $("#timerResetContainer").hide();
-  $("#stopwatchResetContainer").show();
-  $("#timerPlayContainer").hide();
-  $("#stopwatchPlayContainer").show();
-}
-
-if (localStorage.getItem("hideFocusMode") == "true") {
-  $("#hideFocusModeBttn").html("On");
-  $("#focusMode").hide();
-}
 
 // Main Code
 
 // Function executes when page loads
 $(document).ready(function() {
   showClock();
-  // Sets Font
   changeFont(currentFont);
+
   // Loads timezones
   $("#timezoneList").append("<div class=\"switcherOption\" onclick=\"timeZoneNumber = " + 24 + "\">Default</div>");
   for (let i = 0; i < timeZones.length; i++) {
@@ -162,14 +77,23 @@ $(document).ready(function() {
   }
   if (numOfAlarms > 0 || numOfAlarms === 0) {
     for (var i = 0; i <= numOfAlarms; i++) {
-      $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName">' + alarms[i].name + '</div><div class="printAlarmTime">' + alarms[i].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div></div>');
+      const checkedIndicator = alarms[i].active ? 'checked' : '';
+
+      $('.alarms-container').prepend('<div class="alarm printedAlarm"><div class="printAlarmName" inert>' + alarms[numOfAlarms].name + '</div><div class="printAlarmTime" inert>' + alarms[numOfAlarms].time + '</div><label class="switch switch2"><input ' + checkedIndicator + ' type="checkbox" onclick="clockActiveChanger(this)"><span class="slider"></span></label><svg onclick="removeFinalAlarm(this)" class="removeFinalAlarm" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="25" width="50" height="7" rx="3.5" fill="#FF0000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M49.5 32C53.6421 32 57 28.6421 57 24.5C57 20.3579 53.6421 17 49.5 17C45.3579 17 42 20.3579 42 24.5C42 28.6421 45.3579 32 49.5 32ZM49.5 29C51.9853 29 54 26.9853 54 24.5C54 22.0147 51.9853 20 49.5 20C47.0147 20 45 22.0147 45 24.5C45 26.9853 47.0147 29 49.5 29Z" fill="#FF0000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M28.5181 34C26.6722 34 25.2642 35.6512 25.5558 37.474L32.5958 81.474C32.8287 82.9293 34.0843 84 35.5581 84H64.4418C65.9157 84 67.1713 82.9293 67.4042 81.474L74.4442 37.474C74.7358 35.6512 73.3278 34 71.4818 34H28.5181ZM50 37C48.3431 37 47 38.3431 47 40V76C47 77.6569 48.3431 79 50 79C51.6568 79 53 77.6569 53 76V40C53 38.3431 51.6568 37 50 37ZM30.5209 40.9963C30.2332 39.3646 31.3227 37.8087 32.9544 37.5209C34.5861 37.2332 36.1421 38.3227 36.4298 39.9544L42.6811 75.4075C42.9688 77.0392 41.8793 78.5952 40.2476 78.8829C38.616 79.1706 37.06 78.0811 36.7723 76.4494L30.5209 40.9963ZM67.2476 37.5209C65.616 37.2332 64.06 38.3227 63.7723 39.9544L57.5209 75.4075C57.2332 77.0392 58.3227 78.5952 59.9544 78.8829C61.5861 79.1706 63.1421 78.0811 63.4298 76.4494L69.6811 40.9963C69.9688 39.3646 68.8793 37.8087 67.2476 37.5209Z" fill="#FF0000"/></svg></div>');
     }
   }
-  setTimeout(function() {
-    $('.loader').toggle(500);
-    $('.loader').css('border-radius','5vh')
-  }, 1000)
+  if (snoozeAlarmNumber == 0) {
+    $("#alarmSnoozeButton").html("1 minute");
+  } else {
+    $("#alarmSnoozeButton").html(snoozeAlarmNumber + 1 + " minutes");
+  }
 })
+
+$(window).on('load', function() {
+  $('.loader').toggle(500);
+  $('.loader').css('border-radius','5vh');
+  $('.digital').css('transition', '0.75s');
+});
 
 // Makes alarm loop when finished
 audio.addEventListener('ended', function() {
@@ -177,7 +101,9 @@ audio.addEventListener('ended', function() {
   this.play();
 }, false);
 
-setInterval(function() {
+interval = setInterval(mainFunction, 10);
+
+function mainFunction() {
   // Declares date variable
   var date = new Date();
 
@@ -197,7 +123,7 @@ setInterval(function() {
     for (var i = 0; i <= numOfAlarms; i++) {
     
       // Checks if current time matches alarm time
-      if (checkTime == alarms[i].time && date.getSeconds() == "00") {
+      if (checkTime == alarms[i].time && date.getSeconds() == "00" && alarms[i].active == true) {
         // Prints alarm information
         $(".activeAlarmName").html(alarms[i].name);
         $(".activeAlarmTime").html(alarms[i].time);
@@ -205,7 +131,6 @@ setInterval(function() {
         audio.play();
         $("#alarmActive").css("display","block");
       }
-  
     }
   }
 
@@ -258,11 +183,12 @@ setInterval(function() {
   // Prints users timezone
   $("#timeZoneButton").html(tza);
 
+  localStorage.setItem("timeZoneNumber", timeZoneNumber)
   if (timeZoneNumber != 24 && timeZoneNumber != localTimeZoneNumber) {
     $(".display").html(timesInAllTimeZones[timeZoneNumber].time);
     $(".ampm").html(timesInAllTimeZones[timeZoneNumber].amPm);
     $("#timeZoneButton").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
-    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').valueremove)
+    $(".date").html(Intl.DateTimeFormat('en', { timeZoneName: 'short', timeZone: timesInAllTimeZones[timeZoneNumber].timeZone }).formatToParts(date).find(x => x.type === 'timeZoneName').value)
   } else {
     hours = (date.getHours() < 10 ? "0" : "" ) + date.getHours();
 
@@ -285,10 +211,21 @@ setInterval(function() {
     // Prints time
     $(".display").html(hours + ":" + minutes + ":" + seconds);
 
+    var now = new Date();
+		var hour = now.getHours() % 12;
+		var minute = now.getMinutes();
+		var second = now.getSeconds();
+		var hourRotation = (hour * 30) + (minute * 0.5);
+		var minuteRotation = (minute * 6) + (second * 0.1);
+		var secondRotation = second * 6;
+    document.querySelector('.hour-hand').style.transform = 'rotate(' + hourRotation + 'deg)';
+		document.querySelector('.minute-hand').style.transform = 'rotate(' + minuteRotation + 'deg)';
+		document.querySelector('.second-hand').style.transform = 'rotate(' + secondRotation + 'deg)';
+
     // Prints out date
     $(".date").html(today);
   }
-}, 10);
+};
 
 setTimeout (function() {
   setInterval (function() {
@@ -381,472 +318,23 @@ function showAlarm() {
   $("#alarmPannel").show();
 }
 
-// Starts Timer
-function startTimer() {
-
-  // Gets Values
-  timerHours = $("#hours").val();
-  timerMinutes = $("#minutes").val();
-  timerSeconds = $("#seconds").val();
-
-  // Defaults values
-  if (timerHours == "") {timerHours = 0}
-  if (timerMinutes == "") {timerMinutes = 0}
-  if (timerSeconds == "") {timerSeconds = 0}
-
-  // Resets if empty
-  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    resetTimer();
-  }
-
-  // Makes values positive
-  if (timerHours < 0) {timerHours = 0}
-  if (timerMinutes < 0) {timerMinutes = 0}
-  if (timerSeconds < 0) {timerSeconds = 0}
-
-  // Changes Icon
-  $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseTimer" onclick="pauseTimer()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
-
-  // Changes from Input to Display
-  $(".timerInput").css("display","none");
-  $(".timerDisplay").addClass("responsiveDisplay");
-
-  // Prints values
-  $("#span1").html(timerHours);
-  $("#span2").html(timerMinutes);
-  $("#span3").html(timerSeconds);
-
-  intervalId = setInterval(countdown, 1000)
-}
-
-function countdown() {
-  
-  // Resets if empty
-  if (timerSeconds == 0 && timerMinutes == 0 && timerHours == 0) {
-    $("#timerActive").css("display","block");
-    audio.play();
-    resetTimer();
-  }
-
-  timerSeconds -= value;
-  // Main time keeping
-  if(timerSeconds < 0) {
-    timerSeconds = 59;
-    timerMinutes -= 1;
-  }
-  if(timerMinutes < 0) {
-    timerSeconds = 59;
-    timerMinutes = 59;
-    timerHours -= 1;
-  }
-  if(timerHours < 0) {
-    timerSeconds = 59;
-    timerMinutes = 59;
-  }
-
-  // Print Values
-  var ps = timerSeconds;
-  var pm = timerMinutes;
-  var ph = timerHours;
-
-  // Pads with zeros
-  if (doubleDigits == "true") {
-    ps = (ps < 10 ? "0" : "" ) + ps;
-    pm = (pm < 10 ? "0" : "" ) + pm;
-    ph = (ph < 10 ? "0" : "" ) + ph;
-  }
-
-  // Prints Values
-  $("#span1").html(ph);
-  $("#span2").html(pm);
-  $("#span3").html(ps);
-}
-
-function pauseTimer() {
-  if (value == 1) {
-    value = 0;
-    $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>');
-  } else {
-    value = 1;
-    $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
-  }
-}
-
-function resetTimer() {
-
-  value = 1;
-  $("#pauseTimer").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
-  
-  // Changes Icon
-  $("#timerPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startTimer" onclick="startTimer()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/></svg>');
-  
-  // Changes from Input to Display
-  $(".timerInput").css("display","block");
-  $(".timerDisplay").css("display","none");
-
-  clearInterval(intervalId)
-}
-
 // Controls focus mode stuff
 function focusModeControl() {
   if (isFocus == false) {
     isFocus = true;
     $("header").hide();
     $(".digital").addClass("clear");
-    $("#focusMode").css("bottom", "12vh");
+    $(".analog").addClass("clear2");
+    $(".clockControls").addClass("clockMove");
+    $("#clockChanger").html('<path id="focusPath" class="barOnSVG" d="M46.8492 79.7695C42.944 83.6748 36.6123 83.6748 32.7071 79.7695L31.2929 78.3553C27.3876 74.4501 27.3876 68.1184 31.2929 64.2132L53.2132 42.2929C57.1184 38.3876 63.4501 38.3876 67.3553 42.2929L68.7695 43.7071C72.6748 47.6123 72.6748 53.944 68.7695 57.8492L46.8492 79.7695Z" fill="#36454F"/><path id="focusPath" class="barOnSVG" d="M31.0711 36.6274C27.1658 32.7222 27.1658 26.3905 31.0711 22.4853L32.4853 21.0711C36.3905 17.1658 42.7222 17.1658 46.6274 21.0711L68.5477 42.9914C72.453 46.8966 72.453 53.2283 68.5477 57.1335L67.1335 58.5477C63.2283 62.453 56.8966 62.453 52.9914 58.5477L31.0711 36.6274Z" fill="#36454F"/>');
     $("#focusMode").html('<path id="focusPath" class="barOnSVG" d="M73.6607 42.8571H59.8214C58.3371 42.8571 57.1429 41.6629 57.1429 40.1786V26.3393C57.1429 25.6027 57.7455 25 58.4821 25H62.9464C63.683 25 64.2857 25.6027 64.2857 26.3393V35.7143H73.6607C74.3973 35.7143 75 36.317 75 37.0536V41.5179C75 42.2545 74.3973 42.8571 73.6607 42.8571ZM42.8571 40.1786V26.3393C42.8571 25.6027 42.2545 25 41.5179 25H37.0536C36.317 25 35.7143 25.6027 35.7143 26.3393V35.7143H26.3393C25.6027 35.7143 25 36.317 25 37.0536V41.5179C25 42.2545 25.6027 42.8571 26.3393 42.8571H40.1786C41.6629 42.8571 42.8571 41.6629 42.8571 40.1786ZM42.8571 73.6607V59.8214C42.8571 58.3371 41.6629 57.1429 40.1786 57.1429H26.3393C25.6027 57.1429 25 57.7455 25 58.4821V62.9464C25 63.683 25.6027 64.2857 26.3393 64.2857H35.7143V73.6607C35.7143 74.3973 36.317 75 37.0536 75H41.5179C42.2545 75 42.8571 74.3973 42.8571 73.6607ZM64.2857 73.6607V64.2857H73.6607C74.3973 64.2857 75 63.683 75 62.9464V58.4821C75 57.7455 74.3973 57.1429 73.6607 57.1429H59.8214C58.3371 57.1429 57.1429 58.3371 57.1429 59.8214V73.6607C57.1429 74.3973 57.7455 75 58.4821 75H62.9464C63.683 75 64.2857 74.3973 64.2857 73.6607Z" fill="#36454F"/>')
   } else {
     isFocus = false;
     $("header").show();
     $(".digital").removeClass("clear");
-    $("#focusMode").css("bottom", "20vh");
+    $(".analog").removeClass("clear2");
+    $(".clockControls").removeClass("clockMove");
+    $("#clockChanger").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M46.8492 79.7695C42.944 83.6748 36.6123 83.6748 32.7071 79.7695L31.2929 78.3553C27.3876 74.4501 27.3876 68.1184 31.2929 64.2132L53.2132 42.2929C57.1184 38.3876 63.4501 38.3876 67.3553 42.2929L68.7695 43.7071C72.6748 47.6123 72.6748 53.944 68.7695 57.8492L46.8492 79.7695Z" fill="#36454F"/><path class="barOnSVG" d="M31.0711 36.6274C27.1658 32.7222 27.1658 26.3905 31.0711 22.4853L32.4853 21.0711C36.3905 17.1658 42.7222 17.1658 46.6274 21.0711L68.5477 42.9914C72.453 46.8966 72.453 53.2283 68.5477 57.1335L67.1335 58.5477C63.2283 62.453 56.8966 62.453 52.9914 58.5477L31.0711 36.6274Z" fill="#36454F"/>');
     $("#focusMode").html('<g clip-path="url(#clip0_0_1)"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M25 42.5781V30.4688C25 29.1699 26.1942 28.125 27.6786 28.125H41.5179C42.2545 28.125 42.8571 28.6523 42.8571 29.2969V33.2031C42.8571 33.8477 42.2545 34.375 41.5179 34.375H32.1429V42.5781C32.1429 43.2227 31.5402 43.75 30.8036 43.75H26.3393C25.6027 43.75 25 43.2227 25 42.5781ZM57.1429 29.2969V33.2031C57.1429 33.8477 57.7455 34.375 58.4821 34.375H67.8571V42.5781C67.8571 43.2227 68.4598 43.75 69.1964 43.75H73.6607C74.3973 43.75 75 43.2227 75 42.5781V30.4688C75 29.1699 73.8058 28.125 72.3214 28.125H58.4821C57.7455 28.125 57.1429 28.6523 57.1429 29.2969ZM73.6607 56.25H69.1964C68.4598 56.25 67.8571 56.7773 67.8571 57.4219V65.625H58.4821C57.7455 65.625 57.1429 66.1523 57.1429 66.7969V70.7031C57.1429 71.3477 57.7455 71.875 58.4821 71.875H72.3214C73.8058 71.875 75 70.8301 75 69.5312V57.4219C75 56.7773 74.3973 56.25 73.6607 56.25ZM42.8571 70.7031V66.7969C42.8571 66.1523 42.2545 65.625 41.5179 65.625H32.1429V57.4219C32.1429 56.7773 31.5402 56.25 30.8036 56.25H26.3393C25.6027 56.25 25 56.7773 25 57.4219V69.5312C25 70.8301 26.1942 71.875 27.6786 71.875H41.5179C42.2545 71.875 42.8571 71.3477 42.8571 70.7031Z" fill="#36454F"/></g><defs><clipPath id="clip0_0_1"><rect width="100" height="100" fill="white"/></clipPath></defs>');
   }
-}
-
-// Swaps 24 hour format on or off
-function clockModeChanger() {
-  if (clockMode == "true") {
-    clockMode = "false";
-    $("#clockModeButton").html("On");
-    localStorage.setItem('clockMode', clockMode);
-  } else {
-    clockMode = "true";
-    $("#clockModeButton").html("Off");
-    localStorage.setItem('clockMode', clockMode);
-  }
-}
-
-// Changes between the World and USA
-function dateFormatChanger() {
-  if (dateFormat == "false") {
-    dateFormat = "true";
-    $("#dateFormatButton").html("MM/DD");
-    localStorage.setItem('dateFormat', dateFormat);
-  } else {
-    dateFormat = "false";
-    $("#dateFormatButton").html("DD/MM");
-    localStorage.setItem('dateFormat', dateFormat);
-  }
-}
-
-// Swaps chunky numbers on / off (Timer Panel)
-function doubleDigitsChanger() {
-  if (doubleDigits == "false") {
-    doubleDigits = "true";
-    $("#doubleDigitsButton").html("On");
-  } else {
-    doubleDigits = "false";
-    $("#doubleDigitsButton").html("Off");
-  }
-  localStorage.setItem('doubleDigits', doubleDigits);
-}
-
-// Turns settings opening animation on / off
-function settingsAnimControl() {
-  if (settingsAnimation == "true") {
-    settingsAnimation = "false";
-    $("#setAnimButton").html("Off");
-  } else {
-    settingsAnimation = "true";
-    $("#setAnimButton").html("On");
-  }
-  localStorage.setItem('settingsAnim', settingsAnimation);
-}
-
-// Turns transition from Timer to Stopwatch on and off
-function timerTransitionAni() {
-  if (timerTransition == "true") {
-    timerTransition = "false";
-    $("#ttsTransButton").html("Off");
-    $("#timerChange").css("transition","0s");
-  } else {
-    timerTransition = "true";
-    $("#ttsTransButton").html("On");
-    $("#timerChange").css("transition","0.25s");
-  }
-  localStorage.setItem('timerTrans', timerTransition);
-}
-
-function hideFocusModeCon() {
-  if (hideFocusMode == "true") {
-    hideFocusMode = "false";
-    $("#focusMode").show();
-    $("#hideFocusModeBttn").html("Off");
-  } else {
-    hideFocusMode = "true";
-    $("#focusMode").hide();
-    $("#hideFocusModeBttn").html("On");
-  }
-  localStorage.setItem('hideFocusMode', hideFocusMode);
-}
-
-// Adds alarm to container
-function addAlarm() {
-  $(".alarms-container").prepend('<div class="alarm"><input type="text" class="alarmName" placeholder="Morning Alarm"><input type="time" class="alarmTime"><div id="submit" onclick="submitAlarm(this)">Accept</div><div id="remove" onclick="removeAlarm(this)">Delete</div></div>');
-}
-
-// Removes alarm
-function removeAlarm(x) {
-  $(x).closest('.alarm').remove();
-}
-
-function submitAlarm(x) {
-  if ($(x).siblings(".alarmName").val() == "" || $(x).siblings(".alarmTime").val() == "") {
-    // Nothing
-  } else {
-    const newAlarm = { name: $(x).siblings(".alarmName").val(), time: $(x).siblings(".alarmTime").val()};
-    alarms.push(newAlarm);
-    // Adds final alarm to container
-    $(x).closest('.alarm').css("height","15vh");
-    if (numOfAlarms === null) {
-      numOfAlarms = 0;
-    } else {
-      numOfAlarms += 1;
-    }
-    $(x).closest('.alarm').html('<div class="printAlarmName">' + alarms[numOfAlarms].name + '</div><div class="printAlarmTime">' + alarms[numOfAlarms].time + '</div><div onclick="removeFinalAlarm(this)" class="removeFinalAlarm">Delete</div>');
-    localStorage.setItem('numOfAlarms', numOfAlarms);
-    localStorage.setItem('alarms', JSON.stringify(alarms));
-  }
-}
-
-function removeFinalAlarm(x) {
-  const deletedAlarmName = $(x).siblings('.printAlarmName').html();
-  $(x).closest('.alarm').remove();
-
-  // Find the index of alarm to be deleted
-  const alarmIndex = alarms.findIndex(alarm => alarm.name == deletedAlarmName);
-
-  if (alarmIndex !== -1) {
-    // Remove the alarm from the alarms array
-    const removedAlarm = alarms.splice(alarmIndex, 1)[0];
-    if (numOfAlarms === 0) {
-      numOfAlarms = null;
-    } else {
-      numOfAlarms -= 1;
-    }
-    localStorage.setItem('numOfAlarms', numOfAlarms);
-    localStorage.setItem('alarms', JSON.stringify(alarms));
-  }
-}
-
-// Stops alarm from playing
-function cancelAlarm() {
-  $("#alarmActive").css("display","none");
-  audio.pause();
-  audio.remove();
-}
-
-function cancelTimer() {
-  $("#timerActive").css("display","none");
-  audio.pause();
-  audio.remove();
-  audio.currentTime = 0;
-}
-
-function snoozeAlarm() {
-  cancelAlarm();
-  setTimeout( function() {
-    $("#alarmActive").css("display","block");
-    audio.play();
-  }, snoozelengthValue[snoozeAlarmNumber])
-}
-
-function changeSnoozeLenght(x) {
-  $('#snoozeLength').toggle(500);
-  snoozeAlarmNumber = x;
-  localStorage.setItem('snoozeAlarmNumber', snoozeAlarmNumber)
-}
-
-// Changes alarm sound
-function changeAlarmSound(x) {
-  // Gets chosen alarm ready to play
-  activeAlarmSound = x;
-  audio = new Audio(alarmSounds[activeAlarmSound]);
-
-  localStorage.setItem("activeAlarmSound", activeAlarmSound)
-
-  // Resets alarm to beginning if already used
-  audio.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-  }, false);
-
-  // Hides alarm sound menu and plays alarm taster
-  $(".alarmSwitcher").css("display","none");
-  audio.play();
-
-  setTimeout(function() {
-    cancelAlarm();
-    audio.currentTime = 0;
-  }, 4000)
-
-  $('#alarm').toggle(500);
-  closeSettings();
-}
-
-// Changes active font
-
-function changeFont(x) {
-  $("body").removeClass("defaultFont");
-  $("body").removeClass("classicFont");
-  $("body").removeClass("wetFont");
-  $("body").removeClass("arialFont");
-  $("body").removeClass("bubbleFont");
-  $("body").removeClass("robotFont");
-
-  if (x == "0") {
-    $("body").addClass("defaultFont");
-    currentFont = x;
-  } else if (x == "1") {
-    $("body").addClass("classicFont");
-    currentFont = x;
-  } else if (x == "2") {
-    $("body").addClass("wetFont");
-    currentFont = x;
-  } else if (x == "3") {
-    $("body").addClass("arialFont");
-    currentFont = x;
-  } else if (x == "4") {
-    $("body").addClass("bubbleFont");
-    currentFont = x;
-  } else {
-    $("body").addClass("robotFont");
-    currentFont = x;
-  }
-  localStorage.setItem('currentFont', currentFont);
-}
-
-// Swaps between timer and stopwatch
-function timerChanger() {
-  if (isStopwatch == "false") {
-    $("#timerChange").css("transform","rotate(180deg)");
-    $(".timerMain").hide();
-    $(".stopwatch").show();
-    $("#timerResetContainer").hide();
-    $("#stopwatchResetContainer").show();
-    $("#timerPlayContainer").hide();
-    $("#stopwatchPlayContainer").show();
-    isStopwatch = "true";
-    localStorage.setItem('isStopwatch', isStopwatch);
-  } else {
-    $("#timerChange").css("transform","rotate(360deg)");
-    $(".timerMain").show();
-    $(".stopwatch").hide();
-    $("#timerResetContainer").show();
-    $("#stopwatchResetContainer").hide();
-    $("#timerPlayContainer").show();
-    $("#stopwatchPlayContainer").hide();
-    isStopwatch = "false";
-    localStorage.setItem('isStopwatch', isStopwatch);
-  }
-}
-
-// Changes between light and dark
-function themeChanger() {
-  if (isDark == "false") {
-    isDark = "true";
-    localStorage.setItem('darkMode', isDark);
-    $("html").addClass("dark");
-    $("#themeButton").html("Dark");
-    $("meta[name='theme-color']").attr("content", "rgb(76, 82, 85)");
-  } else if (isDark == "true") {
-    isDark = "false";
-    localStorage.setItem('darkMode', isDark);
-    $("html").removeClass("dark");
-    $("#themeButton").html("Light");
-    $("meta[name='theme-color']").attr("content", "#D3D3D3");
-  }
-}
-
-// Starts stopwatch
-function startStopwatch() {
-  // Values
-  stopwatchS = 0;
-  stopwatchM = 0;
-  stopwatchH = 0;
-
-  // Prints values
-  $("#span4").html(stopwatchH);
-  $("#span5").html(stopwatchM);
-  $("#span6").html(stopwatchS);
-
-  // Changes Icon
-  $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="pauseStopwatch" onclick="pauseStopwatch()"><circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path class="barOnSVG" d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path class="barOnSVG" d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/></svg>');
-
-  stopwatchCycle = setInterval(stopwatch, 1000);
-}
-
-// Main code for stopwatch
-function stopwatch() {
-  // increments stopwatch
-  stopwatchS += sValue;
-
-  // sorts out number changing
-  if (stopwatchS > 59) {
-    stopwatchS = 0;
-    stopwatchM += 1;
-    if (stopwatchM > 59) {
-      stopwatchM = 0;
-      stopwatchH += 1;
-    }
-  }
-
-  // Print variables
-  pSS = stopwatchS;
-  pSM = stopwatchM;
-  pSH = stopwatchH;
-
-  // Pads integers
-  if (doubleDigits === "true") {
-    pSS = (pSS < 10 ? "0" : "" ) + pSS;
-    pSM = (pSM < 10 ? "0" : "" ) + pSM;
-    pSH = (pSH < 10 ? "0" : "" ) + pSH;
-  }
-
-  // Prints values
-  $("#span4").html(pSH);
-  $("#span5").html(pSM);
-  $("#span6").html(pSS);
-}
-
-// Pauses stopwatch
-function pauseStopwatch() {
-  if (sValue == 1) {
-    sValue = 0;
-    $("#pauseStopwatch").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/>')
-  } else {
-    sValue = 1;
-    $("#pauseStopwatch").html('<circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
-  }
-}
-
-// Resets to factory settings
-function resetStopwatch() {
-  // Stops stopwatch code
-  clearInterval(stopwatchCycle);
-
-  // Clears values
-  $("#span4").html("0");
-  $("#span5").html("0");
-  $("#span6").html("0");
-
-  sValue = 1;
-  $("#pauseStopwatch").html('<circle cx="50" cy="50" r="50" fill="#C4C4C4"/><path d="M33 30.5C33 27.4624 35.4624 25 38.5 25V25C41.5376 25 44 27.4624 44 30.5V70.5C44 73.5376 41.5376 76 38.5 76V76C35.4624 76 33 73.5376 33 70.5V30.5Z" fill="#36454F"/><path d="M56 30.5C56 27.4624 58.4624 25 61.5 25V25C64.5376 25 67 27.4624 67 30.5V70.5C67 73.5376 64.5376 76 61.5 76V76C58.4624 76 56 73.5376 56 70.5V30.5Z" fill="#36454F"/>');
-  // Changes Icon
-  $("#stopwatchPlayContainer").html('<svg class="buttonSVG" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" id="startStopwatch" onclick="startStopwatch()"> <circle class="circleOnSVG" cx="50" cy="50" r="50" fill="#C4C4C4"/> <path class="barOnSVG" d="M75.3168 54.726C78.4205 52.7634 78.4205 48.2366 75.3168 46.274L42.4222 25.4736C39.093 23.3684 34.75 25.7606 34.75 29.6996L34.75 71.3004C34.75 75.2394 39.093 77.6316 42.4222 75.5264L75.3168 54.726Z" fill="#36454F"/> </svg>');
-}
-
-// Resets theme colour
-function resetThemeColour() {
-  $('#colourButton').remove();
-  themeColour = "#FF0000";
-  $('#themeChangerCon').append('<input type="color" class="settingsButton" id="colourButton" value="' + themeColour + '">')
-}
-
-// Clears app data and reloads page
-function resetApp() {
-  localStorage.clear();
-  resetThemeColour();
-  location.reload();
 }

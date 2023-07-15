@@ -1,33 +1,41 @@
 {
-  "name": "ClockWebApp",
+  "name": "Clock Web App",
   "short_name": "Clock",
+  "version": "3.2.0",
   "theme_color": "#D3D3D3",
   "background_color": "#292b2d",
-  "display": "fullscreen",
+  "display": "standalone",
   "scope": "/",
   "start_url": "/",
   "orientation": "portrait",
+  "description": "An Open Source Clock app that allows you to use a timer, stopwatch, alarms and customise the app to be your own!",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": [
+    "utilities",
+    "productivity"
+  ],
   "icons": [
     {
-      "src": "images/pwaIcon-192.png",
+      "src": "media/icons/pwaIcon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-256.png",
+      "src": "media/icons/pwaIcon-256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-384.png",
+      "src": "media/icons/pwaIcon-384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "images/pwaIcon-512.png",
+      "src": "media/icons/pwaIcon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable monochrome"
     }
   ]
 }
