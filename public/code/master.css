@@ -108,7 +108,6 @@ header {
   width: 65vh;
   background-color: black;
   border-radius: 5vh;
-  transition: 0s;
   color: var(--themeColour);
 }
 
@@ -118,7 +117,6 @@ header {
   left: 50%;
   transform: translate(-50%, -55%);
   font-size: 15vh;
-  transition: 0.75s;
 }
 
 .ampm {
@@ -127,7 +125,6 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, 80%);
-  transition: 0.75s;
 }
 
 .date {
@@ -136,7 +133,6 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, -185%);
-  transition: 0.75s;
 }
 
 .analog {
