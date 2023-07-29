@@ -1,5 +1,5 @@
 # Privacy Policy
-### For Clock Web App v3.1.6
+### For Clock Web App v3.2.0
 
 ## Overview
 
