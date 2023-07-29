@@ -65,7 +65,7 @@ header {
   align-items: center;
   left: 50%;
   top: 50%;
-  font-size: 12.5vh;
+  font-size: 10vh;
   transform: translate(-50%, -70%);
 }
 
@@ -1017,7 +1017,7 @@ li svg {
   }
 
   .stopwatchDisplay {
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -70%);
   }
 
   .timerControls {
