@@ -1,6 +1,6 @@
 {
   "name": "Clock Web App",
-  "short_name": "Clock",
+  "short_name": "ClockPWA",
   "version": "3.2.0",
   "theme_color": "#D3D3D3",
   "background_color": "#292b2d",
