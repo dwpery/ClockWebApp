@@ -722,7 +722,7 @@ hr {
 
 .scroll {
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .buttonSVG, .circleOnSVG, .barOnSVG, .coverSVG {
