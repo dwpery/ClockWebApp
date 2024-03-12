@@ -593,7 +593,7 @@ hr {
   position: relative;
   top: 0.5vh;
   margin-left: 5vh;
-  overflow: scroll;
+  overflow: auto;
   width: 85%;
   font-size: 5vh;
   white-space: nowrap;
