@@ -88,6 +88,7 @@ header {
   border: none;
   outline: none;
   text-align: center;
+  font-family: 'Roboto Mono', monospace;
 }
 
 #span7, #milliLabel {
@@ -115,8 +116,9 @@ header {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -55%);
-  font-size: 15vh;
+  font-size: 12vh;
+  transform: translate(-50%, -53%);
+  font-family: 'Roboto Mono', monospace;
 }
 
 .ampm {
@@ -125,6 +127,7 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, 80%);
+  font-family: 'Roboto Mono', monospace;
 }
 
 .date {
@@ -133,6 +136,7 @@ header {
   top: 50%;
   font-size: 4vh;
   transform: translate(-50%, -185%);
+  font-family: 'Roboto Mono', monospace;
 }
 
 .analog {
@@ -814,8 +818,6 @@ li svg {
 
 /* Changes because of different fonts */
 
-.defaultFont .display {
-  font-size: 15vh;
 }
 
 .robotFont .display {
